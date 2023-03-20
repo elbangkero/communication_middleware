@@ -1,0 +1,335 @@
+2023-03-18T11:37:28.538Z: Trying to connect to PostgreSQL (attempt 1)
+2023-03-18T11:37:28.545Z: Listening on port 8041
+2023-03-18T11:38:49.294Z: Trying to connect to PostgreSQL (attempt 2)
+2023-03-18T11:40:08.010Z: Trying to connect to PostgreSQL (attempt 3)
+2023-03-18T11:41:29.825Z: Trying to connect to PostgreSQL (attempt 4)
+2023-03-18T11:41:38.739Z: Trying to connect to Joystick PostgreSQL (attempt 1)
+2023-03-18T11:41:38.746Z: Listening on port 8041
+2023-03-18T11:41:38.754Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T11:42:55.549Z: Trying to connect to Joystick PostgreSQL (attempt 2)
+2023-03-18T11:44:14.127Z: Trying to connect to Joystick PostgreSQL (attempt 3)
+2023-03-18T11:45:34.537Z: Trying to connect to Joystick PostgreSQL (attempt 4)
+2023-03-18T11:47:07.508Z: Trying to connect to Joystick PostgreSQL (attempt 5)
+2023-03-18T11:47:40.572Z: Connected to Joystick PostgreSQL
+2023-03-18T11:52:40.941Z: Listening on port 8041
+2023-03-18T11:52:42.127Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T11:53:57.122Z: Failed to connect to database:
+2023-03-18T11:55:13.128Z: Failed to connect to database:
+2023-03-18T11:56:32.319Z: Failed to connect to database:
+2023-03-18T11:57:48.326Z: Failed to connect to database:
+2023-03-18T11:59:08.585Z: Failed to connect to database:
+2023-03-18T12:00:24.592Z: Failed to connect to database:
+2023-03-18T12:01:44.869Z: Failed to connect to database:
+2023-03-18T12:02:00.892Z: Connected to database
+2023-03-18T12:06:25.758Z: Listening on port 8041
+2023-03-18T12:06:25.765Z: Connected to database
+2023-03-18T12:06:29.987Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T12:06:44.989Z: Listening on port 8041
+2023-03-18T12:06:44.996Z: Connected to local database
+2023-03-18T12:06:44.999Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T12:07:59.994Z: Failed to connect to database:
+2023-03-18T12:08:01.002Z: Connected to local database
+2023-03-18T12:09:18.094Z: Failed to connect to database:
+2023-03-18T12:09:19.106Z: Connected to local database
+2023-03-18T12:10:59.496Z: Failed to connect to database:
+2023-03-18T12:11:00.505Z: Connected to local database
+2023-03-18T12:11:34.782Z: Connected to joystick database
+2023-03-18T12:11:55.492Z: Listening on port 8041
+2023-03-18T12:11:55.498Z: Connected to local database
+2023-03-18T12:11:56.264Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T12:11:59.945Z: Connected to joystick database
+2023-03-18T12:12:00.105Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2021-03-03T10:16:34.000Z","sk_player":"9902","sk_site":15,"sk_language":46,"sk_country":44,"playerid":2487,"player_id_global":"c1202b18-0085-4350-bcca-7f7c5c8a8e89","webfront_id":2905,"siteid":1,"created":"2015-05-22T11:35:41.000Z","updated":"2021-03-03T10:12:15.000Z","signup_completed":"2015-05-22T11:35:41.000Z","playertoken":"s2qaicny551720","display_name":"YellowSpring5733","currency":"CNY","language":"en","country":"CN","newsletter":0,"textmessage":1,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":0,"bpcode":"HAPPYLUKE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2015-06-08T17:42:33.000Z","tried_deposit":"2015-06-08T17:46:04.000Z","first_deposit":"1900-01-01T00:00:00.000Z","first_deposit_amt":"0.0000","second_deposit":"1900-01-01T00:00:00.000Z","second_deposit_amt":"0.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"1900-01-01T00:00:00.000Z","latest_deposit_amt":"0.0000","num_deposits":0,"sum_deposited":"0.0000","base_deposited":"0.0000","num_withdrawals":0,"sum_withdrawn":"0.0000","base_withdrawn":"0.0000","last_noteid":5526085,"highlighted_note":0,"highlighted_codes":"UNK","locked_until":"1900-01-01T00:00:00.000Z","blocked":"2021-03-03T10:12:15.000Z","block_code":"OTHER","block_subcode":"UNK","block_reason":"TEST ACCOUNT BLOCKED","migrated_id":"UNK","member_points":75,"member_coins":75,"member_level":1,"badge_level":0}]
+2023-03-18T12:12:24.612Z: Listening on port 8041
+2023-03-18T12:12:24.615Z: Failed to connect to local database:
+2023-03-18T12:12:25.620Z: Failed to connect to local database:
+2023-03-18T12:12:26.622Z: Failed to connect to local database:
+2023-03-18T12:12:27.340Z: Connected to joystick database
+2023-03-18T12:12:27.626Z: Failed to connect to local database:
+2023-03-18T12:12:28.139Z: Connected to joystick database
+2023-03-18T12:12:28.576Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2021-03-03T10:16:34.000Z","sk_player":"9902","sk_site":15,"sk_language":46,"sk_country":44,"playerid":2487,"player_id_global":"c1202b18-0085-4350-bcca-7f7c5c8a8e89","webfront_id":2905,"siteid":1,"created":"2015-05-22T11:35:41.000Z","updated":"2021-03-03T10:12:15.000Z","signup_completed":"2015-05-22T11:35:41.000Z","playertoken":"s2qaicny551720","display_name":"YellowSpring5733","currency":"CNY","language":"en","country":"CN","newsletter":0,"textmessage":1,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":0,"bpcode":"HAPPYLUKE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2015-06-08T17:42:33.000Z","tried_deposit":"2015-06-08T17:46:04.000Z","first_deposit":"1900-01-01T00:00:00.000Z","first_deposit_amt":"0.0000","second_deposit":"1900-01-01T00:00:00.000Z","second_deposit_amt":"0.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"1900-01-01T00:00:00.000Z","latest_deposit_amt":"0.0000","num_deposits":0,"sum_deposited":"0.0000","base_deposited":"0.0000","num_withdrawals":0,"sum_withdrawn":"0.0000","base_withdrawn":"0.0000","last_noteid":5526085,"highlighted_note":0,"highlighted_codes":"UNK","locked_until":"1900-01-01T00:00:00.000Z","blocked":"2021-03-03T10:12:15.000Z","block_code":"OTHER","block_subcode":"UNK","block_reason":"TEST ACCOUNT BLOCKED","migrated_id":"UNK","member_points":75,"member_coins":75,"member_level":1,"badge_level":0}]
+2023-03-18T12:12:28.628Z: Connected to joystick database
+2023-03-18T12:12:28.629Z: Failed to connect to local database:
+2023-03-18T12:12:29.366Z: Connected to joystick database
+2023-03-18T12:12:29.632Z: Failed to connect to local database:
+2023-03-18T12:12:30.412Z: Connected to joystick database
+2023-03-18T12:12:30.635Z: Failed to connect to local database:
+2023-03-18T12:12:31.637Z: Failed to connect to local database:
+2023-03-18T12:12:32.477Z: Connected to joystick database
+2023-03-18T12:12:32.641Z: Failed to connect to local database:
+2023-03-18T12:12:33.647Z: Failed to connect to local database:
+2023-03-18T12:12:34.320Z: Connected to joystick database
+2023-03-18T12:12:34.375Z: Connected to joystick database
+2023-03-18T12:12:34.649Z: Failed to connect to local database:
+2023-03-18T12:12:35.600Z: Connected to joystick database
+2023-03-18T12:12:35.653Z: Failed to connect to local database:
+2023-03-18T12:12:35.888Z: Connected to joystick database
+2023-03-18T12:12:36.655Z: Failed to connect to local database:
+2023-03-18T12:12:37.657Z: Failed to connect to local database:
+2023-03-18T12:12:38.658Z: Failed to connect to local database:
+2023-03-18T12:12:39.660Z: Failed to connect to local database:
+2023-03-18T12:12:40.662Z: Failed to connect to local database:
+2023-03-18T12:12:41.663Z: Failed to connect to local database:
+2023-03-18T12:12:42.665Z: Failed to connect to local database:
+2023-03-18T12:12:43.668Z: Failed to connect to local database:
+2023-03-18T12:12:44.671Z: Failed to connect to local database:
+2023-03-18T12:12:45.675Z: Failed to connect to local database:
+2023-03-18T12:12:46.676Z: Failed to connect to local database:
+2023-03-18T12:12:47.679Z: Failed to connect to local database:
+2023-03-18T12:12:48.681Z: Failed to connect to local database:
+2023-03-18T12:12:49.683Z: Failed to connect to local database:
+2023-03-18T12:12:50.685Z: Failed to connect to local database:
+2023-03-18T12:12:51.687Z: Failed to connect to local database:
+2023-03-18T12:12:52.689Z: Failed to connect to local database:
+2023-03-18T12:12:53.690Z: Failed to connect to local database:
+2023-03-18T12:12:54.692Z: Failed to connect to local database:
+2023-03-18T12:12:55.694Z: Failed to connect to local database:
+2023-03-18T12:12:56.697Z: Failed to connect to local database:
+2023-03-18T12:12:57.699Z: Failed to connect to local database:
+2023-03-18T12:12:58.702Z: Failed to connect to local database:
+2023-03-18T12:12:59.705Z: Failed to connect to local database:
+2023-03-18T12:13:00.707Z: Failed to connect to local database:
+2023-03-18T12:13:01.711Z: Failed to connect to local database:
+2023-03-18T12:13:02.713Z: Failed to connect to local database:
+2023-03-18T12:13:03.715Z: Failed to connect to local database:
+2023-03-18T12:13:04.719Z: Failed to connect to local database:
+2023-03-18T12:13:05.722Z: Failed to connect to local database:
+2023-03-18T12:13:06.722Z: Failed to connect to local database:
+2023-03-18T12:13:07.724Z: Failed to connect to local database:
+2023-03-18T12:13:08.726Z: Failed to connect to local database:
+2023-03-18T12:13:09.726Z: Failed to connect to local database:
+2023-03-18T12:13:10.728Z: Failed to connect to local database:
+2023-03-18T12:13:11.730Z: Failed to connect to local database:
+2023-03-18T12:13:12.731Z: Failed to connect to local database:
+2023-03-18T12:13:13.734Z: Failed to connect to local database:
+2023-03-18T12:13:14.893Z: Listening on port 8041
+2023-03-18T12:13:14.896Z: Failed to connect to local database:
+2023-03-18T12:13:15.900Z: Failed to connect to local database:
+2023-03-18T12:13:16.903Z: Failed to connect to local database:
+2023-03-18T12:13:17.818Z: Connected to joystick database
+2023-03-18T12:13:17.907Z: Failed to connect to local database:
+2023-03-18T12:13:18.249Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2021-03-03T10:16:34.000Z","sk_player":"9902","sk_site":15,"sk_language":46,"sk_country":44,"playerid":2487,"player_id_global":"c1202b18-0085-4350-bcca-7f7c5c8a8e89","webfront_id":2905,"siteid":1,"created":"2015-05-22T11:35:41.000Z","updated":"2021-03-03T10:12:15.000Z","signup_completed":"2015-05-22T11:35:41.000Z","playertoken":"s2qaicny551720","display_name":"YellowSpring5733","currency":"CNY","language":"en","country":"CN","newsletter":0,"textmessage":1,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":0,"bpcode":"HAPPYLUKE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2015-06-08T17:42:33.000Z","tried_deposit":"2015-06-08T17:46:04.000Z","first_deposit":"1900-01-01T00:00:00.000Z","first_deposit_amt":"0.0000","second_deposit":"1900-01-01T00:00:00.000Z","second_deposit_amt":"0.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"1900-01-01T00:00:00.000Z","latest_deposit_amt":"0.0000","num_deposits":0,"sum_deposited":"0.0000","base_deposited":"0.0000","num_withdrawals":0,"sum_withdrawn":"0.0000","base_withdrawn":"0.0000","last_noteid":5526085,"highlighted_note":0,"highlighted_codes":"UNK","locked_until":"1900-01-01T00:00:00.000Z","blocked":"2021-03-03T10:12:15.000Z","block_code":"OTHER","block_subcode":"UNK","block_reason":"TEST ACCOUNT BLOCKED","migrated_id":"UNK","member_points":75,"member_coins":75,"member_level":1,"badge_level":0}]
+2023-03-18T12:13:18.809Z: Connected to joystick database
+2023-03-18T12:13:18.910Z: Connected to joystick database
+2023-03-18T12:13:18.911Z: Failed to connect to local database:
+2023-03-18T12:13:19.224Z: Connected to joystick database
+2023-03-18T12:13:19.915Z: Failed to connect to local database:
+2023-03-18T12:13:20.305Z: Connected to joystick database
+2023-03-18T12:13:20.918Z: Failed to connect to local database:
+2023-03-18T12:13:21.922Z: Failed to connect to local database:
+2023-03-18T12:13:22.244Z: Connected to joystick database
+2023-03-18T12:13:22.924Z: Failed to connect to local database:
+2023-03-18T12:13:23.580Z: Connected to joystick database
+2023-03-18T12:13:23.927Z: Failed to connect to local database:
+2023-03-18T12:13:24.467Z: Connected to joystick database
+2023-03-18T12:13:24.918Z: Connected to joystick database
+2023-03-18T12:13:24.928Z: Failed to connect to local database:
+2023-03-18T12:13:25.930Z: Failed to connect to local database:
+2023-03-18T12:13:26.642Z: Connected to joystick database
+2023-03-18T12:13:26.932Z: Failed to connect to local database:
+2023-03-18T12:13:27.935Z: Failed to connect to local database:
+2023-03-18T12:13:28.937Z: Failed to connect to local database:
+2023-03-18T12:13:29.940Z: Failed to connect to local database:
+2023-03-18T12:13:30.941Z: Failed to connect to local database:
+2023-03-18T12:13:31.944Z: Failed to connect to local database:
+2023-03-18T12:13:32.947Z: Failed to connect to local database:
+2023-03-18T12:13:33.950Z: Failed to connect to local database:
+2023-03-18T12:13:34.952Z: Failed to connect to local database:
+2023-03-18T12:13:35.955Z: Failed to connect to local database:
+2023-03-18T12:13:36.958Z: Failed to connect to local database:
+2023-03-18T12:13:38.244Z: Listening on port 8041
+2023-03-18T12:13:38.247Z: Failed to connect to local database:
+2023-03-18T12:13:40.925Z: Connected to joystick database
+2023-03-18T12:13:41.252Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2021-03-03T10:16:34.000Z","sk_player":"9902","sk_site":15,"sk_language":46,"sk_country":44,"playerid":2487,"player_id_global":"c1202b18-0085-4350-bcca-7f7c5c8a8e89","webfront_id":2905,"siteid":1,"created":"2015-05-22T11:35:41.000Z","updated":"2021-03-03T10:12:15.000Z","signup_completed":"2015-05-22T11:35:41.000Z","playertoken":"s2qaicny551720","display_name":"YellowSpring5733","currency":"CNY","language":"en","country":"CN","newsletter":0,"textmessage":1,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":0,"bpcode":"HAPPYLUKE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2015-06-08T17:42:33.000Z","tried_deposit":"2015-06-08T17:46:04.000Z","first_deposit":"1900-01-01T00:00:00.000Z","first_deposit_amt":"0.0000","second_deposit":"1900-01-01T00:00:00.000Z","second_deposit_amt":"0.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"1900-01-01T00:00:00.000Z","latest_deposit_amt":"0.0000","num_deposits":0,"sum_deposited":"0.0000","base_deposited":"0.0000","num_withdrawals":0,"sum_withdrawn":"0.0000","base_withdrawn":"0.0000","last_noteid":5526085,"highlighted_note":0,"highlighted_codes":"UNK","locked_until":"1900-01-01T00:00:00.000Z","blocked":"2021-03-03T10:12:15.000Z","block_code":"OTHER","block_subcode":"UNK","block_reason":"TEST ACCOUNT BLOCKED","migrated_id":"UNK","member_points":75,"member_coins":75,"member_level":1,"badge_level":0}]
+2023-03-18T12:14:38.271Z: Connected to local database
+2023-03-18T12:14:41.737Z: Connected to joystick database
+2023-03-18T12:14:55.260Z: Listening on port 8041
+2023-03-18T12:14:55.264Z: Failed to connect to local database:
+2023-03-18T12:14:57.286Z: Connected to joystick database
+2023-03-18T12:14:57.730Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2021-03-03T10:16:34.000Z","sk_player":"9902","sk_site":15,"sk_language":46,"sk_country":44,"playerid":2487,"player_id_global":"c1202b18-0085-4350-bcca-7f7c5c8a8e89","webfront_id":2905,"siteid":1,"created":"2015-05-22T11:35:41.000Z","updated":"2021-03-03T10:12:15.000Z","signup_completed":"2015-05-22T11:35:41.000Z","playertoken":"s2qaicny551720","display_name":"YellowSpring5733","currency":"CNY","language":"en","country":"CN","newsletter":0,"textmessage":1,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":0,"bpcode":"HAPPYLUKE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2015-06-08T17:42:33.000Z","tried_deposit":"2015-06-08T17:46:04.000Z","first_deposit":"1900-01-01T00:00:00.000Z","first_deposit_amt":"0.0000","second_deposit":"1900-01-01T00:00:00.000Z","second_deposit_amt":"0.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"1900-01-01T00:00:00.000Z","latest_deposit_amt":"0.0000","num_deposits":0,"sum_deposited":"0.0000","base_deposited":"0.0000","num_withdrawals":0,"sum_withdrawn":"0.0000","base_withdrawn":"0.0000","last_noteid":5526085,"highlighted_note":0,"highlighted_codes":"UNK","locked_until":"1900-01-01T00:00:00.000Z","blocked":"2021-03-03T10:12:15.000Z","block_code":"OTHER","block_subcode":"UNK","block_reason":"TEST ACCOUNT BLOCKED","migrated_id":"UNK","member_points":75,"member_coins":75,"member_level":1,"badge_level":0}]
+2023-03-18T12:15:55.265Z: Failed to connect to local database:
+2023-03-18T12:15:58.040Z: Connected to joystick database
+2023-03-18T12:17:32.424Z: Listening on port 8041
+2023-03-18T12:17:32.428Z: Failed to connect to local database:
+2023-03-18T12:18:32.466Z: Connected to local database
+2023-03-18T12:18:44.015Z: Listening on port 8041
+2023-03-18T12:18:44.019Z: Failed to connect to local database:
+2023-03-18T12:19:44.022Z: Failed to connect to local database:
+2023-03-18T12:19:59.020Z: Failed to connect to joystick database:
+2023-03-18T12:20:44.037Z: Connected to local database
+2023-03-18T12:20:59.030Z: Connected to local database
+2023-03-18T12:20:59.978Z: Failed to connect to joystick database:
+2023-03-18T12:21:59.029Z: Failed to connect to joystick database:
+2023-03-18T12:21:59.986Z: Connected to local database
+2023-03-18T12:22:02.916Z: Connected to joystick database
+2023-03-18T12:22:14.027Z: Failed to connect to joystick database:
+2023-03-18T12:22:59.038Z: Connected to local database
+2023-03-18T12:23:14.046Z: Connected to local database
+2023-03-18T12:38:57.883Z: Failed to connect to joystick database:
+2023-03-18T12:39:02.691Z: Failed to connect to joystick database:
+2023-03-18T13:50:58.297Z: Connected to local database
+2023-03-18T13:51:02.582Z: Connected to local database
+2023-03-18T14:23:25.511Z: Failed to connect to joystick database:
+2023-03-18T14:23:25.511Z: Failed to connect to joystick database:
+2023-03-18T14:56:41.080Z: Connected to local database
+2023-03-18T14:56:44.350Z: Connected to local database
+2023-03-18T14:57:59.302Z: Failed to connect to joystick database:
+2023-03-18T14:57:59.303Z: Failed to connect to joystick database:
+2023-03-18T15:01:50.684Z: Listening on port 8041
+2023-03-18T15:01:50.690Z: Connected to local database
+2023-03-18T15:01:55.169Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:03:10.126Z: Failed to connect to joystick database:
+2023-03-18T15:04:10.128Z: Failed to connect to joystick database:
+2023-03-18T15:04:10.137Z: Connected to local database
+2023-03-18T15:05:10.131Z: Failed to connect to joystick database:
+2023-03-18T15:05:10.137Z: Connected to local database
+2023-03-18T15:06:10.133Z: Failed to connect to joystick database:
+2023-03-18T15:06:10.140Z: Connected to local database
+2023-03-18T15:07:10.133Z: Failed to connect to joystick database:
+2023-03-18T15:07:10.140Z: Connected to local database
+2023-03-18T15:07:43.260Z: Listening on port 8041
+2023-03-18T15:07:43.265Z: Connected to local database
+2023-03-18T15:07:47.511Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:10:34.818Z: Listening on port 8041
+2023-03-18T15:10:34.824Z: Successfully connected to database
+2023-03-18T15:10:34.826Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:10:37.430Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2021-03-03T10:16:34.000Z","sk_player":"73080","sk_site":15,"sk_language":46,"sk_country":205,"playerid":29,"player_id_global":"2f32ac62-b589-4057-8e08-1c10dcfe99a8","webfront_id":49,"siteid":1,"created":"2014-11-06T10:36:20.000Z","updated":"2021-03-03T10:12:23.000Z","signup_completed":"2014-11-06T10:36:20.000Z","playertoken":"s2ezuhkd898327","display_name":"BigTiger5241","currency":"HKD","language":"en","country":"SE","newsletter":0,"textmessage":1,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":0,"bpcode":"HAPPYLUKE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2020-04-26T10:49:59.000Z","tried_deposit":"1900-01-01T00:00:00.000Z","first_deposit":"1900-01-01T00:00:00.000Z","first_deposit_amt":"0.0000","second_deposit":"1900-01-01T00:00:00.000Z","second_deposit_amt":"0.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"1900-01-01T00:00:00.000Z","latest_deposit_amt":"0.0000","num_deposits":0,"sum_deposited":"0.0000","base_deposited":"0.0000","num_withdrawals":0,"sum_withdrawn":"0.0000","base_withdrawn":"0.0000","last_noteid":5526342,"highlighted_note":0,"highlighted_codes":"UNK","locked_until":"1900-01-01T00:00:00.000Z","blocked":"2021-03-03T10:12:23.000Z","block_code":"OTHER","block_subcode":"UNK","block_reason":"TEST ACCOUNT BLOCKED","migrated_id":"UNK","member_points":52,"member_coins":52,"member_level":1,"badge_level":0}]
+2023-03-18T15:11:01.542Z: Listening on port 8041
+2023-03-18T15:11:03.338Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2021-03-03T10:16:34.000Z","sk_player":"1971","sk_site":15,"sk_language":46,"sk_country":107,"playerid":3,"player_id_global":"762a40ee-8fec-4bc4-aec6-6a7981269e21","webfront_id":3,"siteid":1,"created":"2014-10-08T02:46:10.000Z","updated":"2021-03-03T10:12:24.000Z","signup_completed":"2014-10-08T02:46:10.000Z","playertoken":"s2robblo645796","display_name":"GreenBear2350","currency":"USD","language":"en","country":"JP","newsletter":0,"textmessage":0,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":4,"bpcode":"EMPIRE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2018-07-09T09:38:37.000Z","tried_deposit":"2015-01-29T04:13:57.000Z","first_deposit":"2014-10-08T10:04:19.000Z","first_deposit_amt":"100.0000","second_deposit":"1900-01-01T00:00:00.000Z","second_deposit_amt":"0.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"2014-10-08T10:04:19.000Z","latest_deposit_amt":"100.0000","num_deposits":1,"sum_deposited":"100.0000","base_deposited":"100.0000","num_withdrawals":0,"sum_withdrawn":"0.0000","base_withdrawn":"0.0000","last_noteid":5526365,"highlighted_note":0,"highlighted_codes":"UNK","locked_until":"1900-01-01T00:00:00.000Z","blocked":"2021-03-03T10:12:24.000Z","block_code":"OTHER","block_subcode":"UNK","block_reason":"TEST ACCOUNT BLOCKED","migrated_id":"UNK","member_points":20,"member_coins":20,"member_level":1,"badge_level":0}]
+2023-03-18T15:11:45.386Z: Listening on port 8041
+2023-03-18T15:11:47.126Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2021-03-03T10:16:34.000Z","sk_player":"1971","sk_site":15,"sk_language":46,"sk_country":107,"playerid":3,"player_id_global":"762a40ee-8fec-4bc4-aec6-6a7981269e21","webfront_id":3,"siteid":1,"created":"2014-10-08T02:46:10.000Z","updated":"2021-03-03T10:12:24.000Z","signup_completed":"2014-10-08T02:46:10.000Z","playertoken":"s2robblo645796","display_name":"GreenBear2350","currency":"USD","language":"en","country":"JP","newsletter":0,"textmessage":0,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":4,"bpcode":"EMPIRE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2018-07-09T09:38:37.000Z","tried_deposit":"2015-01-29T04:13:57.000Z","first_deposit":"2014-10-08T10:04:19.000Z","first_deposit_amt":"100.0000","second_deposit":"1900-01-01T00:00:00.000Z","second_deposit_amt":"0.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"2014-10-08T10:04:19.000Z","latest_deposit_amt":"100.0000","num_deposits":1,"sum_deposited":"100.0000","base_deposited":"100.0000","num_withdrawals":0,"sum_withdrawn":"0.0000","base_withdrawn":"0.0000","last_noteid":5526365,"highlighted_note":0,"highlighted_codes":"UNK","locked_until":"1900-01-01T00:00:00.000Z","blocked":"2021-03-03T10:12:24.000Z","block_code":"OTHER","block_subcode":"UNK","block_reason":"TEST ACCOUNT BLOCKED","migrated_id":"UNK","member_points":20,"member_coins":20,"member_level":1,"badge_level":0}]
+2023-03-18T15:12:22.151Z: Listening on port 8041
+2023-03-18T15:21:07.920Z: Listening on port 8041
+2023-03-18T15:21:07.944Z: Connected to database
+2023-03-18T15:21:07.946Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:21:37.173Z: Listening on port 8041
+2023-03-18T15:21:52.195Z: Connected to database
+2023-03-18T15:22:36.887Z: Listening on port 8041
+2023-03-18T15:22:36.895Z: Successfully connected to local database
+2023-03-18T15:22:36.898Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:22:49.064Z: Listening on port 8041
+2023-03-18T15:25:33.766Z: Listening on port 8041
+2023-03-18T15:25:34.006Z: Listening on port 8041
+2023-03-18T15:25:34.241Z: Listening on port 8041
+2023-03-18T15:25:34.484Z: Listening on port 8041
+2023-03-18T15:25:34.734Z: Listening on port 8041
+2023-03-18T15:25:34.980Z: Listening on port 8041
+2023-03-18T15:25:35.226Z: Listening on port 8041
+2023-03-18T15:25:35.473Z: Listening on port 8041
+2023-03-18T15:25:35.720Z: Listening on port 8041
+2023-03-18T15:25:35.962Z: Listening on port 8041
+2023-03-18T15:25:36.209Z: Listening on port 8041
+2023-03-18T15:25:36.454Z: Listening on port 8041
+2023-03-18T15:25:36.699Z: Listening on port 8041
+2023-03-18T15:25:36.960Z: Listening on port 8041
+2023-03-18T15:25:37.222Z: Listening on port 8041
+2023-03-18T15:25:37.499Z: Listening on port 8041
+2023-03-18T15:25:53.299Z: Error connecting to local database
+2023-03-18T15:25:58.301Z: Error connecting to local database
+2023-03-18T15:26:03.302Z: Error connecting to local database
+2023-03-18T15:26:08.306Z: Error connecting to local database
+2023-03-18T15:26:13.307Z: Error connecting to local database
+2023-03-18T15:26:19.986Z: Error connecting to local database
+2023-03-18T15:26:24.989Z: Error connecting to local database
+2023-03-18T15:26:29.993Z: Error connecting to local database
+2023-03-18T15:26:34.996Z: Error connecting to local database
+2023-03-18T15:26:39.999Z: Error connecting to local database
+2023-03-18T15:26:45.001Z: Error connecting to local database
+2023-03-18T15:26:50.004Z: Error connecting to local database
+2023-03-18T15:26:55.012Z: Successfully connected to local database
+2023-03-18T15:27:37.457Z: Error connecting to local database
+2023-03-18T15:27:42.460Z: Error connecting to local database
+2023-03-18T15:27:47.463Z: Error connecting to local database
+2023-03-18T15:27:52.478Z: Successfully connected to local database
+2023-03-18T15:30:01.283Z: Successfully connected to local database
+2023-03-18T15:31:17.276Z: Error connecting to joystick database
+2023-03-18T15:31:17.551Z: Successfully connected to local database
+2023-03-18T15:31:38.629Z: Successfully connected to local database
+2023-03-18T15:32:19.562Z: Successfully connected to local database
+2023-03-18T15:32:22.811Z: Successfully connected to local database
+2023-03-18T15:32:47.829Z: Successfully connected to local database
+2023-03-18T15:32:47.832Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:32:50.955Z: Successfully connected to local database
+2023-03-18T15:32:50.958Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:33:13.795Z: Error connecting to local database
+2023-03-18T15:33:13.795Z: Error executing query: connect ECONNREFUSED ::1:5432
+2023-03-18T15:33:18.797Z: Error connecting to local database
+2023-03-18T15:33:23.799Z: Error connecting to local database
+2023-03-18T15:33:28.801Z: Error connecting to local database
+2023-03-18T15:33:33.814Z: Successfully connected to local database
+2023-03-18T15:34:31.831Z: Error connecting to joystick database
+2023-03-18T15:35:51.869Z: Error connecting to joystick database
+2023-03-18T15:35:57.480Z: Error connecting to joystick database
+2023-03-18T15:36:02.866Z: Error connecting to joystick database
+2023-03-18T15:36:08.389Z: Error connecting to joystick database
+2023-03-18T15:36:13.821Z: Error connecting to joystick database
+2023-03-18T15:36:19.219Z: Error connecting to joystick database
+2023-03-18T15:36:24.651Z: Error connecting to joystick database
+2023-03-18T15:36:30.026Z: Error connecting to joystick database
+2023-03-18T15:36:35.445Z: Error connecting to joystick database
+2023-03-18T15:36:39.831Z: Successfully connected to local database
+2023-03-18T15:36:39.834Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:36:40.204Z: Error executing query: no pg_hba.conf entry for host "::ffff:116.50.176.67", user "crm_reader_afun", database "dataplatform", SSL off
+2023-03-18T15:36:40.286Z: Error connecting to data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com
+2023-03-18T15:36:45.676Z: Error connecting to data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com
+2023-03-18T15:36:51.099Z: Error connecting to data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com
+2023-03-18T15:36:56.519Z: Error connecting to data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com
+2023-03-18T15:37:01.913Z: Error connecting to data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com
+2023-03-18T15:37:07.346Z: Error connecting to data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com
+2023-03-18T15:37:12.752Z: Error connecting to data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com
+2023-03-18T15:37:18.627Z: Error connecting to data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com
+2023-03-18T15:37:24.121Z: Error connecting to data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com
+2023-03-18T15:37:29.521Z: Error connecting to data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com
+2023-03-18T15:37:39.002Z: Successfully connected to {localhost}
+2023-03-18T15:37:39.005Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:37:39.550Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:37:39.551Z: Error executing query: no pg_hba.conf entry for host "::ffff:116.50.176.67", user "crm_reader_afun", database "dataplatform", SSL off
+2023-03-18T15:37:44.970Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:37:50.398Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:37:55.951Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:01.402Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:06.825Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:12.316Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:17.698Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:23.126Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:28.686Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:34.116Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:39.785Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:45.203Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:50.621Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:56.048Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:38:59.851Z: Error connecting to {localhost}
+2023-03-18T15:38:59.852Z: Error executing query: connect ECONNREFUSED ::1:5432
+2023-03-18T15:39:00.224Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:39:00.303Z: Error executing query: no pg_hba.conf entry for host "::ffff:116.50.176.67", user "crm_reader_afun", database "dataplatform", SSL off
+2023-03-18T15:39:05.628Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:39:11.046Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:39:16.438Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:39:21.875Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:39:27.295Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:39:32.712Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:39:38.138Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:39:43.590Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:39:48.996Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:40:11.945Z: Successfully connected to {localhost}
+2023-03-18T15:40:11.949Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:40:13.473Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:40:14.671Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2022-08-11T14:20:42.000Z","sk_player":"251530","sk_site":15,"sk_language":46,"sk_country":211,"playerid":2,"player_id_global":"413e557c-8080-4167-8d63-c480828b5fbc","webfront_id":2,"siteid":1,"created":"2014-10-07T19:30:24.000Z","updated":"2022-08-11T13:39:59.000Z","signup_completed":"2014-10-07T19:30:24.000Z","playertoken":"s2thonim656518","display_name":"FunnyBear1486","currency":"USD","language":"en","country":"TH","newsletter":0,"textmessage":1,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":0,"bpcode":"EMPIRE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2021-02-23T09:29:08.000Z","tried_deposit":"2017-10-23T00:41:25.000Z","first_deposit":"2016-03-15T17:30:39.000Z","first_deposit_amt":"10.0000","second_deposit":"2017-10-23T00:41:31.000Z","second_deposit_amt":"10.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"2017-10-23T00:41:31.000Z","latest_deposit_amt":"10.0000","num_deposits":2,"sum_deposited":"20.0000","base_deposited":"20.0000","num_withdrawals":1,"sum_withdrawn":"10.0000","base_withdrawn":"10.0000","last_noteid":5723731,"highlighted_note":1,"highlighted_codes":"P&F","locked_until":"1900-01-01T00:00:00.000Z","blocked":"1900-01-01T00:00:00.000Z","block_code":"UNK","block_subcode":"UNK","block_reason":"UNK","migrated_id":"UNK","member_points":5569,"member_coins":6794,"member_level":13,"badge_level":3}]
+2023-03-18T15:40:26.593Z: Error connecting to {localhost}
+2023-03-18T15:40:26.594Z: Error executing query: connect ECONNREFUSED ::1:5432
+2023-03-18T15:40:27.981Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:40:28.371Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2021-03-03T10:16:34.000Z","sk_player":"100886","sk_site":15,"sk_language":46,"sk_country":44,"playerid":7,"player_id_global":"722d84a0-5abb-4916-a0b9-a70d2350a285","webfront_id":9,"siteid":1,"created":"2014-10-10T05:57:32.000Z","updated":"2021-03-03T10:12:35.000Z","signup_completed":"2014-10-10T05:57:32.000Z","playertoken":"s2riccoo994983","display_name":"RiceCooker","currency":"USD","language":"en","country":"CN","newsletter":1,"textmessage":1,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":0,"bpcode":"EMPIRE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2015-01-19T06:24:01.000Z","tried_deposit":"2014-12-11T03:39:37.000Z","first_deposit":"1900-01-01T00:00:00.000Z","first_deposit_amt":"0.0000","second_deposit":"1900-01-01T00:00:00.000Z","second_deposit_amt":"0.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"1900-01-01T00:00:00.000Z","latest_deposit_amt":"0.0000","num_deposits":0,"sum_deposited":"0.0000","base_deposited":"0.0000","num_withdrawals":0,"sum_withdrawn":"0.0000","base_withdrawn":"0.0000","last_noteid":5526706,"highlighted_note":0,"highlighted_codes":"UNK","locked_until":"1900-01-01T00:00:00.000Z","blocked":"2021-03-03T10:12:35.000Z","block_code":"OTHER","block_subcode":"UNK","block_reason":"TEST ACCOUNT BLOCKED","migrated_id":"UNK","member_points":0,"member_coins":0,"member_level":1,"badge_level":0}]
+2023-03-18T15:41:26.593Z: Error connecting to {localhost}
+2023-03-18T15:42:26.604Z: Successfully connected to {localhost}
+2023-03-18T15:43:56.540Z: Error connecting to {localhost}
+2023-03-18T15:43:56.541Z: Error executing query: connect ECONNREFUSED ::1:5432
+2023-03-18T15:44:56.555Z: Successfully connected to {localhost}
+2023-03-18T15:45:15.815Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:45:15.815Z: Error executing query: connect ETIMEDOUT 13.251.121.192:5439
+2023-03-18T15:45:22.537Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:48:16.983Z: Successfully connected to {localhost}
+2023-03-18T15:48:16.987Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:48:27.413Z: Successfully connected to {localhost}
+2023-03-18T15:48:27.417Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-18T15:49:42.407Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-18T15:49:42.407Z: Error executing query: connect ETIMEDOUT 13.251.121.192:5439
+2023-03-18T15:50:43.678Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}

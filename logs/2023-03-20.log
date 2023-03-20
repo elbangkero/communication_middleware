@@ -1,0 +1,80 @@
+2023-03-20T04:55:49.068Z: Error connecting to {localhost}
+2023-03-20T04:55:49.071Z: Error executing query: connect ECONNREFUSED ::1:5432
+2023-03-20T04:56:49.073Z: Error connecting to {localhost}
+2023-03-20T04:57:04.252Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T04:57:04.253Z: Error executing query: connect ETIMEDOUT 13.251.121.192:5439
+2023-03-20T04:57:49.075Z: Error connecting to {localhost}
+2023-03-20T04:58:49.077Z: Error connecting to {localhost}
+2023-03-20T04:59:23.301Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T04:59:49.079Z: Error connecting to {localhost}
+2023-03-20T05:00:49.081Z: Error connecting to {localhost}
+2023-03-20T05:01:38.331Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:01:49.084Z: Error connecting to {localhost}
+2023-03-20T05:02:49.112Z: Error connecting to {localhost}
+2023-03-20T05:03:49.114Z: Error connecting to {localhost}
+2023-03-20T05:03:56.444Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:04:49.116Z: Error connecting to {localhost}
+2023-03-20T05:05:49.118Z: Error connecting to {localhost}
+2023-03-20T05:06:12.524Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:06:49.121Z: Error connecting to {localhost}
+2023-03-20T05:07:14.747Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:07:49.123Z: Error connecting to {localhost}
+2023-03-20T05:08:49.125Z: Error connecting to {localhost}
+2023-03-20T05:09:49.128Z: Error connecting to {localhost}
+2023-03-20T05:10:49.130Z: Error connecting to {localhost}
+2023-03-20T05:11:49.132Z: Error connecting to {localhost}
+2023-03-20T05:12:49.134Z: Error connecting to {localhost}
+2023-03-20T05:13:49.136Z: Error connecting to {localhost}
+2023-03-20T05:14:49.138Z: Error connecting to {localhost}
+2023-03-20T05:15:49.139Z: Error connecting to {localhost}
+2023-03-20T05:16:49.141Z: Error connecting to {localhost}
+2023-03-20T05:17:49.173Z: Error connecting to {localhost}
+2023-03-20T05:18:49.176Z: Error connecting to {localhost}
+2023-03-20T05:19:49.178Z: Error connecting to {localhost}
+2023-03-20T05:20:49.180Z: Error connecting to {localhost}
+2023-03-20T05:21:49.183Z: Error connecting to {localhost}
+2023-03-20T05:22:49.185Z: Error connecting to {localhost}
+2023-03-20T05:23:49.187Z: Error connecting to {localhost}
+2023-03-20T05:24:49.190Z: Error connecting to {localhost}
+2023-03-20T05:25:49.192Z: Error connecting to {localhost}
+2023-03-20T05:26:49.195Z: Error connecting to {localhost}
+2023-03-20T05:27:49.196Z: Error connecting to {localhost}
+2023-03-20T05:28:49.199Z: Error connecting to {localhost}
+2023-03-20T05:29:49.230Z: Successfully connected to {localhost}
+2023-03-20T05:37:05.259Z: Successfully connected to {localhost}
+2023-03-20T05:37:05.503Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-20T05:37:07.441Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:37:07.557Z: Connection successful
+2023-03-20T05:37:08.855Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2021-03-03T10:16:34.000Z","sk_player":"864","sk_site":15,"sk_language":46,"sk_country":44,"playerid":89,"player_id_global":"8ebb88a0-dff7-4457-8e3b-99337b40844c","webfront_id":144,"siteid":1,"created":"2014-12-22T21:53:29.000Z","updated":"2021-03-03T10:12:31.000Z","signup_completed":"2014-12-22T21:53:29.000Z","playertoken":"s2tomcor332695","display_name":"BlackTide3962","currency":"CNY","language":"en","country":"CN","newsletter":0,"textmessage":0,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":0,"bpcode":"HAPPYLUKE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2015-07-11T12:46:34.000Z","tried_deposit":"1900-01-01T00:00:00.000Z","first_deposit":"1900-01-01T00:00:00.000Z","first_deposit_amt":"0.0000","second_deposit":"1900-01-01T00:00:00.000Z","second_deposit_amt":"0.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"1900-01-01T00:00:00.000Z","latest_deposit_amt":"0.0000","num_deposits":0,"sum_deposited":"0.0000","base_deposited":"0.0000","num_withdrawals":0,"sum_withdrawn":"0.0000","base_withdrawn":"0.0000","last_noteid":5526573,"highlighted_note":0,"highlighted_codes":"UNK","locked_until":"1900-01-01T00:00:00.000Z","blocked":"2021-03-03T10:12:31.000Z","block_code":"OTHER","block_subcode":"UNK","block_reason":"TEST ACCOUNT BLOCKED","migrated_id":"UNK","member_points":194,"member_coins":194,"member_level":1,"badge_level":0}]
+2023-03-20T05:37:24.786Z: Successfully connected to {localhost}
+2023-03-20T05:37:25.753Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-20T05:38:40.750Z: Error executing query: connect ETIMEDOUT 13.251.121.192:5439
+2023-03-20T05:38:40.750Z: Connection failed:
+2023-03-20T05:38:40.751Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:39:40.752Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:40:40.753Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:41:40.754Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:42:40.754Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:43:40.754Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:44:40.754Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:44:54.482Z: Successfully connected to {localhost}
+2023-03-20T05:44:54.751Z: Query result: [{"config_id":1,"status":"pending","triggerstatus":"active","cron_expression":null,"created_at":null,"updated_at":null,"start_at":null,"sending":true,"data_source":"csv"}]
+2023-03-20T05:44:56.624Z: Connection successful
+2023-03-20T05:44:56.746Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:44:58.057Z: Query result: [{"dw_regdate":"2018-06-25T09:37:16.000Z","dw_changedate":"2022-08-11T14:20:42.000Z","sk_player":"251530","sk_site":15,"sk_language":46,"sk_country":211,"playerid":2,"player_id_global":"413e557c-8080-4167-8d63-c480828b5fbc","webfront_id":2,"siteid":1,"created":"2014-10-07T19:30:24.000Z","updated":"2022-08-11T13:39:59.000Z","signup_completed":"2014-10-07T19:30:24.000Z","playertoken":"s2thonim656518","display_name":"FunnyBear1486","currency":"USD","language":"en","country":"TH","newsletter":0,"textmessage":1,"phone_call":1,"playerflag":1,"classificationcode":"UNK","kyc_verification_status":0,"bpcode":"EMPIRE","track_system":"UNK","track_clicktag":"UNK","track_affiliate":"UNK","track_campaign":"UNK","track_banner":"UNK","last_login":"2021-02-23T09:29:08.000Z","tried_deposit":"2017-10-23T00:41:25.000Z","first_deposit":"2016-03-15T17:30:39.000Z","first_deposit_amt":"10.0000","second_deposit":"2017-10-23T00:41:31.000Z","second_deposit_amt":"10.0000","third_deposit":"1900-01-01T00:00:00.000Z","third_deposit_amt":"0.0000","latest_deposit":"2017-10-23T00:41:31.000Z","latest_deposit_amt":"10.0000","num_deposits":2,"sum_deposited":"20.0000","base_deposited":"20.0000","num_withdrawals":1,"sum_withdrawn":"10.0000","base_withdrawn":"10.0000","last_noteid":5723731,"highlighted_note":1,"highlighted_codes":"P&F","locked_until":"1900-01-01T00:00:00.000Z","blocked":"1900-01-01T00:00:00.000Z","block_code":"UNK","block_subcode":"UNK","block_reason":"UNK","migrated_id":"UNK","member_points":5569,"member_coins":6794,"member_level":13,"badge_level":3}]
+2023-03-20T05:48:46.832Z: Error connecting to {localhost}
+2023-03-20T05:48:47.958Z: Error executing query: connect ECONNREFUSED ::1:5432
+2023-03-20T05:49:46.834Z: Error connecting to {localhost}
+2023-03-20T05:50:02.956Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:50:02.957Z: Connection failed:
+2023-03-20T05:50:02.957Z: Error executing query: connect ETIMEDOUT 13.251.121.192:5439
+2023-03-20T05:50:46.835Z: Error connecting to {localhost}
+2023-03-20T05:51:02.958Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:51:46.836Z: Error connecting to {localhost}
+2023-03-20T05:52:02.958Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:52:46.837Z: Error connecting to {localhost}
+2023-03-20T05:53:02.958Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:53:46.839Z: Error connecting to {localhost}
+2023-03-20T05:54:02.958Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T05:54:46.842Z: Error connecting to {localhost}
+2023-03-20T05:55:02.958Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
