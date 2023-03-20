@@ -1,9 +1,10 @@
 const express = require("express") 
 const app = express(); 
 const dotenv = require('dotenv');
+
 dotenv.config();    
 
-require('./src/api');
+require('./src/api')(app);
 
  
 app.listen(`${process.env.PORT}`, () => {

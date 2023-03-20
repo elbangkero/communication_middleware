@@ -1,31 +1,52 @@
-const fs = require('fs');
-const path = require('path');
+const { Client } = require('pg');
+const dotenv = require('dotenv');
+dotenv.config();
 
+const client = new Client({
+    user: `${process.env.JOYSTICK_USER_DB}`,
+    host: `${process.env.JOYSTICK_HOST}`,
+    database: `${process.env.JOYSTICK_DATABASE}`,
+    password: `${process.env.JOYSTICK_PASSWORD}`,
+    port: `${process.env.JOYSTICK_DB_PORT}`,
+    ssl: true,
+});
 
+let connected = false;
 
-const logFilePath = path.join('./logs', `${getCurrentDate()}.log`);
-
-var dir = './logs';
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+function connect() {
+  client.connect((err) => {
+    if (err) {
+      console.error('Error connecting to database:', err);
+      setTimeout(connect, 1000); // retry connection after 1 second
+    } else {
+      console.log('Connected to database.');
+      connected = true;
+    }
+  });
 }
-// Redirect console output to a file
-const logStream = fs.createWriteStream(logFilePath, { flags: 'a' });
-console.log = function (message) {
-    logStream.write(`${new Date().toISOString()}: ${message}\n`);
-    process.stdout.write(`${new Date().toISOString()}: ${message}\n`);
-};
 
+client.on('error', (err) => {
+  console.error('Unexpected error on client:', err);
+  connected = false;
+});
 
-function getCurrentDate() {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-    const day = String(currentDate.getDate()).padStart(2, '0');
-    const formattedDate = `${year}-${month}-${day}`;
-    return formattedDate;
+client.on('end', () => {
+  console.log('Connection ended.');
+  connected = false;
+});
+
+function executeQueries() {
+  if (!connected) {
+    console.log('Not connected to database, retrying...');
+    setTimeout(executeQueries, 1000); // retry queries after 1 second
+    return;
+  }
+
+  // Execute some queries here...
+
+  setTimeout(executeQueries, 1000); // execute queries again after 1 second
 }
 
-// Log some messages to the console
-console.log('Hello, world!');
-console.log('This is a test message.');
+connect(); // start initial connection
+
+executeQueries(); // start executing queries
