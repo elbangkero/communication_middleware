@@ -3,38 +3,46 @@ const { local_connection, joystick_connection, joystick_client } = require('../u
 const multer = require('multer');
 const fs = require('fs');
 const csv = require('csv-parser');
+const { countReset } = require('console');
 
 var contacts = [];
+let counter = { fails: 0, success: 0 };
 
- 
 
 (async () => {
     const client = await local_connection.connect();
     await client.query('LISTEN cmw_listener');
     client.on('notification', function (data) {
-        console_log("data", JSON.parse(data.payload));
-        console_log('notif from database!');
-        console_log('resending...');
+        //console.log("data", JSON.parse(data.payload));
+        setTimeout(() => {
+            local_connection.query(`SELECT * FROM cmw_config where triggerstatus='active' and sending ='true' and status !='sending'`).then(res => {
+                const data = res.rows;
+                console.log('Config queue count : ', res.rowCount);
 
+                data.forEach(row => {
+                    fs.createReadStream('./uploads/data_leads/' + row.data_leads)
+                        .pipe(csv())
+                        .on('data', function (data) {
+                            try {
+                                contacts.push(data.playertoken);
+                                //console_log(data.playertoken + ',' + data.country + ',' + data.message + ',' + data.platform);
+                                constructData(data.playertoken, data.country, data.message, data.platform);
+                            } catch (err) {
+                                console_log(err);
+                                console_log('error contact number');
+                            }
+                        })
+                        .on('end', () => {
+                            //console_log('done');
+                        });
+                })
+            })
+        }, "5000")
     });
 })();
 /*
 
-fs.createReadStream('./uploads/data_leads/1679311625043_1675319514607_malaysia_leads.csv')
-    .pipe(csv())
-    .on('data', function (data) {
-        try {
-            contacts.push(data.playertoken);
-            //console_log(data.playertoken + ',' + data.country + ',' + data.message + ',' + data.platform);
-            constructData(data.playertoken, data.country, data.message, data.platform);
-        } catch (err) {
-            console_log(err);
-            console_log('error contact number');
-        }
-    })
-    .on('end', () => {
-        //console_log('done');
-    });
+
     */
 
 function constructData(player_token, country, message, platform) {
@@ -46,30 +54,41 @@ function constructData(player_token, country, message, platform) {
         if (err) {
             console_log(`Error executing query: ${err.message}`);
         } else {
-            data.forEach(row => {
+            data.forEach(async row => {
                 if (platform == 'sms')
-                    sendSMS(player_token, country, message, platform, row.phone_number);
-                /*.then(() => {
-                    console.log('success');
-                });*/
+                    sendSMS(player_token, country, message, platform, row.phone_number)
+                        .then(function (response) {
+                            //console.log('success');
+                            console.log(`Status : ${player_token} Sent`);
+                            counter.success++;
+                        })
+                        .catch(function (error) {
+                            //console.log('error');
+                            console.log(`Status : ${player_token} Failed`);
+                            counter.fails++;
+                        });
                 else if (platform == 'email')
                     sendEmail(player_token, country, message, platform, row.email);
-            })
+            }); 
         }
     });
 }
 
-function sendSMS(player_token, country, message, platform, phone_number) {
-    console_log(JSON.stringify({ 'player_token': player_token, 'country': country, 'message': message, 'platform': platform, 'phone_number': phone_number }));
-    /*
-        return new Promise((resolve, reject) => {
-      console.log(test)
-      resolve();
-    });
-    */
+async function sendSMS(player_token, country, message, platform, phone_number) {
+
+    return new Promise(async (resolve, reject) => {
+        await console_log(JSON.stringify({ 'player_token': player_token, 'country': country, 'message': message, 'platform': platform, 'phone_number': phone_number }));
+
+        if (country != 'UNK') {
+            resolve(player_token); // Fulfill the promise with the user object
+        } else {
+            reject(player_token); // Reject the promise with an error
+        } 
+
+    }); 
 }
-function sendEmail(player_token, country, message, platform, email) {
-    console_log(JSON.stringify({ 'player_token': player_token, 'country': country, 'message': message, 'platform': platform, 'email': email }));
+async function sendEmail(player_token, country, message, platform, email) {
+    await console_log(JSON.stringify({ 'player_token': player_token, 'country': country, 'message': message, 'platform': platform, 'email': email }));
 }
 
 const multerStorage = multer.diskStorage({

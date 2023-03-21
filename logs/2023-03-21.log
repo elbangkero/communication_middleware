@@ -2579,3 +2579,221 @@
 2023-03-21T15:39:27.418Z: data
 2023-03-21T15:39:27.418Z: notif from database!
 2023-03-21T15:39:27.418Z: resending...
+2023-03-21T15:40:38.918Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-21T15:41:21.689Z: Listening on port 8041
+2023-03-21T15:41:21.705Z: Successfully connected to {localhost}
+2023-03-21T15:41:23.429Z: Listening on port 8041
+2023-03-21T15:41:23.441Z: Successfully connected to {localhost}
+2023-03-21T15:41:44.748Z: Listening on port 8041
+2023-03-21T15:41:44.759Z: Successfully connected to {localhost}
+2023-03-21T15:41:45.902Z: data
+2023-03-21T15:41:45.903Z: notif from database!
+2023-03-21T15:41:45.903Z: resending...
+2023-03-21T15:41:47.952Z: data
+2023-03-21T15:41:47.952Z: notif from database!
+2023-03-21T15:41:47.952Z: resending...
+2023-03-21T15:41:49.234Z: data
+2023-03-21T15:41:49.234Z: notif from database!
+2023-03-21T15:41:49.234Z: resending...
+2023-03-21T15:41:50.569Z: data
+2023-03-21T15:41:50.569Z: notif from database!
+2023-03-21T15:41:50.569Z: resending...
+2023-03-21T15:42:30.607Z: data
+2023-03-21T15:42:30.607Z: notif from database!
+2023-03-21T15:42:30.608Z: resending...
+2023-03-21T15:42:34.029Z: Listening on port 8041
+2023-03-21T15:42:34.039Z: Successfully connected to {localhost}
+2023-03-21T15:42:36.920Z: data
+2023-03-21T15:42:36.920Z: notif from database!
+2023-03-21T15:42:36.920Z: resending...
+2023-03-21T15:42:43.306Z: data
+2023-03-21T15:42:43.306Z: notif from database!
+2023-03-21T15:42:43.306Z: resending...
+2023-03-21T15:42:46.473Z: data
+2023-03-21T15:42:46.473Z: notif from database!
+2023-03-21T15:42:46.474Z: resending...
+2023-03-21T15:43:38.352Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-21T15:43:38.356Z: data
+2023-03-21T15:43:38.356Z: notif from database!
+2023-03-21T15:43:38.356Z: resending...
+2023-03-21T15:43:49.035Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-21T15:43:51.413Z: Listening on port 8041
+2023-03-21T15:43:51.422Z: Successfully connected to {localhost}
+2023-03-21T15:43:53.508Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-21T15:43:53.513Z: notif from database!
+2023-03-21T15:43:53.513Z: resending...
+2023-03-21T15:44:20.628Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-21T15:44:20.629Z: notif from database!
+2023-03-21T15:44:20.629Z: resending...
+2023-03-21T15:45:07.385Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-21T15:47:18.638Z: Listening on port 8041
+2023-03-21T15:47:18.651Z: Successfully connected to {localhost}
+2023-03-21T15:47:22.112Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-21T15:48:33.643Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-21T15:49:35.187Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-21T15:51:00.901Z: Listening on port 8041
+2023-03-21T15:51:00.912Z: Successfully connected to {localhost}
+2023-03-21T15:51:02.349Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-21T15:51:04.967Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-21T15:51:10.260Z: Listening on port 8041
+2023-03-21T15:51:10.271Z: Successfully connected to {localhost}
+2023-03-21T15:51:11.789Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-21T15:52:04.456Z: Listening on port 8041
+2023-03-21T15:52:04.467Z: Successfully connected to {localhost}
+2023-03-21T15:52:05.896Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-21T15:52:12.757Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-21T15:53:23.277Z: Listening on port 8041
+2023-03-21T15:53:23.288Z: Successfully connected to {localhost}
+2023-03-21T15:53:24.900Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-21T15:53:25.918Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-21T15:56:22.950Z: Listening on port 8041
+2023-03-21T15:56:22.961Z: Successfully connected to {localhost}
+2023-03-21T15:56:24.824Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-21T15:57:11.392Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-21T15:57:47.758Z: {"player_token":"s2ducngu777338","country":"TH","message":"test message","platform":"sms","phone_number":"+84909123789"}
+2023-03-21T15:57:47.834Z: {"player_token":"s2pejjae163073","country":"UNK","message":"test message","platform":"sms","phone_number":"+66859533395"}
+2023-03-21T15:57:47.835Z: {"player_token":"s2thelee240915","country":"UNK","message":"test message","platform":"sms","phone_number":"+84976186994"}
+2023-03-21T15:57:47.835Z: {"player_token":"s2picpan860809","country":"UNK","message":"test message","platform":"email","email":"pichetwork@gmail.com"}
+2023-03-21T15:57:47.836Z: {"player_token":"s2ccclll467230","country":"UNK","message":"test message","platform":"sms","phone_number":"INV"}
+2023-03-21T15:57:47.836Z: {"player_token":"s2ducpha653500","country":"UNK","message":"test message","platform":"email","email":"tetuongluugukokhoc@yahoo.com"}
+2023-03-21T15:57:48.669Z: {"player_token":"s2dactru331620","country":"UNK","message":"test message","platform":"sms","phone_number":"+84967232361"}
+2023-03-21T15:57:48.749Z: {"player_token":"s2sumjon810849","country":"UNK","message":"test message","platform":"sms","phone_number":"+66818737338"}
+2023-03-21T15:58:16.311Z: {"player_token":"s2huytra590111","country":"UNK","message":"test message","platform":"sms","phone_number":"+84937567426"}
+2023-03-21T15:58:20.728Z: {"player_token":"s2patsuc245473","country":"TH","message":"test message","platform":"sms","phone_number":"+66824909900"}
+2023-03-21T15:58:20.728Z: {"player_token":"s2pilnoi275697","country":"UNK","message":"test message","platform":"sms","phone_number":"+66815958605"}
+2023-03-21T15:58:20.729Z: {"player_token":"s2tacsir206513","country":"UNK","message":"test message","platform":"email","email":"natt-o@hotmail.com"}
+2023-03-21T15:58:20.729Z: {"player_token":"s2duyngu550403","country":"UNK","message":"test message","platform":"sms","phone_number":"+841697218291"}
+2023-03-21T15:58:20.729Z: {"player_token":"s2huungu702756","country":"UNK","message":"test message","platform":"sms","phone_number":"+841692211213"}
+2023-03-21T15:58:20.730Z: {"player_token":"s2amocha456181","country":"UNK","message":"test message","platform":"email","email":"amonchai_anl@hotmail.com"}
+2023-03-21T15:58:21.717Z: {"player_token":"s2kripon178558","country":"UNK","message":"test message","platform":"email","email":"nice.pretty0720@gmail.com"}
+2023-03-21T15:58:22.172Z: {"player_token":"s2manngu970753","country":"VN","message":"test message","platform":"email","email":"manhdat.hoahoa@gmail.com"}
+2023-03-21T15:58:22.275Z: {"player_token":"s2tanrac121847","country":"UNK","message":"test message","platform":"sms","phone_number":"+66985059393"}
+2023-03-21T15:58:22.276Z: {"player_token":"s2athsri106993","country":"TH","message":"test message","platform":"email","email":"e-ice-ba@hotmail.com"}
+2023-03-21T15:58:22.276Z: {"player_token":"s2thalee886715","country":"UNK","message":"test message","platform":"sms","phone_number":"+84948556969"}
+2023-03-21T15:58:22.276Z: {"player_token":"s2thilee110100","country":"UNK","message":"test message","platform":"sms","phone_number":"+66888409944"}
+2023-03-21T15:58:22.277Z: {"player_token":"s2ngungu191810","country":"TH","message":"test message","platform":"sms","phone_number":"+84905638885"}
+2023-03-21T15:58:22.354Z: {"player_token":"s2quatra008348","country":"UNK","message":"test message","platform":"email","email":"tranquangchung270794@gmail.com"}
+2023-03-21T15:58:22.354Z: {"player_token":"s2chivon003337","country":"UNK","message":"test message","platform":"sms","phone_number":"+84946450160"}
+2023-03-21T15:58:22.436Z: {"player_token":"s2vietra663180","country":"UNK","message":"test message","platform":"sms","phone_number":"+84985380320"}
+2023-03-21T15:58:23.687Z: {"player_token":"s2anhpha013289","country":"TH","message":"test message","platform":"email","email":"awidjij@gmail.com"}
+2023-03-21T15:58:23.794Z: {"player_token":"s2rawnua958082","country":"UNK","message":"test message","platform":"sms","phone_number":"+66913091120"}
+2023-03-21T15:58:23.881Z: {"player_token":"s2linngo151089","country":"TH","message":"test message","platform":"sms","phone_number":"+841235841917"}
+2023-03-21T15:58:23.882Z: {"player_token":"s2nirbua136259","country":"TH","message":"test message","platform":"email","email":"Ppsetmet@gmail.com"}
+2023-03-21T15:58:23.882Z: {"player_token":"s2chasos385807","country":"VN","message":"test message","platform":"sms","phone_number":"+66878371268"}
+2023-03-21T15:58:23.968Z: {"player_token":"s2mischo927269","country":"UNK","message":"test message","platform":"sms","phone_number":"+66909977724"}
+2023-03-21T15:58:23.969Z: {"player_token":"s2vanhoa095477","country":"UNK","message":"test message","platform":"sms","phone_number":"+841233451666"}
+2023-03-21T15:58:23.969Z: {"player_token":"s2sasnun143217","country":"UNK","message":"test message","platform":"sms","phone_number":"+66931929993"}
+2023-03-21T15:58:23.969Z: {"player_token":"s2thingu652639","country":"UNK","message":"test message","platform":"email","email":"thulinh686@gmail.com"}
+2023-03-21T15:58:26.888Z: {"player_token":"s2hoatra821023","country":"UNK","message":"test message","platform":"sms","phone_number":"+841674701173"}
+2023-03-21T15:58:27.473Z: {"player_token":"s2supnga663491","country":"UNK","message":"test message","platform":"sms","phone_number":"+66912092202"}
+2023-03-21T15:58:27.473Z: {"player_token":"s2kwupim588532","country":"TH","message":"test message","platform":"email","email":"kp_aristoton@hotmail.com"}
+2023-03-21T15:58:27.474Z: {"player_token":"s2chakom063612","country":"UNK","message":"test message","platform":"email","email":"pokermanthailand@gmail.com"}
+2023-03-21T15:58:27.474Z: {"player_token":"s2baohoo901114","country":"TH","message":"test message","platform":"sms","phone_number":"+841683763568"}
+2023-03-21T15:58:27.474Z: {"player_token":"s2pitsea049818","country":"UNK","message":"test message","platform":"sms","phone_number":"+66922018378"}
+2023-03-21T15:58:27.474Z: {"player_token":"s2qaiqai825072","country":"UNK","message":"test message","platform":"sms","phone_number":"INV"}
+2023-03-21T15:58:27.553Z: {"player_token":"s2hoangu096181","country":"UNK","message":"test message","platform":"email","email":"nguyenvu19832001@yahoo.com"}
+2023-03-21T15:58:27.553Z: {"player_token":"s2bennop679138","country":"VN","message":"test message","platform":"sms","phone_number":"+66952260989"}
+2023-03-21T15:58:28.291Z: Listening on port 8041
+2023-03-21T15:58:28.300Z: Successfully connected to {localhost}
+2023-03-21T15:58:29.871Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-21T15:58:31.739Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-21T15:58:38.954Z: {"player_token":"s2ducpha653500","country":"UNK","message":"test message","platform":"email","email":"tetuongluugukokhoc@yahoo.com"}
+2023-03-21T15:58:39.037Z: {"player_token":"s2ducngu777338","country":"TH","message":"test message","platform":"sms","phone_number":"+84909123789"}
+2023-03-21T15:58:40.068Z: {"player_token":"s2sumjon810849","country":"UNK","message":"test message","platform":"sms","phone_number":"+66818737338"}
+2023-03-21T15:58:40.069Z: {"player_token":"s2tacsir206513","country":"UNK","message":"test message","platform":"email","email":"natt-o@hotmail.com"}
+2023-03-21T15:58:40.069Z: {"player_token":"s2ccclll467230","country":"UNK","message":"test message","platform":"sms","phone_number":"INV"}
+2023-03-21T15:58:40.070Z: {"player_token":"s2picpan860809","country":"UNK","message":"test message","platform":"email","email":"pichetwork@gmail.com"}
+2023-03-21T15:58:40.070Z: {"player_token":"s2thelee240915","country":"UNK","message":"test message","platform":"sms","phone_number":"+84976186994"}
+2023-03-21T15:58:40.070Z: {"player_token":"s2dactru331620","country":"UNK","message":"test message","platform":"sms","phone_number":"+84967232361"}
+2023-03-21T15:58:40.071Z: {"player_token":"s2huytra590111","country":"UNK","message":"test message","platform":"sms","phone_number":"+84937567426"}
+2023-03-21T15:58:40.146Z: {"player_token":"s2pejjae163073","country":"UNK","message":"test message","platform":"sms","phone_number":"+66859533395"}
+2023-03-21T15:58:40.146Z: {"player_token":"s2amocha456181","country":"UNK","message":"test message","platform":"email","email":"amonchai_anl@hotmail.com"}
+2023-03-21T15:58:41.402Z: {"player_token":"s2pilnoi275697","country":"UNK","message":"test message","platform":"sms","phone_number":"+66815958605"}
+2023-03-21T15:58:41.403Z: {"player_token":"s2duyngu550403","country":"UNK","message":"test message","platform":"sms","phone_number":"+841697218291"}
+2023-03-21T15:58:41.403Z: {"player_token":"s2tanrac121847","country":"UNK","message":"test message","platform":"sms","phone_number":"+66985059393"}
+2023-03-21T15:58:41.404Z: {"player_token":"s2huungu702756","country":"UNK","message":"test message","platform":"sms","phone_number":"+841692211213"}
+2023-03-21T15:58:41.404Z: {"player_token":"s2manngu970753","country":"VN","message":"test message","platform":"email","email":"manhdat.hoahoa@gmail.com"}
+2023-03-21T15:58:41.405Z: {"player_token":"s2thilee110100","country":"UNK","message":"test message","platform":"sms","phone_number":"+66888409944"}
+2023-03-21T15:58:41.481Z: {"player_token":"s2thalee886715","country":"UNK","message":"test message","platform":"sms","phone_number":"+84948556969"}
+2023-03-21T15:58:41.637Z: {"player_token":"s2rawnua958082","country":"UNK","message":"test message","platform":"sms","phone_number":"+66913091120"}
+2023-03-21T15:58:41.638Z: {"player_token":"s2kripon178558","country":"UNK","message":"test message","platform":"email","email":"nice.pretty0720@gmail.com"}
+2023-03-21T15:58:41.717Z: {"player_token":"s2patsuc245473","country":"TH","message":"test message","platform":"sms","phone_number":"+66824909900"}
+2023-03-21T15:58:41.904Z: {"player_token":"s2nirbua136259","country":"TH","message":"test message","platform":"email","email":"Ppsetmet@gmail.com"}
+2023-03-21T15:58:41.905Z: {"player_token":"s2anhpha013289","country":"TH","message":"test message","platform":"email","email":"awidjij@gmail.com"}
+2023-03-21T15:58:41.981Z: {"player_token":"s2chasos385807","country":"VN","message":"test message","platform":"sms","phone_number":"+66878371268"}
+2023-03-21T15:58:42.096Z: {"player_token":"s2linngo151089","country":"TH","message":"test message","platform":"sms","phone_number":"+841235841917"}
+2023-03-21T15:58:42.466Z: {"player_token":"s2ngungu191810","country":"TH","message":"test message","platform":"sms","phone_number":"+84905638885"}
+2023-03-21T15:58:42.541Z: {"player_token":"s2mischo927269","country":"UNK","message":"test message","platform":"sms","phone_number":"+66909977724"}
+2023-03-21T15:58:42.542Z: {"player_token":"s2quatra008348","country":"UNK","message":"test message","platform":"email","email":"tranquangchung270794@gmail.com"}
+2023-03-21T15:58:42.628Z: {"player_token":"s2chivon003337","country":"UNK","message":"test message","platform":"sms","phone_number":"+84946450160"}
+2023-03-21T15:58:42.629Z: {"player_token":"s2athsri106993","country":"TH","message":"test message","platform":"email","email":"e-ice-ba@hotmail.com"}
+2023-03-21T15:58:42.629Z: {"player_token":"s2vietra663180","country":"UNK","message":"test message","platform":"sms","phone_number":"+84985380320"}
+2023-03-21T15:58:42.862Z: {"player_token":"s2vanhoa095477","country":"UNK","message":"test message","platform":"sms","phone_number":"+841233451666"}
+2023-03-21T15:58:42.940Z: {"player_token":"s2sasnun143217","country":"UNK","message":"test message","platform":"sms","phone_number":"+66931929993"}
+2023-03-21T15:58:42.941Z: {"player_token":"s2thingu652639","country":"UNK","message":"test message","platform":"email","email":"thulinh686@gmail.com"}
+2023-03-21T15:58:43.779Z: {"player_token":"s2chakom063612","country":"UNK","message":"test message","platform":"email","email":"pokermanthailand@gmail.com"}
+2023-03-21T15:58:43.818Z: {"player_token":"s2qaiqai825072","country":"UNK","message":"test message","platform":"sms","phone_number":"INV"}
+2023-03-21T15:58:43.818Z: {"player_token":"s2bennop679138","country":"VN","message":"test message","platform":"sms","phone_number":"+66952260989"}
+2023-03-21T15:58:43.900Z: {"player_token":"s2hoangu096181","country":"UNK","message":"test message","platform":"email","email":"nguyenvu19832001@yahoo.com"}
+2023-03-21T15:58:43.900Z: {"player_token":"s2hoatra821023","country":"UNK","message":"test message","platform":"sms","phone_number":"+841674701173"}
+2023-03-21T15:58:43.901Z: {"player_token":"s2supnga663491","country":"UNK","message":"test message","platform":"sms","phone_number":"+66912092202"}
+2023-03-21T15:58:44.060Z: {"player_token":"s2kwupim588532","country":"TH","message":"test message","platform":"email","email":"kp_aristoton@hotmail.com"}
+2023-03-21T15:58:44.138Z: {"player_token":"s2baohoo901114","country":"TH","message":"test message","platform":"sms","phone_number":"+841683763568"}
+2023-03-21T15:58:44.139Z: {"player_token":"s2pitsea049818","country":"UNK","message":"test message","platform":"sms","phone_number":"+66922018378"}
+2023-03-21T15:58:45.084Z: {"player_token":"s2donltt725479","country":"UNK","message":"test message","platform":"sms","phone_number":"+84963388663"}
+2023-03-21T15:58:45.162Z: {"player_token":"s2atijai146091","country":"UNK","message":"test message","platform":"sms","phone_number":"+66843664543"}
+2023-03-21T15:58:45.805Z: {"player_token":"s2nutnet255313","country":"AU","message":"test message","platform":"email","email":"monoinlove@hotmail.com"}
+2023-03-21T15:58:45.852Z: {"player_token":"s2dfgdfg242672","country":"UNK","message":"test message","platform":"sms","phone_number":"INV"}
+2023-03-21T15:58:45.852Z: {"player_token":"s2ngotra187252","country":"UNK","message":"test message","platform":"email","email":"ngocchien619@gmail.com"}
+2023-03-21T15:58:45.853Z: {"player_token":"s2ducvoo817667","country":"UNK","message":"test message","platform":"sms","phone_number":"+841629850900"}
+2023-03-21T15:58:45.853Z: {"player_token":"s2thiduo228176","country":"UNK","message":"test message","platform":"email","email":"duongthithanhtuyen1989@gmail.com"}
+2023-03-21T15:58:45.853Z: {"player_token":"s2faituy081010","country":"UNK","message":"test message","platform":"sms","phone_number":"+66994851448"}
+2023-03-21T15:58:45.853Z: {"player_token":"s2honngu713085","country":"UNK","message":"test message","platform":"sms","phone_number":"+84977684488"}
+2023-03-21T15:58:45.882Z: {"player_token":"s2phioph186963","country":"TH","message":"test message","platform":"sms","phone_number":"+66811848008"}
+2023-03-21T15:58:45.996Z: {"player_token":"s2erwewr908290","country":"UNK","message":"test message","platform":"email","email":"1252090611@gm.uit.edu.vn"}
+2023-03-21T15:58:47.163Z: {"player_token":"s2porsri533337","country":"UNK","message":"test message","platform":"sms","phone_number":"+66946967634"}
+2023-03-21T15:58:47.273Z: {"player_token":"s2punsim030576","country":"UNK","message":"test message","platform":"sms","phone_number":"+66854597688"}
+2023-03-21T15:58:47.273Z: {"player_token":"s2ngongu215877","country":"UNK","message":"test message","platform":"sms","phone_number":"+84988892597"}
+2023-03-21T15:58:47.273Z: {"player_token":"s2huylee980574","country":"UNK","message":"test message","platform":"email","email":"cakiem_273@yahoo.com"}
+2023-03-21T15:58:47.273Z: {"player_token":"s2ngungu453276","country":"UNK","message":"test message","platform":"sms","phone_number":"+841889560723"}
+2023-03-21T15:58:47.273Z: {"player_token":"s2thigyy235531","country":"TH","message":"test message","platform":"email","email":"thienhu892@gmail.com"}
+2023-03-21T15:58:47.273Z: {"player_token":"s2thacuu273965","country":"TH","message":"test message","platform":"sms","phone_number":"+84942121984"}
+2023-03-21T15:58:47.275Z: {"player_token":"s2phalai234294","country":"TH","message":"test message","platform":"sms","phone_number":"+841676361497"}
+2023-03-21T15:58:47.275Z: {"player_token":"s2ytiyur754118","country":"TH","message":"test message","platform":"sms","phone_number":"INV"}
+2023-03-21T15:58:47.876Z: {"player_token":"s2kawmee066393","country":"UNK","message":"test message","platform":"email","email":"kaweekan69@gmail.com"}
+2023-03-21T15:58:48.602Z: {"player_token":"s2thajan575518","country":"UNK","message":"test message","platform":"sms","phone_number":"+66901087484"}
+2023-03-21T15:58:48.667Z: {"player_token":"s2honvyy996658","country":"TH","message":"test message","platform":"sms","phone_number":"INV"}
+2023-03-21T15:58:48.667Z: {"player_token":"s2hoangu517691","country":"UNK","message":"test message","platform":"email","email":"hoangnhan0179@gmail.com"}
+2023-03-21T15:58:48.667Z: {"player_token":"s2tuaphu206898","country":"UNK","message":"test message","platform":"sms","phone_number":"+841213334444"}
+2023-03-21T15:58:48.668Z: {"player_token":"s2trhrjr459306","country":"TH","message":"test message","platform":"sms","phone_number":"INV"}
+2023-03-21T15:58:48.668Z: {"player_token":"s2viivii896872","country":"UNK","message":"test message","platform":"email","email":"caovian65@gmail.com"}
+2023-03-21T15:58:48.668Z: {"player_token":"s2manvuu531010","country":"UNK","message":"test message","platform":"sms","phone_number":"+84859487198"}
+2023-03-21T15:58:48.682Z: {"player_token":"s2satsan498646","country":"UNK","message":"test message","platform":"email","email":"tom_godza@yahoo.com"}
+2023-03-21T15:58:49.691Z: {"player_token":"s2kimvoo194238","country":"TH","message":"test message","platform":"sms","phone_number":"+841663339899"}
+2023-03-21T15:58:49.826Z: {"player_token":"s2vanhoa101604","country":"TH","message":"test message","platform":"sms","phone_number":"+84935957090"}
+2023-03-21T15:58:50.269Z: {"player_token":"s2cuotra457513","country":"UNK","message":"test message","platform":"sms","phone_number":"+841646546354"}
+2023-03-21T15:58:50.362Z: {"player_token":"s2quanon252732","country":"UNK","message":"test message","platform":"sms","phone_number":"+84942749127"}
+2023-03-21T15:58:50.362Z: {"player_token":"s2ertert481432","country":"TH","message":"test message","platform":"sms","phone_number":"INV"}
+2023-03-21T15:58:51.050Z: {"player_token":"s2phiphi164108","country":"UNK","message":"test message","platform":"sms","phone_number":"+84978621126"}
+2023-03-21T15:58:51.131Z: {"player_token":"s2poosin028482","country":"TH","message":"test message","platform":"email","email":"poontara_sintakoon@yahoo.co.th"}
+2023-03-21T15:58:51.131Z: {"player_token":"s2natpig853723","country":"UNK","message":"test message","platform":"sms","phone_number":"+66867293546"}
+2023-03-21T15:58:51.131Z: {"player_token":"s2ngungu261857","country":"UNK","message":"test message","platform":"email","email":"c2traxanh150687@gmail.com"}
+2023-03-21T15:58:51.131Z: {"player_token":"s2ngopha764275","country":"VN","message":"test message","platform":"email","email":"ngochai0224@gmail.com"}
+2023-03-21T15:58:51.132Z: {"player_token":"s2thatra099107","country":"UNK","message":"test message","platform":"sms","phone_number":"+84987500139"}
+2023-03-21T15:58:52.312Z: {"player_token":"s2sayjai853550","country":"TH","message":"test message","platform":"sms","phone_number":"+66954875262"}
+2023-03-21T15:58:52.392Z: {"player_token":"s2tratra812565","country":"UNK","message":"test message","platform":"sms","phone_number":"+84988747787"}
+2023-03-21T15:58:52.392Z: {"player_token":"s2tarhgd300188","country":"UNK","message":"test message","platform":"email","email":"kokptibull@gmail.com"}
+2023-03-21T15:58:52.577Z: {"player_token":"s2thosrl118434","country":"UNK","message":"test message","platform":"sms","phone_number":"+66994756976"}
+2023-03-21T15:58:52.578Z: {"player_token":"s2penkin773167","country":"UNK","message":"test message","platform":"sms","phone_number":"+66844504835"}
+2023-03-21T15:58:52.656Z: {"player_token":"s2ngovan363443","country":"TH","message":"test message","platform":"email","email":"nhattuanvanngoc@gmail.com"}
+2023-03-21T15:58:52.657Z: {"player_token":"s2thavuu572674","country":"UNK","message":"test message","platform":"sms","phone_number":"+84948200668"}
+2023-03-21T15:58:52.657Z: {"player_token":"s2duybui435369","country":"TH","message":"test message","platform":"sms","phone_number":"+84979247304"}
+2023-03-21T15:58:52.657Z: {"player_token":"s2vanngu365879","country":"TH","message":"test message","platform":"email","email":"swquang@gmail.com"}
+2023-03-21T15:58:54.921Z: {"player_token":"s2khokho026199","country":"UNK","message":"test message","platform":"sms","phone_number":"+84987295802"}
+2023-03-21T15:58:55.291Z: {"player_token":"s2baahoo228675","country":"TH","message":"test message","platform":"sms","phone_number":"+841644181179"}
+2023-03-21T15:58:55.291Z: {"player_token":"s2tuoduo530700","country":"UNK","message":"test message","platform":"sms","phone_number":"+84978108090"}
+2023-03-21T15:58:55.371Z: {"player_token":"s2tanyon922389","country":"UNK","message":"test message","platform":"sms","phone_number":"+66897236109"}
+2023-03-21T15:58:55.371Z: {"player_token":"s2giango283062","country":"VN","message":"test message","platform":"sms","phone_number":"+841202367814"}
+2023-03-21T15:58:55.372Z: {"player_token":"s2sarsah265873","country":"TH","message":"test message","platform":"email","email":"chawatluckito123456@gmail.com"}
+2023-03-21T15:58:55.372Z: {"player_token":"s2ngungu813049","country":"UNK","message":"test message","platform":"sms","phone_number":"+84933918053"}
+2023-03-21T15:58:55.372Z: {"player_token":"s2remboo176952","country":"UNK","message":"test message","platform":"email","email":"help987@outlook.co.th"}

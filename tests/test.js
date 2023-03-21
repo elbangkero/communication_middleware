@@ -1,13 +1,15 @@
-function myFunction(test) {
+// Create an array of Promises for the inner loop
+const innerPromises = outerArray.map(outerItem => {
   return new Promise((resolve, reject) => {
-    console.log(test)
-    resolve();
+    innerArray.forEach(innerItem => {
+      // Do something with each inner item
+      
+      resolve();
+    });
   });
-}
+});
 
-
-var test = '23131';
-myFunction(test)
-  .then(() => {
-    console.log('success');
-  });
+// Wait for all inner Promises to resolve
+Promise.all(innerPromises).then(() => {
+  console.log('Both loops are done');
+});
