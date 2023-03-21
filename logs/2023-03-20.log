@@ -793,3 +793,58 @@
 2023-03-20T11:01:32.257Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
 2023-03-20T11:02:14.892Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
 2023-03-20T11:02:46.679Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:05:01.862Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:06:24.182Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:07:16.969Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:08:35.734Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:08:44.468Z: Error connecting to {localhost}
+2023-03-20T11:08:46.482Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:09:44.471Z: Error connecting to {localhost}
+2023-03-20T11:10:44.473Z: Error connecting to {localhost}
+2023-03-20T11:11:44.475Z: Error connecting to {localhost}
+2023-03-20T11:12:44.477Z: Error connecting to {localhost}
+2023-03-20T11:13:44.479Z: Error connecting to {localhost}
+2023-03-20T11:14:28.933Z: Error connecting to {localhost}
+2023-03-20T11:14:33.451Z: Error executing query: Cannot use a pool after calling end on the pool
+2023-03-20T11:15:01.579Z: Error executing query: Cannot use a pool after calling end on the pool
+2023-03-20T11:15:28.932Z: Error connecting to {localhost}
+2023-03-20T11:15:44.849Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:16:28.932Z: Error connecting to {localhost}
+2023-03-20T11:16:37.047Z: Error connecting to {localhost}
+2023-03-20T11:16:43.395Z: Error executing query: connect ECONNREFUSED ::1:5432
+2023-03-20T11:17:37.048Z: Error connecting to {localhost}
+2023-03-20T11:17:54.683Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:18:37.049Z: Error connecting to {localhost}
+2023-03-20T11:19:37.071Z: Successfully connected to {localhost}
+2023-03-20T11:20:12.806Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:20:26.234Z: Successfully connected to {localhost}
+2023-03-20T11:20:36.820Z: Error executing query: relation "afun_afun.player_data" does not exist
+2023-03-20T11:21:13.863Z: Successfully connected to {localhost}
+2023-03-20T11:21:16.402Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:21:21.611Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:21:27.177Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:22:59.390Z: Error executing query: connect ETIMEDOUT 13.251.121.192:5439
+2023-03-20T11:24:32.656Z: Error executing query: connect ETIMEDOUT 13.251.121.192:5439
+2023-03-20T11:25:22.780Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:25:27.190Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:25:49.925Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:25:52.910Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:27:05.049Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:29:11.197Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:29:18.390Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:31:46.788Z: Listening on port 8041
+2023-03-20T11:31:46.800Z: Successfully connected to {localhost}
+2023-03-20T11:31:49.804Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:31:51.966Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:34:20.595Z: Error executing query: connect ETIMEDOUT 13.251.121.192:5439
+2023-03-20T11:35:29.645Z: Listening on port 8041
+2023-03-20T11:35:29.658Z: Successfully connected to {localhost}
+2023-03-20T11:36:44.652Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:37:46.792Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:38:12.945Z: Error executing query: connect ETIMEDOUT 13.251.121.192:5439
+2023-03-20T11:39:15.598Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-20T11:42:15.875Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-20T11:42:25.956Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-21T09:56:56.844Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-21T09:57:57.465Z: Error executing query: connect ETIMEDOUT 13.251.121.192:5439
+2023-03-21T10:00:15.550Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}

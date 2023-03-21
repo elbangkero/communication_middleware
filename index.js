@@ -1,14 +1,14 @@
 const express = require("express") 
 const app = express(); 
 const dotenv = require('dotenv');
-
+const console_log = require('./src/log_file_path');
 dotenv.config();    
 
 require('./src/api')(app);
 
  
 app.listen(`${process.env.PORT}`, () => {
-  console.log('Listening on port ' + `${process.env.PORT}`);
+  console_log('Listening on port ' + `${process.env.PORT}`);
 });
 
 app.get('/', (request, response) => {

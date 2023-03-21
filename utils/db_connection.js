@@ -65,4 +65,4 @@ local_client();
 
 
 
-module.exports = { joystick_connection, local_connection };
+module.exports = { joystick_connection, local_connection,joystick_client};
