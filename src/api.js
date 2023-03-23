@@ -4,10 +4,12 @@ const multer = require('multer');
 const fs = require('fs');
 const csv = require('csv-parser');
 const { countReset } = require('console');
+var axios = require('axios');
 
-var contacts = [];
+var pre_compile_data = [];
 let counter = { fails: 0, success: 0 };
 
+var interval = 500;
 
 (async () => {
     const client = await local_connection.connect();
@@ -24,9 +26,9 @@ let counter = { fails: 0, success: 0 };
                         .pipe(csv())
                         .on('data', function (data) {
                             try {
-                                contacts.push(data.playertoken);
+                                pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'country': data.country, 'message': data.message, 'platform': data.platform }));
                                 //console_log(data.playertoken + ',' + data.country + ',' + data.message + ',' + data.platform);
-                                constructData(data.playertoken, data.country, data.message, data.platform);
+                                //constructData(data.playertoken, data.country, data.message, data.platform);
                             } catch (err) {
                                 console_log(err);
                                 console_log('error contact number');
@@ -34,6 +36,8 @@ let counter = { fails: 0, success: 0 };
                         })
                         .on('end', () => {
                             //console_log('done');
+                            //console.log(pre_compile_data);
+                            constructData(pre_compile_data);
                         });
                 })
             })
@@ -45,48 +49,83 @@ let counter = { fails: 0, success: 0 };
 
     */
 
-function constructData(player_token, country, message, platform) {
-    joystick_connection.query(`select pdr.email,pdr.phone_number from  afun_afun.player_data pd   
-    left join afun_afun.player_data_revision pdr on pdr.playerid = pd.playerid 
-    and pdr.dw_iscurrent = '1'
-    where pd.playertoken ='${player_token}'`, (err, res) => {
-        const data = res.rows;
-        if (err) {
-            console_log(`Error executing query: ${err.message}`);
-        } else {
-            data.forEach(async row => {
-                if (platform == 'sms')
-                    sendSMS(player_token, country, message, platform, row.phone_number)
-                        .then(function (response) {
-                            //console.log('success');
-                            console.log(`Status : ${player_token} Sent`);
-                            counter.success++;
-                        })
-                        .catch(function (error) {
-                            //console.log('error');
-                            console.log(`Status : ${player_token} Failed`);
-                            counter.fails++;
-                        });
-                else if (platform == 'email')
-                    sendEmail(player_token, country, message, platform, row.email);
-            }); 
-        }
+function constructData(pre_compile_data) {
+
+    let total_instant = 0;
+    let query_instant = 0;
+    pre_compile_data.forEach(function (el, index) {
+        total_instant++
+        setTimeout(async function () {
+
+            var obj = JSON.parse(el);
+            //console.log(obj.player_token, obj.country, obj.message, obj.platform);
+            //counter.success++;
+            joystick_connection.query(`select pdr.email,pdr.phone_number from  afun_afun.player_data pd   
+            left join afun_afun.player_data_revision pdr on pdr.playerid = pd.playerid 
+            and pdr.dw_iscurrent = '1'
+            where pd.playertoken ='${obj.player_token}'`, (err, res) => {
+                const data = res.rows;
+                if (err) {
+                    console_log(`Error executing query: ${err.message}`);
+                } else {
+                    data.forEach(async row => {
+                        if (obj.platform == 'sms') {
+                            await sendSMS(obj.message, row.phone_number)
+                                .then(function (response) {
+                                    //console.log('success');
+                                    console.log(`Status : ${obj.player_token} Sent`);
+                                    counter.success++;
+                                    query_instant++
+                                })
+                                .catch(function (error) {
+                                    //console.log('error');
+                                    console.log(`Status : ${obj.player_token} Failed`);
+                                    counter.fails++;
+                                    query_instant++
+                                })
+                                .finally(function () {
+                                    if (pre_compile_data.length == query_instant) {
+                                        console.log(`Campaign: test, Result: ${counter.success} sent, ${counter.fails} failed`);
+                                        counter.success = 0;
+                                        counter.fails = 0;
+                                    }
+                                });
+                        }
+                        else if (obj.platform == 'email') {
+                            //sendEmail(player_token, country, message, platform, row.email);
+                        }
+
+                    });
+                }
+            });
+        }, index * interval);
+
+
     });
+
+
+
 }
 
 async function sendSMS(player_token, country, message, platform, phone_number) {
-
     return new Promise(async (resolve, reject) => {
-        await console_log(JSON.stringify({ 'player_token': player_token, 'country': country, 'message': message, 'platform': platform, 'phone_number': phone_number }));
 
-        if (country != 'UNK') {
-            resolve(player_token); // Fulfill the promise with the user object
-        } else {
-            reject(player_token); // Reject the promise with an error
-        } 
+        var config = {
+            method: 'get',
+            maxBodyLength: Infinity,
+            url: `https://my.sms-smart.com/rest/send_sms?from=+639611573154&to=INV&message=${message}&username=9J3CtNdM&password=m4K1c25P`
+        };
 
-    }); 
+        await axios(config)
+            .then(function (response) {
+                resolve();
+            })
+            .catch(function (error) {
+                reject();
+            });
+    });
 }
+
 async function sendEmail(player_token, country, message, platform, email) {
     await console_log(JSON.stringify({ 'player_token': player_token, 'country': country, 'message': message, 'platform': platform, 'email': email }));
 }

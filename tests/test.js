@@ -1,15 +1,15 @@
-// Create an array of Promises for the inner loop
-const innerPromises = outerArray.map(outerItem => {
-  return new Promise((resolve, reject) => {
-    innerArray.forEach(innerItem => {
-      // Do something with each inner item
-      
-      resolve();
-    });
-  });
-});
+var axios = require('axios');
 
-// Wait for all inner Promises to resolve
-Promise.all(innerPromises).then(() => {
-  console.log('Both loops are done');
+var config = {
+  method: 'get',
+maxBodyLength: Infinity,
+  url: 'https://my.sms-smart.com/rest/send_sms?from=+639611573154&to=+639611573154&message=testing&username=9J3CtNdM&password=m4K1c25P'
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
 });
