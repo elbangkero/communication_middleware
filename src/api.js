@@ -48,7 +48,11 @@ let credentials = { "username": "", "password": "" };
                                     //console.log(pre_compile_data);
 
                                     constructData(row.config_id, pre_compile_data, row.campaign_name);
-                                    local_connection.query(`update cmw_config set status= 'sending' where config_id=${row.config_id}`);
+                                    local_connection.query(`update cmw_config set status= 'sending' where config_id=${row.config_id}`, (err, res) => {
+                                        if (err) {
+                                            console_log(`Error executing query: ${err.message}`);
+                                        }
+                                    });
                                 });
                         })
                     }
@@ -100,7 +104,9 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                     console_log(`Status : ${obj.player_token} Sent :` + `Campaign:${campaign_name}`);
                                     //counter.success++;
                                     query_instant++
-                                    dynamic_counter.counter.success++
+                                    dynamic_counter.counter.success++;
+                                    //console.log(response.data);
+                                    storeConfigHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message, 'success', JSON.stringify(response.data));
                                 })
                                 .catch(function (error) {
                                     //console.log('error');
@@ -108,6 +114,8 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                     //counter.fails++;
                                     dynamic_counter.counter.fails++
                                     query_instant++
+                                    //console.error(error.response.data);
+                                    storeConfigHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message, 'failed', JSON.stringify(error.response.data));
                                 })
                                 .finally(async function () {
                                     if (pre_compile_data.length == query_instant) {
@@ -116,15 +124,12 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                         dynamic_counter.counter.success = 0;
                                         dynamic_counter.counter.fails = 0;
                                         pre_compile_data.length = 0;
-                                        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`);
 
-                                        /*
-                                        console_log(`Campaign: ${campaign_name}, Result: ${counter.success} sent, ${counter.fails} failed`);
-                                        counter.success = 0;
-                                        counter.fails = 0;
-                                        pre_compile_data.length = 0;
-                                        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`);
-                                        */
+                                        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
+                                            if (err) {
+                                                console_log(`Error executing query: ${err.message}`);
+                                            }
+                                        });
                                     }
                                 });
                         }
@@ -151,8 +156,14 @@ function apiAccount(country_code) {
     }
 }
 
-function storeConfigHistory() {
+async function storeConfigHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response) {
 
+    let date_now = new Date().toISOString();
+    local_connection.query(`INSERT INTO cmw_history (config_id,campaign_name,player_token,player_contact,platform,country,message,status,created_at,updated_at,api_response) VALUES ('${config_id}','${campaign_name}','${player_token}','${player_contact}','${platform}','${country}','${message}','${status}','${date_now}','${date_now}','${api_response}')`, (err, res) => {
+        if (err) {
+            console_log(`Error executing query: ${err}`);
+        }
+    });
 }
 
 
@@ -167,16 +178,17 @@ async function sendSMS(message, phone_number, country_code) {
         var config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: `https://my.sms-smart.com/rest/send_sms?from=+639611573154&to=09611573154&message=${encodedParamValue}&username=${credentials.username}&password=${credentials.password}`
+            url: `https://my.sms-smart.com/rest/send_sms?from=+639611573154&to=09565341623&message=${encodedParamValue}&username=${credentials.username}&password=${credentials.password}`
         };
 
         await axios(config)
             .then(function (response) {
-                resolve();
+                resolve(response);
+                //console.log(response);
             })
             .catch(function (error) {
-                //console.error(error);
-                reject();
+                //console.error(error.response.data);
+                reject(error);
             });
     });
 
