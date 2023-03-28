@@ -1,0 +1,2601 @@
+2023-03-27T07:14:14.559Z: Listening on port 8041
+2023-03-27T07:14:14.575Z: Successfully connected to {localhost}
+2023-03-27T07:15:33.216Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T07:16:33.217Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T07:16:36.012Z: Listening on port 8041
+2023-03-27T07:16:36.024Z: Successfully connected to {localhost}
+2023-03-27T07:16:37.039Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T07:17:11.691Z: Listening on port 8041
+2023-03-27T07:17:11.701Z: Successfully connected to {localhost}
+2023-03-27T07:17:12.794Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T07:17:29.580Z: Status : s2ccclll467230 Sent
+2023-03-27T07:17:29.580Z: Campaign: test, Result: 1 sent, 0 failed
+2023-03-27T07:45:31.530Z: Listening on port 8041
+2023-03-27T07:45:31.539Z: Successfully connected to {localhost}
+2023-03-27T07:45:32.879Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T07:45:53.585Z: Status : s2ccclll467230 Sent
+2023-03-27T07:45:56.931Z: Status : s2ducngu777338 Sent
+2023-03-27T07:45:58.686Z: Status : s2thelee240915 Sent
+2023-03-27T07:46:02.488Z: Status : s2pejjae163073 Sent
+2023-03-27T07:46:05.969Z: Status : s2sumjon810849 Sent
+2023-03-27T07:46:06.725Z: Status : s2huytra590111 Sent
+2023-03-27T07:46:06.790Z: Status : s2dactru331620 Sent
+2023-03-27T07:46:06.790Z: Status : s2pilnoi275697 Sent
+2023-03-27T07:46:07.442Z: Status : s2huungu702756 Sent
+2023-03-27T07:46:08.257Z: Status : s2duyngu550403 Sent
+2023-03-27T07:46:08.848Z: Status : s2patsuc245473 Sent
+2023-03-27T07:46:10.806Z: Status : s2thalee886715 Sent
+2023-03-27T07:46:10.806Z: Status : s2tanrac121847 Sent
+2023-03-27T07:46:12.841Z: Status : s2thilee110100 Sent
+2023-03-27T07:46:13.602Z: Status : s2chivon003337 Sent
+2023-03-27T07:46:19.907Z: Status : s2ngungu191810 Sent
+2023-03-27T07:46:19.908Z: Status : s2vietra663180 Sent
+2023-03-27T07:46:21.664Z: Status : s2rawnua958082 Sent
+2023-03-27T07:46:22.333Z: Status : s2mischo927269 Sent
+2023-03-27T07:46:23.226Z: Status : s2chasos385807 Sent
+2023-03-27T07:46:25.362Z: Status : s2linngo151089 Sent
+2023-03-27T07:46:25.424Z: Status : s2sasnun143217 Sent
+2023-03-27T07:46:25.504Z: Status : s2vanhoa095477 Sent
+2023-03-27T07:46:29.316Z: Status : s2bennop679138 Sent
+2023-03-27T07:46:31.622Z: Listening on port 8041
+2023-03-27T07:46:31.633Z: Successfully connected to {localhost}
+2023-03-27T07:46:32.570Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T07:46:45.325Z: Status : s2thelee240915 Sent
+2023-03-27T07:46:45.326Z: Status : s2ccclll467230 Sent
+2023-03-27T07:46:45.327Z: Status : s2pejjae163073 Sent
+2023-03-27T07:46:45.328Z: Status : s2huytra590111 Sent
+2023-03-27T07:46:45.335Z: Status : s2dactru331620 Sent
+2023-03-27T07:46:45.336Z: Status : s2sumjon810849 Sent
+2023-03-27T07:46:45.942Z: Status : s2ducngu777338 Sent
+2023-03-27T07:46:52.805Z: Status : s2huungu702756 Sent
+2023-03-27T07:46:52.806Z: Status : s2patsuc245473 Sent
+2023-03-27T07:46:52.806Z: Status : s2pilnoi275697 Sent
+2023-03-27T07:46:52.863Z: Status : s2duyngu550403 Sent
+2023-03-27T07:46:53.465Z: Status : s2tanrac121847 Sent
+2023-03-27T07:46:56.900Z: Status : s2thilee110100 Sent
+2023-03-27T07:46:58.946Z: Status : s2vietra663180 Sent
+2023-03-27T07:46:59.665Z: Status : s2thalee886715 Sent
+2023-03-27T07:46:59.728Z: Status : s2chivon003337 Sent
+2023-03-27T07:46:59.728Z: Status : s2mischo927269 Sent
+2023-03-27T07:46:59.729Z: Status : s2ngungu191810 Sent
+2023-03-27T07:46:59.729Z: Status : s2rawnua958082 Sent
+2023-03-27T07:47:01.925Z: Status : s2chasos385807 Sent
+2023-03-27T07:47:01.926Z: Status : s2bennop679138 Sent
+2023-03-27T07:47:01.988Z: Status : s2vanhoa095477 Sent
+2023-03-27T07:47:01.989Z: Status : s2linngo151089 Sent
+2023-03-27T07:47:01.989Z: Status : s2sasnun143217 Sent
+2023-03-27T07:47:06.092Z: Listening on port 8041
+2023-03-27T07:47:06.104Z: Successfully connected to {localhost}
+2023-03-27T07:47:07.323Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T07:47:34.847Z: Listening on port 8041
+2023-03-27T07:47:34.857Z: Successfully connected to {localhost}
+2023-03-27T07:47:36.079Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T07:47:46.509Z: Status : s2thelee240915 Sent
+2023-03-27T07:47:46.575Z: Status : s2ccclll467230 Sent
+2023-03-27T07:47:46.598Z: Status : s2sumjon810849 Sent
+2023-03-27T07:47:46.598Z: Status : s2huytra590111 Sent
+2023-03-27T07:47:46.599Z: Status : s2pejjae163073 Sent
+2023-03-27T07:47:46.639Z: Status : s2dactru331620 Sent
+2023-03-27T07:47:46.639Z: Status : s2ducngu777338 Sent
+2023-03-27T07:48:04.446Z: Status : s2duyngu550403 Sent
+2023-03-27T07:48:04.447Z: Status : s2pilnoi275697 Sent
+2023-03-27T07:48:08.291Z: Status : s2patsuc245473 Sent
+2023-03-27T07:48:08.353Z: Status : s2huungu702756 Sent
+2023-03-27T07:48:08.354Z: Status : s2tanrac121847 Sent
+2023-03-27T07:48:09.314Z: Status : s2chivon003337 Sent
+2023-03-27T07:48:09.376Z: Status : s2thalee886715 Sent
+2023-03-27T07:48:09.377Z: Status : s2thilee110100 Sent
+2023-03-27T07:48:09.377Z: Status : s2ngungu191810 Sent
+2023-03-27T07:48:10.749Z: Status : s2rawnua958082 Sent
+2023-03-27T07:48:10.812Z: Status : s2vietra663180 Sent
+2023-03-27T07:48:10.813Z: Status : s2mischo927269 Sent
+2023-03-27T07:48:10.852Z: Status : s2linngo151089 Sent
+2023-03-27T07:48:10.852Z: Status : s2sasnun143217 Sent
+2023-03-27T07:48:10.853Z: Status : s2vanhoa095477 Sent
+2023-03-27T07:48:10.875Z: Status : s2chasos385807 Sent
+2023-03-27T07:48:10.999Z: Status : s2supnga663491 Sent
+2023-03-27T07:48:10.999Z: Status : s2hoatra821023 Sent
+2023-03-27T07:48:11.162Z: Status : s2atijai146091 Sent
+2023-03-27T07:48:11.225Z: Status : s2baohoo901114 Sent
+2023-03-27T07:48:21.091Z: Status : s2donltt725479 Sent
+2023-03-27T07:48:21.091Z: Status : s2pitsea049818 Sent
+2023-03-27T07:48:21.092Z: Status : s2qaiqai825072 Sent
+2023-03-27T07:48:21.153Z: Status : s2bennop679138 Sent
+2023-03-27T07:48:26.211Z: Status : s2honngu713085 Sent
+2023-03-27T07:48:26.211Z: Status : s2dfgdfg242672 Sent
+2023-03-27T07:48:26.212Z: Status : s2ducvoo817667 Sent
+2023-03-27T07:48:26.212Z: Status : s2punsim030576 Sent
+2023-03-27T07:48:26.213Z: Status : s2faituy081010 Sent
+2023-03-27T07:48:26.274Z: Status : s2porsri533337 Sent
+2023-03-27T07:48:26.274Z: Status : s2phioph186963 Sent
+2023-03-27T07:48:32.878Z: Status : s2ngongu215877 Sent
+2023-03-27T07:48:32.905Z: Status : s2ytiyur754118 Sent
+2023-03-27T07:48:32.905Z: Status : s2phalai234294 Sent
+2023-03-27T07:48:32.905Z: Status : s2thacuu273965 Sent
+2023-03-27T07:48:32.906Z: Status : s2ngungu453276 Sent
+2023-03-27T07:48:36.473Z: Listening on port 8041
+2023-03-27T07:48:36.482Z: Successfully connected to {localhost}
+2023-03-27T07:48:37.784Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T07:48:47.663Z: Status : s2thelee240915 Sent
+2023-03-27T07:48:47.725Z: Status : s2ccclll467230 Sent
+2023-03-27T07:48:47.725Z: Status : s2ducngu777338 Sent
+2023-03-27T07:48:49.456Z: Status : s2sumjon810849 Sent
+2023-03-27T07:48:49.457Z: Status : s2dactru331620 Sent
+2023-03-27T07:48:49.457Z: Status : s2huytra590111 Sent
+2023-03-27T07:48:49.458Z: Status : s2pejjae163073 Sent
+2023-03-27T07:48:49.518Z: Status : s2pilnoi275697 Sent
+2023-03-27T07:48:53.448Z: Status : s2patsuc245473 Sent
+2023-03-27T07:48:53.449Z: Status : s2thalee886715 Sent
+2023-03-27T07:48:53.450Z: Status : s2chivon003337 Sent
+2023-03-27T07:48:53.512Z: Status : s2tanrac121847 Sent
+2023-03-27T07:48:53.512Z: Status : s2huungu702756 Sent
+2023-03-27T07:48:53.513Z: Status : s2thilee110100 Sent
+2023-03-27T07:48:53.513Z: Status : s2duyngu550403 Sent
+2023-03-27T07:48:56.010Z: Status : s2vietra663180 Sent
+2023-03-27T07:48:56.011Z: Status : s2ngungu191810 Sent
+2023-03-27T07:48:56.011Z: Status : s2chasos385807 Sent
+2023-03-27T07:48:56.012Z: Status : s2mischo927269 Sent
+2023-03-27T07:48:56.073Z: Status : s2rawnua958082 Sent
+2023-03-27T07:48:56.199Z: Status : s2supnga663491 Sent
+2023-03-27T07:48:56.200Z: Status : s2hoatra821023 Sent
+2023-03-27T07:48:57.952Z: Status : s2sasnun143217 Sent
+2023-03-27T07:48:58.016Z: Status : s2bennop679138 Sent
+2023-03-27T07:48:58.016Z: Status : s2linngo151089 Sent
+2023-03-27T07:48:58.017Z: Status : s2vanhoa095477 Sent
+2023-03-27T07:48:58.017Z: Status : s2qaiqai825072 Sent
+2023-03-27T07:48:58.170Z: Status : s2atijai146091 Sent
+2023-03-27T07:48:58.170Z: Status : s2baohoo901114 Sent
+2023-03-27T07:49:00.083Z: Status : s2pitsea049818 Sent
+2023-03-27T07:49:00.084Z: Status : s2donltt725479 Sent
+2023-03-27T07:49:00.084Z: Status : s2ducvoo817667 Sent
+2023-03-27T07:49:00.084Z: Status : s2faituy081010 Sent
+2023-03-27T07:49:00.085Z: Status : s2dfgdfg242672 Sent
+2023-03-27T07:49:00.085Z: Status : s2honngu713085 Sent
+2023-03-27T07:49:00.210Z: Status : s2ngongu215877 Sent
+2023-03-27T07:49:00.357Z: Status : s2thacuu273965 Sent
+2023-03-27T07:49:00.420Z: Status : s2phalai234294 Sent
+2023-03-27T07:49:00.420Z: Status : s2ngungu453276 Sent
+2023-03-27T07:49:00.523Z: Status : s2ytiyur754118 Sent
+2023-03-27T07:49:01.699Z: Status : s2phioph186963 Sent
+2023-03-27T07:49:01.699Z: Status : s2porsri533337 Sent
+2023-03-27T07:49:01.721Z: Status : s2punsim030576 Sent
+2023-03-27T07:49:01.785Z: Status : s2trhrjr459306 Sent
+2023-03-27T07:49:01.786Z: Status : s2tuaphu206898 Sent
+2023-03-27T07:49:01.786Z: Status : s2honvyy996658 Sent
+2023-03-27T07:49:01.967Z: Status : s2manvuu531010 Sent
+2023-03-27T07:49:03.587Z: Status : s2thajan575518 Sent
+2023-03-27T07:49:03.588Z: Status : s2cuotra457513 Sent
+2023-03-27T07:49:03.589Z: Status : s2kimvoo194238 Sent
+2023-03-27T07:49:03.590Z: Status : s2ertert481432 Sent
+2023-03-27T07:49:03.590Z: Status : s2vanhoa101604 Sent
+2023-03-27T07:49:07.353Z: Status : s2natpig853723 Sent
+2023-03-27T07:49:07.376Z: Status : s2quanon252732 Sent
+2023-03-27T07:49:07.377Z: Status : s2phiphi164108 Sent
+2023-03-27T07:49:07.377Z: Status : s2thatra099107 Sent
+2023-03-27T07:49:07.437Z: Status : s2sayjai853550 Sent
+2023-03-27T07:49:07.438Z: Status : s2duybui435369 Sent
+2023-03-27T07:49:07.438Z: Status : s2tratra812565 Sent
+2023-03-27T07:49:08.688Z: Status : s2penkin773167 Sent
+2023-03-27T07:49:09.322Z: Status : s2thavuu572674 Sent
+2023-03-27T07:49:09.323Z: Status : s2ngungu813049 Sent
+2023-03-27T07:49:09.323Z: Status : s2khokho026199 Sent
+2023-03-27T07:49:09.384Z: Status : s2thosrl118434 Sent
+2023-03-27T07:49:09.447Z: Status : s2baahoo228675 Sent
+2023-03-27T07:49:10.242Z: Status : s2giango283062 Sent
+2023-03-27T07:49:10.306Z: Status : s2tuoduo530700 Sent
+2023-03-27T07:49:10.306Z: Status : s2tanyon922389 Sent
+2023-03-27T10:07:38.243Z: Listening on port 8041
+2023-03-27T10:07:38.256Z: Successfully connected to {localhost}
+2023-03-27T10:07:39.805Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:07:51.160Z: Status : s2ccclll467230 Sent
+2023-03-27T10:07:52.286Z: Status : s2thelee240915 Sent
+2023-03-27T10:07:52.610Z: Status : s2ducngu777338 Sent
+2023-03-27T10:07:52.868Z: Status : s2huytra590111 Sent
+2023-03-27T10:07:52.868Z: Status : s2dactru331620 Sent
+2023-03-27T10:07:52.869Z: Status : s2pejjae163073 Sent
+2023-03-27T10:07:52.870Z: Status : s2sumjon810849 Sent
+2023-03-27T10:07:56.936Z: Status : s2duyngu550403 Sent
+2023-03-27T10:07:57.025Z: Status : s2huungu702756 Sent
+2023-03-27T10:07:57.025Z: Status : s2pilnoi275697 Sent
+2023-03-27T10:07:57.220Z: Status : s2patsuc245473 Sent
+2023-03-27T10:07:57.220Z: Status : s2tanrac121847 Sent
+2023-03-27T10:07:59.057Z: Status : s2thalee886715 Sent
+2023-03-27T10:08:00.909Z: Status : s2thilee110100 Sent
+2023-03-27T10:08:01.707Z: Status : s2chivon003337 Sent
+2023-03-27T10:08:03.471Z: Status : s2rawnua958082 Sent
+2023-03-27T10:08:03.472Z: Status : s2ngungu191810 Sent
+2023-03-27T10:08:03.975Z: Status : s2vietra663180 Sent
+2023-03-27T10:08:04.247Z: Status : s2mischo927269 Sent
+2023-03-27T10:08:05.512Z: Status : s2chasos385807 Sent
+2023-03-27T10:08:07.456Z: Status : s2linngo151089 Sent
+2023-03-27T10:08:07.456Z: Status : s2sasnun143217 Sent
+2023-03-27T10:08:08.143Z: Status : s2vanhoa095477 Sent
+2023-03-27T10:08:08.480Z: Status : s2bennop679138 Sent
+2023-03-27T10:08:09.085Z: Status : s2qaiqai825072 Sent
+2023-03-27T10:08:10.124Z: Status : s2hoatra821023 Sent
+2023-03-27T10:08:11.230Z: Status : s2supnga663491 Sent
+2023-03-27T10:08:11.844Z: Status : s2baohoo901114 Sent
+2023-03-27T10:08:12.542Z: Status : s2donltt725479 Sent
+2023-03-27T10:08:12.542Z: Status : s2pitsea049818 Sent
+2023-03-27T10:08:14.506Z: Status : s2atijai146091 Sent
+2023-03-27T10:08:15.113Z: Status : s2dfgdfg242672 Sent
+2023-03-27T10:08:15.622Z: Status : s2honngu713085 Sent
+2023-03-27T10:08:15.622Z: Status : s2faituy081010 Sent
+2023-03-27T10:08:16.248Z: Status : s2ducvoo817667 Sent
+2023-03-27T10:08:17.169Z: Status : s2phioph186963 Sent
+2023-03-27T10:08:17.477Z: Status : s2porsri533337 Sent
+2023-03-27T10:08:17.564Z: Status : s2punsim030576 Sent
+2023-03-27T10:08:17.916Z: Status : s2ngongu215877 Sent
+2023-03-27T10:08:18.802Z: Status : s2phalai234294 Sent
+2023-03-27T10:08:19.663Z: Status : s2thacuu273965 Sent
+2023-03-27T10:08:20.248Z: Status : s2ytiyur754118 Sent
+2023-03-27T10:08:20.604Z: Status : s2trhrjr459306 Sent
+2023-03-27T10:08:22.667Z: Status : s2tuaphu206898 Sent
+2023-03-27T10:08:22.668Z: Status : s2ngungu453276 Sent
+2023-03-27T10:08:22.668Z: Status : s2honvyy996658 Sent
+2023-03-27T10:08:22.879Z: Status : s2manvuu531010 Sent
+2023-03-27T10:08:23.262Z: Status : s2thajan575518 Sent
+2023-03-27T10:08:23.556Z: Status : s2kimvoo194238 Sent
+2023-03-27T10:08:24.898Z: Status : s2vanhoa101604 Sent
+2023-03-27T10:08:25.741Z: Status : s2cuotra457513 Sent
+2023-03-27T10:08:26.803Z: Status : s2ertert481432 Sent
+2023-03-27T10:08:26.804Z: Status : s2thatra099107 Sent
+2023-03-27T10:08:26.804Z: Status : s2quanon252732 Sent
+2023-03-27T10:08:26.805Z: Status : s2natpig853723 Sent
+2023-03-27T10:08:27.260Z: Status : s2phiphi164108 Sent
+2023-03-27T10:08:28.458Z: Status : s2sayjai853550 Sent
+2023-03-27T10:08:29.963Z: Status : s2tratra812565 Sent
+2023-03-27T10:08:30.584Z: Status : s2thavuu572674 Sent
+2023-03-27T10:08:30.669Z: Status : s2penkin773167 Sent
+2023-03-27T10:08:30.755Z: Status : s2duybui435369 Sent
+2023-03-27T10:08:31.506Z: Status : s2thosrl118434 Sent
+2023-03-27T10:08:35.273Z: Status : s2khokho026199 Sent
+2023-03-27T10:08:35.648Z: Status : s2ngungu813049 Sent
+2023-03-27T10:08:35.728Z: Status : s2baahoo228675 Sent
+2023-03-27T10:08:36.104Z: Status : s2giango283062 Sent
+2023-03-27T10:08:36.187Z: Status : s2tuoduo530700 Sent
+2023-03-27T10:08:36.187Z: Status : s2tanyon922389 Sent
+2023-03-27T10:11:20.617Z: Listening on port 8041
+2023-03-27T10:11:20.627Z: Successfully connected to {localhost}
+2023-03-27T10:11:22.154Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:11:40.545Z: Status : s2dactru331620 Failed
+2023-03-27T10:11:40.548Z: Status : s2sumjon810849 Failed
+2023-03-27T10:11:40.550Z: Status : s2huytra590111 Failed
+2023-03-27T10:11:40.552Z: Status : s2ccclll467230 Failed
+2023-03-27T10:11:40.620Z: Status : s2ducngu777338 Failed
+2023-03-27T10:11:40.696Z: Status : s2thelee240915 Failed
+2023-03-27T10:11:40.777Z: Status : s2pejjae163073 Failed
+2023-03-27T10:11:42.810Z: Status : s2huungu702756 Failed
+2023-03-27T10:11:42.894Z: Status : s2patsuc245473 Failed
+2023-03-27T10:11:42.974Z: Status : s2pilnoi275697 Failed
+2023-03-27T10:11:43.989Z: Status : s2duyngu550403 Failed
+2023-03-27T10:11:44.301Z: Status : s2tanrac121847 Failed
+2023-03-27T10:11:46.891Z: Status : s2thilee110100 Failed
+2023-03-27T10:11:47.493Z: Status : s2thalee886715 Failed
+2023-03-27T10:11:47.574Z: Status : s2ngungu191810 Failed
+2023-03-27T10:11:47.656Z: Status : s2vietra663180 Failed
+2023-03-27T10:11:48.130Z: Status : s2rawnua958082 Failed
+2023-03-27T10:11:48.798Z: Status : s2chivon003337 Failed
+2023-03-27T10:11:48.879Z: Status : s2mischo927269 Failed
+2023-03-27T10:11:50.700Z: Status : s2sasnun143217 Failed
+2023-03-27T10:11:50.779Z: Status : s2linngo151089 Failed
+2023-03-27T10:11:52.179Z: Status : s2chasos385807 Failed
+2023-03-27T10:11:52.183Z: Status : s2vanhoa095477 Failed
+2023-03-27T10:11:52.184Z: Status : s2bennop679138 Failed
+2023-03-27T10:11:55.931Z: Status : s2hoatra821023 Failed
+2023-03-27T10:11:55.938Z: Status : s2qaiqai825072 Failed
+2023-03-27T10:11:55.940Z: Status : s2supnga663491 Failed
+2023-03-27T10:11:57.099Z: Status : s2baohoo901114 Failed
+2023-03-27T10:11:57.106Z: Status : s2pitsea049818 Failed
+2023-03-27T10:11:57.840Z: Status : s2donltt725479 Failed
+2023-03-27T10:11:59.383Z: Status : s2atijai146091 Failed
+2023-03-27T10:11:59.610Z: Status : s2honngu713085 Failed
+2023-03-27T10:11:59.641Z: Status : s2dfgdfg242672 Failed
+2023-03-27T10:11:59.642Z: Status : s2ducvoo817667 Failed
+2023-03-27T10:11:59.783Z: Status : s2faituy081010 Failed
+2023-03-27T10:12:03.915Z: Status : s2thacuu273965 Failed
+2023-03-27T10:12:04.082Z: Status : s2phioph186963 Failed
+2023-03-27T10:12:04.136Z: Status : s2ngongu215877 Failed
+2023-03-27T10:12:04.137Z: Status : s2phalai234294 Failed
+2023-03-27T10:12:04.161Z: Status : s2punsim030576 Failed
+2023-03-27T10:12:04.465Z: Status : s2ngungu453276 Failed
+2023-03-27T10:12:05.333Z: Status : s2porsri533337 Failed
+2023-03-27T10:12:08.116Z: Status : s2ytiyur754118 Failed
+2023-03-27T10:12:08.899Z: Status : s2trhrjr459306 Failed
+2023-03-27T10:12:08.946Z: Status : s2manvuu531010 Failed
+2023-03-27T10:12:09.009Z: Status : s2tuaphu206898 Failed
+2023-03-27T10:12:09.658Z: Status : s2honvyy996658 Failed
+2023-03-27T10:12:11.017Z: Status : s2thajan575518 Failed
+2023-03-27T10:12:12.220Z: Status : s2ertert481432 Failed
+2023-03-27T10:12:12.785Z: Status : s2vanhoa101604 Failed
+2023-03-27T10:12:12.853Z: Status : s2cuotra457513 Failed
+2023-03-27T10:12:12.854Z: Status : s2phiphi164108 Failed
+2023-03-27T10:12:14.090Z: Status : s2kimvoo194238 Failed
+2023-03-27T10:12:14.118Z: Status : s2natpig853723 Failed
+2023-03-27T10:12:14.185Z: Status : s2quanon252732 Failed
+2023-03-27T10:12:16.957Z: Status : s2thatra099107 Failed
+2023-03-27T10:12:16.991Z: Status : s2tratra812565 Failed
+2023-03-27T10:12:17.054Z: Status : s2duybui435369 Failed
+2023-03-27T10:12:17.056Z: Status : s2sayjai853550 Failed
+2023-03-27T10:12:17.152Z: Status : s2penkin773167 Failed
+2023-03-27T10:12:19.840Z: Status : s2baahoo228675 Failed
+2023-03-27T10:12:20.077Z: Status : s2thosrl118434 Failed
+2023-03-27T10:12:23.272Z: Status : s2ngungu813049 Failed
+2023-03-27T10:12:23.371Z: Status : s2thavuu572674 Failed
+2023-03-27T10:12:24.103Z: Status : s2giango283062 Failed
+2023-03-27T10:12:24.195Z: Status : s2tanyon922389 Failed
+2023-03-27T10:12:24.508Z: Status : s2khokho026199 Failed
+2023-03-27T10:12:25.401Z: Status : s2tuoduo530700 Failed
+2023-03-27T10:14:20.595Z: Listening on port 8041
+2023-03-27T10:14:20.613Z: Successfully connected to {localhost}
+2023-03-27T10:14:22.175Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:14:41.290Z: Status : s2huytra590111 Failed
+2023-03-27T10:14:41.291Z: Status : s2ccclll467230 Failed
+2023-03-27T10:14:41.291Z: Status : s2dactru331620 Failed
+2023-03-27T10:14:41.368Z: Status : s2pejjae163073 Failed
+2023-03-27T10:14:41.378Z: Status : s2ducngu777338 Failed
+2023-03-27T10:14:41.460Z: Status : s2thelee240915 Failed
+2023-03-27T10:14:41.555Z: Status : s2sumjon810849 Failed
+2023-03-27T10:14:41.650Z: Status : s2huungu702756 Failed
+2023-03-27T10:14:41.688Z: Status : s2pilnoi275697 Failed
+2023-03-27T10:14:41.744Z: Status : s2patsuc245473 Failed
+2023-03-27T10:14:42.625Z: Status : s2ngungu191810 Failed
+2023-03-27T10:14:42.893Z: Status : s2thilee110100 Failed
+2023-03-27T10:14:42.942Z: Status : s2tanrac121847 Failed
+2023-03-27T10:14:43.029Z: Status : s2chivon003337 Failed
+2023-03-27T10:14:43.033Z: Status : s2duyngu550403 Failed
+2023-03-27T10:14:43.165Z: Status : s2vietra663180 Failed
+2023-03-27T10:14:43.166Z: Status : s2rawnua958082 Failed
+2023-03-27T10:14:43.257Z: Status : s2thalee886715 Failed
+2023-03-27T10:14:45.256Z: Status : s2chasos385807 Failed
+2023-03-27T10:14:45.311Z: Status : s2linngo151089 Failed
+2023-03-27T10:14:45.400Z: Status : s2sasnun143217 Failed
+2023-03-27T10:14:45.489Z: Status : s2vanhoa095477 Failed
+2023-03-27T10:14:45.622Z: Status : s2mischo927269 Failed
+2023-03-27T10:14:49.666Z: Status : s2baohoo901114 Failed
+2023-03-27T10:14:49.668Z: Status : s2hoatra821023 Failed
+2023-03-27T10:14:49.684Z: Status : s2supnga663491 Failed
+2023-03-27T10:14:49.685Z: Status : s2bennop679138 Failed
+2023-03-27T10:14:49.754Z: Status : s2donltt725479 Failed
+2023-03-27T10:14:51.027Z: Status : s2qaiqai825072 Failed
+2023-03-27T10:14:51.116Z: Status : s2pitsea049818 Failed
+2023-03-27T10:14:52.224Z: Status : s2ducvoo817667 Failed
+2023-03-27T10:14:52.278Z: Status : s2dfgdfg242672 Failed
+2023-03-27T10:14:52.367Z: Status : s2honngu713085 Failed
+2023-03-27T10:14:52.861Z: Status : s2atijai146091 Failed
+2023-03-27T10:14:52.953Z: Status : s2faituy081010 Failed
+2023-03-27T10:14:53.940Z: Status : s2phioph186963 Failed
+2023-03-27T10:14:54.075Z: Status : s2ngongu215877 Failed
+2023-03-27T10:14:54.124Z: Status : s2punsim030576 Failed
+2023-03-27T10:14:54.216Z: Status : s2porsri533337 Failed
+2023-03-27T10:14:54.761Z: Status : s2thacuu273965 Failed
+2023-03-27T10:14:54.979Z: Status : s2phalai234294 Failed
+2023-03-27T10:14:55.038Z: Status : s2ngungu453276 Failed
+2023-03-27T10:14:56.396Z: Status : s2trhrjr459306 Failed
+2023-03-27T10:14:56.484Z: Status : s2honvyy996658 Failed
+2023-03-27T10:14:57.213Z: Status : s2ytiyur754118 Failed
+2023-03-27T10:14:57.305Z: Status : s2manvuu531010 Failed
+2023-03-27T10:14:57.398Z: Status : s2tuaphu206898 Failed
+2023-03-27T10:14:58.519Z: Status : s2vanhoa101604 Failed
+2023-03-27T10:14:58.606Z: Status : s2ertert481432 Failed
+2023-03-27T10:14:59.194Z: Status : s2kimvoo194238 Failed
+2023-03-27T10:14:59.281Z: Status : s2thajan575518 Failed
+2023-03-27T10:14:59.982Z: Status : s2phiphi164108 Failed
+2023-03-27T10:15:00.244Z: Status : s2cuotra457513 Failed
+2023-03-27T10:15:00.331Z: Status : s2natpig853723 Failed
+2023-03-27T10:15:00.716Z: Status : s2quanon252732 Failed
+2023-03-27T10:15:00.943Z: Status : s2thatra099107 Failed
+2023-03-27T10:15:04.122Z: Status : s2penkin773167 Failed
+2023-03-27T10:15:04.217Z: Status : s2sayjai853550 Failed
+2023-03-27T10:15:04.309Z: Status : s2thavuu572674 Failed
+2023-03-27T10:15:05.544Z: Status : s2khokho026199 Failed
+2023-03-27T10:15:05.545Z: Status : s2duybui435369 Failed
+2023-03-27T10:15:05.545Z: Status : s2thosrl118434 Failed
+2023-03-27T10:15:05.606Z: Status : s2tratra812565 Failed
+2023-03-27T10:15:07.214Z: Status : s2tuoduo530700 Failed
+2023-03-27T10:15:07.287Z: Status : s2ngungu813049 Failed
+2023-03-27T10:15:07.287Z: Status : s2giango283062 Failed
+2023-03-27T10:15:07.309Z: Status : s2tanyon922389 Failed
+2023-03-27T10:15:07.379Z: Status : s2baahoo228675 Failed
+2023-03-27T10:15:14.354Z: Listening on port 8041
+2023-03-27T10:15:14.362Z: Successfully connected to {localhost}
+2023-03-27T10:15:16.052Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:15:30.524Z: Status : s2thelee240915 Failed
+2023-03-27T10:15:30.792Z: Status : s2dactru331620 Failed
+2023-03-27T10:15:30.831Z: Status : s2ccclll467230 Failed
+2023-03-27T10:15:30.885Z: Status : s2ducngu777338 Failed
+2023-03-27T10:15:31.064Z: Status : s2sumjon810849 Failed
+2023-03-27T10:15:31.154Z: Status : s2pejjae163073 Failed
+2023-03-27T10:15:31.198Z: Status : s2huungu702756 Failed
+2023-03-27T10:15:31.244Z: Status : s2pilnoi275697 Failed
+2023-03-27T10:15:31.336Z: Status : s2patsuc245473 Failed
+2023-03-27T10:15:31.638Z: Status : s2huytra590111 Failed
+2023-03-27T10:15:38.816Z: Status : s2tanrac121847 Failed
+2023-03-27T10:15:38.863Z: Status : s2thilee110100 Failed
+2023-03-27T10:15:38.864Z: Status : s2duyngu550403 Failed
+2023-03-27T10:15:38.955Z: Status : s2chivon003337 Failed
+2023-03-27T10:15:39.084Z: Status : s2ngungu191810 Failed
+2023-03-27T10:15:39.134Z: Status : s2thalee886715 Failed
+2023-03-27T10:15:39.177Z: Status : s2linngo151089 Failed
+2023-03-27T10:15:39.225Z: Status : s2sasnun143217 Failed
+2023-03-27T10:15:39.314Z: Status : s2chasos385807 Failed
+2023-03-27T10:15:39.449Z: Status : s2vanhoa095477 Failed
+2023-03-27T10:15:39.538Z: Status : s2vietra663180 Failed
+2023-03-27T10:15:41.384Z: Status : s2rawnua958082 Failed
+2023-03-27T10:15:41.475Z: Status : s2bennop679138 Failed
+2023-03-27T10:15:41.659Z: Status : s2supnga663491 Failed
+2023-03-27T10:15:42.199Z: Status : s2hoatra821023 Failed
+2023-03-27T10:15:42.651Z: Status : s2mischo927269 Failed
+2023-03-27T10:15:42.741Z: Status : s2qaiqai825072 Failed
+2023-03-27T10:15:44.972Z: Status : s2pitsea049818 Failed
+2023-03-27T10:15:44.972Z: Status : s2baohoo901114 Failed
+2023-03-27T10:15:45.066Z: Status : s2donltt725479 Failed
+2023-03-27T10:15:45.067Z: Status : s2atijai146091 Failed
+2023-03-27T10:15:45.689Z: Status : s2ducvoo817667 Failed
+2023-03-27T10:15:58.080Z: Status : s2faituy081010 Failed
+2023-03-27T10:15:58.081Z: Status : s2dfgdfg242672 Failed
+2023-03-27T10:15:58.170Z: Status : s2phioph186963 Failed
+2023-03-27T10:15:58.170Z: Status : s2ngongu215877 Failed
+2023-03-27T10:15:58.746Z: Status : s2honngu713085 Failed
+2023-03-27T10:15:58.875Z: Status : s2punsim030576 Failed
+2023-03-27T10:15:58.875Z: Status : s2porsri533337 Failed
+2023-03-27T10:15:59.730Z: Status : s2ngungu453276 Failed
+2023-03-27T10:16:00.090Z: Status : s2ytiyur754118 Failed
+2023-03-27T10:16:03.611Z: Status : s2phalai234294 Failed
+2023-03-27T10:16:03.662Z: Status : s2thacuu273965 Failed
+2023-03-27T10:16:03.756Z: Status : s2trhrjr459306 Failed
+2023-03-27T10:16:04.811Z: Status : s2manvuu531010 Failed
+2023-03-27T10:16:04.872Z: Status : s2honvyy996658 Failed
+2023-03-27T10:16:04.963Z: Status : s2tuaphu206898 Failed
+2023-03-27T10:16:08.644Z: Status : s2kimvoo194238 Failed
+2023-03-27T10:16:08.645Z: Status : s2vanhoa101604 Failed
+2023-03-27T10:16:08.645Z: Status : s2thajan575518 Failed
+2023-03-27T10:16:08.704Z: Status : s2ertert481432 Failed
+2023-03-27T10:16:08.759Z: Status : s2cuotra457513 Failed
+2023-03-27T10:16:09.671Z: Status : s2phiphi164108 Failed
+2023-03-27T10:16:12.406Z: Status : s2natpig853723 Failed
+2023-03-27T10:16:14.326Z: Status : s2quanon252732 Failed
+2023-03-27T10:16:15.116Z: Status : s2penkin773167 Failed
+2023-03-27T10:16:15.338Z: Status : s2duybui435369 Failed
+2023-03-27T10:16:15.407Z: Status : s2tratra812565 Failed
+2023-03-27T10:16:15.601Z: Status : s2sayjai853550 Failed
+2023-03-27T10:16:15.621Z: Status : s2thosrl118434 Failed
+2023-03-27T10:16:15.698Z: Status : s2khokho026199 Failed
+2023-03-27T10:16:15.795Z: Status : s2thavuu572674 Failed
+2023-03-27T10:16:16.206Z: Status : s2thatra099107 Failed
+2023-03-27T10:16:18.276Z: Status : s2ngungu813049 Failed
+2023-03-27T10:16:21.292Z: Status : s2baahoo228675 Failed
+2023-03-27T10:16:21.391Z: Status : s2giango283062 Failed
+2023-03-27T10:16:22.490Z: Status : s2tuoduo530700 Failed
+2023-03-27T10:16:22.589Z: Status : s2tanyon922389 Failed
+2023-03-27T10:16:54.115Z: Listening on port 8041
+2023-03-27T10:16:54.126Z: Successfully connected to {localhost}
+2023-03-27T10:16:56.075Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:17:08.406Z: Status : s2ccclll467230 Failed
+2023-03-27T10:17:08.823Z: Status : s2dactru331620 Failed
+2023-03-27T10:17:08.830Z: Status : s2ducngu777338 Failed
+2023-03-27T10:17:08.831Z: Status : s2thelee240915 Failed
+2023-03-27T10:17:08.832Z: Status : s2huungu702756 Failed
+2023-03-27T10:17:08.922Z: Status : s2pilnoi275697 Failed
+2023-03-27T10:17:09.219Z: Status : s2pejjae163073 Failed
+2023-03-27T10:17:09.291Z: Status : s2patsuc245473 Failed
+2023-03-27T10:17:09.519Z: Status : s2huytra590111 Failed
+2023-03-27T10:17:09.711Z: Status : s2sumjon810849 Failed
+2023-03-27T10:17:10.024Z: Status : s2thilee110100 Failed
+2023-03-27T10:17:10.025Z: Status : s2ngungu191810 Failed
+2023-03-27T10:17:10.026Z: Status : s2duyngu550403 Failed
+2023-03-27T10:17:10.112Z: Status : s2tanrac121847 Failed
+2023-03-27T10:17:10.221Z: Status : s2chivon003337 Failed
+2023-03-27T10:17:10.420Z: Status : s2chasos385807 Failed
+2023-03-27T10:17:10.530Z: Status : s2linngo151089 Failed
+2023-03-27T10:17:10.618Z: Status : s2sasnun143217 Failed
+2023-03-27T10:17:10.731Z: Status : s2thalee886715 Failed
+2023-03-27T10:17:10.816Z: Status : s2vanhoa095477 Failed
+2023-03-27T10:17:11.013Z: Status : s2bennop679138 Failed
+2023-03-27T10:17:11.423Z: Status : s2rawnua958082 Failed
+2023-03-27T10:17:12.545Z: Status : s2vietra663180 Failed
+2023-03-27T10:17:12.724Z: Status : s2mischo927269 Failed
+2023-03-27T10:17:12.915Z: Status : s2hoatra821023 Failed
+2023-03-27T10:17:13.419Z: Status : s2supnga663491 Failed
+2023-03-27T10:17:14.185Z: Status : s2qaiqai825072 Failed
+2023-03-27T10:17:14.277Z: Status : s2baohoo901114 Failed
+2023-03-27T10:17:14.561Z: Status : s2pitsea049818 Failed
+2023-03-27T10:17:14.776Z: Status : s2atijai146091 Failed
+2023-03-27T10:17:18.052Z: Status : s2ducvoo817667 Failed
+2023-03-27T10:17:21.901Z: Status : s2donltt725479 Failed
+2023-03-27T10:17:22.943Z: Status : s2porsri533337 Failed
+2023-03-27T10:17:23.019Z: Status : s2dfgdfg242672 Failed
+2023-03-27T10:17:23.020Z: Status : s2phioph186963 Failed
+2023-03-27T10:17:23.041Z: Status : s2faituy081010 Failed
+2023-03-27T10:17:23.117Z: Status : s2honngu713085 Failed
+2023-03-27T10:17:23.216Z: Status : s2punsim030576 Failed
+2023-03-27T10:17:24.569Z: Status : s2ytiyur754118 Failed
+2023-03-27T10:17:24.593Z: Status : s2ngungu453276 Failed
+2023-03-27T10:17:24.668Z: Status : s2thacuu273965 Failed
+2023-03-27T10:17:24.669Z: Status : s2phalai234294 Failed
+2023-03-27T10:17:25.057Z: Status : s2ngongu215877 Failed
+2023-03-27T10:17:27.986Z: Status : s2trhrjr459306 Failed
+2023-03-27T10:17:28.077Z: Status : s2thajan575518 Failed
+2023-03-27T10:17:28.080Z: Status : s2honvyy996658 Failed
+2023-03-27T10:17:28.171Z: Status : s2tuaphu206898 Failed
+2023-03-27T10:17:29.778Z: Status : s2kimvoo194238 Failed
+2023-03-27T10:17:29.895Z: Status : s2vanhoa101604 Failed
+2023-03-27T10:17:29.969Z: Status : s2manvuu531010 Failed
+2023-03-27T10:17:30.187Z: Status : s2ertert481432 Failed
+2023-03-27T10:17:31.326Z: Status : s2cuotra457513 Failed
+2023-03-27T10:17:32.336Z: Status : s2phiphi164108 Failed
+2023-03-27T10:17:32.465Z: Status : s2sayjai853550 Failed
+2023-03-27T10:17:33.393Z: Status : s2natpig853723 Failed
+2023-03-27T10:17:33.449Z: Status : s2quanon252732 Failed
+2023-03-27T10:17:33.543Z: Status : s2thatra099107 Failed
+2023-03-27T10:17:33.633Z: Status : s2thavuu572674 Failed
+2023-03-27T10:17:34.318Z: Status : s2tratra812565 Failed
+2023-03-27T10:17:34.681Z: Status : s2khokho026199 Failed
+2023-03-27T10:17:34.772Z: Status : s2thosrl118434 Failed
+2023-03-27T10:17:35.042Z: Status : s2penkin773167 Failed
+2023-03-27T10:17:35.130Z: Status : s2duybui435369 Failed
+2023-03-27T10:17:35.687Z: Status : s2ngungu813049 Failed
+2023-03-27T10:17:37.184Z: Status : s2tanyon922389 Failed
+2023-03-27T10:17:37.280Z: Status : s2baahoo228675 Failed
+2023-03-27T10:17:37.361Z: Status : s2giango283062 Failed
+2023-03-27T10:17:37.996Z: Status : s2tuoduo530700 Failed
+2023-03-27T10:19:31.978Z: Listening on port 8041
+2023-03-27T10:19:31.988Z: Successfully connected to {localhost}
+2023-03-27T10:19:33.680Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:19:46.848Z: Status : s2baahoo228675 Failed
+2023-03-27T10:19:48.254Z: Status : s2tanyon922389 Failed
+2023-03-27T10:20:25.425Z: Listening on port 8041
+2023-03-27T10:20:25.435Z: Successfully connected to {localhost}
+2023-03-27T10:20:27.017Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:20:43.065Z: Status : s2tanyon922389 Sent
+2023-03-27T10:20:43.149Z: Status : s2baahoo228675 Sent
+2023-03-27T10:20:43.150Z: Status : s2giango283062 Sent
+2023-03-27T10:20:43.150Z: Campaign: test, Result: 3 sent, 0 failed
+2023-03-27T10:21:46.823Z: Listening on port 8041
+2023-03-27T10:21:46.832Z: Successfully connected to {localhost}
+2023-03-27T10:21:48.582Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:21:58.782Z: Listening on port 8041
+2023-03-27T10:21:58.792Z: Successfully connected to {localhost}
+2023-03-27T10:22:00.059Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:22:13.755Z: Status : s2baahoo228675 Failed
+2023-03-27T10:22:13.864Z: Status : s2tanyon922389 Failed
+2023-03-27T10:22:15.351Z: Status : s2giango283062 Failed
+2023-03-27T10:22:15.352Z: Campaign: test, Result: 0 sent, 3 failed
+2023-03-27T10:22:28.405Z: Listening on port 8041
+2023-03-27T10:22:28.414Z: Successfully connected to {localhost}
+2023-03-27T10:22:30.023Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:22:44.116Z: Status : s2tanyon922389 Failed
+2023-03-27T10:22:45.529Z: Status : s2baahoo228675 Sent
+2023-03-27T10:22:45.624Z: Status : s2giango283062 Sent
+2023-03-27T10:22:45.624Z: Campaign: test, Result: 2 sent, 1 failed
+2023-03-27T10:24:44.746Z: Listening on port 8041
+2023-03-27T10:24:44.756Z: Successfully connected to {localhost}
+2023-03-27T10:24:47.035Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:25:53.152Z: Status : s2tanyon922389 Failed
+2023-03-27T10:25:53.288Z: Status : s2baahoo228675 Sent
+2023-03-27T10:25:53.387Z: Status : s2sayjai853550 Sent
+2023-03-27T10:26:21.298Z: Listening on port 8041
+2023-03-27T10:26:21.308Z: Successfully connected to {localhost}
+2023-03-27T10:26:22.996Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:26:42.288Z: Status : s2tanyon922389 Failed
+2023-03-27T10:26:42.362Z: Status : s2baahoo228675 Sent
+2023-03-27T10:26:42.445Z: Status : s2giango283062 Sent
+2023-03-27T10:26:42.524Z: Status : s2sayjai853550 Sent
+2023-03-27T10:26:51.469Z: Listening on port 8041
+2023-03-27T10:26:51.481Z: Successfully connected to {localhost}
+2023-03-27T10:26:52.783Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:27:20.921Z: Status : s2tanyon922389 Failed
+2023-03-27T10:27:20.922Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:27:20.984Z: Status : s2giango283062 Sent
+2023-03-27T10:27:20.985Z: Status : s2ngopha764275 Sent
+2023-03-27T10:27:21.007Z: Status : s2baahoo228675 Sent
+2023-03-27T10:27:21.283Z: Status : s2sayjai853550 Sent
+2023-03-27T10:27:21.283Z: Campaign: test, Result: 4 sent, 2 failed
+2023-03-27T10:43:05.336Z: Listening on port 8041
+2023-03-27T10:43:05.345Z: Successfully connected to {localhost}
+2023-03-27T10:43:07.430Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:43:29.691Z: Status : s2tanyon922389 Failed
+2023-03-27T10:43:29.692Z: Status : s2baahoo228675 Failed
+2023-03-27T10:43:29.692Z: Status : s2giango283062 Failed
+2023-03-27T10:43:29.708Z: Status : s2sayjai853550 Failed
+2023-03-27T10:43:29.841Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:43:29.952Z: Status : s2ngopha764275 Failed
+2023-03-27T10:43:29.952Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T10:44:50.351Z: Status : s2giango283062 Failed
+2023-03-27T10:44:50.379Z: Status : s2sayjai853550 Failed
+2023-03-27T10:44:50.496Z: Status : s2baahoo228675 Failed
+2023-03-27T10:44:50.561Z: Status : s2tanyon922389 Failed
+2023-03-27T10:44:50.562Z: Status : s2tanyon922389 Failed
+2023-03-27T10:44:50.563Z: Status : s2ngopha764275 Failed
+2023-03-27T10:44:50.569Z: Status : s2sayjai853550 Failed
+2023-03-27T10:44:50.570Z: Status : s2ngopha764275 Failed
+2023-03-27T10:44:50.571Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:44:50.571Z: Status : s2giango283062 Failed
+2023-03-27T10:44:50.608Z: Status : s2baahoo228675 Failed
+2023-03-27T10:44:50.721Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:44:50.721Z: Campaign: test, Result: 0 sent, 12 failed
+2023-03-27T10:45:03.655Z: Status : s2baahoo228675 Failed
+2023-03-27T10:45:03.763Z: Status : s2giango283062 Failed
+2023-03-27T10:45:03.865Z: Status : s2tanyon922389 Failed
+2023-03-27T10:45:03.871Z: Status : s2ngopha764275 Failed
+2023-03-27T10:45:03.972Z: Status : s2tanyon922389 Failed
+2023-03-27T10:45:03.976Z: Status : s2sayjai853550 Failed
+2023-03-27T10:45:03.977Z: Status : s2ngopha764275 Failed
+2023-03-27T10:45:04.082Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:45:04.088Z: Status : s2tanyon922389 Failed
+2023-03-27T10:45:04.185Z: Status : s2giango283062 Failed
+2023-03-27T10:45:04.185Z: Status : s2baahoo228675 Failed
+2023-03-27T10:45:04.191Z: Status : s2sayjai853550 Failed
+2023-03-27T10:45:04.192Z: Status : s2giango283062 Failed
+2023-03-27T10:45:04.287Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:45:04.288Z: Status : s2baahoo228675 Failed
+2023-03-27T10:45:04.289Z: Status : s2ngopha764275 Failed
+2023-03-27T10:45:04.299Z: Status : s2sayjai853550 Failed
+2023-03-27T10:45:04.404Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:45:04.404Z: Campaign: test, Result: 0 sent, 18 failed
+2023-03-27T10:45:11.627Z: Listening on port 8041
+2023-03-27T10:45:11.636Z: Successfully connected to {localhost}
+2023-03-27T10:45:13.679Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:45:23.173Z: Listening on port 8041
+2023-03-27T10:45:23.183Z: Successfully connected to {localhost}
+2023-03-27T10:45:24.988Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:46:15.623Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T10:46:24.848Z: Status : s2tanyon922389 Failed
+2023-03-27T10:46:24.849Z: Status : s2tanyon922389 Failed
+2023-03-27T10:46:24.849Z: Status : s2ngopha764275 Failed
+2023-03-27T10:46:24.850Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:46:24.850Z: Status : s2baahoo228675 Failed
+2023-03-27T10:46:24.851Z: Status : s2ngopha764275 Failed
+2023-03-27T10:46:24.851Z: Status : s2giango283062 Failed
+2023-03-27T10:46:24.852Z: Status : s2baahoo228675 Failed
+2023-03-27T10:46:24.892Z: Status : s2baahoo228675 Failed
+2023-03-27T10:46:24.956Z: Status : s2tanyon922389 Failed
+2023-03-27T10:46:24.956Z: Status : s2giango283062 Failed
+2023-03-27T10:46:24.990Z: Status : s2baahoo228675 Failed
+2023-03-27T10:46:25.228Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:46:25.267Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:46:25.269Z: Status : s2tanyon922389 Failed
+2023-03-27T10:46:25.270Z: Status : s2giango283062 Failed
+2023-03-27T10:46:25.338Z: Status : s2ngopha764275 Failed
+2023-03-27T10:46:25.339Z: Status : s2giango283062 Failed
+2023-03-27T10:46:25.377Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:46:25.430Z: Status : s2ngopha764275 Failed
+2023-03-27T10:46:25.431Z: Status : s2sayjai853550 Failed
+2023-03-27T10:46:25.447Z: Status : s2sayjai853550 Failed
+2023-03-27T10:46:25.671Z: Status : s2sayjai853550 Failed
+2023-03-27T10:46:25.671Z: Campaign: test, Result: 0 sent, 23 failed
+2023-03-27T10:46:43.115Z: Listening on port 8041
+2023-03-27T10:46:43.122Z: Successfully connected to {localhost}
+2023-03-27T10:46:44.886Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:47:03.765Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T10:47:12.675Z: Status : s2baahoo228675 Failed
+2023-03-27T10:47:12.988Z: Status : s2giango283062 Failed
+2023-03-27T10:47:13.009Z: Status : s2ngopha764275 Failed
+2023-03-27T10:47:13.119Z: Status : s2tanyon922389 Failed
+2023-03-27T10:47:13.232Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:47:13.343Z: Status : s2sayjai853550 Failed
+2023-03-27T10:47:13.343Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T10:49:24.163Z: Listening on port 8041
+2023-03-27T10:49:24.173Z: Successfully connected to {localhost}
+2023-03-27T10:49:26.969Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:49:40.179Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T10:49:49.177Z: Status : s2baahoo228675 Failed
+2023-03-27T10:49:49.282Z: Status : s2tanyon922389 Failed
+2023-03-27T10:49:49.378Z: Status : s2ngopha764275 Failed
+2023-03-27T10:49:49.392Z: Status : s2giango283062 Failed
+2023-03-27T10:49:49.499Z: Status : s2sayjai853550 Failed
+2023-03-27T10:49:49.609Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:49:49.609Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T10:50:18.355Z: Listening on port 8041
+2023-03-27T10:50:18.364Z: Successfully connected to {localhost}
+2023-03-27T10:50:20.188Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:50:27.076Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T10:50:36.511Z: Status : s2tanyon922389 Failed
+2023-03-27T10:50:36.605Z: Status : s2baahoo228675 Failed
+2023-03-27T10:50:36.613Z: Status : s2giango283062 Failed
+2023-03-27T10:50:36.712Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:50:36.720Z: Status : s2ngopha764275 Failed
+2023-03-27T10:50:37.028Z: Status : s2sayjai853550 Failed
+2023-03-27T10:50:37.028Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T10:50:55.746Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T10:51:04.356Z: Status : s2ngopha764275 Failed
+2023-03-27T10:51:04.427Z: Status : s2giango283062 Failed
+2023-03-27T10:51:04.524Z: Status : s2baahoo228675 Failed
+2023-03-27T10:51:04.525Z: Status : s2tanyon922389 Failed
+2023-03-27T10:51:04.526Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:51:04.527Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:51:04.527Z: Status : s2tanyon922389 Failed
+2023-03-27T10:51:04.528Z: Status : s2giango283062 Failed
+2023-03-27T10:51:04.529Z: Status : s2ngopha764275 Failed
+2023-03-27T10:51:04.536Z: Status : s2sayjai853550 Failed
+2023-03-27T10:51:04.643Z: Status : s2baahoo228675 Failed
+2023-03-27T10:51:04.850Z: Status : s2sayjai853550 Failed
+2023-03-27T10:51:04.850Z: Campaign: test, Result: 0 sent, 12 failed
+2023-03-27T10:52:12.699Z: Listening on port 8041
+2023-03-27T10:52:12.711Z: Successfully connected to {localhost}
+2023-03-27T10:52:14.570Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:52:27.932Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T10:52:37.659Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:52:37.660Z: Status : s2ngopha764275 Failed
+2023-03-27T10:52:37.661Z: Status : s2baahoo228675 Failed
+2023-03-27T10:52:37.685Z: Status : s2sayjai853550 Failed
+2023-03-27T10:52:37.795Z: Status : s2tanyon922389 Failed
+2023-03-27T10:52:37.932Z: Status : s2giango283062 Failed
+2023-03-27T10:52:37.932Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T10:52:48.054Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T10:52:56.735Z: Status : s2tanyon922389 Failed
+2023-03-27T10:52:56.781Z: Status : s2baahoo228675 Failed
+2023-03-27T10:52:56.895Z: Status : s2ngopha764275 Failed
+2023-03-27T10:52:57.004Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:52:57.117Z: Status : s2giango283062 Failed
+2023-03-27T10:52:57.229Z: Status : s2sayjai853550 Failed
+2023-03-27T10:52:57.229Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T10:53:04.736Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T10:53:05.539Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T10:53:13.074Z: Status : s2tanyon922389 Failed
+2023-03-27T10:53:13.075Z: Status : s2baahoo228675 Failed
+2023-03-27T10:53:13.101Z: Status : s2giango283062 Failed
+2023-03-27T10:53:13.102Z: Status : s2baahoo228675 Failed
+2023-03-27T10:53:13.120Z: Status : s2tanyon922389 Failed
+2023-03-27T10:53:13.187Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:53:13.187Z: Status : s2giango283062 Failed
+2023-03-27T10:53:13.188Z: Status : s2tanyon922389 Failed
+2023-03-27T10:53:13.189Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:53:13.190Z: Status : s2ngopha764275 Failed
+2023-03-27T10:53:13.190Z: Status : s2baahoo228675 Failed
+2023-03-27T10:53:13.190Z: Status : s2baahoo228675 Failed
+2023-03-27T10:53:13.218Z: Status : s2ngopha764275 Failed
+2023-03-27T10:53:13.463Z: Status : s2tanyon922389 Failed
+2023-03-27T10:53:13.502Z: Status : s2giango283062 Failed
+2023-03-27T10:53:13.503Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:53:13.532Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:53:13.533Z: Status : s2ngopha764275 Failed
+2023-03-27T10:53:13.565Z: Status : s2sayjai853550 Failed
+2023-03-27T10:53:13.566Z: Status : s2ngopha764275 Failed
+2023-03-27T10:53:13.648Z: Status : s2sayjai853550 Failed
+2023-03-27T10:53:13.680Z: Status : s2giango283062 Failed
+2023-03-27T10:53:13.890Z: Status : s2sayjai853550 Failed
+2023-03-27T10:53:13.890Z: Campaign: test, Result: 0 sent, 23 failed
+2023-03-27T10:53:35.629Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T10:53:44.359Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:53:44.361Z: Status : s2tanyon922389 Failed
+2023-03-27T10:53:44.361Z: Status : s2giango283062 Failed
+2023-03-27T10:53:44.386Z: Status : s2baahoo228675 Failed
+2023-03-27T10:53:44.502Z: Status : s2ngopha764275 Failed
+2023-03-27T10:53:44.617Z: Status : s2sayjai853550 Failed
+2023-03-27T10:53:44.617Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T10:54:24.353Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:24.371Z: Status : s2giango283062 Failed
+2023-03-27T10:54:24.400Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:24.465Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:24.466Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:24.467Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:24.480Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:24.572Z: Status : s2giango283062 Failed
+2023-03-27T10:54:24.572Z: Status : s2giango283062 Failed
+2023-03-27T10:54:24.574Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:24.589Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:24.590Z: Status : s2giango283062 Failed
+2023-03-27T10:54:24.604Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:24.661Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:24.664Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:24.665Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:24.665Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:24.667Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:24.667Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:24.680Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:24.778Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:24.808Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:24.886Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:24.888Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:24.889Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:24.889Z: Status : s2giango283062 Failed
+2023-03-27T10:54:24.889Z: Status : s2giango283062 Failed
+2023-03-27T10:54:24.921Z: Status : s2giango283062 Failed
+2023-03-27T10:54:24.941Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:24.943Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:24.945Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:24.945Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:24.989Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:24.990Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:24.991Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:24.991Z: Status : s2giango283062 Failed
+2023-03-27T10:54:24.992Z: Status : s2giango283062 Failed
+2023-03-27T10:54:24.992Z: Status : s2giango283062 Failed
+2023-03-27T10:54:25.023Z: Status : s2giango283062 Failed
+2023-03-27T10:54:25.089Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:25.089Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:25.091Z: Status : s2sayjai853550 Failed
+2023-03-27T10:54:25.091Z: Status : s2sayjai853550 Failed
+2023-03-27T10:54:25.104Z: Status : s2sayjai853550 Failed
+2023-03-27T10:54:25.104Z: Status : s2sayjai853550 Failed
+2023-03-27T10:54:25.123Z: Status : s2sayjai853550 Failed
+2023-03-27T10:54:25.123Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:25.147Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:25.148Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:25.199Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:25.201Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:25.201Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:25.202Z: Status : s2sayjai853550 Failed
+2023-03-27T10:54:25.203Z: Status : s2sayjai853550 Failed
+2023-03-27T10:54:25.225Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:25.237Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:25.240Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:25.240Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:25.253Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:25.260Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:25.316Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:25.316Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:25.317Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:25.317Z: Status : s2sayjai853550 Failed
+2023-03-27T10:54:25.318Z: Status : s2sayjai853550 Failed
+2023-03-27T10:54:25.365Z: Status : s2sayjai853550 Failed
+2023-03-27T10:54:25.367Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:25.367Z: Status : s2giango283062 Failed
+2023-03-27T10:54:25.368Z: Status : s2giango283062 Failed
+2023-03-27T10:54:25.369Z: Status : s2giango283062 Failed
+2023-03-27T10:54:25.369Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:25.375Z: Status : s2giango283062 Failed
+2023-03-27T10:54:25.462Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:25.487Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:25.517Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:25.518Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:25.518Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:25.594Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:25.595Z: Status : s2ngopha764275 Failed
+2023-03-27T10:54:25.631Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:25.668Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:25.668Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:25.669Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:25.669Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:25.685Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:25.686Z: Status : s2baahoo228675 Failed
+2023-03-27T10:54:25.691Z: Status : s2giango283062 Failed
+2023-03-27T10:54:25.691Z: Status : s2tanyon922389 Failed
+2023-03-27T10:54:25.691Z: Campaign: test, Result: 0 sent, 88 failed
+2023-03-27T10:54:25.911Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:54:25.920Z: Status : s2ngopha764275 Failed
+2023-03-27T10:55:08.242Z: Status : s2baahoo228675 Failed
+2023-03-27T10:55:08.329Z: Status : s2tanyon922389 Failed
+2023-03-27T10:55:08.331Z: Status : s2ngopha764275 Failed
+2023-03-27T10:55:08.331Z: Status : s2giango283062 Failed
+2023-03-27T10:55:08.356Z: Status : s2sayjai853550 Failed
+2023-03-27T10:55:08.545Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:55:08.545Z: Campaign: test, Result: 0 sent, 8 failed
+2023-03-27T10:56:34.734Z: Listening on port 8041
+2023-03-27T10:56:34.744Z: Successfully connected to {localhost}
+2023-03-27T10:56:36.822Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T10:57:05.826Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:05.827Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:05.935Z: Status : s2giango283062 Failed
+2023-03-27T10:57:06.072Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.075Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.184Z: Status : s2giango283062 Failed
+2023-03-27T10:57:06.190Z: Status : s2giango283062 Failed
+2023-03-27T10:57:06.223Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.224Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.232Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.246Z: Status : s2giango283062 Failed
+2023-03-27T10:57:06.261Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:06.349Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:06.354Z: Status : s2sayjai853550 Failed
+2023-03-27T10:57:06.355Z: Status : s2sayjai853550 Failed
+2023-03-27T10:57:06.369Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:06.369Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.385Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:06.394Z: Status : s2sayjai853550 Failed
+2023-03-27T10:57:06.406Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:06.407Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:06.481Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:06.558Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:06.576Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.576Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.577Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.578Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.579Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.579Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.584Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.669Z: Status : s2giango283062 Failed
+2023-03-27T10:57:06.673Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:06.673Z: Status : s2giango283062 Failed
+2023-03-27T10:57:06.684Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:06.685Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:06.689Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.689Z: Status : s2giango283062 Failed
+2023-03-27T10:57:06.690Z: Status : s2giango283062 Failed
+2023-03-27T10:57:06.780Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:06.780Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:06.811Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:06.840Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:06.841Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:06.841Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:06.842Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.842Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.842Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.845Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.845Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.895Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.896Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.897Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.906Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.907Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.908Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.908Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.911Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:06.911Z: Status : s2baahoo228675 Failed
+2023-03-27T10:57:06.987Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:07.000Z: Status : s2tanyon922389 Failed
+2023-03-27T10:57:07.001Z: Status : s2giango283062 Failed
+2023-03-27T10:57:07.002Z: Status : s2giango283062 Failed
+2023-03-27T10:57:07.003Z: Status : s2giango283062 Failed
+2023-03-27T10:57:07.009Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:07.009Z: Status : s2giango283062 Failed
+2023-03-27T10:57:07.075Z: Status : s2giango283062 Failed
+2023-03-27T10:57:07.076Z: Status : s2giango283062 Failed
+2023-03-27T10:57:07.079Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:07.079Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:07.080Z: Status : s2giango283062 Failed
+2023-03-27T10:57:07.081Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:07.081Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:07.101Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:07.102Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:07.112Z: Status : s2giango283062 Failed
+2023-03-27T10:57:07.113Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:07.113Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:07.114Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:07.190Z: Status : s2sayjai853550 Failed
+2023-03-27T10:57:07.191Z: Status : s2sayjai853550 Failed
+2023-03-27T10:57:07.203Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:07.204Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:07.204Z: Status : s2tarhgd300188 Failed
+2023-03-27T10:57:07.271Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:07.271Z: Status : s2ngopha764275 Failed
+2023-03-27T10:57:07.307Z: Status : s2sayjai853550 Failed
+2023-03-27T10:57:07.307Z: Status : s2sayjai853550 Failed
+2023-03-27T10:57:07.418Z: Status : s2sayjai853550 Failed
+2023-03-27T10:57:07.424Z: Status : s2sayjai853550 Failed
+2023-03-27T10:57:07.424Z: Status : s2sayjai853550 Failed
+2023-03-27T10:57:07.424Z: Campaign: test, Result: 0 sent, 90 failed
+2023-03-27T11:03:07.560Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:03:17.081Z: Status : s2tanyon922389 Failed
+2023-03-27T11:03:17.091Z: Status : s2baahoo228675 Failed
+2023-03-27T11:03:17.091Z: Status : s2giango283062 Failed
+2023-03-27T11:03:17.189Z: Status : s2sayjai853550 Failed
+2023-03-27T11:03:17.199Z: Status : s2ngopha764275 Failed
+2023-03-27T11:03:17.416Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:03:17.417Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T11:03:30.947Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:03:39.509Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:03:39.522Z: Status : s2giango283062 Failed
+2023-03-27T11:03:39.522Z: Status : s2baahoo228675 Failed
+2023-03-27T11:03:39.622Z: Status : s2tanyon922389 Failed
+2023-03-27T11:03:39.635Z: Status : s2sayjai853550 Failed
+2023-03-27T11:03:39.836Z: Status : s2ngopha764275 Failed
+2023-03-27T11:03:39.836Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T11:07:05.095Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:07:16.936Z: Status : s2ngopha764275 Failed
+2023-03-27T11:07:17.049Z: Status : s2tanyon922389 Failed
+2023-03-27T11:07:17.161Z: Status : s2sayjai853550 Failed
+2023-03-27T11:07:17.590Z: Status : s2baahoo228675 Failed
+2023-03-27T11:07:17.701Z: Status : s2giango283062 Failed
+2023-03-27T11:07:19.020Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:07:19.020Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T11:07:25.623Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:07:36.026Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:07:36.051Z: Status : s2baahoo228675 Failed
+2023-03-27T11:07:36.052Z: Status : s2sayjai853550 Failed
+2023-03-27T11:07:36.141Z: Status : s2tanyon922389 Failed
+2023-03-27T11:07:36.163Z: Status : s2ngopha764275 Failed
+2023-03-27T11:07:36.277Z: Status : s2giango283062 Failed
+2023-03-27T11:07:36.277Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T11:07:40.957Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:07:43.252Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:07:48.020Z: Status : s2tanyon922389 Failed
+2023-03-27T11:07:48.058Z: Status : s2baahoo228675 Failed
+2023-03-27T11:07:48.487Z: Status : s2giango283062 Failed
+2023-03-27T11:07:48.488Z: Status : s2ngopha764275 Failed
+2023-03-27T11:07:48.488Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:07:48.489Z: Status : s2sayjai853550 Failed
+2023-03-27T11:07:48.831Z: Status : s2ngopha764275 Failed
+2023-03-27T11:07:48.935Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:07:50.052Z: Status : s2tanyon922389 Failed
+2023-03-27T11:07:50.057Z: Status : s2baahoo228675 Failed
+2023-03-27T11:07:50.162Z: Status : s2giango283062 Failed
+2023-03-27T11:07:50.764Z: Status : s2sayjai853550 Failed
+2023-03-27T11:07:52.272Z: Status : s2giango283062 Failed
+2023-03-27T11:07:52.358Z: Status : s2tanyon922389 Failed
+2023-03-27T11:07:52.384Z: Status : s2baahoo228675 Failed
+2023-03-27T11:07:53.629Z: Status : s2ngopha764275 Failed
+2023-03-27T11:07:53.727Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:07:53.738Z: Status : s2sayjai853550 Failed
+2023-03-27T11:07:53.738Z: Campaign: test, Result: 0 sent, 18 failed
+2023-03-27T11:11:15.303Z: Listening on port 8041
+2023-03-27T11:11:15.313Z: Successfully connected to {localhost}
+2023-03-27T11:11:17.517Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T11:11:27.257Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:11:31.237Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:11:51.110Z: Status : s2baahoo228675 Failed
+2023-03-27T11:11:51.123Z: Status : s2ngopha764275 Failed
+2023-03-27T11:11:51.233Z: Status : s2baahoo228675 Failed
+2023-03-27T11:11:51.347Z: Status : s2giango283062 Failed
+2023-03-27T11:11:53.903Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:11:53.953Z: Status : s2ngopha764275 Failed
+2023-03-27T11:11:53.954Z: Status : s2tanyon922389 Failed
+2023-03-27T11:11:54.152Z: Status : s2giango283062 Failed
+2023-03-27T11:11:54.920Z: Status : s2tanyon922389 Failed
+2023-03-27T11:11:59.113Z: Status : s2baahoo228675 Failed
+2023-03-27T11:11:59.142Z: Status : s2tanyon922389 Failed
+2023-03-27T11:11:59.143Z: Status : s2baahoo228675 Failed
+2023-03-27T11:12:00.251Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:12:00.273Z: Status : s2giango283062 Failed
+2023-03-27T11:12:00.274Z: Status : s2ngopha764275 Failed
+2023-03-27T11:12:01.280Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:12:01.301Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:12:01.500Z: Status : s2tanyon922389 Failed
+2023-03-27T11:12:01.532Z: Status : s2ngopha764275 Failed
+2023-03-27T11:12:01.533Z: Status : s2giango283062 Failed
+2023-03-27T11:12:01.648Z: Status : s2sayjai853550 Failed
+2023-03-27T11:12:01.764Z: Status : s2sayjai853550 Failed
+2023-03-27T11:12:01.928Z: Status : s2sayjai853550 Failed
+2023-03-27T11:12:01.929Z: Campaign: test, Result: 0 sent, 23 failed
+2023-03-27T11:12:40.525Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:12:51.766Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:12:51.766Z: Status : s2sayjai853550 Failed
+2023-03-27T11:12:51.767Z: Status : s2baahoo228675 Failed
+2023-03-27T11:12:51.798Z: Status : s2ngopha764275 Failed
+2023-03-27T11:12:51.881Z: Status : s2tanyon922389 Failed
+2023-03-27T11:12:51.915Z: Status : s2giango283062 Failed
+2023-03-27T11:12:51.915Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T11:13:03.208Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:13:14.449Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:13:14.449Z: Status : s2sayjai853550 Failed
+2023-03-27T11:13:14.450Z: Status : s2ngopha764275 Failed
+2023-03-27T11:13:14.470Z: Status : s2giango283062 Failed
+2023-03-27T11:13:14.556Z: Status : s2tanyon922389 Failed
+2023-03-27T11:13:14.584Z: Status : s2baahoo228675 Failed
+2023-03-27T11:13:14.584Z: Campaign: test, Result: 0 sent, 6 failed
+2023-03-27T11:13:28.041Z: Listening on port 8041
+2023-03-27T11:13:28.055Z: Successfully connected to {localhost}
+2023-03-27T11:13:29.869Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T11:13:38.593Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:13:39.520Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:13:51.318Z: Status : s2giango283062 Failed
+2023-03-27T11:13:51.319Z: Status : s2giango283062 Failed
+2023-03-27T11:13:51.364Z: Status : s2ngopha764275 Failed
+2023-03-27T11:13:51.427Z: Status : s2ngopha764275 Failed
+2023-03-27T11:13:51.478Z: Status : s2tanyon922389 Failed
+2023-03-27T11:13:51.538Z: Status : s2baahoo228675 Failed
+2023-03-27T11:13:51.791Z: Status : s2giango283062 Failed
+2023-03-27T11:13:51.871Z: Status : s2ngopha764275 Failed
+2023-03-27T11:13:52.101Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:13:52.215Z: Status : s2tanyon922389 Failed
+2023-03-27T11:13:52.328Z: Status : s2baahoo228675 Failed
+2023-03-27T11:13:52.499Z: Status : s2tanyon922389 Failed
+2023-03-27T11:13:52.527Z: Status : s2baahoo228675 Failed
+2023-03-27T11:13:52.528Z: Status : s2baahoo228675 Failed
+2023-03-27T11:13:52.561Z: Status : s2tanyon922389 Failed
+2023-03-27T11:13:52.561Z: Status : s2giango283062 Failed
+2023-03-27T11:13:52.677Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:13:53.870Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:13:53.894Z: Status : s2sayjai853550 Failed
+2023-03-27T11:13:53.895Z: Status : s2sayjai853550 Failed
+2023-03-27T11:13:53.982Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:13:54.007Z: Status : s2ngopha764275 Failed
+2023-03-27T11:13:54.344Z: Status : s2sayjai853550 Failed
+2023-03-27T11:13:54.344Z: Campaign: test, Result: 0 sent, 23 failed
+2023-03-27T11:14:30.512Z: Listening on port 8041
+2023-03-27T11:14:30.522Z: Successfully connected to {localhost}
+2023-03-27T11:14:32.612Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T11:14:34.854Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:14:35.471Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:14:57.323Z: Status : s2baahoo228675 Failed
+2023-03-27T11:14:57.547Z: Status : s2ngopha764275 Failed
+2023-03-27T11:14:57.887Z: Status : s2ngopha764275 Failed
+2023-03-27T11:14:58.452Z: Status : s2baahoo228675 Failed
+2023-03-27T11:14:58.559Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:14:58.850Z: Status : s2giango283062 Failed
+2023-03-27T11:14:58.851Z: Status : s2baahoo228675 Failed
+2023-03-27T11:14:58.872Z: Status : s2giango283062 Failed
+2023-03-27T11:14:58.872Z: Status : s2tanyon922389 Failed
+2023-03-27T11:14:58.960Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:14:59.234Z: Status : s2tanyon922389 Failed
+2023-03-27T11:14:59.940Z: Status : s2tanyon922389 Failed
+2023-03-27T11:14:59.958Z: Status : s2giango283062 Failed
+2023-03-27T11:14:59.959Z: Status : s2tanyon922389 Failed
+2023-03-27T11:14:59.959Z: Status : s2ngopha764275 Failed
+2023-03-27T11:14:59.960Z: Status : s2giango283062 Failed
+2023-03-27T11:15:00.014Z: Status : s2baahoo228675 Failed
+2023-03-27T11:15:00.015Z: Status : s2ngopha764275 Failed
+2023-03-27T11:15:00.126Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:15:11.445Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:15:11.447Z: Status : s2sayjai853550 Failed
+2023-03-27T11:15:11.555Z: Status : s2sayjai853550 Failed
+2023-03-27T11:15:11.556Z: Status : s2sayjai853550 Failed
+2023-03-27T11:15:11.556Z: Campaign: test, Result: 0 sent, 23 failed
+2023-03-27T11:15:46.016Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:15:46.966Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:15:58.207Z: Status : s2baahoo228675 Failed
+2023-03-27T11:15:58.320Z: Status : s2giango283062 Failed
+2023-03-27T11:15:58.412Z: Status : s2ngopha764275 Failed
+2023-03-27T11:15:58.435Z: Status : s2ngopha764275 Failed
+2023-03-27T11:15:58.523Z: Status : s2tanyon922389 Failed
+2023-03-27T11:15:58.550Z: Status : s2baahoo228675 Failed
+2023-03-27T11:16:01.122Z: Status : s2tanyon922389 Failed
+2023-03-27T11:16:01.179Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:16:01.179Z: Status : s2giango283062 Failed
+2023-03-27T11:16:01.198Z: Status : s2tanyon922389 Failed
+2023-03-27T11:16:01.199Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:16:01.311Z: Status : s2baahoo228675 Failed
+2023-03-27T11:16:02.061Z: Status : s2tanyon922389 Failed
+2023-03-27T11:16:02.520Z: Status : s2giango283062 Failed
+2023-03-27T11:16:02.632Z: Status : s2baahoo228675 Failed
+2023-03-27T11:16:04.184Z: Status : s2sayjai853550 Failed
+2023-03-27T11:16:04.898Z: Status : s2sayjai853550 Failed
+2023-03-27T11:16:04.944Z: Status : s2giango283062 Failed
+2023-03-27T11:16:04.944Z: Status : s2ngopha764275 Failed
+2023-03-27T11:16:04.969Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:16:04.969Z: Campaign: test, Result: 0 sent, 20 failed
+2023-03-27T11:16:04.970Z: Status : s2ngopha764275 Failed
+2023-03-27T11:16:05.053Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:16:05.088Z: Status : s2sayjai853550 Failed
+2023-03-27T11:16:05.282Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:16:13.972Z: Status : s2baahoo228675 Failed
+2023-03-27T11:16:14.322Z: Status : s2sayjai853550 Failed
+2023-03-27T11:16:14.545Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:16:14.860Z: Status : s2tanyon922389 Failed
+2023-03-27T11:16:14.890Z: Status : s2ngopha764275 Failed
+2023-03-27T11:16:14.890Z: Status : s2giango283062 Failed
+2023-03-27T11:16:14.890Z: Campaign: test, Result: 0 sent, 9 failed
+2023-03-27T11:17:51.900Z: Listening on port 8041
+2023-03-27T11:17:51.913Z: Successfully connected to {localhost}
+2023-03-27T11:17:54.194Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T11:18:03.480Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:18:14.574Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:18:15.630Z: Status : s2sayjai853550 Failed
+2023-03-27T11:18:16.340Z: Status : s2baahoo228675 Failed
+2023-03-27T11:18:16.899Z: Status : s2tanyon922389 Failed
+2023-03-27T11:18:16.954Z: Status : s2ngopha764275 Failed
+2023-03-27T11:18:16.954Z: Status : s2giango283062 Failed
+2023-03-27T11:18:16.955Z: Campaign: Testing Campaign, Result: 0 sent, 6 failed
+2023-03-27T11:18:17.612Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:18:18.472Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:18:27.779Z: Status : s2tanyon922389 Failed
+2023-03-27T11:18:27.780Z: Status : s2baahoo228675 Failed
+2023-03-27T11:18:27.781Z: Status : s2baahoo228675 Failed
+2023-03-27T11:18:27.890Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:18:28.330Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:18:29.064Z: Status : s2tanyon922389 Failed
+2023-03-27T11:18:29.064Z: Status : s2tanyon922389 Failed
+2023-03-27T11:18:29.065Z: Status : s2tanyon922389 Failed
+2023-03-27T11:18:29.065Z: Status : s2giango283062 Failed
+2023-03-27T11:18:29.066Z: Status : s2ngopha764275 Failed
+2023-03-27T11:18:29.466Z: Status : s2baahoo228675 Failed
+2023-03-27T11:18:29.601Z: Status : s2baahoo228675 Failed
+2023-03-27T11:18:29.732Z: Status : s2giango283062 Failed
+2023-03-27T11:18:30.809Z: Status : s2giango283062 Failed
+2023-03-27T11:18:30.853Z: Status : s2giango283062 Failed
+2023-03-27T11:18:30.938Z: Status : s2ngopha764275 Failed
+2023-03-27T11:18:30.939Z: Status : s2ngopha764275 Failed
+2023-03-27T11:18:30.992Z: Status : s2sayjai853550 Failed
+2023-03-27T11:18:31.067Z: Status : s2ngopha764275 Failed
+2023-03-27T11:18:31.125Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:18:31.207Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:18:31.301Z: Status : s2sayjai853550 Failed
+2023-03-27T11:18:31.301Z: Campaign: Testing Campaign, Result: 0 sent, 22 failed
+2023-03-27T11:18:31.340Z: Status : s2sayjai853550 Failed
+2023-03-27T11:19:42.946Z: Listening on port 8041
+2023-03-27T11:19:42.959Z: Successfully connected to {localhost}
+2023-03-27T11:19:45.509Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T11:19:47.191Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:19:51.142Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:20:00.706Z: Status : s2baahoo228675 Failed
+2023-03-27T11:20:00.955Z: Status : s2baahoo228675 Failed
+2023-03-27T11:20:01.096Z: Status : s2baahoo228675 Failed
+2023-03-27T11:20:01.227Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:20:01.357Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:20:02.030Z: Status : s2baahoo228675 Failed
+2023-03-27T11:20:03.332Z: Status : s2ngopha764275 Failed
+2023-03-27T11:20:03.334Z: Status : s2tanyon922389 Failed
+2023-03-27T11:20:03.335Z: Status : s2giango283062 Failed
+2023-03-27T11:20:03.357Z: Status : s2giango283062 Failed
+2023-03-27T11:20:03.358Z: Status : s2giango283062 Failed
+2023-03-27T11:20:03.462Z: Status : s2tanyon922389 Failed
+2023-03-27T11:20:04.732Z: Status : s2tanyon922389 Failed
+2023-03-27T11:20:04.733Z: Status : s2tanyon922389 Failed
+2023-03-27T11:20:04.734Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:20:04.787Z: Status : s2ngopha764275 Failed
+2023-03-27T11:20:04.905Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:20:07.460Z: Status : s2ngopha764275 Failed
+2023-03-27T11:20:07.460Z: Status : s2ngopha764275 Failed
+2023-03-27T11:20:07.461Z: Status : s2sayjai853550 Failed
+2023-03-27T11:20:07.496Z: Status : s2giango283062 Failed
+2023-03-27T11:20:07.575Z: Status : s2sayjai853550 Failed
+2023-03-27T11:20:07.605Z: Status : s2sayjai853550 Failed
+2023-03-27T11:20:07.605Z: Campaign: Testing Campaign 2, Result: 0 sent, 23 failed
+2023-03-27T11:20:45.836Z: Listening on port 8041
+2023-03-27T11:20:45.845Z: Successfully connected to {localhost}
+2023-03-27T11:20:48.351Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T11:20:53.463Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:20:56.463Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:21:11.214Z: Status : s2baahoo228675 Failed
+2023-03-27T11:21:11.324Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:21:11.756Z: Status : s2baahoo228675 Failed
+2023-03-27T11:21:11.805Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:21:11.806Z: Status : s2baahoo228675 Failed
+2023-03-27T11:21:11.916Z: Status : s2tanyon922389 Failed
+2023-03-27T11:21:12.010Z: Status : s2baahoo228675 Failed
+2023-03-27T11:21:12.039Z: Status : s2giango283062 Failed
+2023-03-27T11:21:12.903Z: Status : s2ngopha764275 Failed
+2023-03-27T11:21:13.317Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:21:13.348Z: Status : s2tanyon922389 Failed
+2023-03-27T11:21:13.381Z: Status : s2giango283062 Failed
+2023-03-27T11:21:13.382Z: Status : s2tanyon922389 Failed
+2023-03-27T11:21:13.440Z: Status : s2giango283062 Failed
+2023-03-27T11:21:13.498Z: Status : s2tanyon922389 Failed
+2023-03-27T11:21:13.564Z: Status : s2ngopha764275 Failed
+2023-03-27T11:21:14.012Z: Status : s2ngopha764275 Failed
+2023-03-27T11:21:14.013Z: Status : s2giango283062 Failed
+2023-03-27T11:21:14.142Z: Status : s2ngopha764275 Failed
+2023-03-27T11:21:14.878Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:21:15.938Z: Status : s2sayjai853550 Failed
+2023-03-27T11:21:16.000Z: Status : s2sayjai853550 Failed
+2023-03-27T11:21:16.000Z: Campaign: Testing Campaign 1, Result: 0 sent, 22 failed
+2023-03-27T11:21:16.001Z: Status : s2sayjai853550 Failed
+2023-03-27T11:22:14.911Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:22:15.648Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:22:16.533Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:22:17.283Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:22:32.269Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:32.282Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:32.706Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:32.709Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:33.153Z: Status : s2giango283062 Failed
+2023-03-27T11:22:33.154Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:33.154Z: Status : s2giango283062 Failed
+2023-03-27T11:22:33.155Z: Status : s2giango283062 Failed
+2023-03-27T11:22:33.155Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:33.236Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:34.246Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:34.276Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:34.368Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:34.369Z: Status : s2giango283062 Failed
+2023-03-27T11:22:34.370Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:34.409Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:34.466Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:34.530Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:34.651Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:34.683Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:34.778Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:34.852Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:34.903Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:35.542Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:35.542Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:35.542Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:35.543Z: Status : s2giango283062 Failed
+2023-03-27T11:22:35.589Z: Status : s2giango283062 Failed
+2023-03-27T11:22:35.674Z: Status : s2giango283062 Failed
+2023-03-27T11:22:35.675Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:35.748Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:35.870Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:35.871Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:35.913Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:36.001Z: Status : s2giango283062 Failed
+2023-03-27T11:22:36.001Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:36.211Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:36.211Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:36.335Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:36.335Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:36.902Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:36.902Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:36.903Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:36.960Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:36.960Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:37.292Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:37.293Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:37.294Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:37.328Z: Status : s2giango283062 Failed
+2023-03-27T11:22:37.508Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:37.571Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:37.723Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:37.796Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:37.934Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:38.029Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:38.146Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:38.228Z: Status : s2baahoo228675 Failed
+2023-03-27T11:22:38.265Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:38.265Z: Status : s2giango283062 Failed
+2023-03-27T11:22:38.360Z: Status : s2giango283062 Failed
+2023-03-27T11:22:38.390Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:38.391Z: Status : s2giango283062 Failed
+2023-03-27T11:22:38.471Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:38.520Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:38.777Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:38.959Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:39.415Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:39.683Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:39.687Z: Status : s2ngopha764275 Failed
+2023-03-27T11:22:39.688Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:39.689Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:39.690Z: Status : s2tanyon922389 Failed
+2023-03-27T11:22:39.698Z: Status : s2giango283062 Failed
+2023-03-27T11:22:39.841Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:39.888Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:39.889Z: Status : s2giango283062 Failed
+2023-03-27T11:22:39.891Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:39.892Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:22:39.922Z: Status : s2giango283062 Failed
+2023-03-27T11:22:40.038Z: Status : s2giango283062 Failed
+2023-03-27T11:22:41.225Z: Status : s2sayjai853550 Failed
+2023-03-27T11:22:41.226Z: Status : s2sayjai853550 Failed
+2023-03-27T11:22:41.793Z: Status : s2sayjai853550 Failed
+2023-03-27T11:22:41.793Z: Status : s2sayjai853550 Failed
+2023-03-27T11:22:41.794Z: Status : s2sayjai853550 Failed
+2023-03-27T11:22:41.795Z: Status : s2sayjai853550 Failed
+2023-03-27T11:22:41.795Z: Status : s2sayjai853550 Failed
+2023-03-27T11:22:41.795Z: Status : s2sayjai853550 Failed
+2023-03-27T11:22:41.910Z: Status : s2sayjai853550 Failed
+2023-03-27T11:22:43.663Z: Status : s2sayjai853550 Failed
+2023-03-27T11:22:43.663Z: Campaign: Testing Campaign 1, Result: 0 sent, 91 failed
+2023-03-27T11:23:27.589Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:23:28.175Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:23:28.835Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:23:29.463Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:23:43.753Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:43.754Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:43.754Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:43.757Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:43.758Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:43.758Z: Status : s2giango283062 Failed
+2023-03-27T11:23:43.771Z: Status : s2giango283062 Failed
+2023-03-27T11:23:43.813Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:43.814Z: Status : s2giango283062 Failed
+2023-03-27T11:23:43.878Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:43.879Z: Status : s2giango283062 Failed
+2023-03-27T11:23:43.894Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:43.937Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:43.938Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:43.938Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:43.939Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:43.939Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:44.055Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.113Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.114Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.114Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:44.115Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:44.122Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:44.122Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:44.167Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:44.185Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:44.229Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:44.230Z: Status : s2giango283062 Failed
+2023-03-27T11:23:44.230Z: Status : s2giango283062 Failed
+2023-03-27T11:23:44.231Z: Status : s2giango283062 Failed
+2023-03-27T11:23:44.247Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.281Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:44.281Z: Status : s2giango283062 Failed
+2023-03-27T11:23:44.282Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.282Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.293Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.293Z: Status : s2giango283062 Failed
+2023-03-27T11:23:44.338Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.448Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.449Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.449Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.450Z: Status : s2giango283062 Failed
+2023-03-27T11:23:44.451Z: Status : s2giango283062 Failed
+2023-03-27T11:23:44.451Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.487Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.487Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.488Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:44.489Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.561Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:44.562Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.562Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.563Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.563Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:44.563Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:44.598Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.599Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:44.599Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:44.600Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:44.600Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:44.672Z: Status : s2giango283062 Failed
+2023-03-27T11:23:44.763Z: Status : s2giango283062 Failed
+2023-03-27T11:23:44.763Z: Status : s2giango283062 Failed
+2023-03-27T11:23:44.763Z: Status : s2giango283062 Failed
+2023-03-27T11:23:44.765Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.765Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.776Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.776Z: Status : s2ngopha764275 Failed
+2023-03-27T11:23:44.886Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.987Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.991Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:44.991Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:44.991Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.992Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:23:44.994Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:45.017Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:45.098Z: Status : s2baahoo228675 Failed
+2023-03-27T11:23:45.098Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:45.102Z: Status : s2giango283062 Failed
+2023-03-27T11:23:45.309Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:45.333Z: Status : s2tanyon922389 Failed
+2023-03-27T11:23:47.300Z: Status : s2sayjai853550 Failed
+2023-03-27T11:23:47.301Z: Status : s2sayjai853550 Failed
+2023-03-27T11:23:47.301Z: Status : s2sayjai853550 Failed
+2023-03-27T11:23:47.302Z: Status : s2sayjai853550 Failed
+2023-03-27T11:23:47.302Z: Status : s2sayjai853550 Failed
+2023-03-27T11:23:47.336Z: Status : s2sayjai853550 Failed
+2023-03-27T11:23:47.415Z: Status : s2sayjai853550 Failed
+2023-03-27T11:23:47.416Z: Status : s2sayjai853550 Failed
+2023-03-27T11:23:47.452Z: Status : s2sayjai853550 Failed
+2023-03-27T11:23:47.691Z: Status : s2sayjai853550 Failed
+2023-03-27T11:23:47.691Z: Campaign: Testing Campaign 1, Result: 0 sent, 90 failed
+2023-03-27T11:30:24.047Z: Listening on port 8041
+2023-03-27T11:30:24.055Z: Successfully connected to {localhost}
+2023-03-27T11:30:27.003Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T11:30:39.635Z: Listening on port 8041
+2023-03-27T11:30:39.644Z: Successfully connected to {localhost}
+2023-03-27T11:30:41.706Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T11:30:44.926Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:30:45.681Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T11:31:00.858Z: Status : s2baahoo228675 Failed
+2023-03-27T11:31:00.859Z: Status : s2tanyon922389 Failed
+2023-03-27T11:31:00.861Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:31:00.862Z: Status : s2tanyon922389 Failed
+2023-03-27T11:31:00.862Z: Status : s2giango283062 Failed
+2023-03-27T11:31:00.863Z: Status : s2ngopha764275 Failed
+2023-03-27T11:31:00.864Z: Status : s2ngopha764275 Failed
+2023-03-27T11:31:00.864Z: Status : s2baahoo228675 Failed
+2023-03-27T11:31:00.865Z: Status : s2giango283062 Failed
+2023-03-27T11:31:00.970Z: Status : s2baahoo228675 Failed
+2023-03-27T11:31:00.971Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:31:00.977Z: Status : s2tanyon922389 Failed
+2023-03-27T11:31:01.012Z: Status : s2tanyon922389 Failed
+2023-03-27T11:31:01.012Z: Status : s2giango283062 Failed
+2023-03-27T11:31:01.092Z: Status : s2baahoo228675 Failed
+2023-03-27T11:31:01.183Z: Status : s2giango283062 Failed
+2023-03-27T11:31:01.184Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:31:01.185Z: Status : s2tarhgd300188 Failed
+2023-03-27T11:31:01.209Z: Status : s2sayjai853550 Failed
+2023-03-27T11:31:01.293Z: Status : s2ngopha764275 Failed
+2023-03-27T11:31:01.295Z: Status : s2sayjai853550 Failed
+2023-03-27T11:31:01.295Z: Campaign: Testing Campaign 1, Result: 0 sent, 21 failed
+2023-03-27T11:31:01.296Z: Status : s2ngopha764275 Failed
+2023-03-27T11:31:01.322Z: Status : s2sayjai853550 Failed
+2023-03-27T14:38:11.825Z: Listening on port 8041
+2023-03-27T14:38:11.842Z: Successfully connected to {localhost}
+2023-03-27T14:38:13.279Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T14:38:23.613Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:38:39.957Z: Status : s2giango283062 Failed
+2023-03-27T14:38:39.958Z: Status : s2baahoo228675 Failed
+2023-03-27T14:38:40.079Z: Status : s2tanyon922389 Failed
+2023-03-27T14:38:40.142Z: Status : s2tarhgd300188 Failed
+2023-03-27T14:38:40.190Z: Status : s2sayjai853550 Failed
+2023-03-27T14:38:40.204Z: Status : s2ngopha764275 Failed
+2023-03-27T14:38:40.204Z: Campaign: Testing Campaign 1, Result: 0 sent, 6 failed
+2023-03-27T14:39:59.791Z: Listening on port 8041
+2023-03-27T14:39:59.799Z: Successfully connected to {localhost}
+2023-03-27T14:40:01.102Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T14:40:08.651Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:40:09.317Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:40:25.387Z: Status : s2baahoo228675 Failed
+2023-03-27T14:40:25.541Z: Status : s2tanyon922389 Failed
+2023-03-27T14:40:25.569Z: Status : s2giango283062 Failed
+2023-03-27T14:40:25.571Z: Status : s2tanyon922389 Failed
+2023-03-27T14:40:25.603Z: Status : s2giango283062 Failed
+2023-03-27T14:40:25.936Z: Status : s2baahoo228675 Failed
+2023-03-27T14:40:25.999Z: Status : s2ngopha764275 Failed
+2023-03-27T14:40:26.103Z: Status : s2tarhgd300188 Failed
+2023-03-27T14:40:26.173Z: Status : s2ngopha764275 Failed
+2023-03-27T14:40:28.375Z: Status : s2tarhgd300188 Failed
+2023-03-27T14:40:28.376Z: Status : s2sayjai853550 Failed
+2023-03-27T14:40:28.376Z: Campaign: Testing Campaign 1, Result: 0 sent, 11 failed
+2023-03-27T14:40:28.435Z: Status : s2sayjai853550 Failed
+2023-03-27T14:40:28.435Z: Campaign: Testing Campaign 1, Result: 0 sent, 1 failed
+2023-03-27T14:40:58.686Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:41:05.381Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:41:20.345Z: Status : s2baahoo228675 Failed
+2023-03-27T14:41:20.602Z: Status : s2tanyon922389 Failed
+2023-03-27T14:41:20.654Z: Status : s2tanyon922389 Failed
+2023-03-27T14:41:20.662Z: Status : s2giango283062 Failed
+2023-03-27T14:41:21.048Z: Status : s2giango283062 Failed
+2023-03-27T14:41:21.190Z: Status : s2tarhgd300188 Failed
+2023-03-27T14:41:21.665Z: Status : s2baahoo228675 Failed
+2023-03-27T14:41:21.666Z: Status : s2ngopha764275 Failed
+2023-03-27T14:41:21.737Z: Status : s2ngopha764275 Failed
+2023-03-27T14:41:24.390Z: Status : s2tarhgd300188 Failed
+2023-03-27T14:41:25.835Z: Status : s2sayjai853550 Failed
+2023-03-27T14:41:25.836Z: Campaign: Testing Campaign 1, Result: 0 sent, 11 failed
+2023-03-27T14:41:25.871Z: Status : s2sayjai853550 Failed
+2023-03-27T14:41:25.871Z: Campaign: Testing Campaign 1, Result: 0 sent, 1 failed
+2023-03-27T14:42:08.723Z: Listening on port 8041
+2023-03-27T14:42:08.733Z: Successfully connected to {localhost}
+2023-03-27T14:42:10.004Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T14:42:11.482Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:42:31.909Z: Status : s2baahoo228675 Failed
+2023-03-27T14:42:31.968Z: Status : s2sayjai853550 Failed
+2023-03-27T14:42:32.025Z: Status : s2tarhgd300188 Failed
+2023-03-27T14:42:32.031Z: Status : s2tanyon922389 Failed
+2023-03-27T14:42:32.092Z: Status : s2giango283062 Failed
+2023-03-27T14:42:32.159Z: Status : s2ngopha764275 Failed
+2023-03-27T14:42:32.159Z: Campaign: Testing Campaign 1, Result: 0 sent, 6 failed
+2023-03-27T14:44:03.394Z: Listening on port 8041
+2023-03-27T14:44:03.404Z: Successfully connected to {localhost}
+2023-03-27T14:44:05.573Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T14:44:08.151Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:44:17.477Z: Listening on port 8041
+2023-03-27T14:44:17.487Z: Successfully connected to {localhost}
+2023-03-27T14:44:18.706Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T14:44:26.807Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:44:39.789Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:44:41.592Z: Status : s2ccclll467230 Failed
+2023-03-27T14:44:42.902Z: Status : s2ducngu777338 Failed
+2023-03-27T14:44:42.902Z: Status : s2thelee240915 Failed
+2023-03-27T14:44:45.904Z: Status : s2pejjae163073 Failed
+2023-03-27T14:44:45.970Z: Status : s2dactru331620 Failed
+2023-03-27T14:44:46.796Z: Status : s2sumjon810849 Failed
+2023-03-27T14:44:46.876Z: Status : s2huytra590111 Failed
+2023-03-27T14:44:55.936Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:44:56.364Z: Status : s2huungu702756 Failed
+2023-03-27T14:44:56.500Z: Status : s2ccclll467230 Failed
+2023-03-27T14:44:56.653Z: Status : s2duyngu550403 Failed
+2023-03-27T14:44:57.882Z: Status : s2ducngu777338 Failed
+2023-03-27T14:44:57.946Z: Status : s2thelee240915 Failed
+2023-03-27T14:44:57.954Z: Status : s2patsuc245473 Failed
+2023-03-27T14:45:00.019Z: Status : s2thalee886715 Failed
+2023-03-27T14:45:02.072Z: Status : s2pejjae163073 Failed
+2023-03-27T14:45:02.090Z: Status : s2dactru331620 Failed
+2023-03-27T14:45:02.137Z: Status : s2tanrac121847 Failed
+2023-03-27T14:45:02.458Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:45:03.286Z: Status : s2huytra590111 Failed
+2023-03-27T14:45:03.348Z: Status : s2thilee110100 Failed
+2023-03-27T14:45:03.657Z: Status : s2chivon003337 Failed
+2023-03-27T14:45:03.724Z: Status : s2sumjon810849 Failed
+2023-03-27T14:45:05.895Z: Status : s2ngungu191810 Failed
+2023-03-27T14:45:05.984Z: Status : s2huungu702756 Failed
+2023-03-27T14:45:06.421Z: Status : s2vietra663180 Failed
+2023-03-27T14:45:06.967Z: Status : s2rawnua958082 Failed
+2023-03-27T14:45:08.057Z: Status : s2duyngu550403 Failed
+2023-03-27T14:45:08.332Z: Status : s2mischo927269 Failed
+2023-03-27T14:45:08.854Z: Listening on port 8041
+2023-03-27T14:45:08.866Z: Successfully connected to {localhost}
+2023-03-27T14:45:10.645Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T14:45:25.779Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:45:37.622Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:45:46.764Z: Status : s2ccclll467230 Failed
+2023-03-27T14:45:47.531Z: Status : s2huytra590111 Failed
+2023-03-27T14:45:48.150Z: Status : s2ducngu777338 Failed
+2023-03-27T14:45:48.230Z: Status : s2thelee240915 Failed
+2023-03-27T14:45:48.234Z: Status : s2dactru331620 Failed
+2023-03-27T14:45:48.234Z: Status : s2pejjae163073 Failed
+2023-03-27T14:45:49.291Z: Status : s2ducngu777338 Failed
+2023-03-27T14:45:49.354Z: Status : s2sumjon810849 Failed
+2023-03-27T14:45:51.878Z: Status : s2ccclll467230 Failed
+2023-03-27T14:45:52.761Z: Status : s2thelee240915 Failed
+2023-03-27T14:45:57.862Z: Status : s2pejjae163073 Failed
+2023-03-27T14:45:59.206Z: Status : s2dactru331620 Failed
+2023-03-27T14:45:59.269Z: Status : s2huytra590111 Failed
+2023-03-27T14:45:59.351Z: Status : s2sumjon810849 Failed
+2023-03-27T14:48:11.274Z: Listening on port 8041
+2023-03-27T14:48:11.283Z: Successfully connected to {localhost}
+2023-03-27T14:48:12.865Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T14:48:43.034Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:48:53.985Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:48:57.599Z: Status : s2ducngu777338 Failed
+2023-03-27T14:49:02.005Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:49:06.044Z: Status : s2ccclll467230 Failed
+2023-03-27T14:49:06.827Z: Status : s2pejjae163073 Failed
+2023-03-27T14:49:07.345Z: Status : s2ducngu777338 Failed
+2023-03-27T14:49:07.723Z: Status : s2sumjon810849 Failed
+2023-03-27T14:49:07.944Z: Status : s2thelee240915 Failed
+2023-03-27T14:49:08.639Z: Status : s2dactru331620 Failed
+2023-03-27T14:49:08.701Z: Status : s2huytra590111 Failed
+2023-03-27T14:49:08.714Z: Status : s2huungu702756 Failed
+2023-03-27T14:49:08.768Z: Status : s2duyngu550403 Failed
+2023-03-27T14:49:08.768Z: Campaign: Testing Campaign 1, Result: 0 sent, 11 failed
+2023-03-27T14:49:08.838Z: Status : s2ccclll467230 Failed
+2023-03-27T14:49:08.898Z: Status : s2thelee240915 Failed
+2023-03-27T14:49:08.978Z: Status : s2pejjae163073 Failed
+2023-03-27T14:49:11.137Z: Status : s2huytra590111 Failed
+2023-03-27T14:49:11.380Z: Status : s2dactru331620 Failed
+2023-03-27T14:49:11.396Z: Status : s2sumjon810849 Failed
+2023-03-27T14:49:11.572Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:49:13.370Z: Status : s2huungu702756 Failed
+2023-03-27T14:49:19.926Z: Status : s2duyngu550403 Failed
+2023-03-27T14:49:19.926Z: Campaign: Testing Campaign 1, Result: 0 sent, 9 failed
+2023-03-27T14:52:20.010Z: Listening on port 8041
+2023-03-27T14:52:20.021Z: Successfully connected to {localhost}
+2023-03-27T14:52:21.221Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T14:53:00.308Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:53:11.204Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:53:14.625Z: Status : s2ducngu777338 Failed
+2023-03-27T14:53:15.029Z: Status : s2ccclll467230 Failed
+2023-03-27T14:53:15.806Z: Status : s2thelee240915 Failed
+2023-03-27T14:53:15.870Z: Status : s2huytra590111 Failed
+2023-03-27T14:53:15.953Z: Status : s2pejjae163073 Failed
+2023-03-27T14:53:16.860Z: Status : s2dactru331620 Failed
+2023-03-27T14:53:17.935Z: Status : s2sumjon810849 Failed
+2023-03-27T14:53:18.003Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:53:18.972Z: Status : s2huungu702756 Failed
+2023-03-27T14:53:21.386Z: Status : s2duyngu550403 Failed
+2023-03-27T14:53:21.386Z: Campaign: Testing Campaign 1, Result: 0 sent, 10 failed
+2023-03-27T14:53:22.778Z: Status : s2ducngu777338 Failed
+2023-03-27T14:53:23.200Z: Status : s2ccclll467230 Failed
+2023-03-27T14:53:24.792Z: Status : s2pejjae163073 Failed
+2023-03-27T14:53:24.981Z: Status : s2thelee240915 Failed
+2023-03-27T14:53:26.297Z: Status : s2huytra590111 Failed
+2023-03-27T14:53:27.335Z: Status : s2dactru331620 Failed
+2023-03-27T14:53:28.737Z: Status : s2sumjon810849 Failed
+2023-03-27T14:53:28.797Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:53:29.819Z: Status : s2huungu702756 Failed
+2023-03-27T14:53:31.562Z: Status : s2duyngu550403 Failed
+2023-03-27T14:53:31.562Z: Campaign: Testing Campaign 2, Result: 0 sent, 10 failed
+2023-03-27T14:53:40.593Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:53:42.851Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:53:56.511Z: Status : s2ducngu777338 Failed
+2023-03-27T14:53:56.515Z: Status : s2ducngu777338 Failed
+2023-03-27T14:53:57.041Z: Status : s2ccclll467230 Failed
+2023-03-27T14:53:57.354Z: Status : s2pejjae163073 Failed
+2023-03-27T14:53:57.416Z: Status : s2ccclll467230 Failed
+2023-03-27T14:53:57.417Z: Status : s2huytra590111 Failed
+2023-03-27T14:53:57.479Z: Status : s2pejjae163073 Failed
+2023-03-27T14:53:57.481Z: Status : s2huytra590111 Failed
+2023-03-27T14:53:58.496Z: Status : s2dactru331620 Failed
+2023-03-27T14:53:58.548Z: Status : s2dactru331620 Failed
+2023-03-27T14:54:00.238Z: Status : s2thelee240915 Failed
+2023-03-27T14:54:00.278Z: Status : s2thelee240915 Failed
+2023-03-27T14:54:00.472Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:54:00.533Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:54:01.249Z: Status : s2sumjon810849 Failed
+2023-03-27T14:54:01.288Z: Status : s2sumjon810849 Failed
+2023-03-27T14:54:01.476Z: Status : s2huungu702756 Failed
+2023-03-27T14:54:01.539Z: Status : s2huungu702756 Failed
+2023-03-27T14:54:02.484Z: Status : s2duyngu550403 Failed
+2023-03-27T14:54:02.484Z: Campaign: Testing Campaign 3, Result: 0 sent, 19 failed
+2023-03-27T14:54:02.546Z: Status : s2duyngu550403 Failed
+2023-03-27T14:54:02.546Z: Campaign: Testing Campaign 4, Result: 0 sent, 1 failed
+2023-03-27T14:56:35.908Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:56:48.765Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:56:48.830Z: Status : s2ccclll467230 Failed
+2023-03-27T14:56:49.541Z: Status : s2pejjae163073 Failed
+2023-03-27T14:56:49.605Z: Status : s2ducngu777338 Failed
+2023-03-27T14:56:50.566Z: Status : s2huytra590111 Failed
+2023-03-27T14:56:50.629Z: Status : s2thelee240915 Failed
+2023-03-27T14:56:51.591Z: Status : s2dactru331620 Failed
+2023-03-27T14:56:52.852Z: Status : s2sumjon810849 Failed
+2023-03-27T14:56:53.635Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:56:54.551Z: Status : s2huungu702756 Failed
+2023-03-27T14:56:55.569Z: Status : s2duyngu550403 Failed
+2023-03-27T14:56:55.569Z: Campaign: Testing Campaign 5, Result: 0 sent, 10 failed
+2023-03-27T14:56:59.352Z: Status : s2ccclll467230 Failed
+2023-03-27T14:57:00.398Z: Status : s2ducngu777338 Failed
+2023-03-27T14:57:01.795Z: Status : s2thelee240915 Failed
+2023-03-27T14:57:02.395Z: Status : s2pejjae163073 Failed
+2023-03-27T14:57:03.469Z: Status : s2huytra590111 Failed
+2023-03-27T14:57:04.317Z: Status : s2dactru331620 Failed
+2023-03-27T14:57:05.377Z: Status : s2sumjon810849 Failed
+2023-03-27T14:57:06.328Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:57:07.400Z: Status : s2huungu702756 Failed
+2023-03-27T14:57:08.355Z: Status : s2duyngu550403 Failed
+2023-03-27T14:57:08.355Z: Campaign: Testing Campaign 6, Result: 0 sent, 10 failed
+2023-03-27T14:57:44.915Z: Listening on port 8041
+2023-03-27T14:57:44.926Z: Successfully connected to {localhost}
+2023-03-27T14:57:46.100Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T14:58:43.363Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:58:54.687Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:58:57.006Z: Status : s2ccclll467230 Failed
+2023-03-27T14:58:57.561Z: Status : s2thelee240915 Failed
+2023-03-27T14:58:57.570Z: Status : s2ducngu777338 Failed
+2023-03-27T14:58:57.880Z: Status : s2pejjae163073 Failed
+2023-03-27T14:58:57.944Z: Status : s2huytra590111 Failed
+2023-03-27T14:58:58.929Z: Status : s2dactru331620 Failed
+2023-03-27T14:58:59.933Z: Status : s2sumjon810849 Failed
+2023-03-27T14:59:01.071Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:59:01.975Z: Status : s2huungu702756 Failed
+2023-03-27T14:59:02.998Z: Status : s2duyngu550403 Failed
+2023-03-27T14:59:04.245Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:59:04.439Z: Status : s2patsuc245473 Failed
+2023-03-27T14:59:05.458Z: Status : s2tanrac121847 Failed
+2023-03-27T14:59:06.365Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T14:59:07.781Z: Status : s2thalee886715 Failed
+2023-03-27T14:59:08.513Z: Status : s2chivon003337 Failed
+2023-03-27T14:59:09.465Z: Status : s2thilee110100 Failed
+2023-03-27T14:59:09.528Z: Status : s2ngungu191810 Failed
+2023-03-27T14:59:10.542Z: Status : s2vietra663180 Failed
+2023-03-27T14:59:11.442Z: Status : s2rawnua958082 Failed
+2023-03-27T14:59:13.418Z: Status : s2mischo927269 Failed
+2023-03-27T14:59:13.656Z: Status : s2chasos385807 Failed
+2023-03-27T14:59:13.656Z: Campaign: Testing Campaign 1, Result: 0 sent, 20 failed
+2023-03-27T14:59:16.985Z: Status : s2ccclll467230 Failed
+2023-03-27T14:59:17.012Z: Status : s2ccclll467230 Failed
+2023-03-27T14:59:17.977Z: Status : s2ducngu777338 Failed
+2023-03-27T14:59:17.981Z: Status : s2ducngu777338 Failed
+2023-03-27T14:59:18.984Z: Status : s2thelee240915 Failed
+2023-03-27T14:59:19.046Z: Status : s2thelee240915 Failed
+2023-03-27T14:59:19.233Z: Status : s2ccclll467230 Failed
+2023-03-27T14:59:19.916Z: Status : s2pejjae163073 Failed
+2023-03-27T14:59:19.979Z: Status : s2pejjae163073 Failed
+2023-03-27T14:59:20.041Z: Status : s2thelee240915 Failed
+2023-03-27T14:59:20.102Z: Status : s2pejjae163073 Failed
+2023-03-27T14:59:20.231Z: Status : s2ducngu777338 Failed
+2023-03-27T14:59:20.910Z: Status : s2huytra590111 Failed
+2023-03-27T14:59:20.973Z: Status : s2huytra590111 Failed
+2023-03-27T14:59:21.037Z: Status : s2huytra590111 Failed
+2023-03-27T14:59:21.922Z: Status : s2dactru331620 Failed
+2023-03-27T14:59:21.939Z: Status : s2dactru331620 Failed
+2023-03-27T14:59:21.981Z: Status : s2dactru331620 Failed
+2023-03-27T14:59:22.959Z: Status : s2sumjon810849 Failed
+2023-03-27T14:59:23.035Z: Status : s2sumjon810849 Failed
+2023-03-27T14:59:23.099Z: Status : s2sumjon810849 Failed
+2023-03-27T14:59:23.952Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:59:24.015Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:59:24.079Z: Status : s2pilnoi275697 Failed
+2023-03-27T14:59:24.938Z: Status : s2huungu702756 Failed
+2023-03-27T14:59:25.003Z: Status : s2huungu702756 Failed
+2023-03-27T14:59:25.059Z: Status : s2huungu702756 Failed
+2023-03-27T14:59:25.908Z: Status : s2duyngu550403 Failed
+2023-03-27T14:59:25.940Z: Status : s2duyngu550403 Failed
+2023-03-27T14:59:25.971Z: Status : s2duyngu550403 Failed
+2023-03-27T14:59:26.914Z: Status : s2patsuc245473 Failed
+2023-03-27T14:59:26.977Z: Status : s2patsuc245473 Failed
+2023-03-27T14:59:27.047Z: Status : s2patsuc245473 Failed
+2023-03-27T14:59:27.912Z: Status : s2tanrac121847 Failed
+2023-03-27T14:59:27.975Z: Status : s2tanrac121847 Failed
+2023-03-27T14:59:28.038Z: Status : s2tanrac121847 Failed
+2023-03-27T14:59:28.922Z: Status : s2thalee886715 Failed
+2023-03-27T14:59:29.045Z: Status : s2thalee886715 Failed
+2023-03-27T14:59:29.105Z: Status : s2thalee886715 Failed
+2023-03-27T14:59:30.585Z: Status : s2thilee110100 Failed
+2023-03-27T14:59:30.630Z: Status : s2thilee110100 Failed
+2023-03-27T14:59:30.648Z: Status : s2thilee110100 Failed
+2023-03-27T14:59:31.863Z: Status : s2chivon003337 Failed
+2023-03-27T14:59:31.864Z: Status : s2chivon003337 Failed
+2023-03-27T14:59:31.927Z: Status : s2chivon003337 Failed
+2023-03-27T14:59:31.927Z: Status : s2ngungu191810 Failed
+2023-03-27T14:59:31.990Z: Status : s2ngungu191810 Failed
+2023-03-27T14:59:32.052Z: Status : s2ngungu191810 Failed
+2023-03-27T14:59:32.923Z: Status : s2vietra663180 Failed
+2023-03-27T14:59:32.976Z: Status : s2vietra663180 Failed
+2023-03-27T14:59:32.989Z: Status : s2vietra663180 Failed
+2023-03-27T14:59:33.947Z: Status : s2rawnua958082 Failed
+2023-03-27T14:59:33.958Z: Status : s2rawnua958082 Failed
+2023-03-27T14:59:34.030Z: Status : s2rawnua958082 Failed
+2023-03-27T14:59:38.430Z: Status : s2mischo927269 Failed
+2023-03-27T14:59:38.487Z: Status : s2mischo927269 Failed
+2023-03-27T14:59:38.493Z: Status : s2mischo927269 Failed
+2023-03-27T14:59:39.451Z: Status : s2chasos385807 Failed
+2023-03-27T14:59:39.451Z: Campaign: Testing Campaign 2, Result: 0 sent, 58 failed
+2023-03-27T14:59:39.514Z: Status : s2chasos385807 Failed
+2023-03-27T14:59:39.514Z: Campaign: Testing Campaign 2, Result: 0 sent, 1 failed
+2023-03-27T14:59:39.579Z: Status : s2chasos385807 Failed
+2023-03-27T14:59:39.579Z: Campaign: Testing Campaign 2, Result: 0 sent, 1 failed
+2023-03-27T15:00:19.951Z: Listening on port 8041
+2023-03-27T15:00:19.962Z: Successfully connected to {localhost}
+2023-03-27T15:00:21.149Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:00:37.131Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:00:47.849Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:00:50.592Z: Status : s2ccclll467230 Failed
+2023-03-27T15:00:51.071Z: Status : s2thelee240915 Failed
+2023-03-27T15:00:51.134Z: Status : s2ducngu777338 Failed
+2023-03-27T15:00:51.638Z: Status : s2pejjae163073 Failed
+2023-03-27T15:00:51.763Z: Status : s2huytra590111 Failed
+2023-03-27T15:00:52.768Z: Status : s2dactru331620 Failed
+2023-03-27T15:00:53.768Z: Status : s2sumjon810849 Failed
+2023-03-27T15:00:54.887Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:00:55.790Z: Status : s2huungu702756 Failed
+2023-03-27T15:00:56.852Z: Status : s2duyngu550403 Failed
+2023-03-27T15:00:57.762Z: Status : s2patsuc245473 Failed
+2023-03-27T15:00:58.483Z: Status : s2ccclll467230 Failed
+2023-03-27T15:00:59.436Z: Status : s2ducngu777338 Failed
+2023-03-27T15:00:59.580Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:00:59.737Z: Status : s2tanrac121847 Failed
+2023-03-27T15:01:00.536Z: Status : s2thelee240915 Failed
+2023-03-27T15:01:00.722Z: Status : s2thalee886715 Failed
+2023-03-27T15:01:00.783Z: Status : s2thilee110100 Failed
+2023-03-27T15:01:01.448Z: Status : s2pejjae163073 Failed
+2023-03-27T15:01:01.706Z: Status : s2chivon003337 Failed
+2023-03-27T15:01:02.346Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:01:02.470Z: Status : s2huytra590111 Failed
+2023-03-27T15:01:02.734Z: Status : s2ngungu191810 Failed
+2023-03-27T15:01:03.493Z: Status : s2dactru331620 Failed
+2023-03-27T15:01:03.741Z: Status : s2vietra663180 Failed
+2023-03-27T15:01:04.446Z: Status : s2sumjon810849 Failed
+2023-03-27T15:01:04.593Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:01:04.732Z: Status : s2rawnua958082 Failed
+2023-03-27T15:01:05.407Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:01:07.518Z: Status : s2huungu702756 Failed
+2023-03-27T15:01:08.411Z: Status : s2patsuc245473 Failed
+2023-03-27T15:01:08.475Z: Status : s2duyngu550403 Failed
+2023-03-27T15:01:09.396Z: Status : s2tanrac121847 Failed
+2023-03-27T15:01:09.944Z: Status : s2mischo927269 Failed
+2023-03-27T15:01:10.197Z: Status : s2chasos385807 Failed
+2023-03-27T15:01:10.198Z: Campaign: Testing Campaign 1, Result: 0 sent, 0 failed
+2023-03-27T15:01:10.421Z: Status : s2thalee886715 Failed
+2023-03-27T15:01:11.437Z: Status : s2thilee110100 Failed
+2023-03-27T15:01:12.430Z: Status : s2chivon003337 Failed
+2023-03-27T15:01:13.456Z: Status : s2ngungu191810 Failed
+2023-03-27T15:01:14.556Z: Status : s2vietra663180 Failed
+2023-03-27T15:01:15.272Z: Status : s2ccclll467230 Failed
+2023-03-27T15:01:15.310Z: Status : s2ccclll467230 Failed
+2023-03-27T15:01:16.148Z: Status : s2ducngu777338 Failed
+2023-03-27T15:01:16.213Z: Status : s2ducngu777338 Failed
+2023-03-27T15:01:16.342Z: Status : s2ccclll467230 Failed
+2023-03-27T15:01:16.531Z: Status : s2rawnua958082 Failed
+2023-03-27T15:01:17.177Z: Status : s2ducngu777338 Failed
+2023-03-27T15:01:17.229Z: Status : s2thelee240915 Failed
+2023-03-27T15:01:17.240Z: Status : s2thelee240915 Failed
+2023-03-27T15:01:17.241Z: Status : s2thelee240915 Failed
+2023-03-27T15:01:18.172Z: Status : s2pejjae163073 Failed
+2023-03-27T15:01:18.264Z: Status : s2pejjae163073 Failed
+2023-03-27T15:01:19.436Z: Status : s2chasos385807 Failed
+2023-03-27T15:01:19.557Z: Status : s2huytra590111 Failed
+2023-03-27T15:01:19.557Z: Status : s2huytra590111 Failed
+2023-03-27T15:01:19.870Z: Status : s2pejjae163073 Failed
+2023-03-27T15:01:19.935Z: Status : s2mischo927269 Failed
+2023-03-27T15:01:19.937Z: Campaign: Testing Campaign 2, Result: 0 sent, 0 failed
+2023-03-27T15:01:20.182Z: Status : s2dactru331620 Failed
+2023-03-27T15:01:20.183Z: Status : s2dactru331620 Failed
+2023-03-27T15:01:20.244Z: Status : s2dactru331620 Failed
+2023-03-27T15:01:20.686Z: Status : s2huytra590111 Failed
+2023-03-27T15:01:21.185Z: Status : s2sumjon810849 Failed
+2023-03-27T15:01:21.248Z: Status : s2sumjon810849 Failed
+2023-03-27T15:01:21.311Z: Status : s2sumjon810849 Failed
+2023-03-27T15:01:22.207Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:01:22.208Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:01:22.271Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:01:23.131Z: Status : s2huungu702756 Failed
+2023-03-27T15:01:23.253Z: Status : s2huungu702756 Failed
+2023-03-27T15:01:23.317Z: Status : s2huungu702756 Failed
+2023-03-27T15:01:24.140Z: Status : s2duyngu550403 Failed
+2023-03-27T15:01:24.203Z: Status : s2duyngu550403 Failed
+2023-03-27T15:01:24.267Z: Status : s2duyngu550403 Failed
+2023-03-27T15:01:25.185Z: Status : s2patsuc245473 Failed
+2023-03-27T15:01:25.245Z: Status : s2patsuc245473 Failed
+2023-03-27T15:01:25.308Z: Status : s2patsuc245473 Failed
+2023-03-27T15:01:26.135Z: Status : s2tanrac121847 Failed
+2023-03-27T15:01:26.198Z: Status : s2tanrac121847 Failed
+2023-03-27T15:01:26.263Z: Status : s2tanrac121847 Failed
+2023-03-27T15:01:27.154Z: Status : s2thalee886715 Failed
+2023-03-27T15:01:27.217Z: Status : s2thalee886715 Failed
+2023-03-27T15:01:27.278Z: Status : s2thalee886715 Failed
+2023-03-27T15:01:28.276Z: Status : s2thilee110100 Failed
+2023-03-27T15:01:28.277Z: Status : s2thilee110100 Failed
+2023-03-27T15:01:28.340Z: Status : s2thilee110100 Failed
+2023-03-27T15:01:29.165Z: Status : s2chivon003337 Failed
+2023-03-27T15:01:29.226Z: Status : s2chivon003337 Failed
+2023-03-27T15:01:29.292Z: Status : s2chivon003337 Failed
+2023-03-27T15:01:30.143Z: Status : s2ngungu191810 Failed
+2023-03-27T15:01:30.206Z: Status : s2ngungu191810 Failed
+2023-03-27T15:01:30.269Z: Status : s2ngungu191810 Failed
+2023-03-27T15:01:31.150Z: Status : s2vietra663180 Failed
+2023-03-27T15:01:31.212Z: Status : s2vietra663180 Failed
+2023-03-27T15:01:31.275Z: Status : s2vietra663180 Failed
+2023-03-27T15:01:32.148Z: Status : s2rawnua958082 Failed
+2023-03-27T15:01:32.210Z: Status : s2rawnua958082 Failed
+2023-03-27T15:01:32.273Z: Status : s2rawnua958082 Failed
+2023-03-27T15:01:39.411Z: Status : s2mischo927269 Failed
+2023-03-27T15:01:39.535Z: Status : s2mischo927269 Failed
+2023-03-27T15:01:39.660Z: Status : s2mischo927269 Failed
+2023-03-27T15:01:40.020Z: Status : s2chasos385807 Failed
+2023-03-27T15:01:40.030Z: Campaign: Testing Campaign 3, Result: 0 sent, 0 failed
+2023-03-27T15:01:40.097Z: Status : s2chasos385807 Failed
+2023-03-27T15:01:40.098Z: Campaign: Testing Campaign 4, Result: 0 sent, 0 failed
+2023-03-27T15:01:40.163Z: Status : s2chasos385807 Failed
+2023-03-27T15:01:40.164Z: Campaign: Testing Campaign 5, Result: 0 sent, 0 failed
+2023-03-27T15:02:47.254Z: Listening on port 8041
+2023-03-27T15:02:47.263Z: Successfully connected to {localhost}
+2023-03-27T15:02:49.717Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:03:26.269Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:03:37.362Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:03:39.606Z: Status : s2ccclll467230 Failed
+2023-03-27T15:03:40.158Z: Status : s2thelee240915 Failed
+2023-03-27T15:03:40.387Z: Status : s2ducngu777338 Failed
+2023-03-27T15:03:40.890Z: Status : s2huytra590111 Failed
+2023-03-27T15:03:40.952Z: Status : s2pejjae163073 Failed
+2023-03-27T15:03:41.895Z: Status : s2dactru331620 Failed
+2023-03-27T15:03:42.896Z: Status : s2sumjon810849 Failed
+2023-03-27T15:03:43.835Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:03:44.870Z: Status : s2huungu702756 Failed
+2023-03-27T15:03:45.950Z: Status : s2duyngu550403 Failed
+2023-03-27T15:03:46.908Z: Status : s2patsuc245473 Failed
+2023-03-27T15:03:47.851Z: Status : s2tanrac121847 Failed
+2023-03-27T15:03:48.724Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:03:48.841Z: Status : s2thalee886715 Failed
+2023-03-27T15:03:48.905Z: Status : s2ccclll467230 Failed
+2023-03-27T15:03:49.866Z: Status : s2thilee110100 Failed
+2023-03-27T15:03:49.930Z: Status : s2thelee240915 Failed
+2023-03-27T15:03:49.993Z: Status : s2ducngu777338 Failed
+2023-03-27T15:03:50.882Z: Status : s2chivon003337 Failed
+2023-03-27T15:03:51.071Z: Status : s2pejjae163073 Failed
+2023-03-27T15:03:51.393Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:03:51.875Z: Status : s2ngungu191810 Failed
+2023-03-27T15:03:51.997Z: Status : s2huytra590111 Failed
+2023-03-27T15:03:53.071Z: Status : s2vietra663180 Failed
+2023-03-27T15:03:53.122Z: Status : s2dactru331620 Failed
+2023-03-27T15:03:53.851Z: Status : s2rawnua958082 Failed
+2023-03-27T15:03:53.953Z: Status : s2sumjon810849 Failed
+2023-03-27T15:03:55.064Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:03:56.345Z: Status : s2mischo927269 Failed
+2023-03-27T15:03:56.999Z: Status : s2duyngu550403 Failed
+2023-03-27T15:03:57.063Z: Status : s2chasos385807 Failed
+2023-03-27T15:03:57.951Z: Status : s2patsuc245473 Failed
+2023-03-27T15:03:58.184Z: Status : s2huungu702756 Failed
+2023-03-27T15:03:59.011Z: Status : s2tanrac121847 Failed
+2023-03-27T15:03:59.950Z: Status : s2thalee886715 Failed
+2023-03-27T15:04:01.059Z: Status : s2thilee110100 Failed
+2023-03-27T15:04:01.915Z: Status : s2chivon003337 Failed
+2023-03-27T15:04:02.030Z: Status : s2ccclll467230 Failed
+2023-03-27T15:04:02.093Z: Status : s2ccclll467230 Failed
+2023-03-27T15:04:02.908Z: Status : s2ngungu191810 Failed
+2023-03-27T15:04:02.976Z: Status : s2ducngu777338 Failed
+2023-03-27T15:04:03.041Z: Status : s2ducngu777338 Failed
+2023-03-27T15:04:03.098Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:04:03.903Z: Status : s2vietra663180 Failed
+2023-03-27T15:04:03.966Z: Status : s2thelee240915 Failed
+2023-03-27T15:04:03.967Z: Status : s2thelee240915 Failed
+2023-03-27T15:04:04.909Z: Status : s2rawnua958082 Failed
+2023-03-27T15:04:04.973Z: Status : s2pejjae163073 Failed
+2023-03-27T15:04:05.037Z: Status : s2pejjae163073 Failed
+2023-03-27T15:04:05.916Z: Status : s2mischo927269 Failed
+2023-03-27T15:04:05.979Z: Status : s2huytra590111 Failed
+2023-03-27T15:04:06.042Z: Status : s2huytra590111 Failed
+2023-03-27T15:04:07.051Z: Status : s2dactru331620 Failed
+2023-03-27T15:04:07.115Z: Status : s2dactru331620 Failed
+2023-03-27T15:04:08.020Z: Status : s2sumjon810849 Failed
+2023-03-27T15:04:08.083Z: Status : s2sumjon810849 Failed
+2023-03-27T15:04:08.940Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:04:09.002Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:04:09.979Z: Status : s2huungu702756 Failed
+2023-03-27T15:04:10.103Z: Status : s2huungu702756 Failed
+2023-03-27T15:04:10.173Z: Status : s2chasos385807 Failed
+2023-03-27T15:04:10.991Z: Status : s2duyngu550403 Failed
+2023-03-27T15:04:11.116Z: Status : s2duyngu550403 Failed
+2023-03-27T15:04:11.903Z: Status : s2patsuc245473 Failed
+2023-03-27T15:04:12.068Z: Status : s2ccclll467230 Failed
+2023-03-27T15:04:12.135Z: Status : s2patsuc245473 Failed
+2023-03-27T15:04:12.934Z: Status : s2tanrac121847 Failed
+2023-03-27T15:04:13.033Z: Status : s2tanrac121847 Failed
+2023-03-27T15:04:13.099Z: Status : s2ducngu777338 Failed
+2023-03-27T15:04:13.943Z: Status : s2thalee886715 Failed
+2023-03-27T15:04:14.069Z: Status : s2thelee240915 Failed
+2023-03-27T15:04:14.129Z: Status : s2thalee886715 Failed
+2023-03-27T15:04:14.945Z: Status : s2thilee110100 Failed
+2023-03-27T15:04:14.969Z: Status : s2pejjae163073 Failed
+2023-03-27T15:04:15.008Z: Status : s2thilee110100 Failed
+2023-03-27T15:04:15.974Z: Status : s2chivon003337 Failed
+2023-03-27T15:04:16.038Z: Status : s2chivon003337 Failed
+2023-03-27T15:04:16.101Z: Status : s2huytra590111 Failed
+2023-03-27T15:04:16.989Z: Status : s2ngungu191810 Failed
+2023-03-27T15:04:16.990Z: Status : s2dactru331620 Failed
+2023-03-27T15:04:16.991Z: Status : s2ngungu191810 Failed
+2023-03-27T15:04:17.064Z: Campaign: Testing Campaign 1, Result: 0 sent, 78 failed
+2023-03-27T15:04:17.951Z: Status : s2vietra663180 Failed
+2023-03-27T15:04:17.967Z: Status : s2sumjon810849 Failed
+2023-03-27T15:04:17.967Z: Status : s2vietra663180 Failed
+2023-03-27T15:04:18.990Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:04:19.054Z: Status : s2rawnua958082 Failed
+2023-03-27T15:04:19.054Z: Status : s2rawnua958082 Failed
+2023-03-27T15:04:20.026Z: Status : s2mischo927269 Failed
+2023-03-27T15:04:20.089Z: Status : s2huungu702756 Failed
+2023-03-27T15:04:20.153Z: Status : s2mischo927269 Failed
+2023-03-27T15:04:20.900Z: Status : s2chasos385807 Failed
+2023-03-27T15:04:20.962Z: Status : s2duyngu550403 Failed
+2023-03-27T15:04:20.963Z: Status : s2chasos385807 Failed
+2023-03-27T15:04:21.990Z: Status : s2patsuc245473 Failed
+2023-03-27T15:04:23.097Z: Status : s2tanrac121847 Failed
+2023-03-27T15:04:24.041Z: Status : s2thalee886715 Failed
+2023-03-27T15:04:24.942Z: Status : s2thilee110100 Failed
+2023-03-27T15:04:25.942Z: Status : s2chivon003337 Failed
+2023-03-27T15:04:26.952Z: Status : s2ngungu191810 Failed
+2023-03-27T15:04:27.990Z: Status : s2vietra663180 Failed
+2023-03-27T15:04:29.013Z: Status : s2rawnua958082 Failed
+2023-03-27T15:04:30.037Z: Status : s2mischo927269 Failed
+2023-03-27T15:04:30.173Z: Campaign: Testing Campaign 2, Result: 0 sent, 21 failed
+2023-03-27T15:04:30.982Z: Status : s2chasos385807 Failed
+2023-03-27T15:04:40.901Z: Campaign: Testing Campaign 3, Result: 0 sent, 1 failed
+2023-03-27T15:04:40.964Z: Campaign: Testing Campaign 4, Result: 0 sent, 0 failed
+2023-03-27T15:04:50.982Z: Campaign: Testing Campaign 5, Result: 0 sent, 0 failed
+2023-03-27T15:07:37.870Z: Listening on port 8041
+2023-03-27T15:07:37.882Z: Successfully connected to {localhost}
+2023-03-27T15:07:39.010Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:08:01.022Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:08:12.321Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:08:14.153Z: Status : s2ccclll467230 Failed
+2023-03-27T15:08:14.652Z: Status : s2pejjae163073 Failed
+2023-03-27T15:08:15.007Z: Status : s2thelee240915 Failed
+2023-03-27T15:08:15.329Z: Status : s2ducngu777338 Failed
+2023-03-27T15:08:15.941Z: Status : s2huytra590111 Failed
+2023-03-27T15:08:16.698Z: Status : s2dactru331620 Failed
+2023-03-27T15:08:17.631Z: Status : s2sumjon810849 Failed
+2023-03-27T15:08:18.631Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:08:19.576Z: Status : s2huungu702756 Failed
+2023-03-27T15:08:20.586Z: Status : s2duyngu550403 Failed
+2023-03-27T15:08:21.701Z: Status : s2patsuc245473 Failed
+2023-03-27T15:08:22.580Z: Status : s2tanrac121847 Failed
+2023-03-27T15:08:23.678Z: Status : s2thalee886715 Failed
+2023-03-27T15:08:23.866Z: Status : s2ccclll467230 Failed
+2023-03-27T15:08:24.049Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:08:24.600Z: Status : s2thilee110100 Failed
+2023-03-27T15:08:24.851Z: Status : s2ducngu777338 Failed
+2023-03-27T15:08:24.911Z: Status : s2thelee240915 Failed
+2023-03-27T15:08:25.656Z: Status : s2chivon003337 Failed
+2023-03-27T15:08:25.907Z: Status : s2pejjae163073 Failed
+2023-03-27T15:08:26.589Z: Status : s2ngungu191810 Failed
+2023-03-27T15:08:26.934Z: Status : s2huytra590111 Failed
+2023-03-27T15:08:27.662Z: Status : s2vietra663180 Failed
+2023-03-27T15:08:27.923Z: Status : s2dactru331620 Failed
+2023-03-27T15:08:28.568Z: Status : s2rawnua958082 Failed
+2023-03-27T15:08:28.932Z: Status : s2sumjon810849 Failed
+2023-03-27T15:08:29.618Z: Status : s2mischo927269 Failed
+2023-03-27T15:08:29.950Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:08:30.635Z: Status : s2chasos385807 Failed
+2023-03-27T15:08:30.635Z: Campaign: Testing Campaign 1, Result: 0 sent, 28 failed
+2023-03-27T15:08:30.934Z: Status : s2huungu702756 Failed
+2023-03-27T15:08:31.941Z: Status : s2duyngu550403 Failed
+2023-03-27T15:08:32.961Z: Status : s2patsuc245473 Failed
+2023-03-27T15:08:33.949Z: Status : s2tanrac121847 Failed
+2023-03-27T15:08:34.640Z: Status : s2ccclll467230 Failed
+2023-03-27T15:08:34.755Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:08:34.888Z: Status : s2thalee886715 Failed
+2023-03-27T15:08:35.696Z: Status : s2ducngu777338 Failed
+2023-03-27T15:08:35.938Z: Status : s2thilee110100 Failed
+2023-03-27T15:08:36.630Z: Status : s2thelee240915 Failed
+2023-03-27T15:08:36.881Z: Status : s2chivon003337 Failed
+2023-03-27T15:08:37.654Z: Status : s2pejjae163073 Failed
+2023-03-27T15:08:37.908Z: Status : s2ngungu191810 Failed
+2023-03-27T15:08:38.635Z: Status : s2huytra590111 Failed
+2023-03-27T15:08:39.037Z: Status : s2vietra663180 Failed
+2023-03-27T15:08:39.165Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:08:39.705Z: Status : s2dactru331620 Failed
+2023-03-27T15:08:39.888Z: Status : s2rawnua958082 Failed
+2023-03-27T15:08:40.646Z: Status : s2sumjon810849 Failed
+2023-03-27T15:08:40.898Z: Status : s2mischo927269 Failed
+2023-03-27T15:08:41.536Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:08:41.911Z: Status : s2chasos385807 Failed
+2023-03-27T15:08:41.911Z: Campaign: Testing Campaign 2, Result: 0 sent, 20 failed
+2023-03-27T15:08:42.663Z: Status : s2huungu702756 Failed
+2023-03-27T15:08:43.712Z: Status : s2duyngu550403 Failed
+2023-03-27T15:08:44.740Z: Status : s2patsuc245473 Failed
+2023-03-27T15:08:45.636Z: Status : s2tanrac121847 Failed
+2023-03-27T15:08:46.662Z: Status : s2thalee886715 Failed
+2023-03-27T15:08:47.682Z: Status : s2thilee110100 Failed
+2023-03-27T15:08:48.633Z: Status : s2chivon003337 Failed
+2023-03-27T15:08:49.681Z: Status : s2ngungu191810 Failed
+2023-03-27T15:08:50.735Z: Status : s2vietra663180 Failed
+2023-03-27T15:08:50.864Z: Status : s2ccclll467230 Failed
+2023-03-27T15:08:51.707Z: Status : s2rawnua958082 Failed
+2023-03-27T15:08:51.770Z: Status : s2thelee240915 Failed
+2023-03-27T15:08:51.898Z: Status : s2ccclll467230 Failed
+2023-03-27T15:08:52.648Z: Status : s2mischo927269 Failed
+2023-03-27T15:08:52.771Z: Status : s2ducngu777338 Failed
+2023-03-27T15:08:52.772Z: Status : s2pejjae163073 Failed
+2023-03-27T15:08:52.842Z: Status : s2pejjae163073 Failed
+2023-03-27T15:08:52.842Z: Status : s2ducngu777338 Failed
+2023-03-27T15:08:53.679Z: Status : s2chasos385807 Failed
+2023-03-27T15:08:53.679Z: Campaign: Testing Campaign 3, Result: 0 sent, 19 failed
+2023-03-27T15:08:53.867Z: Status : s2huytra590111 Failed
+2023-03-27T15:08:53.867Z: Status : s2thelee240915 Failed
+2023-03-27T15:08:53.930Z: Status : s2huytra590111 Failed
+2023-03-27T15:08:54.746Z: Status : s2dactru331620 Failed
+2023-03-27T15:08:54.867Z: Status : s2dactru331620 Failed
+2023-03-27T15:08:55.732Z: Status : s2sumjon810849 Failed
+2023-03-27T15:08:55.793Z: Status : s2sumjon810849 Failed
+2023-03-27T15:08:56.926Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:08:56.986Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:08:57.782Z: Status : s2huungu702756 Failed
+2023-03-27T15:08:57.843Z: Status : s2huungu702756 Failed
+2023-03-27T15:08:58.711Z: Status : s2duyngu550403 Failed
+2023-03-27T15:08:58.902Z: Status : s2duyngu550403 Failed
+2023-03-27T15:08:59.734Z: Status : s2patsuc245473 Failed
+2023-03-27T15:08:59.797Z: Status : s2patsuc245473 Failed
+2023-03-27T15:09:00.715Z: Status : s2tanrac121847 Failed
+2023-03-27T15:09:00.778Z: Status : s2tanrac121847 Failed
+2023-03-27T15:09:01.756Z: Status : s2thalee886715 Failed
+2023-03-27T15:09:01.816Z: Status : s2thalee886715 Failed
+2023-03-27T15:09:02.731Z: Status : s2thilee110100 Failed
+2023-03-27T15:09:02.794Z: Status : s2thilee110100 Failed
+2023-03-27T15:09:03.787Z: Status : s2chivon003337 Failed
+2023-03-27T15:09:03.850Z: Status : s2chivon003337 Failed
+2023-03-27T15:09:04.731Z: Status : s2ngungu191810 Failed
+2023-03-27T15:09:04.749Z: Status : s2ngungu191810 Failed
+2023-03-27T15:09:05.773Z: Status : s2vietra663180 Failed
+2023-03-27T15:09:05.837Z: Status : s2vietra663180 Failed
+2023-03-27T15:09:06.756Z: Status : s2rawnua958082 Failed
+2023-03-27T15:09:06.821Z: Status : s2rawnua958082 Failed
+2023-03-27T15:09:07.884Z: Status : s2mischo927269 Failed
+2023-03-27T15:09:07.946Z: Status : s2mischo927269 Failed
+2023-03-27T15:09:08.754Z: Status : s2chasos385807 Failed
+2023-03-27T15:09:08.754Z: Campaign: Testing Campaign 4, Result: 0 sent, 32 failed
+2023-03-27T15:09:08.816Z: Status : s2chasos385807 Failed
+2023-03-27T15:09:08.816Z: Campaign: Testing Campaign 5, Result: 0 sent, 1 failed
+2023-03-27T15:15:32.206Z: Listening on port 8041
+2023-03-27T15:15:32.215Z: Successfully connected to {localhost}
+2023-03-27T15:15:35.217Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:15:50.691Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:16:02.092Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:16:04.633Z: Status : s2thelee240915 Failed
+2023-03-27T15:16:04.694Z: Status : s2ccclll467230 Failed
+2023-03-27T15:16:05.057Z: Status : s2ducngu777338 Failed
+2023-03-27T15:16:05.352Z: Status : s2huytra590111 Failed
+2023-03-27T15:16:05.761Z: Status : s2pejjae163073 Failed
+2023-03-27T15:16:06.306Z: Status : s2dactru331620 Failed
+2023-03-27T15:16:07.383Z: Status : s2sumjon810849 Failed
+2023-03-27T15:16:08.317Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:16:09.263Z: Status : s2huungu702756 Failed
+2023-03-27T15:16:10.316Z: Status : s2duyngu550403 Failed
+2023-03-27T15:16:11.407Z: Status : s2patsuc245473 Failed
+2023-03-27T15:16:12.354Z: Status : s2tanrac121847 Failed
+2023-03-27T15:16:13.057Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:16:13.370Z: Status : s2thalee886715 Failed
+2023-03-27T15:16:13.619Z: Status : s2ccclll467230 Failed
+2023-03-27T15:16:14.262Z: Status : s2thilee110100 Failed
+2023-03-27T15:16:14.647Z: Status : s2thelee240915 Failed
+2023-03-27T15:16:14.708Z: Status : s2ducngu777338 Failed
+2023-03-27T15:16:15.335Z: Status : s2chivon003337 Failed
+2023-03-27T15:16:15.709Z: Status : s2pejjae163073 Failed
+2023-03-27T15:16:16.379Z: Status : s2ngungu191810 Failed
+2023-03-27T15:16:16.642Z: Status : s2huytra590111 Failed
+2023-03-27T15:16:17.172Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:16:17.403Z: Status : s2vietra663180 Failed
+2023-03-27T15:16:17.771Z: Status : s2dactru331620 Failed
+2023-03-27T15:16:18.334Z: Status : s2rawnua958082 Failed
+2023-03-27T15:16:18.708Z: Status : s2sumjon810849 Failed
+2023-03-27T15:16:19.444Z: Status : s2mischo927269 Failed
+2023-03-27T15:16:19.631Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:16:20.165Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:16:20.361Z: Status : s2chasos385807 Failed
+2023-03-27T15:16:20.722Z: Status : s2huungu702756 Failed
+2023-03-27T15:16:21.750Z: Status : s2duyngu550403 Failed
+2023-03-27T15:16:22.682Z: Status : s2patsuc245473 Failed
+2023-03-27T15:16:23.683Z: Status : s2tanrac121847 Failed
+2023-03-27T15:16:24.679Z: Status : s2thalee886715 Failed
+2023-03-27T15:16:25.683Z: Status : s2thilee110100 Failed
+2023-03-27T15:16:26.665Z: Status : s2chivon003337 Failed
+2023-03-27T15:16:27.793Z: Status : s2ngungu191810 Failed
+2023-03-27T15:16:28.725Z: Status : s2vietra663180 Failed
+2023-03-27T15:16:29.676Z: Status : s2rawnua958082 Failed
+2023-03-27T15:16:30.695Z: Status : s2mischo927269 Failed
+2023-03-27T15:16:31.731Z: Status : s2chasos385807 Failed
+2023-03-27T15:16:32.710Z: Status : s2ducngu777338 Failed
+2023-03-27T15:16:32.766Z: Status : s2ccclll467230 Failed
+2023-03-27T15:16:32.767Z: Status : s2ccclll467230 Failed
+2023-03-27T15:16:32.925Z: Status : s2ccclll467230 Failed
+2023-03-27T15:16:33.618Z: Status : s2thelee240915 Failed
+2023-03-27T15:16:33.678Z: Status : s2pejjae163073 Failed
+2023-03-27T15:16:33.679Z: Status : s2pejjae163073 Failed
+2023-03-27T15:16:33.679Z: Status : s2pejjae163073 Failed
+2023-03-27T15:16:33.681Z: Status : s2thelee240915 Failed
+2023-03-27T15:16:33.741Z: Status : s2thelee240915 Failed
+2023-03-27T15:16:33.742Z: Status : s2ducngu777338 Failed
+2023-03-27T15:16:33.863Z: Status : s2ducngu777338 Failed
+2023-03-27T15:16:34.665Z: Status : s2huytra590111 Failed
+2023-03-27T15:16:34.727Z: Status : s2huytra590111 Failed
+2023-03-27T15:16:34.728Z: Status : s2huytra590111 Failed
+2023-03-27T15:16:35.756Z: Status : s2dactru331620 Failed
+2023-03-27T15:16:35.879Z: Status : s2dactru331620 Failed
+2023-03-27T15:16:35.942Z: Status : s2dactru331620 Failed
+2023-03-27T15:16:36.712Z: Status : s2sumjon810849 Failed
+2023-03-27T15:16:36.778Z: Status : s2sumjon810849 Failed
+2023-03-27T15:16:36.832Z: Status : s2sumjon810849 Failed
+2023-03-27T15:16:37.817Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:16:37.836Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:16:37.837Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:16:38.798Z: Status : s2huungu702756 Failed
+2023-03-27T15:16:38.850Z: Status : s2huungu702756 Failed
+2023-03-27T15:16:38.850Z: Status : s2huungu702756 Failed
+2023-03-27T15:16:39.745Z: Status : s2duyngu550403 Failed
+2023-03-27T15:16:39.810Z: Status : s2duyngu550403 Failed
+2023-03-27T15:16:39.872Z: Status : s2duyngu550403 Failed
+2023-03-27T15:16:40.712Z: Status : s2patsuc245473 Failed
+2023-03-27T15:16:40.775Z: Status : s2patsuc245473 Failed
+2023-03-27T15:16:40.837Z: Status : s2patsuc245473 Failed
+2023-03-27T15:16:41.821Z: Status : s2tanrac121847 Failed
+2023-03-27T15:16:41.821Z: Status : s2tanrac121847 Failed
+2023-03-27T15:16:41.881Z: Status : s2tanrac121847 Failed
+2023-03-27T15:16:42.362Z: Campaign: Testing Campaign 1, Result: 0 sent, 76 failed
+2023-03-27T15:16:42.710Z: Status : s2thalee886715 Failed
+2023-03-27T15:16:42.775Z: Status : s2thalee886715 Failed
+2023-03-27T15:16:42.838Z: Status : s2thalee886715 Failed
+2023-03-27T15:16:43.706Z: Status : s2thilee110100 Failed
+2023-03-27T15:16:43.707Z: Status : s2thilee110100 Failed
+2023-03-27T15:16:43.769Z: Status : s2thilee110100 Failed
+2023-03-27T15:16:44.770Z: Status : s2chivon003337 Failed
+2023-03-27T15:16:44.771Z: Status : s2chivon003337 Failed
+2023-03-27T15:16:44.830Z: Status : s2chivon003337 Failed
+2023-03-27T15:16:45.725Z: Status : s2ngungu191810 Failed
+2023-03-27T15:16:45.790Z: Status : s2ngungu191810 Failed
+2023-03-27T15:16:45.851Z: Status : s2ngungu191810 Failed
+2023-03-27T15:16:46.751Z: Status : s2vietra663180 Failed
+2023-03-27T15:16:46.812Z: Status : s2vietra663180 Failed
+2023-03-27T15:16:46.814Z: Status : s2vietra663180 Failed
+2023-03-27T15:16:47.759Z: Status : s2rawnua958082 Failed
+2023-03-27T15:16:47.760Z: Status : s2rawnua958082 Failed
+2023-03-27T15:16:47.820Z: Status : s2rawnua958082 Failed
+2023-03-27T15:16:48.776Z: Status : s2mischo927269 Failed
+2023-03-27T15:16:48.786Z: Status : s2mischo927269 Failed
+2023-03-27T15:16:48.786Z: Status : s2mischo927269 Failed
+2023-03-27T15:16:49.673Z: Status : s2chasos385807 Failed
+2023-03-27T15:16:49.800Z: Status : s2chasos385807 Failed
+2023-03-27T15:16:49.864Z: Status : s2chasos385807 Failed
+2023-03-27T15:16:53.730Z: Campaign: Testing Campaign 2, Result: 0 sent, 24 failed
+2023-03-27T15:17:11.674Z: Campaign: Testing Campaign 3, Result: 0 sent, 0 failed
+2023-03-27T15:17:11.801Z: Campaign: Testing Campaign 5, Result: 0 sent, 0 failed
+2023-03-27T15:17:11.865Z: Campaign: Testing Campaign 4, Result: 0 sent, 0 failed
+2023-03-27T15:17:31.603Z: Listening on port 8041
+2023-03-27T15:17:31.617Z: Successfully connected to {localhost}
+2023-03-27T15:17:32.914Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:17:52.109Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:18:03.938Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:18:05.501Z: Status : s2ccclll467230 Failed
+2023-03-27T15:18:06.159Z: Status : s2thelee240915 Failed
+2023-03-27T15:18:06.542Z: Status : s2ducngu777338 Failed
+2023-03-27T15:18:06.689Z: Status : s2pejjae163073 Failed
+2023-03-27T15:18:06.752Z: Status : s2huytra590111 Failed
+2023-03-27T15:18:07.719Z: Status : s2dactru331620 Failed
+2023-03-27T15:18:08.727Z: Status : s2sumjon810849 Failed
+2023-03-27T15:18:09.750Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:18:10.691Z: Status : s2huungu702756 Failed
+2023-03-27T15:18:11.708Z: Status : s2duyngu550403 Failed
+2023-03-27T15:18:12.716Z: Status : s2patsuc245473 Failed
+2023-03-27T15:18:13.712Z: Status : s2tanrac121847 Failed
+2023-03-27T15:18:14.564Z: Status : s2ccclll467230 Failed
+2023-03-27T15:18:14.838Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:18:15.566Z: Status : s2ducngu777338 Failed
+2023-03-27T15:18:15.692Z: Status : s2thalee886715 Failed
+2023-03-27T15:18:16.545Z: Status : s2thilee110100 Failed
+2023-03-27T15:18:16.546Z: Status : s2thelee240915 Failed
+2023-03-27T15:18:16.673Z: Status : s2chivon003337 Failed
+2023-03-27T15:18:17.514Z: Status : s2pejjae163073 Failed
+2023-03-27T15:18:17.745Z: Status : s2ngungu191810 Failed
+2023-03-27T15:18:18.570Z: Status : s2huytra590111 Failed
+2023-03-27T15:18:18.755Z: Status : s2vietra663180 Failed
+2023-03-27T15:18:19.567Z: Status : s2dactru331620 Failed
+2023-03-27T15:18:19.848Z: Status : s2rawnua958082 Failed
+2023-03-27T15:18:20.600Z: Status : s2sumjon810849 Failed
+2023-03-27T15:18:20.832Z: Status : s2mischo927269 Failed
+2023-03-27T15:18:21.721Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:18:22.110Z: Status : s2chasos385807 Failed
+2023-03-27T15:18:22.684Z: Status : s2huungu702756 Failed
+2023-03-27T15:18:23.576Z: Status : s2duyngu550403 Failed
+2023-03-27T15:18:24.546Z: Status : s2patsuc245473 Failed
+2023-03-27T15:18:25.408Z: Status : s2ccclll467230 Failed
+2023-03-27T15:18:26.430Z: Status : s2ducngu777338 Failed
+2023-03-27T15:18:26.710Z: Status : s2tanrac121847 Failed
+2023-03-27T15:18:27.427Z: Status : s2thelee240915 Failed
+2023-03-27T15:18:27.490Z: Status : s2thilee110100 Failed
+2023-03-27T15:18:28.463Z: Status : s2pejjae163073 Failed
+2023-03-27T15:18:28.523Z: Status : s2chivon003337 Failed
+2023-03-27T15:18:28.715Z: Status : s2thalee886715 Failed
+2023-03-27T15:18:29.443Z: Status : s2huytra590111 Failed
+2023-03-27T15:18:29.521Z: Status : s2ngungu191810 Failed
+2023-03-27T15:18:30.467Z: Status : s2dactru331620 Failed
+2023-03-27T15:18:30.527Z: Status : s2vietra663180 Failed
+2023-03-27T15:18:31.491Z: Status : s2sumjon810849 Failed
+2023-03-27T15:18:31.553Z: Status : s2rawnua958082 Failed
+2023-03-27T15:18:32.423Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:18:32.487Z: Status : s2mischo927269 Failed
+2023-03-27T15:18:33.483Z: Status : s2huungu702756 Failed
+2023-03-27T15:18:33.608Z: Status : s2chasos385807 Failed
+2023-03-27T15:18:34.461Z: Status : s2duyngu550403 Failed
+2023-03-27T15:18:35.433Z: Status : s2patsuc245473 Failed
+2023-03-27T15:18:36.410Z: Status : s2tanrac121847 Failed
+2023-03-27T15:18:37.382Z: Status : s2thalee886715 Failed
+2023-03-27T15:18:38.486Z: Status : s2thilee110100 Failed
+2023-03-27T15:18:39.436Z: Status : s2chivon003337 Failed
+2023-03-27T15:18:40.382Z: Status : s2ngungu191810 Failed
+2023-03-27T15:18:41.424Z: Status : s2vietra663180 Failed
+2023-03-27T15:18:42.435Z: Status : s2rawnua958082 Failed
+2023-03-27T15:18:43.417Z: Status : s2mischo927269 Failed
+2023-03-27T15:18:44.110Z: Campaign: Testing Campaign 1, Result: 0 sent, 59 failed
+2023-03-27T15:18:44.495Z: Status : s2chasos385807 Failed
+2023-03-27T15:18:55.609Z: Campaign: Testing Campaign 2, Result: 0 sent, 1 failed
+2023-03-27T15:19:06.496Z: Campaign: Testing Campaign 3, Result: 0 sent, 0 failed
+2023-03-27T15:19:42.671Z: Listening on port 8041
+2023-03-27T15:19:42.682Z: Successfully connected to {localhost}
+2023-03-27T15:19:44.059Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:20:33.688Z: Listening on port 8041
+2023-03-27T15:20:33.698Z: Successfully connected to {localhost}
+2023-03-27T15:20:34.840Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:20:43.587Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:20:56.950Z: Status : s2ccclll467230 Failed
+2023-03-27T15:20:57.619Z: Status : s2thelee240915 Failed
+2023-03-27T15:20:57.808Z: Status : s2ducngu777338 Failed
+2023-03-27T15:20:58.186Z: Status : s2pejjae163073 Failed
+2023-03-27T15:20:58.247Z: Status : s2huytra590111 Failed
+2023-03-27T15:20:58.981Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:20:59.183Z: Status : s2dactru331620 Failed
+2023-03-27T15:21:00.210Z: Status : s2sumjon810849 Failed
+2023-03-27T15:21:01.236Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:21:02.188Z: Status : s2huungu702756 Failed
+2023-03-27T15:21:03.159Z: Status : s2duyngu550403 Failed
+2023-03-27T15:21:04.169Z: Status : s2patsuc245473 Failed
+2023-03-27T15:21:05.295Z: Status : s2tanrac121847 Failed
+2023-03-27T15:21:06.160Z: Status : s2thalee886715 Failed
+2023-03-27T15:21:07.192Z: Status : s2thilee110100 Failed
+2023-03-27T15:21:08.264Z: Status : s2chivon003337 Failed
+2023-03-27T15:21:09.225Z: Status : s2ngungu191810 Failed
+2023-03-27T15:21:10.067Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:21:10.197Z: Status : s2vietra663180 Failed
+2023-03-27T15:21:10.702Z: Status : s2ccclll467230 Failed
+2023-03-27T15:21:11.211Z: Status : s2rawnua958082 Failed
+2023-03-27T15:21:11.522Z: Status : s2thelee240915 Failed
+2023-03-27T15:21:11.646Z: Status : s2ducngu777338 Failed
+2023-03-27T15:21:12.236Z: Status : s2mischo927269 Failed
+2023-03-27T15:21:12.614Z: Status : s2pejjae163073 Failed
+2023-03-27T15:21:13.162Z: Status : s2chasos385807 Failed
+2023-03-27T15:21:13.538Z: Status : s2huytra590111 Failed
+2023-03-27T15:21:14.581Z: Status : s2dactru331620 Failed
+2023-03-27T15:21:15.597Z: Status : s2sumjon810849 Failed
+2023-03-27T15:21:16.566Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:21:17.583Z: Status : s2huungu702756 Failed
+2023-03-27T15:21:18.622Z: Status : s2duyngu550403 Failed
+2023-03-27T15:21:19.630Z: Status : s2patsuc245473 Failed
+2023-03-27T15:21:20.722Z: Status : s2tanrac121847 Failed
+2023-03-27T15:21:21.636Z: Status : s2thalee886715 Failed
+2023-03-27T15:21:22.142Z: Status : s2ccclll467230 Failed
+2023-03-27T15:21:22.638Z: Status : s2thelee240915 Failed
+2023-03-27T15:21:23.442Z: Status : s2thilee110100 Failed
+2023-03-27T15:21:23.567Z: Status : s2chivon003337 Failed
+2023-03-27T15:21:23.817Z: Status : s2ducngu777338 Failed
+2023-03-27T15:21:24.515Z: Status : s2ngungu191810 Failed
+2023-03-27T15:21:24.640Z: Status : s2huytra590111 Failed
+2023-03-27T15:21:24.700Z: Status : s2pejjae163073 Failed
+2023-03-27T15:21:25.550Z: Status : s2vietra663180 Failed
+2023-03-27T15:21:25.677Z: Status : s2dactru331620 Failed
+2023-03-27T15:21:26.594Z: Status : s2rawnua958082 Failed
+2023-03-27T15:21:26.657Z: Status : s2sumjon810849 Failed
+2023-03-27T15:21:27.619Z: Status : s2mischo927269 Failed
+2023-03-27T15:21:27.682Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:21:28.619Z: Status : s2chasos385807 Failed
+2023-03-27T15:21:28.681Z: Status : s2huungu702756 Failed
+2023-03-27T15:21:29.653Z: Status : s2duyngu550403 Failed
+2023-03-27T15:21:30.690Z: Status : s2patsuc245473 Failed
+2023-03-27T15:21:31.610Z: Status : s2tanrac121847 Failed
+2023-03-27T15:21:32.738Z: Status : s2thalee886715 Failed
+2023-03-27T15:21:33.164Z: Result: 0 sent, 5 failed
+2023-03-27T15:21:33.686Z: Status : s2thilee110100 Failed
+2023-03-27T15:21:34.684Z: Status : s2chivon003337 Failed
+2023-03-27T15:21:35.708Z: Status : s2ngungu191810 Failed
+2023-03-27T15:21:36.733Z: Status : s2vietra663180 Failed
+2023-03-27T15:21:37.670Z: Status : s2rawnua958082 Failed
+2023-03-27T15:21:38.618Z: Status : s2mischo927269 Failed
+2023-03-27T15:21:39.701Z: Status : s2chasos385807 Failed
+2023-03-27T15:21:48.621Z: Result: 0 sent, 0 failed
+2023-03-27T15:21:59.702Z: Result: 0 sent, 0 failed
+2023-03-27T15:23:39.107Z: Listening on port 8041
+2023-03-27T15:23:39.118Z: Successfully connected to {localhost}
+2023-03-27T15:23:40.484Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:23:54.876Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:24:05.187Z: Listening on port 8041
+2023-03-27T15:24:05.197Z: Successfully connected to {localhost}
+2023-03-27T15:24:06.359Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:24:20.107Z: Listening on port 8041
+2023-03-27T15:24:20.116Z: Successfully connected to {localhost}
+2023-03-27T15:24:21.224Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:24:34.278Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:24:45.279Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:24:46.298Z: Result: 0 sent, 0 failed
+2023-03-27T15:24:47.662Z: Status : s2ccclll467230 Failed
+2023-03-27T15:24:48.286Z: Status : s2thelee240915 Failed
+2023-03-27T15:24:48.351Z: Status : s2ducngu777338 Failed
+2023-03-27T15:24:48.870Z: Status : s2pejjae163073 Failed
+2023-03-27T15:24:48.994Z: Status : s2huytra590111 Failed
+2023-03-27T15:24:49.997Z: Status : s2dactru331620 Failed
+2023-03-27T15:24:50.841Z: Status : s2sumjon810849 Failed
+2023-03-27T15:24:51.905Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:24:52.887Z: Status : s2huungu702756 Failed
+2023-03-27T15:24:53.867Z: Status : s2duyngu550403 Failed
+2023-03-27T15:24:54.971Z: Status : s2patsuc245473 Failed
+2023-03-27T15:24:55.822Z: Status : s2ccclll467230 Failed
+2023-03-27T15:24:56.892Z: Status : s2ducngu777338 Failed
+2023-03-27T15:24:56.910Z: Status : s2tanrac121847 Failed
+2023-03-27T15:24:57.284Z: Result: 0 sent, 14 failed
+2023-03-27T15:24:57.871Z: Status : s2thelee240915 Failed
+2023-03-27T15:24:57.931Z: Status : s2thalee886715 Failed
+2023-03-27T15:24:57.934Z: Status : s2thilee110100 Failed
+2023-03-27T15:24:58.823Z: Status : s2pejjae163073 Failed
+2023-03-27T15:24:58.886Z: Status : s2chivon003337 Failed
+2023-03-27T15:24:59.844Z: Status : s2huytra590111 Failed
+2023-03-27T15:24:59.962Z: Status : s2ngungu191810 Failed
+2023-03-27T15:25:00.807Z: Status : s2dactru331620 Failed
+2023-03-27T15:25:00.870Z: Status : s2vietra663180 Failed
+2023-03-27T15:25:01.937Z: Status : s2sumjon810849 Failed
+2023-03-27T15:25:01.999Z: Status : s2rawnua958082 Failed
+2023-03-27T15:25:02.881Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:25:02.943Z: Status : s2mischo927269 Failed
+2023-03-27T15:25:03.883Z: Status : s2huungu702756 Failed
+2023-03-27T15:25:03.946Z: Status : s2chasos385807 Failed
+2023-03-27T15:25:04.893Z: Status : s2duyngu550403 Failed
+2023-03-27T15:25:05.931Z: Status : s2patsuc245473 Failed
+2023-03-27T15:25:06.955Z: Status : s2tanrac121847 Failed
+2023-03-27T15:25:07.907Z: Status : s2thalee886715 Failed
+2023-03-27T15:25:08.899Z: Status : s2thilee110100 Failed
+2023-03-27T15:25:09.822Z: Status : s2chivon003337 Failed
+2023-03-27T15:25:10.947Z: Status : s2ngungu191810 Failed
+2023-03-27T15:25:11.972Z: Status : s2vietra663180 Failed
+2023-03-27T15:25:12.993Z: Status : s2rawnua958082 Failed
+2023-03-27T15:25:13.818Z: Status : s2mischo927269 Failed
+2023-03-27T15:25:14.943Z: Status : s2chasos385807 Failed
+2023-03-27T15:26:17.343Z: Listening on port 8041
+2023-03-27T15:26:17.354Z: Successfully connected to {localhost}
+2023-03-27T15:26:18.692Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:26:48.539Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:27:01.925Z: Status : s2ccclll467230 Failed
+2023-03-27T15:27:02.714Z: Status : s2thelee240915 Failed
+2023-03-27T15:27:02.777Z: Status : s2ducngu777338 Failed
+2023-03-27T15:27:03.090Z: Status : s2pejjae163073 Failed
+2023-03-27T15:27:03.155Z: Status : s2huytra590111 Failed
+2023-03-27T15:27:04.112Z: Status : s2dactru331620 Failed
+2023-03-27T15:27:05.143Z: Status : s2sumjon810849 Failed
+2023-03-27T15:27:06.211Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:27:07.142Z: Status : s2huungu702756 Failed
+2023-03-27T15:27:08.142Z: Status : s2duyngu550403 Failed
+2023-03-27T15:27:09.164Z: Status : s2patsuc245473 Failed
+2023-03-27T15:27:10.244Z: Status : s2tanrac121847 Failed
+2023-03-27T15:27:11.206Z: Status : s2thalee886715 Failed
+2023-03-27T15:27:12.190Z: Status : s2thilee110100 Failed
+2023-03-27T15:27:13.159Z: Status : s2chivon003337 Failed
+2023-03-27T15:27:14.147Z: Status : s2ngungu191810 Failed
+2023-03-27T15:27:15.159Z: Status : s2vietra663180 Failed
+2023-03-27T15:27:15.764Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:27:16.104Z: Status : s2rawnua958082 Failed
+2023-03-27T15:27:17.198Z: Status : s2mischo927269 Failed
+2023-03-27T15:27:18.231Z: Status : s2chasos385807 Failed
+2023-03-27T15:27:18.231Z: Campaign: Testing Campaign 1, Result: 0 sent, 20 failed
+2023-03-27T15:27:26.948Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:27:27.344Z: Status : s2ccclll467230 Failed
+2023-03-27T15:27:28.315Z: Status : s2thelee240915 Failed
+2023-03-27T15:27:28.436Z: Status : s2ducngu777338 Failed
+2023-03-27T15:27:28.795Z: Status : s2ccclll467230 Failed
+2023-03-27T15:27:29.302Z: Status : s2pejjae163073 Failed
+2023-03-27T15:27:29.787Z: Status : s2ducngu777338 Failed
+2023-03-27T15:27:30.399Z: Status : s2huytra590111 Failed
+2023-03-27T15:27:30.808Z: Status : s2thelee240915 Failed
+2023-03-27T15:27:31.348Z: Status : s2dactru331620 Failed
+2023-03-27T15:27:31.845Z: Status : s2pejjae163073 Failed
+2023-03-27T15:27:32.095Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:27:32.326Z: Status : s2sumjon810849 Failed
+2023-03-27T15:27:32.808Z: Status : s2huytra590111 Failed
+2023-03-27T15:27:33.334Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:27:33.873Z: Status : s2dactru331620 Failed
+2023-03-27T15:27:34.400Z: Status : s2huungu702756 Failed
+2023-03-27T15:27:34.775Z: Status : s2sumjon810849 Failed
+2023-03-27T15:27:35.303Z: Status : s2duyngu550403 Failed
+2023-03-27T15:27:35.861Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:27:36.401Z: Status : s2patsuc245473 Failed
+2023-03-27T15:27:36.777Z: Status : s2huungu702756 Failed
+2023-03-27T15:27:37.321Z: Status : s2tanrac121847 Failed
+2023-03-27T15:27:37.568Z: Status : s2ccclll467230 Failed
+2023-03-27T15:27:37.797Z: Status : s2duyngu550403 Failed
+2023-03-27T15:27:38.339Z: Status : s2thalee886715 Failed
+2023-03-27T15:27:38.589Z: Status : s2ducngu777338 Failed
+2023-03-27T15:27:38.820Z: Status : s2patsuc245473 Failed
+2023-03-27T15:27:39.284Z: Status : s2thilee110100 Failed
+2023-03-27T15:27:39.593Z: Status : s2thelee240915 Failed
+2023-03-27T15:27:39.783Z: Status : s2tanrac121847 Failed
+2023-03-27T15:27:40.354Z: Status : s2chivon003337 Failed
+2023-03-27T15:27:40.585Z: Status : s2pejjae163073 Failed
+2023-03-27T15:27:40.872Z: Status : s2thalee886715 Failed
+2023-03-27T15:27:41.353Z: Status : s2ngungu191810 Failed
+2023-03-27T15:27:41.689Z: Status : s2huytra590111 Failed
+2023-03-27T15:27:41.957Z: Status : s2thilee110100 Failed
+2023-03-27T15:27:42.335Z: Status : s2vietra663180 Failed
+2023-03-27T15:27:42.583Z: Status : s2dactru331620 Failed
+2023-03-27T15:27:42.873Z: Status : s2chivon003337 Failed
+2023-03-27T15:27:43.391Z: Status : s2rawnua958082 Failed
+2023-03-27T15:27:43.582Z: Status : s2sumjon810849 Failed
+2023-03-27T15:27:43.832Z: Status : s2ngungu191810 Failed
+2023-03-27T15:27:44.385Z: Status : s2mischo927269 Failed
+2023-03-27T15:27:44.577Z: Status : s2pilnoi275697 Failed
+2023-03-27T15:27:44.827Z: Status : s2vietra663180 Failed
+2023-03-27T15:27:45.284Z: Status : s2chasos385807 Failed
+2023-03-27T15:27:45.284Z: Campaign: Testing Campaign 2, Result: 0 sent, 45 failed
+2023-03-27T15:27:45.537Z: Status : s2huungu702756 Failed
+2023-03-27T15:27:45.785Z: Status : s2rawnua958082 Failed
+2023-03-27T15:27:46.574Z: Status : s2duyngu550403 Failed
+2023-03-27T15:27:46.822Z: Status : s2mischo927269 Failed
+2023-03-27T15:27:47.575Z: Status : s2patsuc245473 Failed
+2023-03-27T15:27:47.820Z: Status : s2chasos385807 Failed
+2023-03-27T15:27:47.821Z: Campaign: Testing Campaign 3, Result: 0 sent, 6 failed
+2023-03-27T15:27:48.543Z: Status : s2tanrac121847 Failed
+2023-03-27T15:27:49.566Z: Status : s2thalee886715 Failed
+2023-03-27T15:27:50.590Z: Status : s2thilee110100 Failed
+2023-03-27T15:27:51.615Z: Status : s2chivon003337 Failed
+2023-03-27T15:27:52.579Z: Status : s2ngungu191810 Failed
+2023-03-27T15:27:53.585Z: Status : s2vietra663180 Failed
+2023-03-27T15:27:54.591Z: Status : s2rawnua958082 Failed
+2023-03-27T15:27:55.607Z: Status : s2mischo927269 Failed
+2023-03-27T15:27:56.544Z: Status : s2chasos385807 Failed
+2023-03-27T15:27:56.544Z: Campaign: Testing Campaign 4, Result: 0 sent, 9 failed
+2023-03-27T15:33:00.189Z: Listening on port 8041
+2023-03-27T15:33:00.199Z: Successfully connected to {localhost}
+2023-03-27T15:33:01.561Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T15:33:28.091Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:33:39.302Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:33:42.183Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:42.707Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:43.554Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:43.625Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:45.264Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:46.708Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:46.771Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:47.929Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:47.991Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:49.261Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:50.268Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:33:50.329Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:52.264Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:33:52.265Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:53.008Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T15:33:53.614Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:33:53.739Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:54.561Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:33:54.685Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:55.190Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:33:56.933Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:33:56.967Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:33:59.740Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:33:59.804Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:34:00.964Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:34:01.028Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:02.019Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:34:02.391Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:02.435Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:34:03.074Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:03.112Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 1
+2023-03-27T15:34:03.112Z: Campaign: Testing Campaign 1, Result: 0 sent, 29 failed
+2023-03-27T15:34:03.135Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:03.462Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:03.711Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:03.777Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:03.778Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:07.523Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:08.611Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:08.616Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:08.674Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:08.674Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:09.423Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:09.609Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:09.673Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:09.674Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:09.738Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:11.264Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:11.323Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:11.354Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:11.355Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:11.355Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:11.385Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:11.386Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 2
+2023-03-27T15:34:11.386Z: Campaign: Testing Campaign 2, Result: 0 sent, 22 failed
+2023-03-27T15:34:11.447Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:12.367Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:16.234Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:16.235Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:16.236Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:16.236Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:16.296Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:16.296Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:16.344Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:16.360Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:16.361Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:18.134Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:18.139Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:18.197Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:18.198Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:18.256Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:18.257Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:18.382Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:20.390Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:20.391Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:20.391Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:23.204Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:23.278Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:23.931Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:23.992Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:24.054Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:24.962Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T15:34:24.962Z: Campaign: Testing Campaign 4, Result: 0 sent, 27 failed
+2023-03-27T15:34:25.024Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:25.089Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 3
+2023-03-27T15:34:25.089Z: Campaign: Testing Campaign 3, Result: 0 sent, 2 failed

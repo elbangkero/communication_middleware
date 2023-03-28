@@ -1,0 +1,590 @@
+2023-03-27T18:15:05.190Z: Listening on port 8041
+2023-03-27T18:15:05.201Z: Successfully connected to {localhost}
+2023-03-27T18:15:06.419Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:15:22.615Z: Listening on port 8041
+2023-03-27T18:15:22.626Z: Successfully connected to {localhost}
+2023-03-27T18:15:23.680Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:15:26.599Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:15:42.291Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:42.296Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:42.966Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:43.049Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:43.096Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:43.097Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:44.258Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:44.848Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:46.331Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:47.861Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:49.826Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:50.393Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:51.870Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:52.703Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:53.101Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:53.573Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:55.526Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:56.278Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:58.109Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:59.142Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:15:59.142Z: Campaign: Testing Campaign 4, Result: 0 sent, 20 failed
+2023-03-27T18:18:44.184Z: Listening on port 8041
+2023-03-27T18:18:44.194Z: Successfully connected to {localhost}
+2023-03-27T18:18:45.775Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:18:53.002Z: Listening on port 8041
+2023-03-27T18:18:53.013Z: Successfully connected to {localhost}
+2023-03-27T18:18:54.368Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:18:56.216Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:19:10.197Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:10.829Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:11.092Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:11.164Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:11.348Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:12.241Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:13.331Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:13.862Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:15.308Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:15.921Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:17.183Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:18.489Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:19.171Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:20.426Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:21.250Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:22.338Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:23.412Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:24.319Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:25.355Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:26.690Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:19:26.690Z: Campaign: Testing Campaign 4, Result: 0 sent, 20 failed
+2023-03-27T18:20:21.709Z: Listening on port 8041
+2023-03-27T18:20:21.719Z: Successfully connected to {localhost}
+2023-03-27T18:20:23.317Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:20:24.084Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:20:37.657Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:38.439Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:38.732Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:38.761Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:38.879Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:39.766Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:40.728Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:41.704Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:42.784Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:43.698Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:44.728Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:46.460Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:47.731Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:47.877Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:48.722Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:49.840Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:50.762Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:51.787Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:52.710Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:54.193Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:20:54.193Z: Campaign: Testing Campaign 4, Result: 0 sent, 20 failed
+2023-03-27T18:21:14.733Z: Listening on port 8041
+2023-03-27T18:21:14.744Z: Successfully connected to {localhost}
+2023-03-27T18:21:16.129Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:21:17.782Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:21:31.329Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:32.068Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:32.141Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:32.453Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:32.602Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:33.388Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:34.495Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:35.575Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:36.518Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:37.413Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:38.481Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:40.189Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:41.423Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:41.496Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:42.439Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:43.523Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:44.532Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:45.548Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:46.439Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:47.424Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:21:47.424Z: Campaign: Testing Campaign 4, Result: 0 sent, 20 failed
+2023-03-27T18:22:48.979Z: Listening on port 8041
+2023-03-27T18:22:48.988Z: Successfully connected to {localhost}
+2023-03-27T18:22:50.371Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:22:52.138Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:23:02.465Z: Listening on port 8041
+2023-03-27T18:23:02.473Z: Successfully connected to {localhost}
+2023-03-27T18:23:03.883Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:24:56.141Z: Listening on port 8041
+2023-03-27T18:24:56.152Z: Successfully connected to {localhost}
+2023-03-27T18:24:57.706Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:24:58.730Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:25:09.047Z: Listening on port 8041
+2023-03-27T18:25:09.089Z: Successfully connected to {localhost}
+2023-03-27T18:25:10.355Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:25:22.037Z: Listening on port 8041
+2023-03-27T18:25:22.048Z: Successfully connected to {localhost}
+2023-03-27T18:25:23.130Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:25:24.242Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:25:37.499Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:37.688Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:37.784Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.316Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.374Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.447Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.521Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.594Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.667Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.687Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.739Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.740Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.835Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.889Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:38.890Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:39.893Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:39.969Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:40.045Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:40.888Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:40.911Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:40.958Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:42.006Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:42.059Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:42.060Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:42.892Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:42.946Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:42.946Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:43.924Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:43.973Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:43.974Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:44.842Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:44.921Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:44.994Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:46.814Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:46.867Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:46.867Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:47.825Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:47.899Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:47.900Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:47.972Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:47.973Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:48.044Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:48.833Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:48.907Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:48.974Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:49.873Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:49.945Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:50.018Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:50.838Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:50.912Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:50.984Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:51.890Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:51.965Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:52.032Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:52.904Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:52.926Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:52.926Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:53.837Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:53.837Z: Campaign: Testing Campaign 4, Result: undefined sent, NaN failed
+2023-03-27T18:25:53.910Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:53.911Z: Campaign: Testing Campaign 4, Result: undefined sent, NaN failed
+2023-03-27T18:25:53.983Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:25:53.983Z: Campaign: Testing Campaign 4, Result: undefined sent, NaN failed
+2023-03-27T18:27:32.923Z: Listening on port 8041
+2023-03-27T18:27:32.932Z: Successfully connected to {localhost}
+2023-03-27T18:27:34.517Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:27:37.492Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:27:51.072Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:27:51.804Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:27:51.959Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:27:52.040Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:27:52.188Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:27:53.107Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:27:54.094Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:27:55.122Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:27:56.087Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:27:57.140Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:27:58.088Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:27:59.213Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:28:00.097Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:28:01.134Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:28:02.197Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:28:03.222Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:28:04.229Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:28:05.152Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:28:06.176Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:28:07.201Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:28:07.201Z: Campaign: Testing Campaign 4, Result: 0 sent, 20 failed
+2023-03-27T18:29:03.200Z: Listening on port 8041
+2023-03-27T18:29:03.211Z: Successfully connected to {localhost}
+2023-03-27T18:29:04.729Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:29:06.132Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:29:19.487Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:20.348Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:20.423Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:20.658Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:20.735Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:21.776Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:22.746Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:23.772Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:24.835Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:25.768Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:26.868Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:27.728Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:28.833Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:29.835Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:30.758Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:31.883Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:32.813Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:33.764Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:34.773Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:35.953Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:29:35.953Z: Campaign: Testing Campaign 4, Result: 0 sent, 20 failed
+2023-03-27T18:30:18.549Z: Listening on port 8041
+2023-03-27T18:30:18.560Z: Successfully connected to {localhost}
+2023-03-27T18:30:19.804Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:30:22.022Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:30:35.967Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:36.366Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:36.608Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:36.680Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:37.209Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:37.705Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:38.642Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:39.658Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:40.753Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:41.628Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:42.673Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:43.700Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:44.656Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:45.692Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:46.614Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:47.648Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:48.714Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:49.696Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:50.734Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:30:51.665Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:04.058Z: Listening on port 8041
+2023-03-27T18:34:04.070Z: Successfully connected to {localhost}
+2023-03-27T18:34:05.539Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:34:07.093Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:34:20.686Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:21.337Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:21.577Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:21.651Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:21.725Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:22.735Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:23.767Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:24.854Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:25.777Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:26.732Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:27.822Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:31.408Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:32.661Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:32.734Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:35.569Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:35.617Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:36.655Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:37.909Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:37.984Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:34:37.985Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:29.632Z: Listening on port 8041
+2023-03-27T18:35:29.641Z: Successfully connected to {localhost}
+2023-03-27T18:35:30.905Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:35:33.537Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:35:44.358Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:35:48.870Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:49.475Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:52.430Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:52.438Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:53.013Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:53.472Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:53.616Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:53.813Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:54.862Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:54.934Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:55.614Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:55.751Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:35:56.219Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:35:56.291Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:58.145Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:35:58.713Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:35:59.052Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:35:59.306Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:36:00.943Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:01.065Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:02.022Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:36:04.583Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:05.717Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:05.741Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:36:05.791Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:36:06.437Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:06.583Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:36:06.908Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:36:06.908Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:06.980Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:07.558Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:08.541Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:36:08.541Z: Campaign: Testing Campaign 4, Result: 0 sent, 20 failed
+2023-03-27T18:36:17.172Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:18.114Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:18.158Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:18.158Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:18.183Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:18.221Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:18.223Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:18.226Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:18.700Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:21.286Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:21.814Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:22.521Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:23.126Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:23.295Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:23.338Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:23.438Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:24.050Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:24.776Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:25.390Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:29.013Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:36:29.013Z: Campaign: Testing Campaign 1, Result: 0 sent, 20 failed
+2023-03-27T18:36:29.638Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:30.103Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:30.342Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:30.343Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:30.343Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:30.371Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:30.445Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:30.826Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:37.333Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:37.334Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:38.564Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:38.615Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:38.615Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:38.639Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:38.688Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:38.711Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:38.758Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:40.791Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:40.809Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:40.809Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:40.835Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:40.865Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:40.866Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:40.881Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:40.881Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:42.117Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:50.979Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:51.074Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:51.144Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:36:51.144Z: Campaign: Testing Campaign 5, Result: 0 sent, 20 failed
+2023-03-27T18:36:51.217Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:36:51.217Z: Campaign: Testing Campaign 3, Result: 0 sent, 20 failed
+2023-03-27T18:38:20.075Z: Listening on port 8041
+2023-03-27T18:38:20.083Z: Successfully connected to {localhost}
+2023-03-27T18:38:21.653Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-27T18:38:25.686Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:38:28.465Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:38:33.284Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:38:47.846Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:47.868Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:38:47.917Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:38:48.500Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:38:48.574Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:38:48.668Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:48.721Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:38:48.722Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:48.871Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:38:49.034Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:38:49.804Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:49.876Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:38:49.888Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:38:53.304Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:38:53.304Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:53.379Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:38:55.453Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:55.499Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:38:55.574Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:56.506Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:38:56.507Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:38:56.576Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:38:58.395Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:38:58.414Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:38:58.414Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:58.415Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:38:58.416Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:58.468Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:38:59.628Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:38:59.798Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:38:59.846Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:59.984Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:59.985Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:38:59.986Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:38:59.991Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:38:59.991Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:38:59.992Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:39:00.092Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:00.555Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-27T18:39:01.074Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:39:01.125Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:39:01.656Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:01.657Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:39:01.658Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:01.700Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:39:01.700Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:39:01.718Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:39:01.719Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:39:01.734Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:39:01.796Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:39:03.165Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:39:03.213Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:39:03.256Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:39:03.257Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:03.258Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:39:03.258Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:03.258Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:39:03.285Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:39:03.286Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:39:04.714Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:04.785Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:39:04.840Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:39:04.857Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:39:04.878Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:39:04.926Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:39:04.950Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:39:04.998Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:04.998Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:06.437Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:06.438Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:06.438Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:06.459Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 1
+2023-03-27T18:39:06.459Z: Campaign: Testing Campaign 1, Result: 0 sent, 20 failed
+2023-03-27T18:39:06.530Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 2
+2023-03-27T18:39:06.530Z: Campaign: Testing Campaign 2, Result: 0 sent, 20 failed
+2023-03-27T18:39:06.558Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:06.603Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 3
+2023-03-27T18:39:06.603Z: Campaign: Testing Campaign 3, Result: 0 sent, 20 failed
+2023-03-27T18:39:08.158Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:09.459Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:09.603Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:10.862Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:11.975Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:12.326Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:12.691Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:13.836Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:14.638Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 4
+2023-03-27T18:39:14.639Z: Campaign: Testing Campaign 4, Result: 0 sent, 20 failed
+2023-03-27T18:39:14.667Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:17.188Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:17.197Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:17.257Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:20.567Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:20.663Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:20.713Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:21.891Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:22.346Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:22.692Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:24.096Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:24.189Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:26.049Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:27.142Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:27.603Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:29.436Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:30.832Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:30.904Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 5
+2023-03-27T18:39:30.904Z: Campaign: Testing Campaign 5, Result: 0 sent, 20 failed
+2023-03-28T04:07:19.612Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-28T04:08:49.192Z: Listening on port 8041
+2023-03-28T04:08:49.208Z: Successfully connected to {localhost}
+2023-03-28T04:10:04.196Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-28T04:11:05.808Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-28T04:11:19.415Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-28T04:11:41.714Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:41.781Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:43.924Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:44.205Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:44.981Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:45.052Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:45.092Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:45.127Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:45.128Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:45.197Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:46.267Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:50.083Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:50.108Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:51.602Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:51.671Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:52.167Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:52.236Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:52.664Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:52.741Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:53.381Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 5
+2023-03-28T04:11:53.381Z: Campaign: Testing Campaign 5, Result: 0 sent, 20 failed
+2023-03-28T04:12:12.526Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-28T04:12:21.701Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-28T04:12:25.463Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-28T04:12:27.609Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-28T04:12:43.015Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-03-28T04:12:46.433Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:12:46.433Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 8
+2023-03-28T04:12:46.474Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 7
+2023-03-28T04:12:46.501Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 8
+2023-03-28T04:12:46.569Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 7
+2023-03-28T04:12:46.678Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 9
+2023-03-28T04:12:46.748Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 9
+2023-03-28T04:12:46.817Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:12:47.060Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:12:50.060Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:12:50.240Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 8
+2023-03-28T04:12:50.241Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 7
+2023-03-28T04:12:50.241Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 9
+2023-03-28T04:12:50.273Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 7
+2023-03-28T04:12:50.668Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 9
+2023-03-28T04:12:51.050Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:12:51.081Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 8
+2023-03-28T04:12:51.150Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 7
+2023-03-28T04:12:56.425Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 8
+2023-03-28T04:12:56.498Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 9
+2023-03-28T04:12:56.951Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:12:56.952Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 8
+2023-03-28T04:12:57.409Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:12:57.445Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 7
+2023-03-28T04:12:58.467Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 9
+2023-03-28T04:12:58.467Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 9
+2023-03-28T04:12:58.535Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 7
+2023-03-28T04:13:00.759Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:01.934Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 8
+2023-03-28T04:13:02.384Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 9
+2023-03-28T04:13:02.384Z: Campaign: Testing Campaign 9, Result: 0 sent, 8 failed
+2023-03-28T04:13:02.443Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 7
+2023-03-28T04:13:02.443Z: Campaign: Testing Campaign 7, Result: 0 sent, 8 failed
+2023-03-28T04:13:02.693Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 8
+2023-03-28T04:13:02.693Z: Campaign: Testing Campaign 8, Result: 0 sent, 8 failed
+2023-03-28T04:13:02.723Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:02.791Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:02.827Z: Status : s2ducngu777338 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:02.861Z: Status : s2ccclll467230 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:03.637Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:03.710Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:08.133Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:08.164Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:08.164Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:09.161Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:09.231Z: Status : s2thelee240915 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:09.341Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:09.381Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:09.382Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:09.474Z: Status : s2pejjae163073 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:11.426Z: Status : s2huytra590111 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:11.495Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:11.517Z: Status : s2huungu702756 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:11.563Z: Status : s2pilnoi275697 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:11.564Z: Status : s2patsuc245473 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:11.583Z: Status : s2dactru331620 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:11.632Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 6
+2023-03-28T04:13:11.632Z: Campaign: Testing Campaign 6, Result: 0 sent, 20 failed
+2023-03-28T04:13:13.431Z: Status : s2duyngu550403 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:14.106Z: Status : s2tanrac121847 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:14.485Z: Status : s2thalee886715 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:15.206Z: Status : s2thilee110100 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:15.211Z: Status : s2chivon003337 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:15.276Z: Status : s2vietra663180 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:15.277Z: Status : s2ngungu191810 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:15.278Z: Status : s2rawnua958082 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:15.278Z: Status : s2mischo927269 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:15.562Z: Status : s2chasos385807 Failed :Campaign:Testing Campaign 10
+2023-03-28T04:13:15.563Z: Campaign: Testing Campaign 10, Result: 0 sent, 20 failed
