@@ -35,8 +35,8 @@ let credentials = { "username": "", "password": "" };
                                 .pipe(csv())
                                 .on('data', function (data) {
                                     try {
-                                        pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'country': data.country, 'message': data.message, 'platform': data.platform }));
-                                        //console_log(data.playertoken + ',' + data.country + ',' + data.message + ',' + data.platform);
+                                        pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'country': data.country, 'message_text': data.message_text, 'platform': data.platform, 'from': data.from, 'template_id': data.template_id, 'email_subject': data.email_subject, 'application_id': data.application_id }));
+                                        //console_log(data.playertoken + ',' + data.country + ',' + data.text_message + ',' + data.platform);
                                         //constructData(data.playertoken, data.country, data.message, data.platform);
                                     } catch (err) {
                                         console_log(err);
@@ -56,10 +56,8 @@ let credentials = { "username": "", "password": "" };
                                 });
                         })
                     }
-
                 })
             }, "10000")
-
         }
 
     });
@@ -86,7 +84,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
         setTimeout(async function () {
 
             var obj = JSON.parse(el);
-            //console.log(obj.player_token, obj.country, obj.message, obj.platform);
+            //console.log(obj.player_token, obj.country, obj.text_message, obj.platform);
             //counter.success++;
             joystick_connection.query(`select pdr.email,pdr.phone_number from  afun_afun.player_data pd   
             left join afun_afun.player_data_revision pdr on pdr.playerid = pd.playerid 
@@ -98,24 +96,24 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                 } else {
                     data.forEach(async row => {
                         if (obj.platform == 'sms') {
-                            await sendSMS(obj.message, row.phone_number, obj.country)
+                            await sendSMS(obj.message_text, obj.from, row.phone_number, obj.country)
                                 .then(function (response) {
                                     //console.log('success');
-                                    console_log(`Status : ${obj.player_token} Sent :` + `Campaign:${campaign_name}`);
+                                    console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                     //counter.success++;
                                     query_instant++
                                     dynamic_counter.counter.success++;
                                     //console.log(response.data);
-                                    storeConfigHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message, 'success', JSON.stringify(response.data));
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id);
                                 })
                                 .catch(function (error) {
                                     //console.log('error');
-                                    console_log(`Status : ${obj.player_token} Failed :` + `Campaign:${campaign_name}`);
+                                    console_log(`Status : ${obj.player_token} Failed, ` + `Campaign:${campaign_name}`);
                                     //counter.fails++;
                                     dynamic_counter.counter.fails++
                                     query_instant++
                                     //console.error(error.response.data);
-                                    storeConfigHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message, 'failed', JSON.stringify(error.response.data));
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.response.data), obj.from, '', '', obj.application_id);
                                 })
                                 .finally(async function () {
                                     if (pre_compile_data.length == query_instant) {
@@ -134,7 +132,33 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                 });
                         }
                         else if (obj.platform == 'email') {
-                            //sendEmail(player_token, country, message, platform, row.email);
+                            await sendEmail(obj.from, row.email, obj.email_subject, obj.template_id)
+                                .then(function (response) {
+                                    console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
+                                    query_instant++
+                                    dynamic_counter.counter.success++;
+                                    // console.log(JSON.stringify(response.data));
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, obj.email_subject, obj.template_id, obj.application_id);
+                                }).catch(function (error) {
+                                    console_log(`Status : ${obj.player_token} Failed, ` + `Campaign:${campaign_name}`);
+                                    dynamic_counter.counter.fails++
+                                    query_instant++
+                                    //console.log(error.data);
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed',JSON.stringify(error.data), obj.from, obj.email_subject, obj.template_id, obj.application_id);
+                                }).finally(async function () {
+                                    if (pre_compile_data.length == query_instant) {
+                                        console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                        dynamic_counter.counter.success = 0;
+                                        dynamic_counter.counter.fails = 0;
+                                        pre_compile_data.length = 0;
+
+                                        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
+                                            if (err) {
+                                                console_log(`Error executing query: ${err.message}`);
+                                            }
+                                        });
+                                    }
+                                });
                         }
                     });
                 }
@@ -156,10 +180,10 @@ function apiAccount(country_code) {
     }
 }
 
-async function storeConfigHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response) {
+async function storeMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id) {
 
     let date_now = new Date().toISOString();
-    local_connection.query(`INSERT INTO cmw_history (config_id,campaign_name,player_token,player_contact,platform,country,message,status,created_at,updated_at,api_response) VALUES ('${config_id}','${campaign_name}','${player_token}','${player_contact}','${platform}','${country}','${message}','${status}','${date_now}','${date_now}','${api_response}')`, (err, res) => {
+    local_connection.query(`INSERT INTO cmw_history (config_id,campaign_name,player_token,player_contact,platform,country,message,status,created_at,updated_at,api_response,from_sender,email_subject,template_id,application_id) VALUES ('${config_id}','${campaign_name}','${player_token}','${player_contact}','${platform}','${country}','${message}','${status}','${date_now}','${date_now}','${api_response}','${from}','${email_subject}','${template_id}','${application_id}')`, (err, res) => {
         if (err) {
             console_log(`Error executing query: ${err}`);
         }
@@ -167,18 +191,17 @@ async function storeConfigHistory(config_id, campaign_name, player_token, player
 }
 
 
-async function sendSMS(message, phone_number, country_code) {
+async function sendSMS(message, from, phone_number, country_code) {
 
     apiAccount(country_code);
-
-
-    const encodedParamValue = encodeURIComponent(message);
+    const encodedParamValueMessage = encodeURIComponent(message);
+    const encodedParamValueFrom = encodeURIComponent(from);
     return new Promise(async (resolve, reject) => {
 
         var config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: `https://my.sms-smart.com/rest/send_sms?from=+639611573154&to=09565341623&message=${encodedParamValue}&username=${credentials.username}&password=${credentials.password}`
+            url: `https://my.sms-smart.com/rest/send_sms?from=${encodedParamValueFrom}&to=09611573154&message=${encodedParamValueMessage}&username=${credentials.username}&password=${credentials.password}`
         };
 
         await axios(config)
@@ -194,8 +217,35 @@ async function sendSMS(message, phone_number, country_code) {
 
 }
 
-async function sendEmail(player_token, country, message, platform, email) {
-    await console_log(JSON.stringify({ 'player_token': player_token, 'country': country, 'message': message, 'platform': platform, 'email': email }));
+async function sendEmail(from, email, subject, template_id) {
+
+
+    const apikey = '7C41D4746E1C491FAB5CC72DFF9EF3F117A02CD035AEACE30E9823CD3D0581D20B61291546D6AF53BEA633563CE388E8'
+    const email_subect = encodeURIComponent(subject);
+
+    return new Promise(async (resolve, reject) => {
+
+        var config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: `https://api.elasticemail.com/v2/email/send?subject=${email_subect}&from=${from}&to=robert.gajelomo@everlounge.net&template=${template_id}&isTransactional=true&apikey=${apikey}`,
+            headers: {}
+        };
+
+
+        axios(config)
+            .then(function (response) {
+                if (response.data.success)
+                    resolve(response)
+                else
+                    reject(response);
+            })
+            .catch(function (error) {
+                reject(error);
+            });
+
+    });
+
 }
 
 const multerStorage = multer.diskStorage({

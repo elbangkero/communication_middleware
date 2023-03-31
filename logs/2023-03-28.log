@@ -934,3 +934,9 @@
 2023-03-28T11:22:40.942Z: Campaign: Testing Campaign 1, Result: 0 sent, 7 failed
 2023-03-28T11:22:41.219Z: Status : s2sumjon810849 Failed :Campaign:Testing Campaign 1
 2023-03-28T11:22:41.219Z: Campaign: Testing Campaign 1, Result: 0 sent, 7 failed
+2023-03-28T11:25:14.817Z: Listening on port 8041
+2023-03-28T11:25:14.826Z: Successfully connected to {localhost}
+2023-03-28T11:25:18.725Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-03-28T11:27:58.950Z: Listening on port 8041
+2023-03-28T11:27:58.962Z: Successfully connected to {localhost}
+2023-03-28T11:28:03.574Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
