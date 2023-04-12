@@ -20,9 +20,9 @@ let credentials = { "username": "", "password": "" };
             setTimeout(() => {
                 local_connection.query(`SELECT * FROM cmw_config where triggerstatus='active' and sending ='true' and status !='sending'`).then(res => {
                     const data = res.rows;
-                    console.log('Config queue count : ', res.rowCount);
+                    console_log(`Config queue count : ${res.rowCount}`);
 
-                    console.log('payload :', dataload);
+                    console_log(`payload : ${dataload}`);
                     const callback = dataload == res.rowCount;
                     if (callback) {
                         data.forEach(row => {
@@ -108,7 +108,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                 })
                                 .catch(function (error) {
                                     //console.log('error');
-                                    console_log(`Status : ${obj.player_token} Failed, ` + `Campaign:${campaign_name}`);
+                                    console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                     //counter.fails++;
                                     dynamic_counter.counter.fails++
                                     query_instant++
@@ -140,7 +140,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                     // console.log(JSON.stringify(response.data));
                                     storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, obj.email_subject, obj.template_id, obj.application_id);
                                 }).catch(function (error) {
-                                    console_log(`Status : ${obj.player_token} Failed, ` + `Campaign:${campaign_name}`);
+                                    console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                     dynamic_counter.counter.fails++
                                     query_instant++
                                     //console.log(error.data);
@@ -201,7 +201,7 @@ async function sendSMS(message, from, phone_number, country_code) {
         var config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: `https://my.sms-smart.com/rest/send_sms?from=${encodedParamValueFrom}&to=09611573154&message=${encodedParamValueMessage}&username=${credentials.username}&password=${credentials.password}`
+            url: `https://my.sms-smart.com/rest/send_sms?from=${encodedParamValueFrom}&to=+639611573154&message=${encodedParamValueMessage}&username=${credentials.username}&password=${credentials.password}`
         };
 
         await axios(config)
@@ -313,6 +313,24 @@ searchJoystck = async (_req, _res) => {
 }
 
 
+
+API_DisplayTriggers = async (_req, _res) => {
+
+    local_connection.query(`select * from cmw_config order by config_id desc  `, (err, res) => {
+        if (err) {
+            console_log(`Error executing query: ${err.message}`);
+            setTimeout(joystick_client, 60000);
+        } else {
+            console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] }));
+            _res.status(200).json(res.rows);
+        }
+    });
+
+
+
+}
+
+
 module.exports = function (app) {
 
     app.post('/upload/upload-config', upload.fields([
@@ -323,5 +341,7 @@ module.exports = function (app) {
     ]), insertConfig);
 
     app.get('/search_joystick', searchJoystck);
+
+    app.get('/api_triggers', API_DisplayTriggers);
 
 };

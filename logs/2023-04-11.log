@@ -1,0 +1,59 @@
+2023-04-11T06:56:02.580Z: Listening on port 8041
+2023-04-11T06:56:02.597Z: Successfully connected to {localhost}
+2023-04-11T06:56:02.810Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-11T06:57:26.730Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T06:57:36.746Z: Config queue count : 1
+2023-04-11T06:57:36.746Z: payload : 1
+2023-04-11T06:57:46.763Z: Config queue count : 0
+2023-04-11T06:57:46.763Z: payload : 0
+2023-04-11T06:58:08.890Z: Status : s2bcelgz003769 Failed, Campaign : Testing Campaign 1
+2023-04-11T06:58:10.717Z: Status : s2oxutki739774 Failed, Campaign : Testing Campaign 1
+2023-04-11T06:58:11.689Z: Status : s2tdtftr239276 Failed, Campaign : Testing Campaign 1
+2023-04-11T06:58:11.875Z: Status : s2mmgmqv584475 Failed, Campaign : Testing Campaign 1
+2023-04-11T06:58:11.876Z: Status : s2nydfrq976541 Sent, Campaign : Testing Campaign 1
+2023-04-11T06:58:12.691Z: Status : s2poyuqr641549 Sent, Campaign : Testing Campaign 1
+2023-04-11T06:58:13.176Z: Status : s2sthajs721606 Failed, Campaign : Testing Campaign 1
+2023-04-11T06:58:13.187Z: Status : s2zkdtrd297338 Failed, Campaign : Testing Campaign 1
+2023-04-11T06:58:24.521Z: Status : s2yemnil959403 Failed, Campaign : Testing Campaign 1
+2023-04-11T06:58:24.523Z: Status : s2awrpph587154 Sent, Campaign : Testing Campaign 1
+2023-04-11T06:58:24.523Z: Campaign: Testing Campaign 1, Result: 3 sent, 7 failed
+2023-04-11T06:58:34.546Z: Config queue count : 0
+2023-04-11T06:58:34.546Z: payload : 0
+2023-04-11T06:58:44.137Z: Error executing query: column "config_iddesc" does not exist
+2023-04-11T06:58:45.728Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T06:58:45.730Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T06:59:00.905Z: Error executing query: column "config_iddesc" does not exist
+2023-04-11T06:59:10.909Z: Error executing query: column "config_iddesc" does not exist
+2023-04-11T06:59:17.785Z: Listening on port 8041
+2023-04-11T06:59:17.799Z: Successfully connected to {localhost}
+2023-04-11T06:59:18.408Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-11T06:59:20.818Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T06:59:32.585Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:00:17.860Z: Listening on port 8041
+2023-04-11T07:00:17.872Z: Successfully connected to {localhost}
+2023-04-11T07:00:18.075Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-11T07:00:20.011Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:00:49.550Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:01:12.229Z: Listening on port 8041
+2023-04-11T07:01:12.247Z: Successfully connected to {localhost}
+2023-04-11T07:01:12.451Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-11T07:01:14.043Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:01:32.038Z: Listening on port 8041
+2023-04-11T07:01:32.050Z: Successfully connected to {localhost}
+2023-04-11T07:01:32.255Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-11T07:01:34.107Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:04:23.193Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:05:17.649Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:05:33.341Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:06:03.985Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:06:23.830Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:10:16.805Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:10:27.020Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:10:54.119Z: Listening on port 8041
+2023-04-11T07:10:54.133Z: Successfully connected to {localhost}
+2023-04-11T07:10:54.157Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-11T07:11:54.421Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-11T07:12:03.797Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:12:30.430Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:12:41.006Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-11T07:38:16.895Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
