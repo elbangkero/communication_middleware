@@ -1,0 +1,268 @@
+2023-04-17T05:37:01.111Z: Listening on port 8041
+2023-04-17T05:38:02.847Z: Listening on port 8041
+2023-04-17T05:38:32.792Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T05:39:17.851Z: Error connecting to {localhost}
+2023-04-17T05:40:47.871Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T05:41:32.853Z: Error connecting to {localhost}
+2023-04-17T05:43:02.926Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T05:43:47.853Z: Error connecting to {localhost}
+2023-04-17T05:45:18.087Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T05:45:25.092Z: Listening on port 8041
+2023-04-17T05:45:25.106Z: Successfully connected to {localhost}
+2023-04-17T05:45:59.812Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T05:46:13.637Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T05:46:34.022Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T05:46:40.160Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T05:46:47.817Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T05:47:14.771Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T05:47:26.381Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T05:47:55.765Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T05:48:15.788Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T05:48:31.201Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T05:48:42.036Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T05:48:55.206Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T05:51:10.352Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T05:53:25.418Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T05:55:40.725Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T05:57:17.075Z: Listening on port 8041
+2023-04-17T05:57:17.087Z: Successfully connected to {localhost}
+2023-04-17T05:57:45.213Z: Listening on port 8041
+2023-04-17T05:57:45.228Z: Successfully connected to {localhost}
+2023-04-17T05:58:20.315Z: Listening on port 8041
+2023-04-17T05:58:20.329Z: Successfully connected to {localhost}
+2023-04-17T05:58:47.336Z: Listening on port 8041
+2023-04-17T05:58:47.348Z: Successfully connected to {localhost}
+2023-04-17T05:59:48.529Z: Listening on port 8041
+2023-04-17T05:59:48.538Z: Successfully connected to {localhost}
+2023-04-17T06:00:01.738Z: Listening on port 8041
+2023-04-17T06:00:01.754Z: Successfully connected to {localhost}
+2023-04-17T06:00:14.542Z: Listening on port 8041
+2023-04-17T06:00:14.568Z: Successfully connected to {localhost}
+2023-04-17T06:01:29.548Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:01:49.814Z: Listening on port 8041
+2023-04-17T06:01:49.833Z: Successfully connected to {localhost}
+2023-04-17T06:03:04.823Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:05:20.019Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:05:29.952Z: Listening on port 8041
+2023-04-17T06:05:29.960Z: Successfully connected to {localhost}
+2023-04-17T06:05:33.476Z: Listening on port 8041
+2023-04-17T06:05:33.485Z: Successfully connected to {localhost}
+2023-04-17T06:06:48.479Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:09:03.577Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:11:20.086Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:11:27.857Z: Listening on port 8041
+2023-04-17T06:11:27.883Z: Successfully connected to {localhost}
+2023-04-17T06:12:42.926Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:14:58.105Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:17:13.150Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:19:28.194Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:21:16.706Z: Listening on port 8041
+2023-04-17T06:21:16.717Z: Successfully connected to {localhost}
+2023-04-17T06:22:31.708Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:24:46.709Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:27:01.752Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:29:16.824Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:31:31.941Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:33:46.983Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:36:02.030Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:38:17.071Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:40:33.082Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:42:48.162Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:45:03.203Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:47:18.056Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:49:33.119Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:51:48.159Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:54:03.205Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:56:18.237Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:58:33.275Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T06:58:54.073Z: Listening on port 8041
+2023-04-17T06:58:54.087Z: Successfully connected to {localhost}
+2023-04-17T06:58:54.855Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:16:28.058Z: Listening on port 8041
+2023-04-17T10:16:28.070Z: Successfully connected to {localhost}
+2023-04-17T10:17:22.989Z: Listening on port 8041
+2023-04-17T10:17:22.997Z: Successfully connected to {localhost}
+2023-04-17T10:18:37.993Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:19:42.664Z: Listening on port 8041
+2023-04-17T10:19:42.677Z: Successfully connected to {localhost}
+2023-04-17T10:20:57.670Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:23:12.768Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:25:27.944Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:27:43.046Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:29:58.155Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:32:13.303Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:34:28.560Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:36:43.749Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:38:58.844Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:41:14.071Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:43:29.170Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:45:44.274Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:47:59.383Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:50:14.609Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:52:29.965Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:54:45.258Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:57:00.370Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T10:59:15.441Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:01:30.615Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:03:45.714Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:06:00.819Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:08:16.013Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:10:31.061Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:12:46.326Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:15:01.800Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:17:17.030Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:19:32.087Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:21:47.142Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:24:02.205Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:26:17.262Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:28:32.977Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:30:48.026Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:33:03.076Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:35:18.176Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:37:33.264Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:39:48.422Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:42:03.798Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:44:18.792Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:46:35.919Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:48:51.002Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:51:06.185Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:53:21.398Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:55:36.445Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T11:57:51.485Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:00:06.548Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:02:21.607Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:04:36.783Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:06:51.826Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:09:06.905Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:11:22.085Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:13:37.125Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:15:52.179Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:18:07.269Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:20:22.443Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:21:33.415Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:23:48.594Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:26:03.693Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:28:18.737Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:30:33.886Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:32:48.987Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:35:04.033Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:37:19.077Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:39:34.124Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:41:49.170Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:44:04.427Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:46:19.493Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:48:34.534Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:50:49.591Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:53:04.639Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:55:19.838Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:57:35.047Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T12:59:50.098Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:02:05.187Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:04:20.236Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:06:35.306Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:08:50.461Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:11:05.518Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:13:20.567Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:15:35.612Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:17:50.698Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:20:05.918Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:22:21.026Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:24:36.084Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:26:51.136Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:29:06.191Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:31:21.369Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:33:36.467Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:35:51.520Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:38:06.564Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:40:21.759Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:42:36.808Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:44:51.858Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:47:06.903Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:49:21.985Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:51:37.492Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:53:52.580Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:56:07.622Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T13:58:22.675Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:00:37.811Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:02:52.857Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:05:07.905Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:07:22.948Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:09:38.472Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:11:53.822Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:14:08.868Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:16:23.912Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:39:21.619Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:41:36.745Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:43:51.794Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:46:06.841Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:48:22.131Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:50:37.268Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:52:20.027Z: Listening on port 8041
+2023-04-17T14:52:20.036Z: Successfully connected to {localhost}
+2023-04-17T14:53:35.029Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:55:50.134Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:56:13.347Z: Listening on port 8041
+2023-04-17T14:56:13.356Z: Successfully connected to {localhost}
+2023-04-17T14:57:28.372Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T14:58:56.984Z: Listening on port 8041
+2023-04-17T14:58:57.005Z: Successfully connected to {localhost}
+2023-04-17T15:00:11.989Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:02:27.037Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:04:42.088Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:06:57.143Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:08:49.450Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T15:08:59.452Z: Config queue count : 1
+2023-04-17T15:08:59.452Z: payload : 1
+2023-04-17T15:09:09.466Z: Config queue count : 0
+2023-04-17T15:09:09.466Z: payload : 0
+2023-04-17T15:09:12.362Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:10:08.450Z: Listening on port 8041
+2023-04-17T15:10:08.459Z: Successfully connected to {localhost}
+2023-04-17T15:11:23.451Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:11:46.039Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T15:11:56.040Z: Config queue count : 1
+2023-04-17T15:11:56.041Z: payload : 1
+2023-04-17T15:12:06.056Z: Config queue count : 0
+2023-04-17T15:12:06.056Z: payload : 0
+2023-04-17T15:12:30.203Z: Listening on port 8041
+2023-04-17T15:12:30.220Z: Successfully connected to {localhost}
+2023-04-17T15:12:44.348Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T15:12:54.363Z: Config queue count : 1
+2023-04-17T15:12:54.363Z: payload : 1
+2023-04-17T15:13:04.379Z: Config queue count : 0
+2023-04-17T15:13:04.380Z: payload : 0
+2023-04-17T15:13:08.477Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T15:13:18.479Z: Config queue count : 1
+2023-04-17T15:13:18.479Z: payload : 1
+2023-04-17T15:13:28.491Z: Config queue count : 0
+2023-04-17T15:13:28.491Z: payload : 0
+2023-04-17T15:13:45.207Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:16:00.283Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:18:15.323Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:20:30.358Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:21:42.348Z: Listening on port 8041
+2023-04-17T15:21:42.357Z: Successfully connected to {localhost}
+2023-04-17T15:22:13.983Z: Listening on port 8041
+2023-04-17T15:22:13.992Z: Successfully connected to {localhost}
+2023-04-17T15:22:15.707Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-17T15:22:25.720Z: Config queue count : 1
+2023-04-17T15:22:25.720Z: payload : 1
+2023-04-17T15:22:27.129Z: Listening on port 8041
+2023-04-17T15:22:27.139Z: Successfully connected to {localhost}
+2023-04-17T15:23:42.129Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:25:57.205Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:28:12.243Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:30:27.284Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:32:42.423Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:34:57.535Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:37:12.560Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:39:27.601Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:41:42.784Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:43:57.875Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:46:13.065Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:48:28.208Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:50:43.295Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:52:58.418Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:55:13.589Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:57:28.676Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-17T15:59:43.855Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}

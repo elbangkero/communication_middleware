@@ -3,7 +3,9 @@ const app = express();
 const dotenv = require('dotenv');
 const console_log = require('./src/log_file_path');
 dotenv.config();    
-
+const cors = require('cors');
+app.use(cors());
+app.options('*', cors());
 require('./src/api')(app);
 
  

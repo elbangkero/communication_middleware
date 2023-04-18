@@ -144,7 +144,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                     dynamic_counter.counter.fails++
                                     query_instant++
                                     //console.log(error.data);
-                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed',JSON.stringify(error.data), obj.from, obj.email_subject, obj.template_id, obj.application_id);
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, obj.email_subject, obj.template_id, obj.application_id);
                                 }).finally(async function () {
                                     if (pre_compile_data.length == query_instant) {
                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
@@ -201,7 +201,7 @@ async function sendSMS(message, from, phone_number, country_code) {
         var config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: `https://my.sms-smart.com/rest/send_sms?from=${encodedParamValueFrom}&to=+639611573154&message=${encodedParamValueMessage}&username=${credentials.username}&password=${credentials.password}`
+            url: `https://my.sms-smart.com/rest/send_sms?from=${encodedParamValueFrom}&to=09611573154&message=${encodedParamValueMessage}&username=${credentials.username}&password=${credentials.password}`
         };
 
         await axios(config)
@@ -313,22 +313,44 @@ searchJoystck = async (_req, _res) => {
 }
 
 
+ 
+ 
 
 API_DisplayTriggers = async (_req, _res) => {
+    const { page, limit } = _req.query;
+    const offset = (page - 1) * limit;
+    try {
+        const query = `select  config_id,status,triggerstatus,created_at,sending,data_source,campaign_name from cmw_config ORDER BY config_id DESC
+        LIMIT ${limit} OFFSET ${offset}`;
+        const result = await local_connection.query(query);
+        _res.json({
+            data: result.rows,
+            page: parseInt(page),
+            total_pages: Math.ceil(result.rowCount / limit)
+        });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        _res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
 
-    local_connection.query(`select * from cmw_config order by config_id desc  `, (err, res) => {
-        if (err) {
-            console_log(`Error executing query: ${err.message}`);
-            setTimeout(joystick_client, 60000);
-        } else {
-            console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] }));
-            _res.status(200).json(res.rows);
-        }
-    });
-
-
-
-}
+API_DisplayHistory = async (_req, _res) => {
+    const { page, limit } = _req.query;
+    const offset = (page - 1) * limit;
+    try {
+        const query = `select history_id,campaign_name,player_token,platform,country,status,created_at from cmw_history ORDER BY history_id DESC
+        LIMIT ${limit} OFFSET ${offset}`;
+        const result = await local_connection.query(query);
+        _res.json({
+            data: result.rows,
+            page: parseInt(page),
+            total_pages: Math.ceil(result.rowCount / limit)
+        });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        _res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
 
 
 module.exports = function (app) {
@@ -343,5 +365,7 @@ module.exports = function (app) {
     app.get('/search_joystick', searchJoystck);
 
     app.get('/api_triggers', API_DisplayTriggers);
+
+    app.get('/api_history', API_DisplayHistory);
 
 };
