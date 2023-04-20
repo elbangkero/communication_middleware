@@ -7,8 +7,10 @@ const { countReset } = require('console');
 var axios = require('axios');
 
 
-var interval = 1000;
+var interval = 1500;
 let credentials = { "username": "", "password": "" };
+
+const environment = `${process.env.ENVIRONMENT}`;
 //let counter = { fails: 0, success: 0 };
 (async () => {
     const client = await local_connection.connect();
@@ -169,11 +171,27 @@ function constructData(config_id, pre_compile_data, campaign_name) {
 
 function apiAccount(country_code) {
     if (country_code == 'TH') {
-        credentials.username = "N8Og84n1";
-        credentials.password = "qyu5C1DA";
+        switch (environment) {
+            case 'production':
+                console.log('username: e6NG2FJ3');
+                console.log('password: PO1D19K3');
+                break;
+            case 'development':
+                credentials.username = "N8Og84n1";
+                credentials.password = "qyu5C1DA";
+                break;
+        }
     } else if (country_code == 'VN') {
-        credentials.username = "9J3CtNdM";
-        credentials.password = "m4K1c25P";
+        switch (environment) {
+            case 'production':
+                console.log('username: 6B9l3vO5');
+                console.log('password: K9Ov3OGF');
+                break;
+            case 'development':
+                console.log('username: 9J3CtNdM');
+                console.log('password: m4K1c25P');
+                break;
+        }
     } else {
         credentials.username = "";
         credentials.password = "";
@@ -308,25 +326,127 @@ searchJoystck = async (_req, _res) => {
         }
     });
 
-
-
 }
 
 
- 
- 
+
+
 
 API_DisplayTriggers = async (_req, _res) => {
-    const { page, limit } = _req.query;
+    const { page, limit, campaign_name, status, triggerstatus, created_at, sending, data_source } = _req.query;
     const offset = (page - 1) * limit;
+
+    // console.log(_req.query);
     try {
-        const query = `select  config_id,status,triggerstatus,created_at,sending,data_source,campaign_name from cmw_config ORDER BY config_id DESC
-        LIMIT ${limit} OFFSET ${offset}`;
+
+        let query = `select  config_id,status,triggerstatus,created_at,sending,data_source,campaign_name from cmw_config`;
+
+        const queryParams = [];
+
+        if (campaign_name) {
+            queryParams.push(`campaign_name LIKE '%${campaign_name}%'`);
+        }
+
+        if (status) {
+            const parseStatus = JSON.parse(`${_req.query.status}`);
+            queryParams.push(`status LIKE '%${parseStatus.value}%'`);
+        }
+
+        if (triggerstatus) {
+            const parseTriggerStatus = JSON.parse(`${_req.query.triggerstatus}`);
+            queryParams.push(`triggerstatus = '${parseTriggerStatus.value}'`);
+        }
+
+        if (created_at) {
+            queryParams.push(`created_at::text LIKE '%${created_at}%'`);
+        }
+
+        if (sending) {
+            const parseSending = JSON.parse(`${_req.query.sending}`);
+            queryParams.push(`sending = '${parseSending.value}'`);
+        }
+
+        if (data_source) {
+            const parseDataSource = JSON.parse(`${_req.query.data_source}`);
+            queryParams.push(`data_source = '${parseDataSource.value}'`);
+        }
+
+
+        if (queryParams.length > 0) {
+            query += ` WHERE ${queryParams.join(' AND ')}`;
+        }
+
+        const countQuery = `SELECT COUNT(*) FROM cmw_config ${queryParams.length > 0 ? `WHERE ${queryParams.join(' AND ')}` : ''}`;
+        const countResult = await local_connection.query(countQuery);
+
+        query += ` ORDER BY config_id DESC LIMIT ${limit} OFFSET ${offset}`;
+
         const result = await local_connection.query(query);
+
         _res.json({
             data: result.rows,
             page: parseInt(page),
-            total_pages: Math.ceil(result.rowCount / limit)
+            total_pages: Math.ceil(countResult.rows[0].count / limit),
+            total_count: countResult.rows[0].count,
+        });
+
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        _res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+
+
+API_DisplayHistory = async (_req, _res) => {
+    const { page, limit, player_token, campaign_name, platform, country, status, created_at } = _req.query;
+    const offset = (page - 1) * limit;
+    //console.log(_req.query);
+
+    try {
+        let query = `SELECT history_id, campaign_name, player_token, platform, country, status, created_at FROM cmw_history`;
+
+        const queryParams = [];
+
+        if (player_token) {
+            queryParams.push(`player_token LIKE '%${player_token}%'`);
+        }
+
+        if (campaign_name) {
+            queryParams.push(`campaign_name LIKE '%${campaign_name}%'`);
+        }
+        if (platform) {
+            const parsePlatform = JSON.parse(`${_req.query.platform}`);
+            queryParams.push(`platform LIKE '%${parsePlatform.value}%'`);
+        }
+        if (country) {
+            const parseCountry = JSON.parse(`${_req.query.country}`);
+            queryParams.push(`country LIKE '%${parseCountry.value}%'`);
+        }
+        if (status) {
+            const parseStatus = JSON.parse(`${_req.query.status}`);
+            queryParams.push(`status LIKE '%${parseStatus.value}%'`);
+        }
+        if (created_at) {
+            queryParams.push(`created_at::text LIKE '%${created_at}%'`);
+        }
+
+        if (queryParams.length > 0) {
+            query += ` WHERE ${queryParams.join(' AND ')}`;
+        }
+
+        const countQuery = `SELECT COUNT(*) FROM cmw_history ${queryParams.length > 0 ? `WHERE ${queryParams.join(' AND ')}` : ''}`;
+        const countResult = await local_connection.query(countQuery);
+
+        query += ` ORDER BY history_id DESC LIMIT ${limit} OFFSET ${offset}`;
+
+        const result = await local_connection.query(query);
+
+        _res.json({
+            data: result.rows,
+            page: parseInt(page),
+            total_pages: Math.ceil(countResult.rows[0].count / limit),
+            total_count: countResult.rows[0].count,
         });
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -334,23 +454,6 @@ API_DisplayTriggers = async (_req, _res) => {
     }
 };
 
-API_DisplayHistory = async (_req, _res) => {
-    const { page, limit } = _req.query;
-    const offset = (page - 1) * limit;
-    try {
-        const query = `select history_id,campaign_name,player_token,platform,country,status,created_at from cmw_history ORDER BY history_id DESC
-        LIMIT ${limit} OFFSET ${offset}`;
-        const result = await local_connection.query(query);
-        _res.json({
-            data: result.rows,
-            page: parseInt(page),
-            total_pages: Math.ceil(result.rowCount / limit)
-        });
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        _res.status(500).json({ error: 'Internal Server Error' });
-    }
-};
 
 
 module.exports = function (app) {
@@ -367,5 +470,6 @@ module.exports = function (app) {
     app.get('/api_triggers', API_DisplayTriggers);
 
     app.get('/api_history', API_DisplayHistory);
+
 
 };
