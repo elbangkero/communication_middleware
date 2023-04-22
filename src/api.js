@@ -5,7 +5,7 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const { countReset } = require('console');
 var axios = require('axios');
-
+const cron = require('node-cron');
 
 var interval = 1500;
 let credentials = { "username": "", "password": "" };
@@ -173,8 +173,8 @@ function apiAccount(country_code) {
     if (country_code == 'TH') {
         switch (environment) {
             case 'production':
-                console.log('username: e6NG2FJ3');
-                console.log('password: PO1D19K3');
+                credentials.username = "e6NG2FJ3";
+                credentials.password = "PO1D19K3";
                 break;
             case 'development':
                 credentials.username = "N8Og84n1";
@@ -184,12 +184,12 @@ function apiAccount(country_code) {
     } else if (country_code == 'VN') {
         switch (environment) {
             case 'production':
-                console.log('username: 6B9l3vO5');
-                console.log('password: K9Ov3OGF');
+                credentials.username = "6B9l3vO5";
+                credentials.password = "K9Ov3OGF";
                 break;
             case 'development':
-                console.log('username: 9J3CtNdM');
-                console.log('password: m4K1c25P');
+                credentials.username = "9J3CtNdM";
+                credentials.password = "m4K1c25P";
                 break;
         }
     } else {
@@ -234,6 +234,12 @@ async function sendSMS(message, from, phone_number, country_code) {
     });
 
 }
+
+
+
+
+
+
 
 async function sendEmail(from, email, subject, template_id) {
 
@@ -454,6 +460,47 @@ API_DisplayHistory = async (_req, _res) => {
     }
 };
 
+
+
+
+
+const getELasticEmailLogs = async function () {
+    const apiKey = '7C41D4746E1C491FAB5CC72DFF9EF3F117A02CD035AEACE30E9823CD3D0581D20B61291546D6AF53BEA633563CE388E8';
+
+    const now = new Date();
+    //const from = new Date(now.getTime() - 60000).toISOString();  //every 1minute
+    const from = new Date(now.getTime() - 30 * 60 * 1000).toISOString(); //every 30mins
+    const to = now.toISOString(); 
+    //const from = '2023-04-22T18:05:40.845Z'; //static from
+    //const to = '2023-04-22T18:30:40.845Z'; //static to
+    console.log('FROM: ', from + " TO: ", to)
+    const config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `https://api.elasticemail.com/v2/log/events?statuses=0&apikey=${apiKey}&from=${from}&to=${to}`,
+        headers: {}
+    };
+
+    try {
+        // Make the HTTP request using Axios
+        const response = await axios(config);
+
+        response.data.data.recipients.forEach(data => {
+            local_connection.query(`INSERT INTO cmw_email_logs (jobid,msgid,fromemail,"to",subject,eventtype,eventdate,channel,channelid,messagecategory,nexttryon,message,ipaddress,ippoolname) VALUES ('${data.jobid}','${data.msgid}','${data.fromemail}','${data.to}','${data.subject}','${data.eventtype}','${data.eventdate}','${data.channel}','${data.channelid}','${data.messagecategory}','${data.nexttryon}','${data.message}','${data.ipaddress}','${data.ippoolname}')`, (err, res) => {
+                if (err) {
+                    console_log(`Error executing query: ${err}`);
+                }
+            });
+        });
+        console.log("Cron Email Logs Result : ",response.data.data.recipients.length);
+
+
+    } catch (error) {
+        console.error('API call failed:', error.message);
+    }
+};
+//getELasticEmailLogs();
+const job = cron.schedule('*/30 * * * *', getELasticEmailLogs);
 
 
 module.exports = function (app) {
