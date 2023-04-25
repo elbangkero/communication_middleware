@@ -1,0 +1,411 @@
+2023-04-25T12:09:57.915Z: Listening on port 8041
+2023-04-25T12:09:57.924Z: Successfully connected to {localhost}
+2023-04-25T12:10:02.779Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:10:12.793Z: Config queue count : 1
+2023-04-25T12:10:12.794Z: payload : 1
+2023-04-25T12:10:22.812Z: Config queue count : 0
+2023-04-25T12:10:22.812Z: payload : 0
+2023-04-25T12:10:48.328Z: Listening on port 8041
+2023-04-25T12:10:48.357Z: Successfully connected to {localhost}
+2023-04-25T12:10:52.527Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:11:02.540Z: Config queue count : 1
+2023-04-25T12:11:02.540Z: payload : 1
+2023-04-25T12:11:12.931Z: Listening on port 8041
+2023-04-25T12:11:12.940Z: Successfully connected to {localhost}
+2023-04-25T12:11:14.959Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:11:24.973Z: Config queue count : 1
+2023-04-25T12:11:24.973Z: payload : 1
+2023-04-25T12:11:31.276Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:11:34.983Z: Config queue count : 1
+2023-04-25T12:11:34.983Z: payload : 0
+2023-04-25T12:11:41.278Z: Config queue count : 1
+2023-04-25T12:11:41.278Z: payload : 1
+2023-04-25T12:11:51.289Z: Config queue count : 0
+2023-04-25T12:11:51.289Z: payload : 0
+2023-04-25T12:12:03.123Z: Listening on port 8041
+2023-04-25T12:12:03.131Z: Successfully connected to {localhost}
+2023-04-25T12:12:12.160Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:12:22.172Z: Config queue count : 1
+2023-04-25T12:12:22.172Z: payload : 1
+2023-04-25T12:12:30.592Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:12:32.183Z: Config queue count : 1
+2023-04-25T12:12:32.183Z: payload : 0
+2023-04-25T12:12:40.594Z: Config queue count : 1
+2023-04-25T12:12:40.594Z: payload : 1
+2023-04-25T12:12:50.608Z: Config queue count : 0
+2023-04-25T12:12:50.608Z: payload : 0
+2023-04-25T12:13:12.230Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:13:18.123Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:13:22.240Z: Config queue count : 1
+2023-04-25T12:13:22.240Z: payload : 1
+2023-04-25T12:13:32.254Z: Config queue count : 0
+2023-04-25T12:13:32.254Z: payload : 0
+2023-04-25T12:13:39.509Z: Listening on port 8041
+2023-04-25T12:13:39.517Z: Successfully connected to {localhost}
+2023-04-25T12:13:44.037Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:13:54.050Z: Config queue count : 1
+2023-04-25T12:13:54.050Z: payload : 1
+2023-04-25T12:14:04.068Z: Config queue count : 0
+2023-04-25T12:14:04.069Z: payload : 0
+2023-04-25T12:14:54.546Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:16:19.266Z: Listening on port 8041
+2023-04-25T12:16:19.279Z: Successfully connected to {localhost}
+2023-04-25T12:16:30.844Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:16:40.856Z: Config queue count : 1
+2023-04-25T12:16:40.856Z: payload : 1
+2023-04-25T12:16:50.872Z: Config queue count : 0
+2023-04-25T12:16:50.872Z: payload : 0
+2023-04-25T12:17:30.697Z: Config queue count : 1
+2023-04-25T12:17:30.698Z: payload : 1
+2023-04-25T12:17:34.266Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:17:40.712Z: Config queue count : 0
+2023-04-25T12:17:40.712Z: payload : 0
+2023-04-25T12:17:51.321Z: Config queue count : 0
+2023-04-25T12:17:51.321Z: payload : 0
+2023-04-25T12:18:02.115Z: Config queue count : 1
+2023-04-25T12:18:02.115Z: payload : 1
+2023-04-25T12:18:02.485Z: Listening on port 8041
+2023-04-25T12:18:02.493Z: Successfully connected to {localhost}
+2023-04-25T12:18:18.293Z: Listening on port 8041
+2023-04-25T12:18:18.303Z: Successfully connected to {localhost}
+2023-04-25T12:18:35.753Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:18:45.766Z: Config queue count : 1
+2023-04-25T12:18:45.766Z: payload : 1
+2023-04-25T12:18:55.784Z: Config queue count : 0
+2023-04-25T12:18:55.784Z: payload : 0
+2023-04-25T12:19:07.050Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:19:17.060Z: Config queue count : 1
+2023-04-25T12:19:17.060Z: payload : 1
+2023-04-25T12:19:27.074Z: Config queue count : 0
+2023-04-25T12:19:27.074Z: payload : 0
+2023-04-25T12:19:33.294Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:19:39.941Z: Config queue count : 1
+2023-04-25T12:19:39.941Z: payload : 1
+2023-04-25T12:19:49.959Z: Config queue count : 0
+2023-04-25T12:19:49.959Z: payload : 0
+2023-04-25T12:21:36.546Z: Listening on port 8041
+2023-04-25T12:21:36.560Z: Successfully connected to {localhost}
+2023-04-25T12:21:43.177Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:21:53.192Z: Config queue count : 1
+2023-04-25T12:21:53.192Z: payload : 1
+2023-04-25T12:22:03.214Z: Config queue count : 0
+2023-04-25T12:22:03.214Z: payload : 0
+2023-04-25T12:22:51.547Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:23:32.316Z: Listening on port 8041
+2023-04-25T12:23:32.324Z: Successfully connected to {localhost}
+2023-04-25T12:23:43.032Z: Listening on port 8041
+2023-04-25T12:23:43.040Z: Successfully connected to {localhost}
+2023-04-25T12:24:44.473Z: Listening on port 8041
+2023-04-25T12:24:44.481Z: Successfully connected to {localhost}
+2023-04-25T12:25:59.475Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:26:41.860Z: Listening on port 8041
+2023-04-25T12:26:41.869Z: Successfully connected to {localhost}
+2023-04-25T12:26:46.096Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:26:56.110Z: Config queue count : 1
+2023-04-25T12:26:56.110Z: payload : 1
+2023-04-25T12:27:06.125Z: Config queue count : 0
+2023-04-25T12:27:06.125Z: payload : 0
+2023-04-25T12:27:26.961Z: Listening on port 8041
+2023-04-25T12:27:26.971Z: Successfully connected to {localhost}
+2023-04-25T12:27:32.638Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:27:42.650Z: Config queue count : 1
+2023-04-25T12:27:42.650Z: payload : 1
+2023-04-25T12:27:52.672Z: Config queue count : 0
+2023-04-25T12:27:52.672Z: payload : 0
+2023-04-25T12:28:10.390Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:28:20.399Z: Config queue count : 1
+2023-04-25T12:28:20.399Z: payload : 1
+2023-04-25T12:28:30.414Z: Config queue count : 0
+2023-04-25T12:28:30.414Z: payload : 0
+2023-04-25T12:28:41.962Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:29:02.007Z: Config queue count : 1
+2023-04-25T12:29:02.007Z: payload : 1
+2023-04-25T12:29:02.655Z: Listening on port 8041
+2023-04-25T12:29:02.663Z: Successfully connected to {localhost}
+2023-04-25T12:29:07.449Z: Listening on port 8041
+2023-04-25T12:29:07.458Z: Successfully connected to {localhost}
+2023-04-25T12:30:02.439Z: Config queue count : 1
+2023-04-25T12:30:02.440Z: payload : 1
+2023-04-25T12:30:02.828Z: Listening on port 8041
+2023-04-25T12:30:02.837Z: Successfully connected to {localhost}
+2023-04-25T12:30:24.085Z: Listening on port 8041
+2023-04-25T12:30:24.100Z: Successfully connected to {localhost}
+2023-04-25T12:30:28.960Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:30:33.414Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:30:38.966Z: Config queue count : 2
+2023-04-25T12:30:38.966Z: payload : 1
+2023-04-25T12:30:43.415Z: Config queue count : 2
+2023-04-25T12:30:43.415Z: payload : 2
+2023-04-25T12:30:53.425Z: Config queue count : 0
+2023-04-25T12:30:53.425Z: payload : 1
+2023-04-25T12:30:53.435Z: Config queue count : 0
+2023-04-25T12:30:53.435Z: payload : 0
+2023-04-25T12:31:07.726Z: Config queue count : 1
+2023-04-25T12:31:07.726Z: payload : 1
+2023-04-25T12:31:17.744Z: Config queue count : 0
+2023-04-25T12:31:17.744Z: payload : 0
+2023-04-25T12:31:39.896Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:32:01.004Z: Config queue count : 1
+2023-04-25T12:32:01.004Z: payload : 1
+2023-04-25T12:32:11.019Z: Config queue count : 0
+2023-04-25T12:32:11.019Z: payload : 0
+2023-04-25T12:33:58.073Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:34:55.548Z: Listening on port 8041
+2023-04-25T12:34:55.560Z: Successfully connected to {localhost}
+2023-04-25T12:34:58.827Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:35:05.607Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:35:08.833Z: Config queue count : 2
+2023-04-25T12:35:08.834Z: payload : 1
+2023-04-25T12:35:15.608Z: Config queue count : 0
+2023-04-25T12:35:15.608Z: payload : 2
+2023-04-25T12:36:10.552Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:36:38.639Z: Listening on port 8041
+2023-04-25T12:36:38.647Z: Successfully connected to {localhost}
+2023-04-25T12:36:48.599Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:36:58.614Z: Config queue count : 1
+2023-04-25T12:36:58.614Z: payload : 1
+2023-04-25T12:37:03.287Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:37:08.624Z: Config queue count : 1
+2023-04-25T12:37:08.624Z: payload : 0
+2023-04-25T12:37:13.289Z: Config queue count : 1
+2023-04-25T12:37:13.289Z: payload : 1
+2023-04-25T12:37:23.302Z: Config queue count : 0
+2023-04-25T12:37:23.302Z: payload : 0
+2023-04-25T12:37:53.660Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:38:01.112Z: Config queue count : 2
+2023-04-25T12:38:01.112Z: payload : 1
+2023-04-25T12:38:01.112Z: Config queue count : 2
+2023-04-25T12:38:01.112Z: payload : 2
+2023-04-25T12:38:11.126Z: Config queue count : 0
+2023-04-25T12:38:11.127Z: payload : 1
+2023-04-25T12:38:11.134Z: Config queue count : 0
+2023-04-25T12:38:11.134Z: payload : 1
+2023-04-25T12:40:15.225Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:41:19.792Z: Config queue count : 2
+2023-04-25T12:41:19.792Z: payload : 1
+2023-04-25T12:41:19.792Z: Config queue count : 2
+2023-04-25T12:41:19.792Z: payload : 2
+2023-04-25T12:41:29.802Z: Config queue count : 0
+2023-04-25T12:41:29.802Z: payload : 1
+2023-04-25T12:41:29.810Z: Config queue count : 0
+2023-04-25T12:41:29.810Z: payload : 1
+2023-04-25T12:41:46.525Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:41:56.534Z: Config queue count : 1
+2023-04-25T12:41:56.535Z: payload : 1
+2023-04-25T12:41:59.744Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:42:00.114Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:42:06.223Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:42:06.542Z: Config queue count : 3
+2023-04-25T12:42:06.542Z: payload : 0
+2023-04-25T12:42:06.912Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:42:07.547Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:42:08.943Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:42:09.545Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:42:09.747Z: Config queue count : 7
+2023-04-25T12:42:09.747Z: payload : 1
+2023-04-25T12:42:10.116Z: Config queue count : 7
+2023-04-25T12:42:10.116Z: payload : 2
+2023-04-25T12:42:10.231Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:42:16.224Z: Config queue count : 8
+2023-04-25T12:42:16.225Z: payload : 3
+2023-04-25T12:42:16.915Z: Config queue count : 8
+2023-04-25T12:42:16.915Z: payload : 4
+2023-04-25T12:42:17.551Z: Config queue count : 8
+2023-04-25T12:42:17.551Z: payload : 5
+2023-04-25T12:42:18.944Z: Config queue count : 8
+2023-04-25T12:42:18.944Z: payload : 6
+2023-04-25T12:42:19.546Z: Config queue count : 8
+2023-04-25T12:42:19.546Z: payload : 7
+2023-04-25T12:42:20.233Z: Config queue count : 8
+2023-04-25T12:42:20.233Z: payload : 8
+2023-04-25T12:42:30.249Z: Config queue count : 0
+2023-04-25T12:42:30.249Z: payload : 7
+2023-04-25T12:42:30.262Z: Config queue count : 0
+2023-04-25T12:42:30.262Z: payload : 6
+2023-04-25T12:42:30.263Z: Config queue count : 0
+2023-04-25T12:42:30.263Z: payload : 6
+2023-04-25T12:42:30.263Z: Config queue count : 0
+2023-04-25T12:42:30.263Z: payload : 6
+2023-04-25T12:42:30.266Z: Config queue count : 0
+2023-04-25T12:42:30.267Z: payload : 5
+2023-04-25T12:42:30.267Z: Config queue count : 0
+2023-04-25T12:42:30.267Z: payload : 2
+2023-04-25T12:42:30.267Z: Config queue count : 0
+2023-04-25T12:42:30.267Z: payload : 1
+2023-04-25T12:42:30.276Z: Config queue count : 0
+2023-04-25T12:42:30.276Z: payload : 4
+2023-04-25T12:42:30.278Z: Config queue count : 0
+2023-04-25T12:42:30.278Z: payload : 3
+2023-04-25T12:42:30.279Z: Config queue count : 0
+2023-04-25T12:42:30.279Z: payload : 2
+2023-04-25T12:42:30.279Z: Config queue count : 0
+2023-04-25T12:42:30.279Z: payload : 0
+2023-04-25T12:42:34.376Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:44:52.767Z: Error connecting to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:45:37.705Z: Listening on port 8041
+2023-04-25T12:45:37.717Z: Successfully connected to {localhost}
+2023-04-25T12:46:13.537Z: Listening on port 8041
+2023-04-25T12:46:13.554Z: Successfully connected to {localhost}
+2023-04-25T12:46:15.422Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T12:46:33.444Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:46:43.457Z: Config queue count : 1
+2023-04-25T12:46:43.457Z: payload : 1
+2023-04-25T12:46:50.945Z: Status : s2tdtftr239276 Failed, Campaign : Testing for demo
+2023-04-25T12:46:51.311Z: Status : s2oxutki739774 Failed, Campaign : Testing for demo
+2023-04-25T12:46:51.433Z: Status : s2mmgmqv584475 Failed, Campaign : Testing for demo
+2023-04-25T12:46:53.467Z: Config queue count : 0
+2023-04-25T12:46:53.467Z: payload : 0
+2023-04-25T12:46:56.065Z: Status : s2nydfrq976541 Sent, Campaign : Testing for demo
+2023-04-25T12:46:56.105Z: Status : s2bcelgz003769 Failed, Campaign : Testing for demo
+2023-04-25T12:46:56.107Z: Status : s2poyuqr641549 Sent, Campaign : Testing for demo
+2023-04-25T12:46:56.954Z: Status : s2zkdtrd297338 Failed, Campaign : Testing for demo
+2023-04-25T12:46:58.234Z: Status : s2sthajs721606 Failed, Campaign : Testing for demo
+2023-04-25T12:46:58.360Z: Status : s2yemnil959403 Failed, Campaign : Testing for demo
+2023-04-25T12:47:00.782Z: Status : s2awrpph587154 Sent, Campaign : Testing for demo
+2023-04-25T12:47:00.783Z: Campaign: Testing for demo, Result: 3 sent, 7 failed
+2023-04-25T12:47:10.795Z: Config queue count : 0
+2023-04-25T12:47:10.795Z: payload : 0
+2023-04-25T12:47:38.798Z: Config queue count : 0
+2023-04-25T12:47:38.798Z: payload : 0
+2023-04-25T12:51:49.113Z: Config queue count : 1
+2023-04-25T12:51:49.113Z: payload : 1
+2023-04-25T12:51:59.132Z: Config queue count : 0
+2023-04-25T12:51:59.132Z: payload : 0
+2023-04-25T12:52:03.881Z: Status : s2tdtftr239276 Failed, Campaign : Testing for demo
+2023-04-25T12:52:07.333Z: Status : s2oxutki739774 Failed, Campaign : Testing for demo
+2023-04-25T12:52:07.821Z: Status : s2bcelgz003769 Failed, Campaign : Testing for demo
+2023-04-25T12:52:07.952Z: Status : s2mmgmqv584475 Failed, Campaign : Testing for demo
+2023-04-25T12:52:09.179Z: Status : s2nydfrq976541 Sent, Campaign : Testing for demo
+2023-04-25T12:52:09.679Z: Status : s2poyuqr641549 Sent, Campaign : Testing for demo
+2023-04-25T12:52:10.951Z: Status : s2zkdtrd297338 Failed, Campaign : Testing for demo
+2023-04-25T12:52:12.499Z: Status : s2sthajs721606 Failed, Campaign : Testing for demo
+2023-04-25T12:52:15.014Z: Status : s2yemnil959403 Failed, Campaign : Testing for demo
+2023-04-25T12:52:16.116Z: Status : s2awrpph587154 Sent, Campaign : Testing for demo
+2023-04-25T12:52:16.116Z: Campaign: Testing for demo, Result: 3 sent, 7 failed
+2023-04-25T12:52:26.141Z: Config queue count : 0
+2023-04-25T12:52:26.141Z: payload : 0
+2023-04-25T12:52:45.737Z: Config queue count : 1
+2023-04-25T12:52:45.738Z: payload : 1
+2023-04-25T12:52:55.751Z: Config queue count : 0
+2023-04-25T12:52:55.751Z: payload : 0
+2023-04-25T12:55:02.841Z: Status : s2tdtftr239276 Failed, Campaign : Testing for demo
+2023-04-25T12:55:04.318Z: Status : s2mmgmqv584475 Failed, Campaign : Testing for demo
+2023-04-25T12:55:05.066Z: Status : s2oxutki739774 Failed, Campaign : Testing for demo
+2023-04-25T12:55:07.258Z: Status : s2nydfrq976541 Sent, Campaign : Testing for demo
+2023-04-25T12:55:08.234Z: Status : s2bcelgz003769 Failed, Campaign : Testing for demo
+2023-04-25T12:55:09.848Z: Status : s2poyuqr641549 Sent, Campaign : Testing for demo
+2023-04-25T12:55:10.839Z: Status : s2zkdtrd297338 Failed, Campaign : Testing for demo
+2023-04-25T12:55:12.449Z: Status : s2sthajs721606 Failed, Campaign : Testing for demo
+2023-04-25T12:55:14.059Z: Status : s2yemnil959403 Failed, Campaign : Testing for demo
+2023-04-25T12:55:15.873Z: Status : s2awrpph587154 Sent, Campaign : Testing for demo
+2023-04-25T12:55:15.873Z: Campaign: Testing for demo, Result: 3 sent, 7 failed
+2023-04-25T12:55:25.894Z: Config queue count : 0
+2023-04-25T12:55:25.894Z: payload : 0
+2023-04-25T12:55:52.747Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:56:02.757Z: Config queue count : 1
+2023-04-25T12:56:02.757Z: payload : 1
+2023-04-25T12:56:06.272Z: Status : s2tdtftr239276 Failed, Campaign : Testing for demo
+2023-04-25T12:56:07.570Z: Status : s2oxutki739774 Failed, Campaign : Testing for demo
+2023-04-25T12:56:07.702Z: Status : s2mmgmqv584475 Failed, Campaign : Testing for demo
+2023-04-25T12:56:09.437Z: Status : s2nydfrq976541 Sent, Campaign : Testing for demo
+2023-04-25T12:56:10.675Z: Status : s2bcelgz003769 Failed, Campaign : Testing for demo
+2023-04-25T12:56:12.162Z: Status : s2poyuqr641549 Sent, Campaign : Testing for demo
+2023-04-25T12:56:12.763Z: Config queue count : 1
+2023-04-25T12:56:12.764Z: payload : 0
+2023-04-25T12:56:13.786Z: Status : s2zkdtrd297338 Failed, Campaign : Testing for demo
+2023-04-25T12:56:15.105Z: Status : s2sthajs721606 Failed, Campaign : Testing for demo
+2023-04-25T12:56:16.665Z: Status : s2yemnil959403 Failed, Campaign : Testing for demo
+2023-04-25T12:56:19.261Z: Status : s2awrpph587154 Sent, Campaign : Testing for demo
+2023-04-25T12:56:19.262Z: Campaign: Testing for demo, Result: 3 sent, 7 failed
+2023-04-25T12:56:20.556Z: Config queue count : 1
+2023-04-25T12:56:20.556Z: payload : 1
+2023-04-25T12:56:21.623Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T12:56:29.280Z: Config queue count : 1
+2023-04-25T12:56:29.280Z: payload : 1
+2023-04-25T12:56:30.561Z: Config queue count : 0
+2023-04-25T12:56:30.561Z: payload : 0
+2023-04-25T12:56:31.625Z: Config queue count : 0
+2023-04-25T12:56:31.625Z: payload : 1
+2023-04-25T12:56:33.311Z: Status : s2tdtftr239276 Failed, Campaign : Testing for demo
+2023-04-25T12:56:34.144Z: Status : s2oxutki739774 Failed, Campaign : Testing for demo
+2023-04-25T12:56:34.281Z: Status : s2mmgmqv584475 Failed, Campaign : Testing for demo
+2023-04-25T12:56:35.886Z: Status : s2nydfrq976541 Sent, Campaign : Testing for demo
+2023-04-25T12:56:37.679Z: Status : s2bcelgz003769 Failed, Campaign : Testing for demo
+2023-04-25T12:56:38.831Z: Status : s2poyuqr641549 Sent, Campaign : Testing for demo
+2023-04-25T12:56:39.285Z: Config queue count : 0
+2023-04-25T12:56:39.285Z: payload : 0
+2023-04-25T12:56:40.112Z: Status : s2zkdtrd297338 Failed, Campaign : Testing for demo
+2023-04-25T12:56:41.651Z: Status : s2sthajs721606 Failed, Campaign : Testing for demo
+2023-04-25T12:56:43.213Z: Status : s2yemnil959403 Failed, Campaign : Testing for demo
+2023-04-25T12:56:44.808Z: Status : s2awrpph587154 Sent, Campaign : Testing for demo
+2023-04-25T12:56:44.809Z: Campaign: Testing for demo, Result: 3 sent, 7 failed
+2023-04-25T12:56:54.829Z: Config queue count : 0
+2023-04-25T12:56:54.829Z: payload : 0
+2023-04-25T12:57:04.678Z: Status : s2tdtftr239276 Failed, Campaign : Testing for demo
+2023-04-25T12:57:05.611Z: Status : s2oxutki739774 Failed, Campaign : Testing for demo
+2023-04-25T12:57:06.160Z: Status : s2mmgmqv584475 Failed, Campaign : Testing for demo
+2023-04-25T12:57:07.655Z: Status : s2nydfrq976541 Sent, Campaign : Testing for demo
+2023-04-25T12:57:08.241Z: Status : s2bcelgz003769 Failed, Campaign : Testing for demo
+2023-04-25T12:57:09.604Z: Status : s2poyuqr641549 Sent, Campaign : Testing for demo
+2023-04-25T12:57:10.836Z: Status : s2zkdtrd297338 Failed, Campaign : Testing for demo
+2023-04-25T12:57:12.480Z: Status : s2sthajs721606 Failed, Campaign : Testing for demo
+2023-04-25T12:57:13.805Z: Status : s2yemnil959403 Failed, Campaign : Testing for demo
+2023-04-25T12:57:16.042Z: Status : s2awrpph587154 Sent, Campaign : Testing for demo
+2023-04-25T12:57:16.042Z: Campaign: Testing for demo, Result: 3 sent, 7 failed
+2023-04-25T12:57:26.061Z: Config queue count : 0
+2023-04-25T12:57:26.062Z: payload : 0
+2023-04-25T13:00:10.972Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T13:00:20.974Z: Config queue count : 1
+2023-04-25T13:00:20.974Z: payload : 1
+2023-04-25T13:00:26.582Z: Status : s2tdtftr239276 Failed, Campaign : Testing for demo
+2023-04-25T13:00:28.773Z: Status : s2oxutki739774 Failed, Campaign : Testing for demo
+2023-04-25T13:00:30.147Z: Status : s2bcelgz003769 Failed, Campaign : Testing for demo
+2023-04-25T13:00:30.978Z: Config queue count : 0
+2023-04-25T13:00:30.978Z: payload : 0
+2023-04-25T13:00:31.848Z: Status : s2zkdtrd297338 Failed, Campaign : Testing for demo
+2023-04-25T13:00:35.383Z: Status : s2yemnil959403 Failed, Campaign : Testing for demo
+2023-04-25T13:00:38.415Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T13:00:45.402Z: Status : s2nydfrq976541 Sent, Campaign : Testing for demo
+2023-04-25T13:00:46.293Z: Status : s2mmgmqv584475 Failed, Campaign : Testing for demo
+2023-04-25T13:00:46.293Z: Status : s2poyuqr641549 Sent, Campaign : Testing for demo
+2023-04-25T13:00:46.810Z: Status : s2sthajs721606 Failed, Campaign : Testing for demo
+2023-04-25T13:00:48.420Z: Config queue count : 1
+2023-04-25T13:00:48.420Z: payload : 1
+2023-04-25T13:00:58.433Z: Config queue count : 0
+2023-04-25T13:00:58.433Z: payload : 0
+2023-04-25T13:00:59.507Z: Status : s2awrpph587154 Sent, Campaign : Testing for demo
+2023-04-25T13:00:59.507Z: Campaign: Testing for demo, Result: 3 sent, 7 failed
+2023-04-25T13:01:09.529Z: Config queue count : 0
+2023-04-25T13:01:09.529Z: payload : 0
+2023-04-25T13:01:23.856Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T13:01:33.865Z: Config queue count : 1
+2023-04-25T13:01:33.866Z: payload : 1
+2023-04-25T13:01:38.428Z: Listening on port 8041
+2023-04-25T13:01:38.437Z: Successfully connected to {localhost}
+2023-04-25T13:01:40.011Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T13:03:27.979Z: Listening on port 8041
+2023-04-25T13:03:27.987Z: Successfully connected to {localhost}
+2023-04-25T13:03:30.750Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T13:03:33.486Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-25T13:03:43.500Z: Config queue count : 1
+2023-04-25T13:03:43.500Z: payload : 1
+2023-04-25T13:03:53.520Z: Config queue count : 0
+2023-04-25T13:03:53.520Z: payload : 0
+2023-04-25T13:05:04.294Z: Status : s2tdtftr239276 Failed, Campaign : Testing for demo
+2023-04-25T13:05:05.609Z: Status : s2oxutki739774 Failed, Campaign : Testing for demo
+2023-04-25T13:05:05.787Z: Status : s2mmgmqv584475 Failed, Campaign : Testing for demo
+2023-04-25T13:05:06.976Z: Status : s2nydfrq976541 Sent, Campaign : Testing for demo
+2023-04-25T13:05:08.034Z: Status : s2bcelgz003769 Failed, Campaign : Testing for demo
+2023-04-25T13:05:09.337Z: Status : s2poyuqr641549 Sent, Campaign : Testing for demo
+2023-04-25T13:05:10.962Z: Status : s2zkdtrd297338 Failed, Campaign : Testing for demo
+2023-04-25T13:05:12.437Z: Status : s2sthajs721606 Failed, Campaign : Testing for demo
+2023-04-25T13:05:13.833Z: Status : s2yemnil959403 Failed, Campaign : Testing for demo
+2023-04-25T13:05:15.329Z: Status : s2awrpph587154 Sent, Campaign : Testing for demo
+2023-04-25T13:05:15.329Z: Campaign: Testing for demo, Result: 3 sent, 7 failed
+2023-04-25T13:05:25.349Z: Config queue count : 0
+2023-04-25T13:05:25.350Z: payload : 0
+2023-04-25T13:05:58.333Z: Listening on port 8041
+2023-04-25T13:05:58.343Z: Successfully connected to {localhost}
+2023-04-25T13:05:59.833Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-25T13:06:18.216Z: Config queue count : 0
+2023-04-25T13:06:18.216Z: payload : 0

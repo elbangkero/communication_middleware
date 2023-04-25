@@ -6,7 +6,7 @@ const csv = require('csv-parser');
 const { countReset } = require('console');
 var axios = require('axios');
 const cron = require('node-cron');
-
+const schedule = require('node-schedule');
 var interval = 1500;
 let credentials = { "username": "", "password": "" };
 
@@ -49,7 +49,18 @@ const environment = `${process.env.ENVIRONMENT}`;
                                     //console_log('done');
                                     //console.log(pre_compile_data);
 
-                                    constructData(row.config_id, pre_compile_data, row.campaign_name);
+                                    //constructData(row.config_id, pre_compile_data, row.campaign_name);
+
+
+                                    if (row.is_schedule == true) {
+                                        const job = schedule.scheduleJob(row.start_at, async function () {
+                                            constructData(row.config_id, pre_compile_data, row.campaign_name);
+                                        });
+                                    } else {
+                                        constructData(row.config_id, pre_compile_data, row.campaign_name);
+                                    }
+
+
                                     local_connection.query(`update cmw_config set status= 'sending' where config_id=${row.config_id}`, (err, res) => {
                                         if (err) {
                                             console_log(`Error executing query: ${err.message}`);
@@ -71,6 +82,7 @@ const environment = `${process.env.ENVIRONMENT}`;
 
 
 function constructData(config_id, pre_compile_data, campaign_name) {
+
 
 
     let dynamic_counter = {};
@@ -167,6 +179,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
             });
         }, index * interval);
     });
+
 }
 
 function apiAccount(country_code) {
@@ -200,7 +213,9 @@ function apiAccount(country_code) {
 
 async function storeMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id) {
 
-    let date_now = new Date().toISOString();
+
+    let local_time = new Date().toISOString();
+    const date_now = new Date(local_time).toLocaleString();
     local_connection.query(`INSERT INTO cmw_history (config_id,campaign_name,player_token,player_contact,platform,country,message,status,created_at,updated_at,api_response,from_sender,email_subject,template_id,application_id) VALUES ('${config_id}','${campaign_name}','${player_token}','${player_contact}','${platform}','${country}','${message}','${status}','${date_now}','${date_now}','${api_response}','${from}','${email_subject}','${template_id}','${application_id}')`, (err, res) => {
         if (err) {
             console_log(`Error executing query: ${err}`);
@@ -306,10 +321,16 @@ upload = multer({
 
 insertConfig = async (_req, _res) => {
 
-    let date_now = new Date().toISOString();
+
+    let local_time = new Date().toISOString();
+    const date_now = new Date(local_time).toLocaleString();
     const sending = _req.body.sending == 'on' ? true : false;
+    const is_schedule = _req.body.is_schedule == 'on' ? true : false;
     const data_leads = _req.body.data_source == 'csv' ? _req.files.data_leads[0].filename : Buffer.from(_req.body.data_leads).toString('base64');
-    local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,cron_expression,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads) VALUES ('pending','active','${_req.body.cron_expression}','${date_now}','${date_now}','${date_now}','${sending}','${_req.body.data_source}','${_req.body.campaign_name}','${data_leads}')`, (err, res) => {
+    const start_at = _req.body.start_at;
+    let parseISO = new Date(start_at).toISOString();
+    const parseStartAt = new Date(parseISO).toLocaleString();
+    local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_schedule) VALUES ('pending','active','${date_now}','${date_now}','${parseStartAt}','${sending}','${_req.body.data_source}','${_req.body.campaign_name}','${data_leads}','${is_schedule}')`, (err, res) => {
         if (err) {
             console_log(`Error executing query: ${err.message}`);
         } else {
@@ -470,7 +491,7 @@ const getELasticEmailLogs = async function () {
     const now = new Date();
     //const from = new Date(now.getTime() - 60000).toISOString();  //every 1minute
     const from = new Date(now.getTime() - 30 * 60 * 1000).toISOString(); //every 30mins
-    const to = now.toISOString(); 
+    const to = now.toISOString();
     //const from = '2023-04-22T18:05:40.845Z'; //static from
     //const to = '2023-04-22T18:30:40.845Z'; //static to
     console.log('FROM: ', from + " TO: ", to)
@@ -492,7 +513,7 @@ const getELasticEmailLogs = async function () {
                 }
             });
         });
-        console.log("Cron Email Logs Result : ",response.data.data.recipients.length);
+        console.log("Cron Email Logs Result : ", response.data.data.recipients.length);
 
 
     } catch (error) {
