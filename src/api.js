@@ -52,7 +52,7 @@ const environment = `${process.env.ENVIRONMENT}`;
                                     //constructData(row.config_id, pre_compile_data, row.campaign_name);
 
 
-                                    if (row.is_schedule == true) {
+                                    if (row.is_scheduled == true) {
                                         const job = schedule.scheduleJob(row.start_at, async function () {
                                             constructData(row.config_id, pre_compile_data, row.campaign_name);
                                         });
@@ -325,12 +325,12 @@ insertConfig = async (_req, _res) => {
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
     const sending = _req.body.sending == 'on' ? true : false;
-    const is_schedule = _req.body.is_schedule == 'on' ? true : false;
+    const is_scheduled = _req.body.is_scheduled == 'on' ? true : false;
     const data_leads = _req.body.data_source == 'csv' ? _req.files.data_leads[0].filename : Buffer.from(_req.body.data_leads).toString('base64');
     const start_at = _req.body.start_at;
     let parseISO = new Date(start_at).toISOString();
     const parseStartAt = new Date(parseISO).toLocaleString();
-    local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_schedule) VALUES ('pending','active','${date_now}','${date_now}','${parseStartAt}','${sending}','${_req.body.data_source}','${_req.body.campaign_name}','${data_leads}','${is_schedule}')`, (err, res) => {
+    local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_scheduled) VALUES ('pending','active','${date_now}','${date_now}','${parseStartAt}','${sending}','${_req.body.data_source}','${_req.body.campaign_name}','${data_leads}','${is_scheduled}')`, (err, res) => {
         if (err) {
             console_log(`Error executing query: ${err.message}`);
         } else {
