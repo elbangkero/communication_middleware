@@ -3,11 +3,13 @@ const { local_connection, joystick_connection, joystick_client } = require('../u
 const multer = require('multer');
 const fs = require('fs');
 const csv = require('csv-parser');
-const { countReset } = require('console');
 var axios = require('axios');
 const cron = require('node-cron');
 const schedule = require('node-schedule');
-var interval = 1500;
+const qs = require('qs');
+const md5 = require("md5");
+
+var interval = 3000;
 let credentials = { "username": "", "password": "" };
 
 const environment = `${process.env.ENVIRONMENT}`;
@@ -37,7 +39,7 @@ const environment = `${process.env.ENVIRONMENT}`;
                                 .pipe(csv())
                                 .on('data', function (data) {
                                     try {
-                                        pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'country': data.country, 'message_text': data.message_text, 'platform': data.platform, 'from': data.from, 'template_id': data.template_id, 'email_subject': data.email_subject, 'application_id': data.application_id }));
+                                        pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'country': data.country, 'message_text': data.message_text, 'platform': data.platform, 'from': data.from, 'template_id': data.template_id, 'email_subject': data.email_subject, 'fromName': data.fromName, 'application_id': data.application_id }));
                                         //console_log(data.playertoken + ',' + data.country + ',' + data.text_message + ',' + data.platform);
                                         //constructData(data.playertoken, data.country, data.message, data.platform);
                                     } catch (err) {
@@ -98,6 +100,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
         setTimeout(async function () {
 
             var obj = JSON.parse(el);
+            var row_number = index;
             //console.log(obj.player_token, obj.country, obj.text_message, obj.platform);
             //counter.success++;
             joystick_connection.query(`select pdr.email,pdr.phone_number from  afun_afun.player_data pd   
@@ -110,43 +113,75 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                 } else {
                     data.forEach(async row => {
                         if (obj.platform == 'sms') {
-                            await sendSMS(obj.message_text, obj.from, row.phone_number, obj.country)
-                                .then(function (response) {
-                                    //console.log('success');
-                                    console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
-                                    //counter.success++;
-                                    query_instant++
-                                    dynamic_counter.counter.success++;
-                                    //console.log(response.data);
-                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id);
-                                })
-                                .catch(function (error) {
-                                    //console.log('error');
-                                    console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
-                                    //counter.fails++;
-                                    dynamic_counter.counter.fails++
-                                    query_instant++
-                                    //console.error(error.response.data);
-                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.response.data), obj.from, '', '', obj.application_id);
-                                })
-                                .finally(async function () {
-                                    if (pre_compile_data.length == query_instant) {
+                            if (obj.application_id == '1') {
+                                await sendSmartSMS(obj.message_text, obj.from, row.phone_number, obj.country)
+                                    .then(function (response) {
+                                        //console.log('success');
+                                        console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
+                                        //counter.success++;
+                                        query_instant++
+                                        dynamic_counter.counter.success++;
+                                        //console.log(response.data);
+                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id);
+                                    })
+                                    .catch(function (error) {
+                                        //console.log('error');
+                                        console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                                        //counter.fails++;
+                                        dynamic_counter.counter.fails++
+                                        query_instant++
+                                        //console.error(error.response.data);
+                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.response.data), obj.from, '', '', obj.application_id);
+                                    })
+                                    .finally(async function () {
+                                        if (pre_compile_data.length == query_instant) {
 
-                                        console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
-                                        dynamic_counter.counter.success = 0;
-                                        dynamic_counter.counter.fails = 0;
-                                        pre_compile_data.length = 0;
+                                            console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                            dynamic_counter.counter.success = 0;
+                                            dynamic_counter.counter.fails = 0;
+                                            pre_compile_data.length = 0;
 
-                                        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
-                                            if (err) {
-                                                console_log(`Error executing query: ${err.message}`);
-                                            }
-                                        });
-                                    }
-                                });
+                                            local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
+                                                if (err) {
+                                                    console_log(`Error executing query: ${err.message}`);
+                                                }
+                                            });
+                                        }
+                                    });
+                            } else if (obj.application_id == '2') {
+                                await sendAbosendSMS(obj.message_text, obj.from, row.phone_number, obj.country, row_number)
+                                    .then(function (response) {
+                                        console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
+                                        query_instant++
+                                        dynamic_counter.counter.success++;
+                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id);
+                                    })
+                                    .catch(function (error) {
+                                        console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                                        dynamic_counter.counter.fails++
+                                        query_instant++
+                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, '', '', obj.application_id);
+                                    })
+                                    .finally(async function () {
+                                        if (pre_compile_data.length == query_instant) {
+                                            console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                            dynamic_counter.counter.success = 0;
+                                            dynamic_counter.counter.fails = 0;
+                                            pre_compile_data.length = 0;
+                                            local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
+                                                if (err) {
+                                                    console_log(`Error executing query: ${err.message}`);
+                                                }
+                                            });
+                                        }
+                                    });
+                            }
                         }
+
+
+
                         else if (obj.platform == 'email') {
-                            await sendEmail(obj.from, row.email, obj.email_subject, obj.template_id)
+                            await sendEmail(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName)
                                 .then(function (response) {
                                     console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                     query_instant++
@@ -224,7 +259,7 @@ async function storeMessageHistory(config_id, campaign_name, player_token, playe
 }
 
 
-async function sendSMS(message, from, phone_number, country_code) {
+async function sendSmartSMS(message, from, phone_number, country_code) {
 
     apiAccount(country_code);
     const encodedParamValueMessage = encodeURIComponent(message);
@@ -234,7 +269,7 @@ async function sendSMS(message, from, phone_number, country_code) {
         var config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: `https://my.sms-smart.com/rest/send_sms?from=${encodedParamValueFrom}&to=09611573154&message=${encodedParamValueMessage}&username=${credentials.username}&password=${credentials.password}`
+            url: `https://my.sms-smart.com/rest/send_sms?from=${encodedParamValueFrom}&to=${phone_number}&message=${encodedParamValueMessage}&username=${credentials.username}&password=${credentials.password}`
         };
 
         await axios(config)
@@ -249,25 +284,148 @@ async function sendSMS(message, from, phone_number, country_code) {
     });
 
 }
+function checkOddEven(row_number) {
+    if (row_number % 2 === 0) {
+        return JSON.stringify({ 'md5Key': 'PXFXLQGRPGPNOSGYNFRVOCPCBJKOAFCB', 'rand': '123456', orgCode: 'RAjeMitN' });
+    } else {
+        return JSON.stringify({ 'md5Key': 'ATRAFXBMNIBKAMOKHATQMOCCDLDEZNZU', 'rand': '123456', orgCode: 'vcGUrjSs' });
+    }
+}
+function abosendAPIParameters(country_code, phone_number, message, row_number) {
+
+    const api_details = JSON.parse(checkOddEven(row_number));
+    const data_encrytpion = `${api_details.orgCode}${message}${api_details.rand}${api_details.md5Key}`;
+    const hash = md5(data_encrytpion).toUpperCase();
+
+
+    if (country_code == 'IN') {
+        let data = qs.stringify({
+            'orgCode': api_details.orgCode,
+            'mobileArea': '+91',
+            'rand': api_details.rand,
+            'content': message,
+            'mobiles': phone_number,
+            'sign': hash
+        });
+        return data;
+    } else if (country_code == 'ID') {
+        let data = qs.stringify({
+            'orgCode': api_details.orgCode,
+            'mobileArea': '+62',
+            'rand': api_details.rand,
+            'content': message,
+            'mobiles': phone_number,
+            'sign': hash
+        });
+        return data;
+    } else if (country_code == 'JP') {
+        let data = qs.stringify({
+            'orgCode': api_details.orgCode,
+            'mobileArea': '+81',
+            'rand': api_details.rand,
+            'content': message,
+            'mobiles': phone_number,
+            'sign': hash
+        });
+        return data;
+    } else if (country_code == 'MY') {
+        let data = qs.stringify({
+            'orgCode': api_details.orgCode,
+            'mobileArea': '+60',
+            'rand': api_details.rand,
+            'content': message,
+            'mobiles': phone_number,
+            'sign': hash
+        });
+        return data;
+    } else if (country_code == 'TH') {
+        let data = qs.stringify({
+            'orgCode': api_details.orgCode,
+            'mobileArea': '+66',
+            'rand': api_details.rand,
+            'content': message,
+            'mobiles': phone_number,
+            'sign': hash
+        });
+        return data;
+    } else if (country_code == 'VN') {
+        let data = qs.stringify({
+            'orgCode': api_details.orgCode,
+            'mobileArea': '+84',
+            'rand': api_details.rand,
+            'content': message,
+            'mobiles': phone_number,
+            'sign': hash
+        });
+        return data;
+    } else if (country_code == 'PH') {
+        let data = qs.stringify({
+            'orgCode': api_details.orgCode,
+            'mobileArea': '+63',
+            'rand': api_details.rand,
+            'content': message,
+            'mobiles': phone_number,
+            'sign': hash
+        });
+        return data;
+
+    } else {
+        let data = qs.stringify({
+            'orgCode': '',
+            'mobileArea': '',
+            'rand': '',
+            'content': '',
+            'mobiles': '',
+            'sign': ''
+        });
+        return data;
+    }
+}
+async function sendAbosendSMS(message, from, phone_number, country_code, row_number) {
+    return new Promise(async (resolve, reject) => {
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'http://smsapi.abosend.com:8205/api/sendSMS',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data: abosendAPIParameters(country_code, phone_number, message, row_number)
+        };
+
+        axios.request(config)
+            .then((response) => {
+                if (response.data.code == '200')
+                    resolve(response)
+                else
+                    reject(response);
+            })
+            .catch((error) => {
+                reject(error);
+            });
+
+    });
+
+}
 
 
 
 
 
 
-
-async function sendEmail(from, email, subject, template_id) {
+async function sendEmail(from, email, subject, template_id, fromName) {
 
 
     const apikey = '7C41D4746E1C491FAB5CC72DFF9EF3F117A02CD035AEACE30E9823CD3D0581D20B61291546D6AF53BEA633563CE388E8'
-    const email_subect = encodeURIComponent(subject);
+    const email_subject = subject ? encodeURIComponent(subject) : encodeURIComponent('(no subject)');
+    const encodedfromName = encodeURIComponent(fromName);
 
     return new Promise(async (resolve, reject) => {
 
         var config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: `https://api.elasticemail.com/v2/email/send?subject=${email_subect}&from=${from}&to=robert.gajelomo@everlounge.net&template=${template_id}&isTransactional=true&apikey=${apikey}`,
+            url: `https://api.elasticemail.com/v2/email/send?subject=${email_subject}&fromName=${encodedfromName}&from=${from}&to=${email}&template=${template_id}&isTransactional=true&apikey=${apikey}`,
             headers: {}
         };
 
@@ -360,13 +518,13 @@ searchJoystck = async (_req, _res) => {
 
 
 API_DisplayTriggers = async (_req, _res) => {
-    const { page, limit, campaign_name, status, triggerstatus, created_at, sending, data_source } = _req.query;
+    const { page, limit, campaign_name, status, triggerstatus, created_at, is_scheduled, data_source, start_at } = _req.query;
     const offset = (page - 1) * limit;
 
     // console.log(_req.query);
     try {
 
-        let query = `select  config_id,status,triggerstatus,created_at,sending,data_source,campaign_name from cmw_config`;
+        let query = `select  config_id,status,triggerstatus,created_at,data_source,campaign_name,is_scheduled,start_at from cmw_config`;
 
         const queryParams = [];
 
@@ -388,20 +546,24 @@ API_DisplayTriggers = async (_req, _res) => {
             queryParams.push(`created_at::text LIKE '%${created_at}%'`);
         }
 
-        if (sending) {
-            const parseSending = JSON.parse(`${_req.query.sending}`);
-            queryParams.push(`sending = '${parseSending.value}'`);
+        if (is_scheduled) {
+            const parseIsSchedule = JSON.parse(`${_req.query.is_scheduled}`);
+            queryParams.push(`is_scheduled = '${parseIsSchedule.value}'`);
         }
 
         if (data_source) {
             const parseDataSource = JSON.parse(`${_req.query.data_source}`);
             queryParams.push(`data_source = '${parseDataSource.value}'`);
         }
-
+        if (start_at) {
+            queryParams.push(`start_at::text LIKE '%${start_at}%'`);
+        }
 
         if (queryParams.length > 0) {
             query += ` WHERE ${queryParams.join(' AND ')}`;
         }
+
+
 
         const countQuery = `SELECT COUNT(*) FROM cmw_config ${queryParams.length > 0 ? `WHERE ${queryParams.join(' AND ')}` : ''}`;
         const countResult = await local_connection.query(countQuery);
