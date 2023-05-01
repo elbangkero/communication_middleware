@@ -499,6 +499,40 @@ insertConfig = async (_req, _res) => {
 
 }
 
+insertProvider = async (_req, _res) => {
+  
+    let local_time = new Date().toISOString();
+    const date_now = new Date(local_time).toLocaleString();
+    const platform = _req.body.platform =='sms'?'SMS':'EMAIL';
+    
+    local_connection.query(`INSERT INTO cmw_providers (provider_name,application_id,provider_code,platform,endpoint,created_at,updated_at) VALUES ('${_req.body.provider_name}','${_req.body.application_id}',(SELECT concat('${platform}', MAX(provider_id)+1) FROM cmw_providers),'${_req.body.platform}','${_req.body.endpoint}','${date_now}','${date_now}')`, (err, res) => {
+        if (err) {
+            console_log(`Error executing query: ${err.message}`);
+        } else {
+            console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Provider Added', 'data': [] }));
+            _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Provider Added', 'data': [] });
+        }
+    });
+
+}
+
+insertProviderAccount = async (_req, _res) => {
+  
+    let local_time = new Date().toISOString();
+    const date_now = new Date(local_time).toLocaleString();
+    
+    local_connection.query(`INSERT INTO cmw_acct_providers (country_code,provider_code,username,password,apikey,md5Key,rand,orgCode,created_at,updated_at) VALUES ('${_req.body.country_code}','${_req.body.provider_code}','${_req.body.username}','${_req.body.password}','${_req.body.apikey}','${_req.body.md5Key}','${_req.body.rand}','${_req.body.orgCode}','${date_now}','${date_now}')`, (err, res) => {
+        if (err) {
+            console_log(`Error executing query: ${err.message}`);
+        } else {
+            console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Provider Account Added', 'data': [] }));
+            _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Provider Account Added', 'data': [] });
+        }
+    });
+
+}
+
+
 searchJoystck = async (_req, _res) => {
 
     joystick_connection.query(`select * from  afun_afun.player_data pd  limit 1`, (err, res) => {
@@ -694,6 +728,10 @@ module.exports = function (app) {
             maxCount: 1,
         }
     ]), insertConfig);
+
+    app.post('/upload/upload-provider', upload.fields([]), insertProvider);
+
+    app.post('/upload/provider-account', upload.fields([]), insertProviderAccount);
 
     app.get('/search_joystick', searchJoystck);
 
