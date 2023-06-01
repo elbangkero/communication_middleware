@@ -5,7 +5,7 @@ const https = require('https');
 var interval = 3000;
 
 const MAX_VERIFICATION_ATTEMPTS = 4;
-let VERIFICATION_INTERVAL = 5000;
+let VERIFICATION_INTERVAL = 60000;
 
 let verificationAttempts = 0;
 
@@ -31,7 +31,7 @@ let verificationAttempts = 0;
                             const obj = JSON.parse(utf8encoded);
 
                             const merge_data = obj.merge ? obj.merge : '';
-                            if (obj.subject == 'Account has been locked') {
+                            if (obj.subject == 'Account has been locked' || obj.subject == 'Email Verification') {
                                 local_connection.query(`update ftp_email set triggerstatus= 'inactive' , status = 'sent' where id=${el.id}`, async (err, res) => {
                                     sendEmailResponse = await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
                                         .then(function (response) {
