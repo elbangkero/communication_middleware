@@ -7,7 +7,7 @@ const cors = require('cors');
 app.use(cors());
 app.options('*', cors());
 require('./src/api')(app);
-
+require('./src/ftp_api')(app);
  
 app.listen(`${process.env.PORT}`, () => {
   console_log('Listening on port ' + `${process.env.PORT}`);
