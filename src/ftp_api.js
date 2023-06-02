@@ -122,27 +122,52 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
     let sendEmailResponse = '';
     switch (verificationAttempts) {
         case 0: //1st attempt
-            sendEmailResponse = await sendEmail(from, email, '2nd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data);
-            //console.log('attempt no:', verificationAttempts);
+            sendEmailResponse = await sendEmail(from, email, '2nd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
+                .then(function (response) {
+                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '2nd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
+                    return response;
+                }).catch(function (error) {
+                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '2nd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
+                    return error;
+                });
             break;
         case 1: //2nd attempt
-            sendEmailResponse = await sendEmail(from, email, '3rd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data);
-            //console.log('attempt no:', verificationAttempts);
+            sendEmailResponse = await sendEmail(from, email, '3rd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
+                .then(function (response) {
+                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '3rd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
+                    return response;
+                }).catch(function (error) {
+                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '3rd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
+                    return error;
+                });
             break;
         case 2: //3rd attempt
-            sendEmailResponse = await sendEmail(from, email, '4th Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data);
-            //console.log('attempt no:', verificationAttempts);
+            sendEmailResponse = await sendEmail(from, email, '4th Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
+                .then(function (response) {
+                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '4th Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
+                    return response;
+                }).catch(function (error) {
+                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '4th Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
+                    return error;
+                });
             break;
         case 3:
             console_log(`Maximum verification attempts reached. No more email attempts.`);
-            await emailAttemptLock(email);
+            await emailAttemptLock(email)
+                .then(function (response) {
+                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, 'Account Locked', 'F2PLCHJP AL', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
+                    return response;
+                }).catch(function (error) {
+                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, 'Account Locked', 'F2PLCHJP AL', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
+                    return error;
+                });;
             break;
     }
     const EmailResponse = sendEmailResponse.data == null ? false : sendEmailResponse.data.success;
     //console.log(EmailResponse);
     if (EmailResponse) {
         console_log(`Status : ${token} Sent, ` + `Campaign : FreeToPlay Email`);
-        StoreFTPEmailHistory(config_id, name, email, token, from, fromName, subject, template_id, JSON.stringify(merge_data), 'success', JSON.stringify(sendEmailResponse.data));
+
         let isVerified = false;
 
         async function verifyEmail(attempts) {
@@ -257,10 +282,12 @@ async function emailAttemptLock(email) {
 
         axios.request(config)
             .then((response) => {
-                //console.log(JSON.stringify(response.data));
+                if (response.data.code == '200') {
+                    resolve(response);
+                }
             })
             .catch((error) => {
-                //console.log(error);
+                reject(error);
             });
     });
 }
