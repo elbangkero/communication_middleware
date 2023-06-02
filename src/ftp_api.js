@@ -5,7 +5,7 @@ const https = require('https');
 var interval = 3000;
 
 const MAX_VERIFICATION_ATTEMPTS = 3;
-let VERIFICATION_INTERVAL = process.env.ENVIRONMENT === 'production' ? 24 * 60 * 60 * 1000 : 5000;
+let VERIFICATION_INTERVAL = 5000;
 
 let verificationAttempts = 0;
 
@@ -119,9 +119,28 @@ async function emailVerification(email) {
 
 async function sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts) {
 
-    const sendEmailResponse = await sendEmail(from, email, subject, template_id, fromName, merge_data);
-
-    if (sendEmailResponse.data.success) {
+    let sendEmailResponse = '';
+    switch (verificationAttempts) {
+        case 0: //1st attempt
+            sendEmailResponse = await sendEmail(from, email, '2nd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data);
+            //console.log('attempt no:', verificationAttempts);
+            break;
+        case 1: //2nd attempt
+            sendEmailResponse = await sendEmail(from, email, '3rd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data);
+            //console.log('attempt no:', verificationAttempts);
+            break;
+        case 2: //3rd attempt
+            sendEmailResponse = await sendEmail(from, email, '4th Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data);
+            //console.log('attempt no:', verificationAttempts);
+            break;
+        case 3:
+            console_log(`Maximum verification attempts reached. No more email attempts.`);
+            await emailAttemptLock(email);
+            break;
+    }
+    const EmailResponse = sendEmailResponse.data == null ? false : sendEmailResponse.data.success;
+    //console.log(EmailResponse);
+    if (EmailResponse) {
         console_log(`Status : ${token} Sent, ` + `Campaign : FreeToPlay Email`);
         StoreFTPEmailHistory(config_id, name, email, token, from, fromName, subject, template_id, JSON.stringify(merge_data), 'success', JSON.stringify(sendEmailResponse.data));
         let isVerified = false;
@@ -164,11 +183,6 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
                     resolve(sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts));
                 }, VERIFICATION_INTERVAL);
             });
-        } else {
-
-            console_log(`Maximum verification attempts reached. No more email attempts.`);
-            await emailAttemptLock(email);
-         
         }
     }
 }
@@ -242,12 +256,12 @@ async function emailAttemptLock(email) {
         };
 
         axios.request(config)
-        .then((response) => {
-            //console.log(JSON.stringify(response.data));
-        })
-        .catch((error) => {
-            //console.log(error);
-        });
+            .then((response) => {
+                //console.log(JSON.stringify(response.data));
+            })
+            .catch((error) => {
+                //console.log(error);
+            });
     });
 }
 
