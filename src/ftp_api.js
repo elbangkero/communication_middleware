@@ -132,7 +132,7 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
 
                 await local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${config_id}`);
 
-                console.log(`Email verified. Stopping the verification process.`);
+                console_log(`Email verified. Stopping the verification process.`);
                 isVerified = true;
                 return true;
             } catch (error) {
@@ -165,7 +165,10 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
                 }, VERIFICATION_INTERVAL);
             });
         } else {
+
             console_log(`Maximum verification attempts reached. No more email attempts.`);
+            await emailAttemptLock(email);
+         
         }
     }
 }
@@ -177,7 +180,7 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
 async function sendEmail(from, email, subject, template_id, fromName, merge_data) {
 
 
-    const apikey = '7C41D4746E1C491FAB5CC72DFF9EF3F117A02CD035AEACE30E9823CD3D0581D20B61291546D6AF53BEA633563CE388E8'
+    const apikey = '48F771427470A9CACFB27B8E09B99F2303F8031357C0525D129C5B6A25029185BF2E845CB07B2CF6EDF779E854088BFB'
     const email_subject = subject ? encodeURIComponent(subject) : encodeURIComponent('(no subject)');
     const encodedfromName = encodeURIComponent(fromName);
     var merge_params = "";
@@ -219,6 +222,32 @@ async function StoreFTPEmailHistory(email_id, name, email, token, from, fromname
         if (err) {
             console_log(`StoreFTPEmailHistory[Error]:  ${err}`);
         }
+    });
+}
+
+
+async function emailAttemptLock(email) {
+    return new Promise(async (resolve, reject) => {
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+            url: 'https://13.229.158.52:8069/Emailsender/api/',
+            headers: {
+                'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzkzODc4NDYsImp0aSI6InVMMTNaVG1ETndjRVh1TlF0dm43Y3c9PSIsImlzcyI6IiIsIm5iZiI6MTY3OTM4Nzg0NiwiZXhwIjoxNjc5Mzg4MjA2LCJkYXRhIjp7InVzZXJuYW1lIjoicmFpbiIsInBhc3N3b3JkIjoicG9naTY5Iiwic2l0ZV9rZXkiOiJxcXFxcTY5In19.vmVRS4_aaBGvx_kCQO_lga7LWgAFUgGWmLyWeIrLBBc',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Cookie': 'ci_session=7g0je7hbi3m7t0ci8u9aptsesg2emulm; ci_session=op66fru2jakdqclm23hn217n4n2o54ta'
+            },
+            data: { 'id': '1', 'email': email }
+        };
+
+        axios.request(config)
+        .then((response) => {
+            //console.log(JSON.stringify(response.data));
+        })
+        .catch((error) => {
+            //console.log(error);
+        });
     });
 }
 
