@@ -1,0 +1,19 @@
+2023-05-31T02:27:05.538Z: Listening on port 8041
+2023-05-31T02:27:05.558Z: Successfully connected to {localhost}
+2023-05-31T02:27:05.576Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-31T03:00:01.634Z: Error executing query: error: syntax error at or near "s"
+2023-05-31T06:27:06.188Z: Listening on port 8041
+2023-05-31T06:27:06.205Z: Successfully connected to {localhost}
+2023-05-31T06:27:06.222Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-31T10:27:06.872Z: Listening on port 8041
+2023-05-31T10:27:06.893Z: Successfully connected to {localhost}
+2023-05-31T10:27:06.911Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-31T14:27:07.479Z: Listening on port 8041
+2023-05-31T14:27:07.499Z: Successfully connected to {localhost}
+2023-05-31T14:27:07.515Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-31T18:27:08.154Z: Listening on port 8041
+2023-05-31T18:27:08.179Z: Successfully connected to {localhost}
+2023-05-31T18:27:08.195Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-31T22:27:08.758Z: Listening on port 8041
+2023-05-31T22:27:08.796Z: Successfully connected to {localhost}
+2023-05-31T22:27:08.813Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}

@@ -1,0 +1,7 @@
+playertoken,country,message_text,platform,from,template_id,email_subject,application_id
+s2poyuqr641549,UNK,"const [cardVisibility, 
+setCardVisibility]
+ = useState(false); 
+ const searchFilters, 
+ setSearchFilters] = 
+ useState({});",email,gajelomo16@gmail.com,,,1

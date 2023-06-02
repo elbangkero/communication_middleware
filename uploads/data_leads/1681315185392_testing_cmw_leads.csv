@@ -1,0 +1,12 @@
+playertoken,country,message_text,platform,from,template_id,email_subject,application_id
+s2tdtftr239276,TH,"message,country,player_token,user_id,sms  or  email or app
+phase 1 : jpj get info and send to provider",sms,test,,,1
+s2mmgmqv584475,TH,test message,email,,618738,TESTING EMAIL,1
+s2oxutki739774,UNK,test message,sms,test,,,1
+s2nydfrq976541,UNK,test message,email,gajelomo16@gmail.com,,TESTING EMAIL,1
+s2bcelgz003769,TH,TH MESSAGE,sms,test,,,1
+s2poyuqr641549,UNK,test message,email,gajelomo16@gmail.com,618738,,1
+s2zkdtrd297338,VN,VN MESSAGE,sms,test,,,1
+s2sthajs721606,UNK,test message,email,,618738,TESTING EMAIL,1
+s2yemnil959403,TH,test message,sms,test,,,1
+s2awrpph587154,UNK,test message,email,gajelomo16@gmail.com,618738,TESTING EMAIL,1

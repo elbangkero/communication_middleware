@@ -1,0 +1,54 @@
+2023-04-13T00:32:43.416Z: Listening on port 8041
+2023-04-13T00:32:43.425Z: Successfully connected to {localhost}
+2023-04-13T00:32:43.465Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-13T02:57:43.518Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-13T02:57:53.526Z: Config queue count : 1
+2023-04-13T02:57:53.527Z: payload : 1
+2023-04-13T02:57:55.812Z: Status : s2tdtftr239276 Sent, Campaign : Testing Campaign 1
+2023-04-13T02:57:56.167Z: Status : s2mmgmqv584475 Failed, Campaign : Testing Campaign 1
+2023-04-13T02:57:56.584Z: Status : s2oxutki739774 Failed, Campaign : Testing Campaign 1
+2023-04-13T02:57:58.389Z: Status : s2nydfrq976541 Sent, Campaign : Testing Campaign 1
+2023-04-13T02:57:58.930Z: Status : s2bcelgz003769 Sent, Campaign : Testing Campaign 1
+2023-04-13T02:58:00.204Z: Status : s2poyuqr641549 Sent, Campaign : Testing Campaign 1
+2023-04-13T02:58:01.833Z: Status : s2zkdtrd297338 Sent, Campaign : Testing Campaign 1
+2023-04-13T02:58:02.320Z: Status : s2sthajs721606 Failed, Campaign : Testing Campaign 1
+2023-04-13T02:58:03.337Z: Status : s2yemnil959403 Sent, Campaign : Testing Campaign 1
+2023-04-13T02:58:03.538Z: Config queue count : 0
+2023-04-13T02:58:03.538Z: payload : 0
+2023-04-13T02:58:04.992Z: Status : s2awrpph587154 Sent, Campaign : Testing Campaign 1
+2023-04-13T02:58:04.992Z: Campaign: Testing Campaign 1, Result: 7 sent, 3 failed
+2023-04-13T02:58:15.025Z: Config queue count : 0
+2023-04-13T02:58:15.026Z: payload : 0
+2023-04-13T03:02:24.893Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-13T03:02:34.913Z: Config queue count : 1
+2023-04-13T03:02:34.919Z: payload : 1
+2023-04-13T03:02:37.316Z: Status : s2mmgmqv584475 Failed, Campaign : Testing Campaign 1
+2023-04-13T03:02:37.540Z: Status : s2oxutki739774 Failed, Campaign : Testing Campaign 1
+2023-04-13T03:02:38.698Z: Status : s2tdtftr239276 Sent, Campaign : Testing Campaign 1
+2023-04-13T03:02:38.812Z: Status : s2nydfrq976541 Sent, Campaign : Testing Campaign 1
+2023-04-13T03:02:39.567Z: Status : s2bcelgz003769 Sent, Campaign : Testing Campaign 1
+2023-04-13T03:02:40.958Z: Status : s2poyuqr641549 Sent, Campaign : Testing Campaign 1
+2023-04-13T03:02:43.571Z: Status : s2yemnil959403 Sent, Campaign : Testing Campaign 1
+2023-04-13T03:02:44.345Z: Status : s2zkdtrd297338 Sent, Campaign : Testing Campaign 1
+2023-04-13T03:02:44.934Z: Config queue count : 0
+2023-04-13T03:02:44.934Z: payload : 0
+2023-04-13T03:02:47.108Z: Status : s2sthajs721606 Failed, Campaign : Testing Campaign 1
+2023-04-13T03:02:48.403Z: Status : s2awrpph587154 Sent, Campaign : Testing Campaign 1
+2023-04-13T03:02:48.403Z: Campaign: Testing Campaign 1, Result: 7 sent, 3 failed
+2023-04-13T03:02:58.428Z: Config queue count : 0
+2023-04-13T03:02:58.428Z: payload : 0
+2023-04-13T04:32:44.207Z: Listening on port 8041
+2023-04-13T04:32:44.240Z: Successfully connected to {localhost}
+2023-04-13T04:32:44.259Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-13T08:32:45.104Z: Listening on port 8041
+2023-04-13T08:32:45.121Z: Successfully connected to {localhost}
+2023-04-13T08:32:45.140Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-13T12:32:45.636Z: Listening on port 8041
+2023-04-13T12:32:45.667Z: Successfully connected to {localhost}
+2023-04-13T12:32:45.688Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-13T16:32:46.325Z: Listening on port 8041
+2023-04-13T16:32:46.341Z: Successfully connected to {localhost}
+2023-04-13T16:32:46.356Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-13T20:32:46.839Z: Listening on port 8041
+2023-04-13T20:32:46.859Z: Successfully connected to {localhost}
+2023-04-13T20:32:46.874Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}

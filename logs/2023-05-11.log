@@ -1,0 +1,121 @@
+2023-05-11T02:31:50.715Z: Listening on port 8041
+2023-05-11T02:31:50.734Z: Successfully connected to {localhost}
+2023-05-11T02:31:50.752Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-11T02:42:53.455Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-11T02:43:03.463Z: Config queue count : 1
+2023-05-11T02:43:03.463Z: payload : 1
+2023-05-11T02:43:13.492Z: Config queue count : 0
+2023-05-11T02:43:13.492Z: payload : 0
+2023-05-11T02:43:13.877Z: Status : s2dinpkk977544 Sent, Campaign : test rio 004
+2023-05-11T02:43:13.878Z: Campaign: test rio 004, Result: 1 sent, 0 failed
+2023-05-11T02:43:23.889Z: Config queue count : 0
+2023-05-11T02:43:23.889Z: payload : 0
+2023-05-11T02:43:26.042Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-11T02:43:36.044Z: Config queue count : 1
+2023-05-11T02:43:36.044Z: payload : 1
+2023-05-11T02:43:37.413Z: Status : s2dinpkk977544 Sent, Campaign : test rio 005
+2023-05-11T02:43:37.413Z: Campaign: test rio 005, Result: 1 sent, 0 failed
+2023-05-11T02:43:46.047Z: Config queue count : 0
+2023-05-11T02:43:46.047Z: payload : 0
+2023-05-11T02:43:47.431Z: Config queue count : 0
+2023-05-11T02:43:47.431Z: payload : 0
+2023-05-11T02:44:16.037Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-11T02:44:17.926Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-11T02:44:26.040Z: Config queue count : 2
+2023-05-11T02:44:26.040Z: payload : 1
+2023-05-11T02:44:27.927Z: Config queue count : 2
+2023-05-11T02:44:27.928Z: payload : 2
+2023-05-11T02:44:31.182Z: Status : s2dinpkk977544 Sent, Campaign : test rio 006
+2023-05-11T02:44:31.183Z: Campaign: test rio 006, Result: 1 sent, 0 failed
+2023-05-11T02:44:32.668Z: Status : s2dinpkk977544 Sent, Campaign : test rio 006
+2023-05-11T02:44:32.668Z: Campaign: test rio 006, Result: 1 sent, 0 failed
+2023-05-11T02:44:37.932Z: Config queue count : 0
+2023-05-11T02:44:37.932Z: payload : 1
+2023-05-11T02:44:37.941Z: Config queue count : 0
+2023-05-11T02:44:37.941Z: payload : 0
+2023-05-11T02:44:41.187Z: Config queue count : 0
+2023-05-11T02:44:41.187Z: payload : 0
+2023-05-11T02:44:42.672Z: Config queue count : 0
+2023-05-11T02:44:42.672Z: payload : 0
+2023-05-11T02:47:09.705Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-11T02:47:19.715Z: Config queue count : 1
+2023-05-11T02:47:19.716Z: payload : 1
+2023-05-11T02:47:20.785Z: Status : s2dinpkk977544 Sent, Campaign : test rio 007
+2023-05-11T02:47:20.785Z: Campaign: test rio 007, Result: 1 sent, 0 failed
+2023-05-11T02:47:29.721Z: Config queue count : 0
+2023-05-11T02:47:29.721Z: payload : 0
+2023-05-11T02:47:30.804Z: Config queue count : 0
+2023-05-11T02:47:30.805Z: payload : 0
+2023-05-11T06:17:32.650Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-11T06:17:42.651Z: Config queue count : 1
+2023-05-11T06:17:42.652Z: payload : 1
+2023-05-11T06:17:48.350Z: Status : s2dinpkk977544 Sent, Campaign : test rio 008
+2023-05-11T06:17:48.351Z: Campaign: test rio 008, Result: 1 sent, 0 failed
+2023-05-11T06:17:52.655Z: Config queue count : 0
+2023-05-11T06:17:52.655Z: payload : 0
+2023-05-11T06:17:58.376Z: Config queue count : 0
+2023-05-11T06:17:58.377Z: payload : 0
+2023-05-11T06:31:51.240Z: Listening on port 8041
+2023-05-11T06:31:51.260Z: Successfully connected to {localhost}
+2023-05-11T06:31:51.293Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-11T06:31:53.619Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-11T06:32:03.622Z: Config queue count : 1
+2023-05-11T06:32:03.622Z: payload : 1
+2023-05-11T06:32:06.328Z: Status : s2dinpkk977544 Failed, Campaign : test rio 009
+2023-05-11T06:32:06.328Z: Campaign: test rio 009, Result: 0 sent, 1 failed
+2023-05-11T06:32:13.637Z: Config queue count : 0
+2023-05-11T06:32:13.637Z: payload : 0
+2023-05-11T06:32:16.339Z: Config queue count : 0
+2023-05-11T06:32:16.339Z: payload : 0
+2023-05-11T06:50:15.050Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-11T06:50:25.059Z: Config queue count : 1
+2023-05-11T06:50:25.059Z: payload : 1
+2023-05-11T06:50:30.762Z: Status : s2gopewi833570 Sent, Campaign : test rio cmw 010
+2023-05-11T06:50:32.154Z: Status : s2gtkrfp682191 Sent, Campaign : test rio cmw 010
+2023-05-11T06:50:32.154Z: Campaign: test rio cmw 010, Result: 2 sent, 0 failed
+2023-05-11T06:50:35.069Z: Config queue count : 0
+2023-05-11T06:50:35.070Z: payload : 0
+2023-05-11T06:50:42.166Z: Config queue count : 0
+2023-05-11T06:50:42.166Z: payload : 0
+2023-05-11T06:52:03.582Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-11T06:52:13.584Z: Config queue count : 1
+2023-05-11T06:52:13.584Z: payload : 1
+2023-05-11T06:52:23.195Z: Status : s2gtkrfp682191 Sent, Campaign : test rio cmw 011
+2023-05-11T06:52:23.295Z: Status : s2gopewi833570 Sent, Campaign : test rio cmw 011
+2023-05-11T06:52:23.295Z: Campaign: test rio cmw 011, Result: 2 sent, 0 failed
+2023-05-11T06:52:23.588Z: Config queue count : 0
+2023-05-11T06:52:23.588Z: payload : 0
+2023-05-11T06:52:33.318Z: Config queue count : 0
+2023-05-11T06:52:33.318Z: payload : 0
+2023-05-11T07:02:42.998Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-11T07:02:53.005Z: Config queue count : 1
+2023-05-11T07:02:53.005Z: payload : 1
+2023-05-11T07:02:58.824Z: Status : s2najrpl182099 Sent, Campaign : test rio cmw 012
+2023-05-11T07:03:02.560Z: Status : s2mgsvxt502356 Sent, Campaign : test rio cmw 012
+2023-05-11T07:03:02.560Z: Campaign: test rio cmw 012, Result: 2 sent, 0 failed
+2023-05-11T07:03:03.011Z: Config queue count : 0
+2023-05-11T07:03:03.011Z: payload : 0
+2023-05-11T07:03:12.574Z: Config queue count : 0
+2023-05-11T07:03:12.575Z: payload : 0
+2023-05-11T07:03:14.649Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-11T07:03:24.649Z: Config queue count : 1
+2023-05-11T07:03:24.650Z: payload : 1
+2023-05-11T07:03:25.848Z: Status : s2najrpl182099 Sent, Campaign : test rio cmw 013
+2023-05-11T07:03:34.653Z: Config queue count : 0
+2023-05-11T07:03:34.653Z: payload : 0
+2023-05-11T07:03:34.971Z: Status : s2mgsvxt502356 Sent, Campaign : test rio cmw 013
+2023-05-11T07:03:34.971Z: Campaign: test rio cmw 013, Result: 2 sent, 0 failed
+2023-05-11T07:03:44.994Z: Config queue count : 0
+2023-05-11T07:03:44.994Z: payload : 0
+2023-05-11T10:31:52.020Z: Listening on port 8041
+2023-05-11T10:31:52.058Z: Successfully connected to {localhost}
+2023-05-11T10:31:52.073Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-11T14:31:52.882Z: Listening on port 8041
+2023-05-11T14:31:52.908Z: Successfully connected to {localhost}
+2023-05-11T14:31:52.929Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-11T18:31:53.376Z: Listening on port 8041
+2023-05-11T18:31:53.396Z: Successfully connected to {localhost}
+2023-05-11T18:31:53.417Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-11T22:31:53.882Z: Listening on port 8041
+2023-05-11T22:31:53.904Z: Successfully connected to {localhost}
+2023-05-11T22:31:53.920Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}

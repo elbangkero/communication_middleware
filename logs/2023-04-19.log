@@ -1,0 +1,27 @@
+2023-04-19T02:29:56.122Z: Listening on port 8041
+2023-04-19T02:29:56.139Z: Successfully connected to {localhost}
+2023-04-19T02:29:56.156Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-19T02:50:59.436Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-19T02:51:10.589Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-19T02:52:51.482Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-19T02:52:55.945Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-19T02:53:38.507Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-19T02:53:50.535Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-04-19T02:56:21.165Z: Listening on port 8041
+2023-04-19T02:56:21.182Z: Successfully connected to {localhost}
+2023-04-19T02:56:21.199Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-19T06:56:21.592Z: Listening on port 8041
+2023-04-19T06:56:21.600Z: Successfully connected to {localhost}
+2023-04-19T06:56:21.628Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-19T10:56:21.996Z: Listening on port 8041
+2023-04-19T10:56:22.015Z: Successfully connected to {localhost}
+2023-04-19T10:56:22.031Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-19T14:56:22.609Z: Listening on port 8041
+2023-04-19T14:56:22.633Z: Successfully connected to {localhost}
+2023-04-19T14:56:22.650Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-19T18:56:23.055Z: Listening on port 8041
+2023-04-19T18:56:23.071Z: Successfully connected to {localhost}
+2023-04-19T18:56:23.090Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-04-19T22:56:23.700Z: Listening on port 8041
+2023-04-19T22:56:23.725Z: Successfully connected to {localhost}
+2023-04-19T22:56:23.745Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}

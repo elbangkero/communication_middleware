@@ -1,0 +1,54 @@
+2023-05-10T02:31:46.948Z: Listening on port 8041
+2023-05-10T02:31:46.990Z: Successfully connected to {localhost}
+2023-05-10T02:31:47.008Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-10T06:31:47.552Z: Listening on port 8041
+2023-05-10T06:31:47.571Z: Successfully connected to {localhost}
+2023-05-10T06:31:47.596Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-10T06:40:42.304Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-10T06:40:46.165Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-10T06:40:52.309Z: Config queue count : 2
+2023-05-10T06:40:52.309Z: payload : 1
+2023-05-10T06:40:56.167Z: Config queue count : 2
+2023-05-10T06:40:56.167Z: payload : 2
+2023-05-10T06:40:57.564Z: Status : s2dinpkk977544 Sent, Campaign : test rio 001
+2023-05-10T06:40:57.564Z: Campaign: test rio 001, Result: 1 sent, 0 failed
+2023-05-10T06:40:57.565Z: Status : s2dinpkk977544 Sent, Campaign : test rio 001
+2023-05-10T06:40:57.565Z: Campaign: test rio 001, Result: 1 sent, 0 failed
+2023-05-10T06:40:59.480Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-10T06:41:06.176Z: Config queue count : 1
+2023-05-10T06:41:06.176Z: payload : 1
+2023-05-10T06:41:06.185Z: Config queue count : 0
+2023-05-10T06:41:06.185Z: payload : 0
+2023-05-10T06:41:07.569Z: Config queue count : 0
+2023-05-10T06:41:07.569Z: payload : 0
+2023-05-10T06:41:07.578Z: Config queue count : 0
+2023-05-10T06:41:07.578Z: payload : 0
+2023-05-10T06:41:07.782Z: Status : s2dinpkk977544 Sent, Campaign : test rio 002
+2023-05-10T06:41:07.782Z: Campaign: test rio 002, Result: 1 sent, 0 failed
+2023-05-10T06:41:09.481Z: Config queue count : 0
+2023-05-10T06:41:09.481Z: payload : 1
+2023-05-10T06:41:16.180Z: Config queue count : 0
+2023-05-10T06:41:16.181Z: payload : 0
+2023-05-10T06:41:17.794Z: Config queue count : 0
+2023-05-10T06:41:17.794Z: payload : 0
+2023-05-10T07:48:21.570Z: {"statusCode":200,"status":true,"message":"Config Added","data":[]}
+2023-05-10T07:48:31.572Z: Config queue count : 1
+2023-05-10T07:48:31.572Z: payload : 1
+2023-05-10T07:48:31.720Z: Status : s2dinpkk977544 Sent, Campaign : test rio 003
+2023-05-10T07:48:31.720Z: Campaign: test rio 003, Result: 1 sent, 0 failed
+2023-05-10T07:48:41.577Z: Config queue count : 0
+2023-05-10T07:48:41.578Z: payload : 0
+2023-05-10T07:48:41.730Z: Config queue count : 0
+2023-05-10T07:48:41.730Z: payload : 0
+2023-05-10T10:31:48.208Z: Listening on port 8041
+2023-05-10T10:31:48.229Z: Successfully connected to {localhost}
+2023-05-10T10:31:48.247Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-10T14:31:48.806Z: Listening on port 8041
+2023-05-10T14:31:48.831Z: Successfully connected to {localhost}
+2023-05-10T14:31:48.849Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-10T18:31:49.272Z: Listening on port 8041
+2023-05-10T18:31:49.290Z: Successfully connected to {localhost}
+2023-05-10T18:31:49.307Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
+2023-05-10T22:31:50.146Z: Listening on port 8041
+2023-05-10T22:31:50.162Z: Successfully connected to {localhost}
+2023-05-10T22:31:50.178Z: Successfully connected to {data-platform.ckghnqcooulj.ap-southeast-1.redshift.amazonaws.com}
