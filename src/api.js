@@ -65,7 +65,7 @@ const environment = `${process.env.ENVIRONMENT}`;
 
                                     local_connection.query(`update cmw_config set status= 'sending' where config_id=${row.config_id}`, (err, res) => {
                                         if (err) {
-                                            console_log(`Error executing query: ${err.message}`);
+                                            console_log(`Status_Update[Error]: ${err.message}`);
                                         }
                                     });
                                 });
@@ -109,7 +109,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
             where pd.playertoken ='${obj.player_token}'`, (err, res) => {
                 const data = res.rows;
                 if (err) {
-                    console_log(`Error executing query: ${err.message}`);
+                    console_log(`getUserData[Error]: ${err.message}`);
                 } else {
                     data.forEach(async row => {
                         if (obj.platform == 'sms') {
@@ -143,7 +143,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
 
                                             local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
                                                 if (err) {
-                                                    console_log(`Error executing query: ${err.message}`);
+                                                    console_log(`DoneSMSSmartSending[Error]: ${err.message}`);
                                                 }
                                             });
                                         }
@@ -170,7 +170,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                             pre_compile_data.length = 0;
                                             local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
                                                 if (err) {
-                                                    console_log(`Error executing query: ${err.message}`);
+                                                    console_log(`DoneAbosending[Error]: ${err.message}`);
                                                 }
                                             });
                                         }
@@ -203,7 +203,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
 
                                         local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
                                             if (err) {
-                                                console_log(`Error executing query: ${err.message}`);
+                                                console_log(`DoneEmailSending[Error]: ${err.message}`);
                                             }
                                         });
                                     }
@@ -253,7 +253,7 @@ async function storeMessageHistory(config_id, campaign_name, player_token, playe
     const date_now = new Date(local_time).toLocaleString();
     local_connection.query(`INSERT INTO cmw_history (config_id,campaign_name,player_token,player_contact,platform,country,message,status,created_at,updated_at,api_response,from_sender,email_subject,template_id,application_id) VALUES ('${config_id}','${campaign_name}','${player_token}','${player_contact}','${platform}','${country}','${message}','${status}','${date_now}','${date_now}','${api_response}','${from}','${email_subject}','${template_id}','${application_id}')`, (err, res) => {
         if (err) {
-            console_log(`Error executing query: ${err}`);
+            console_log(`storeMessageHistory[Error]: ${err}`);
         }
     });
 }
@@ -490,7 +490,7 @@ insertConfig = async (_req, _res) => {
     const parseStartAt = new Date(parseISO).toLocaleString();
     local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_scheduled) VALUES ('pending','active','${date_now}','${date_now}','${parseStartAt}','${sending}','${_req.body.data_source}','${_req.body.campaign_name}','${data_leads}','${is_scheduled}')`, (err, res) => {
         if (err) {
-            console_log(`Error executing query: ${err.message}`);
+            console_log(`insertConfig[Error]: ${err.message}`);
         } else {
             console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] }));
             _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] });
@@ -507,7 +507,7 @@ insertProvider = async (_req, _res) => {
     
     local_connection.query(`INSERT INTO cmw_providers (provider_name,application_id,provider_code,platform,endpoint,created_at,updated_at) VALUES ('${_req.body.provider_name}','${_req.body.application_id}',(SELECT concat('${platform}', MAX(provider_id)+1) FROM cmw_providers),'${_req.body.platform}','${_req.body.endpoint}','${date_now}','${date_now}')`, (err, res) => {
         if (err) {
-            console_log(`Error executing query: ${err.message}`);
+            console_log(`insertProvider[Error]: ${err.message}`);
         } else {
             console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Provider Added', 'data': [] }));
             _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Provider Added', 'data': [] });
@@ -523,7 +523,7 @@ insertProviderAccount = async (_req, _res) => {
     
     local_connection.query(`INSERT INTO cmw_acct_providers (country_code,provider_code,username,password,apikey,md5Key,rand,orgCode,created_at,updated_at) VALUES ('${_req.body.country_code}','${_req.body.provider_code}','${_req.body.username}','${_req.body.password}','${_req.body.apikey}','${_req.body.md5Key}','${_req.body.rand}','${_req.body.orgCode}','${date_now}','${date_now}')`, (err, res) => {
         if (err) {
-            console_log(`Error executing query: ${err.message}`);
+            console_log(`insertProviderAccount[Error]: ${err.message}`);
         } else {
             console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Provider Account Added', 'data': [] }));
             _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Provider Account Added', 'data': [] });
@@ -537,7 +537,7 @@ searchJoystck = async (_req, _res) => {
 
     joystick_connection.query(`select * from  afun_afun.player_data pd  limit 1`, (err, res) => {
         if (err) {
-            console_log(`Error executing query: ${err.message}`);
+            console_log(`searchJoystck[Error]: ${err.message}`);
             setTimeout(joystick_client, 60000);
         } else {
             console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] }));
@@ -705,7 +705,7 @@ const getELasticEmailLogs = async function () {
         response.data.data.recipients.forEach(data => {
             local_connection.query(`INSERT INTO cmw_email_logs (jobid,msgid,fromemail,"to",subject,eventtype,eventdate,channel,channelid,messagecategory,nexttryon,message,ipaddress,ippoolname) VALUES ('${data.jobid}','${data.msgid}','${data.fromemail}','${data.to}','${data.subject}','${data.eventtype}','${data.eventdate}','${data.channel}','${data.channelid}','${data.messagecategory}','${data.nexttryon}','${data.message}','${data.ipaddress}','${data.ippoolname}')`, (err, res) => {
                 if (err) {
-                    console_log(`Error executing query: ${err}`);
+                    console_log(`getELasticEmailLogs[Error]: ${err}`);
                 }
             });
         });
