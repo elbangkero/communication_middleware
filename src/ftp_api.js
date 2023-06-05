@@ -36,7 +36,7 @@ var interval = 3000;
                                 }).finally(async function () {
                                     local_connection.query(`update ftp_email set triggerstatus= 'inactive' , status = 'sent' where id=${el.id}`, (err, res) => {
                                         if (err) {
-                                            console_log(`Error executing query: ${err.message}`);
+                                            console_log(`sendEmail[Error]: ${err.message}`);
                                         }
                                     });
                                 });
@@ -99,7 +99,7 @@ async function StoreFTPEmailHistory(email_id, name, email, token, from, fromname
     const date_now = new Date(local_time).toLocaleString();
     local_connection.query(`INSERT INTO ftp_email_history (email_id,name,email,token,"from",fromname,subject,template_id,merge,status,api_response,created_at,updated_at) VALUES ('${email_id}','${name}','${email}','${token}','${from}','${fromname}','${subject}','${template_id}','${merge}','${status}','${api_response}','${date_now}','${date_now}')`, (err, res) => {
         if (err) {
-            console_log(`Error executing query: ${err}`);
+            console_log(`StoreFTPEmailHistory[Error]:  ${err}`);
         }
     });
 }
@@ -141,7 +141,7 @@ insertEmailRequest = async (_req, _res) => {
     const date_now = new Date(local_time).toLocaleString();
     local_connection.query(`INSERT INTO ftp_email (status,triggerstatus,sending,payload,created_at,updated_at) VALUES ('pending','active','${_req.body.sending}','${_req.body.payload}','${date_now}','${date_now}')`, (err, res) => {
         if (err) {
-            console_log(`Error executing query: ${err.message}`);
+            console_log(`insertEmailRequest[Error]: ${err.message}`);
         } else {
             console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Request Added', 'data': [] }));
             _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Request Added', 'data': [] });
