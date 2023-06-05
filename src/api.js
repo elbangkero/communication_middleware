@@ -113,56 +113,81 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                 } else {
                     data.forEach(async row => {
                         if (obj.platform == 'sms') {
-                            if (obj.application_id == '1') {
-                                await sendSmartSMS(obj.message_text, obj.from, row.phone_number, obj.country)
-                                    .then(function (response) {
-                                        //console.log('success');
-                                        console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
-                                        //counter.success++;
-                                        query_instant++
-                                        dynamic_counter.counter.success++;
-                                        //console.log(response.data);
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id);
-                                    })
-                                    .catch(function (error) {
-                                        //console.log('error');
-                                        console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
-                                        //counter.fails++;
-                                        dynamic_counter.counter.fails++
-                                        query_instant++
-                                        //console.error(error.response.data);
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.response.data), obj.from, '', '', obj.application_id);
-                                    })
-                                    .finally(async function () {
-                                        if (pre_compile_data.length == query_instant) {
 
-                                            console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
-                                            dynamic_counter.counter.success = 0;
-                                            dynamic_counter.counter.fails = 0;
-                                            pre_compile_data.length = 0;
+                            local_connection.query(`SELECT * FROM cmw_providers where application_id = '${obj.application_id}'`).then(res => {
+                                const data = res.rows;
+                                data.forEach(async row_provider => {
 
-                                            local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
-                                                if (err) {
-                                                    console_log(`DoneSMSSmartSending[Error]: ${err.message}`);
+                                    if (row_provider.provider_code == 'SMS11') {
+
+                                        await sendSmartSMS(obj.message_text, obj.from, row.phone_number, obj.country)
+                                            .then(function (response) {
+                                                //console.log('success');
+                                                console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
+                                                //counter.success++;
+                                                query_instant++
+                                                dynamic_counter.counter.success++;
+                                                //console.log(response.data);
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id);
+                                            })
+                                            .catch(function (error) {
+                                                //console.log('error');
+                                                console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                                                //counter.fails++;
+                                                dynamic_counter.counter.fails++
+                                                query_instant++
+                                                //console.error(error.response.data);
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.response.data), obj.from, '', '', obj.application_id);
+                                            })
+                                            .finally(async function () {
+                                                if (pre_compile_data.length == query_instant) {
+
+                                                    console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                                    dynamic_counter.counter.success = 0;
+                                                    dynamic_counter.counter.fails = 0;
+                                                    pre_compile_data.length = 0;
+
+                                                    local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
+                                                        if (err) {
+                                                            console_log(`DoneSMSSmartSending[Error]: ${err.message}`);
+                                                        }
+                                                    });
                                                 }
                                             });
-                                        }
-                                    });
-                            } else if (obj.application_id == '2') {
-                                await sendAbosendSMS(obj.message_text, obj.from, row.phone_number, obj.country, row_number)
-                                    .then(function (response) {
-                                        console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
-                                        query_instant++
-                                        dynamic_counter.counter.success++;
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id);
-                                    })
-                                    .catch(function (error) {
+                                    } else if (row_provider.provider_code == 'SMS12') {
+                                        await sendAbosendSMS(obj.message_text, obj.from, row.phone_number, obj.country, row_number)
+                                            .then(function (response) {
+                                                console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
+                                                query_instant++
+                                                dynamic_counter.counter.success++;
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id);
+                                            })
+                                            .catch(function (error) {
+                                                console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                                                dynamic_counter.counter.fails++
+                                                query_instant++
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, '', '', obj.application_id);
+                                            })
+                                            .finally(async function () {
+                                                if (pre_compile_data.length == query_instant) {
+                                                    console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                                    dynamic_counter.counter.success = 0;
+                                                    dynamic_counter.counter.fails = 0;
+                                                    pre_compile_data.length = 0;
+                                                    local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
+                                                        if (err) {
+                                                            console_log(`DoneAbosending[Error]: ${err.message}`);
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                    }
+                                    //provider checker if existing
+                                    else {
                                         console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                         dynamic_counter.counter.fails++
                                         query_instant++
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, '', '', obj.application_id);
-                                    })
-                                    .finally(async function () {
+                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Application ID is not an SMS Provider"}', obj.from, '', '', obj.application_id);
                                         if (pre_compile_data.length == query_instant) {
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
@@ -174,11 +199,33 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                                 }
                                             });
                                         }
-                                    });
-                            }
+
+                                    }
+                                });
+                                //provider checker if existing
+                                if (data.length === 0) {
+
+                                    console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                                    dynamic_counter.counter.fails++
+                                    query_instant++
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider is not existing"}', obj.from, '', '', obj.application_id);
+                                    if (pre_compile_data.length == query_instant) {
+                                        console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                        dynamic_counter.counter.success = 0;
+                                        dynamic_counter.counter.fails = 0;
+                                        pre_compile_data.length = 0;
+                                        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
+                                            if (err) {
+                                                console_log(`DoneAbosending[Error]: ${err.message}`);
+                                            }
+                                        });
+                                    }
+                                }
+                            })
+
+
+
                         }
-
-
 
                         else if (obj.platform == 'email') {
                             await sendEmail(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName)
@@ -500,11 +547,11 @@ insertConfig = async (_req, _res) => {
 }
 
 insertProvider = async (_req, _res) => {
-  
+
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
-    const platform = _req.body.platform =='sms'?'SMS':'EMAIL';
-    
+    const platform = _req.body.platform == 'sms' ? 'SMS' : 'EMAIL';
+
     local_connection.query(`INSERT INTO cmw_providers (provider_name,application_id,provider_code,platform,endpoint,created_at,updated_at) VALUES ('${_req.body.provider_name}','${_req.body.application_id}',(SELECT concat('${platform}', MAX(provider_id)+1) FROM cmw_providers),'${_req.body.platform}','${_req.body.endpoint}','${date_now}','${date_now}')`, (err, res) => {
         if (err) {
             console_log(`insertProvider[Error]: ${err.message}`);
@@ -517,10 +564,10 @@ insertProvider = async (_req, _res) => {
 }
 
 insertProviderAccount = async (_req, _res) => {
-  
+
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
-    
+
     local_connection.query(`INSERT INTO cmw_acct_providers (country_code,provider_code,username,password,apikey,md5Key,rand,orgCode,created_at,updated_at) VALUES ('${_req.body.country_code}','${_req.body.provider_code}','${_req.body.username}','${_req.body.password}','${_req.body.apikey}','${_req.body.md5Key}','${_req.body.rand}','${_req.body.orgCode}','${date_now}','${date_now}')`, (err, res) => {
         if (err) {
             console_log(`insertProviderAccount[Error]: ${err.message}`);
