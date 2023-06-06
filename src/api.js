@@ -662,7 +662,7 @@ stopScheduled = async (_req, _res) => {
             } catch (err) {
                 console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Scheduled Stop', 'data': [] }));
                 _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Scheduled Stop', 'data': [] });
-            } 
+            }
         }
     });
 
@@ -741,6 +741,65 @@ API_DisplayTriggers = async (_req, _res) => {
 };
 
 
+API_ViewHistory = async (_req, _res) => {
+    local_connection.query(`select * from cmw_history where history_id ='${_req.params.id}'`, (err, res) => {
+        if (err) {
+            console.error('Error fetching data:', err);
+            _res.status(500).json({ error: 'Internal Server Error' });
+        } else {
+            _res.json({ data: res.rows
+            });
+        }
+    });
+};
+
+API_Providers = async (_req, _res) => {
+    const { page, limit, provider_name, application_id, platform, created_at } = _req.query;
+    const offset = (page - 1) * limit;
+    //console.log(_req.query);
+
+    try {
+        let query = `SELECT provider_id, provider_name, application_id, platform, endpoint, created_at FROM cmw_providers`;
+
+        const queryParams = [];
+
+        if (provider_name) {
+            queryParams.push(`provider_name LIKE '%${provider_name}%'`);
+        }
+
+        if (application_id) {
+            queryParams.push(`application_id LIKE '%${application_id}%'`);
+        }
+        if (platform) {
+            const parsePlatform = JSON.parse(`${_req.query.platform}`);
+            queryParams.push(`platform LIKE '%${parsePlatform.value}%'`);
+        }
+        if (created_at) {
+            queryParams.push(`created_at::text LIKE '%${created_at}%'`);
+        }
+
+        if (queryParams.length > 0) {
+            query += ` WHERE ${queryParams.join(' AND ')}`;
+        }
+
+        const countQuery = `SELECT COUNT(*) FROM cmw_providers ${queryParams.length > 0 ? `WHERE ${queryParams.join(' AND ')}` : ''}`;
+        const countResult = await local_connection.query(countQuery);
+
+        query += ` ORDER BY provider_id DESC LIMIT ${limit} OFFSET ${offset}`;
+
+        const result = await local_connection.query(query);
+
+        _res.json({
+            data: result.rows,
+            page: parseInt(page),
+            total_pages: Math.ceil(countResult.rows[0].count / limit),
+            total_count: countResult.rows[0].count,
+        });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        _res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
 
 API_DisplayHistory = async (_req, _res) => {
     const { page, limit, player_token, campaign_name, platform, country, status, created_at } = _req.query;
@@ -861,6 +920,10 @@ module.exports = function (app) {
     app.get('/api_triggers', API_DisplayTriggers);
 
     app.get('/api_history', API_DisplayHistory);
+
+    app.get('/api_history/view-history/:id', API_ViewHistory);
+
+    app.get('/providers', API_Providers);
 
 
 };
