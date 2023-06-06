@@ -854,7 +854,7 @@ module.exports = function (app) {
 
     app.post('/upload/provider-account', upload.fields([]), insertProviderAccount);
 
-    app.put('/stop_scheduled/:config_id', stopScheduled);
+    app.post('/stop_scheduled/:config_id', stopScheduled);
 
     app.get('/search_joystick', searchJoystck);
 
