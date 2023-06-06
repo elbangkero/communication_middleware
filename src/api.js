@@ -61,7 +61,7 @@ const environment = `${process.env.ENVIRONMENT}`;
 
 
                                     if (row.is_scheduled == true) {
-                                        const job = schedule.scheduleJob(row.start_at, async function () {
+                                        const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
                                             constructData(row.config_id, pre_compile_data, row.campaign_name);
                                         });
                                     } else {
@@ -647,6 +647,29 @@ searchJoystck = async (_req, _res) => {
 
 
 
+stopScheduled = async (_req, _res) => {
+
+    local_connection.query(`update cmw_config set status= 'cancelled', is_scheduled = 'false' , triggerstatus='inactive' where config_id='${_req.params.config_id}'`, (err, res) => {
+        if (err) {
+            console_log(`stopScheduled[Error]: ${err.message}`);
+        } else {
+            try {
+
+                var my_job = schedule.scheduledJobs[_req.params.config_id];
+                my_job.cancel();
+                console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Scheduled Stop', 'data': [] }));
+                _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Scheduled Stop', 'data': [] });
+            } catch (err) {
+                console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Scheduled Stop', 'data': [] }));
+                _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Scheduled Stop', 'data': [] });
+            } 
+        }
+    });
+
+}
+
+
+
 
 
 API_DisplayTriggers = async (_req, _res) => {
@@ -830,6 +853,8 @@ module.exports = function (app) {
     app.post('/upload/upload-provider', upload.fields([]), insertProvider);
 
     app.post('/upload/provider-account', upload.fields([]), insertProviderAccount);
+
+    app.put('/stop_scheduled/:config_id', stopScheduled);
 
     app.get('/search_joystick', searchJoystck);
 
