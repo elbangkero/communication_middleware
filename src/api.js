@@ -649,13 +649,13 @@ searchJoystck = async (_req, _res) => {
 
 stopScheduled = async (_req, _res) => {
 
-    local_connection.query(`update cmw_config set status= 'cancelled', is_scheduled = 'false' , triggerstatus='inactive' where config_id='${_req.params.config_id}'`, (err, res) => {
+    local_connection.query(`update cmw_config set status= 'cancelled', is_scheduled = 'false' , triggerstatus='inactive' where config_id='${_req.params.id}'`, (err, res) => {
         if (err) {
             console_log(`stopScheduled[Error]: ${err.message}`);
         } else {
             try {
 
-                var my_job = schedule.scheduledJobs[_req.params.config_id];
+                var my_job = schedule.scheduledJobs[_req.params.id];
                 my_job.cancel();
                 console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Scheduled Stop', 'data': [] }));
                 _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Scheduled Stop', 'data': [] });
@@ -854,7 +854,7 @@ module.exports = function (app) {
 
     app.post('/upload/provider-account', upload.fields([]), insertProviderAccount);
 
-    app.post('/stop_scheduled/:id', stopScheduled);
+    app.post('/stop_scheduled/:id', upload.fields([]), stopScheduled);
 
     app.get('/search_joystick', searchJoystck);
 
