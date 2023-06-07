@@ -25,7 +25,7 @@ const environment = `${process.env.ENVIRONMENT}`;
     await client.query('LISTEN cmw_listener');
     client.on('notification', function (data) {
         getConfig(parseInt(data.payload));
-        //console.log("data", JSON.parse(data.payload));
+        //console.log("data", JSON.parse(data.payload)) ;
         function getConfig(dataload) {
             setTimeout(() => {
                 local_connection.query(`SELECT * FROM cmw_config where triggerstatus='active' and sending ='true' and status !='sending'`).then(res => {
