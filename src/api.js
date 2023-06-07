@@ -629,7 +629,7 @@ insertProviderAccount = async (_req, _res) => {
     });
 
 }
-
+/*
 
 searchJoystck = async (_req, _res) => {
 
@@ -644,7 +644,7 @@ searchJoystck = async (_req, _res) => {
     });
 
 }
-
+*/
 
 
 stopScheduled = async (_req, _res) => {
@@ -747,8 +747,7 @@ API_ViewHistory = async (_req, _res) => {
             console.error('Error fetching data:', err);
             _res.status(500).json({ error: 'Internal Server Error' });
         } else {
-            _res.json({ data: res.rows
-            });
+            _res.json({ data: res.rows});
         }
     });
 };
@@ -915,7 +914,7 @@ module.exports = function (app) {
 
     app.post('/stop_scheduled/:id', upload.fields([]), stopScheduled);
 
-    app.get('/search_joystick', searchJoystck);
+    //app.get('/search_joystick', searchJoystck);
 
     app.get('/api_triggers', API_DisplayTriggers);
 
