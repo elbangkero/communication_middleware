@@ -316,7 +316,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
 }
 
 async function apiAccount(country_code) {
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where country_code = '${country_code}'`);
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = ${provider_code.PROVIDER_SMS_SMART} and country_code = '${country_code}'`);
     const data = res.rows;
 
     const results = await Promise.all(
@@ -365,27 +365,33 @@ async function sendSmartSMS(message, from, phone_number, country_code) {
 
         await axios(config)
             .then(function (response) {
-                resolve(response); 
+                resolve(response);
             })
-            .catch(function (error) { 
+            .catch(function (error) {
                 reject(error);
             });
     });
 
 }
-function checkOddEven(row_number) {
-    if (row_number % 2 === 0) {
-        return JSON.stringify({ 'md5Key': 'PXFXLQGRPGPNOSGYNFRVOCPCBJKOAFCB', 'rand': '123456', orgCode: 'RAjeMitN' });
-    } else {
-        return JSON.stringify({ 'md5Key': 'ATRAFXBMNIBKAMOKHATQMOCCDLDEZNZU', 'rand': '123456', orgCode: 'vcGUrjSs' });
+async function checkOddEven() {
+
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${provider_code.PROVIDER_ABOSEND}' ORDER BY random() LIMIT 1`);
+    const data = res.rows;
+
+    const results = await Promise.all(
+        data.map(async row => {
+            return { 'md5Key': row.md5key, 'rand': row.rand, 'orgCode': row.orgcode };
+        })
+    );
+    if (results.length > 0) {
+        return results[0];
     }
 }
-function abosendAPIParameters(country_code, phone_number, message, row_number) {
+async function abosendAPIParameters(country_code, phone_number, message, row_number) {
 
-    const api_details = JSON.parse(checkOddEven(row_number));
+    const api_details = await checkOddEven(row_number);
     const data_encrytpion = `${api_details.orgCode}${message}${api_details.rand}${api_details.md5Key}`;
     const hash = md5(data_encrytpion).toUpperCase();
-
 
     if (country_code == 'IN') {
         let data = qs.stringify({
@@ -479,7 +485,7 @@ async function sendAbosendSMS(message, from, phone_number, country_code, row_num
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            data: abosendAPIParameters(country_code, phone_number, message, row_number)
+            data: await abosendAPIParameters(country_code, phone_number, message, row_number)
         };
 
         axios.request(config)
