@@ -10,7 +10,6 @@ const qs = require('qs');
 const md5 = require("md5");
 
 var interval = 3000;
-let credentials = { "username": "", "password": "" };
 
 let provider_code = {
     "PROVIDER_SMS_SMART": "SMS11", //Smart SMS
@@ -316,34 +315,27 @@ function constructData(config_id, pre_compile_data, campaign_name) {
 
 }
 
-function apiAccount(country_code) {
-    if (country_code == 'TH') {
-        switch (environment) {
-            case 'production':
-                credentials.username = "e6NG2FJ3";
-                credentials.password = "PO1D19K3";
-                break;
-            case 'development':
-                credentials.username = "N8Og84n1";
-                credentials.password = "qyu5C1DA";
-                break;
-        }
-    } else if (country_code == 'VN') {
-        switch (environment) {
-            case 'production':
-                credentials.username = "6B9l3vO5";
-                credentials.password = "K9Ov3OGF";
-                break;
-            case 'development':
-                credentials.username = "9J3CtNdM";
-                credentials.password = "m4K1c25P";
-                break;
-        }
+async function apiAccount(country_code) {
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where country_code = '${country_code}'`);
+    const data = res.rows;
+
+    const results = await Promise.all(
+        data.map(async row => {
+            switch (environment) {
+                case 'production':
+                    return { "username": row.username, "password": row.password };
+                case 'development':
+                    return { "username": row.username, "password": row.password };
+            }
+        })
+    );
+    if (results.length > 0) {
+        return results[0];
     } else {
-        credentials.username = "";
-        credentials.password = "";
+        return { "username": "", "password": "" };
     }
 }
+
 
 async function storeMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id) {
 
@@ -364,20 +356,18 @@ async function sendSmartSMS(message, from, phone_number, country_code) {
     const encodedParamValueMessage = encodeURIComponent(message);
     const encodedParamValueFrom = encodeURIComponent(from);
     return new Promise(async (resolve, reject) => {
-
+        const result = await apiAccount(country_code);
         var config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: `https://my.sms-smart.com/rest/send_sms?from=${encodedParamValueFrom}&to=${phone_number}&message=${encodedParamValueMessage}&username=${credentials.username}&password=${credentials.password}`
+            url: `https://my.sms-smart.com/rest/send_sms?from=${encodedParamValueFrom}&to=${phone_number}&message=${encodedParamValueMessage}&username=${result.username}&password=${result.password}`
         };
 
         await axios(config)
             .then(function (response) {
-                resolve(response);
-                //console.log(response);
+                resolve(response); 
             })
-            .catch(function (error) {
-                //console.error(error.response.data);
+            .catch(function (error) { 
                 reject(error);
             });
     });
@@ -629,22 +619,6 @@ insertProviderAccount = async (_req, _res) => {
     });
 
 }
-/*
-
-searchJoystck = async (_req, _res) => {
-
-    joystick_connection.query(`select * from  afun_afun.player_data pd  limit 1`, (err, res) => {
-        if (err) {
-            console_log(`searchJoystck[Error]: ${err.message}`);
-            setTimeout(joystick_client, 60000);
-        } else {
-            console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] }));
-            _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] });
-        }
-    });
-
-}
-*/
 
 
 stopScheduled = async (_req, _res) => {
@@ -747,7 +721,7 @@ API_ViewHistory = async (_req, _res) => {
             console.error('Error fetching data:', err);
             _res.status(500).json({ error: 'Internal Server Error' });
         } else {
-            _res.json({ data: res.rows});
+            _res.json({ data: res.rows });
         }
     });
 };
@@ -913,8 +887,6 @@ module.exports = function (app) {
     app.post('/upload/provider-account', upload.fields([]), insertProviderAccount);
 
     app.post('/stop_scheduled/:id', upload.fields([]), stopScheduled);
-
-    //app.get('/search_joystick', searchJoystck);
 
     app.get('/api_triggers', API_DisplayTriggers);
 
