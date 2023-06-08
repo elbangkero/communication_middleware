@@ -316,7 +316,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
 }
 
 async function apiAccount(country_code) {
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = ${provider_code.PROVIDER_SMS_SMART} and country_code = '${country_code}'`);
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = ${provider_code.PROVIDER_SMS_SMART} and country_code = '${country_code}' LIMIT 1`);
     const data = res.rows;
 
     const results = await Promise.all(
@@ -506,12 +506,25 @@ async function sendAbosendSMS(message, from, phone_number, country_code, row_num
 
 
 
+async function ElasticEmailAccount() {
 
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${provider_code.PROVIDER_ELASTIC_EMAIL}' LIMIT 1`);
+    const data = res.rows;
+
+    const results = await Promise.all(
+        data.map(async row => {
+            return { 'apikey': row.apikey};
+        })
+    );
+    if (results.length > 0) {
+        return results[0];
+    }
+}
 
 async function sendEmail(from, email, subject, template_id, fromName) {
 
-
-    const apikey = '7C41D4746E1C491FAB5CC72DFF9EF3F117A02CD035AEACE30E9823CD3D0581D20B61291546D6AF53BEA633563CE388E8'
+   
+    const apikey =  await ElasticEmailAccount();
     const email_subject = subject ? encodeURIComponent(subject) : encodeURIComponent('(no subject)');
     const encodedfromName = encodeURIComponent(fromName);
 
@@ -520,7 +533,7 @@ async function sendEmail(from, email, subject, template_id, fromName) {
         var config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: `https://api.elasticemail.com/v2/email/send?subject=${email_subject}&fromName=${encodedfromName}&from=${from}&to=${email}&template=${template_id}&isTransactional=true&apikey=${apikey}`,
+            url: `https://api.elasticemail.com/v2/email/send?subject=${email_subject}&fromName=${encodedfromName}&from=${from}&to=${email}&template=${template_id}&isTransactional=true&apikey=${apikey.apikey}`,
             headers: {}
         };
 
