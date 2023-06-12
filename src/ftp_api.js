@@ -37,7 +37,7 @@ let verificationAttempts = 0;
                                     StoreFTPEmailHistory(el.id, obj.name, obj.email, obj.token, obj.from, obj.fromName, obj.subject, obj.templateID, JSON.stringify(obj.merge), 'success', JSON.stringify(response.data));
                                     await emailVerification(obj.email)
                                         .then(function (response) {
-                                            console.log(`Email verified. Stopping the verification process.`);
+                                            console_log(`Email verified. Stopping the verification process.`);
                                             local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${el.id}`, (err, res) => {
                                                 if (err) {
                                                     console_log(`sendEmail[Error]: ${err.message}`);
@@ -56,7 +56,7 @@ let verificationAttempts = 0;
                                         });
 
                                 }).catch(function (error) {
-                                    console.log(error);
+                                    //console.log(error);
                                     console_log(`Status : ${obj.token} Failed, ` + `Campaign : FreeToPlay Email}`);
                                     StoreFTPEmailHistory(el.id, obj.name, obj.email, obj.token, obj.from, obj.fromName, obj.subject, obj.templateID, JSON.stringify(obj.merge), 'failed', JSON.stringify(error.data));
                                 }).finally(async function () {

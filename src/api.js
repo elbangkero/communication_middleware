@@ -192,7 +192,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                         console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                         dynamic_counter.counter.fails++
                                         query_instant++
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider is not existing"}', obj.from, '', '', obj.application_id);
+                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, '', '', obj.application_id);
                                         if (pre_compile_data.length == query_instant) {
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
@@ -213,7 +213,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                     console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                     dynamic_counter.counter.fails++
                                     query_instant++
-                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider is not existing"}', obj.from, '', '', obj.application_id);
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, '', '', obj.application_id);
                                     if (pre_compile_data.length == query_instant) {
                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                         dynamic_counter.counter.success = 0;
@@ -268,7 +268,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                         console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                         dynamic_counter.counter.fails++
                                         query_instant++
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider is not existing"}', obj.from, obj.email_subject, obj.template_id, obj.application_id);
+                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, obj.email_subject, obj.template_id, obj.application_id);
                                         if (pre_compile_data.length == query_instant) {
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
@@ -287,7 +287,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                     console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                     dynamic_counter.counter.fails++
                                     query_instant++
-                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider is not existing"}', obj.from, obj.email_subject, obj.template_id, obj.application_id);
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, obj.email_subject, obj.template_id, obj.application_id);
                                     if (pre_compile_data.length == query_instant) {
                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                         dynamic_counter.counter.success = 0;
