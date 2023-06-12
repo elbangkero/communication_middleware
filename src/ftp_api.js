@@ -1,8 +1,13 @@
 const { local_connection } = require('../utils/db_connection');
 const multer = require('multer');
 const axios = require('axios');
-
+const https = require('https');
 var interval = 3000;
+
+const MAX_VERIFICATION_ATTEMPTS = 3;
+let VERIFICATION_INTERVAL = process.env.ENVIRONMENT === 'production' ? 24 * 60 * 60 * 1000 : 5000;
+
+let verificationAttempts = 0;
 
 (async () => {
     const client = await local_connection.connect();
@@ -27,12 +32,33 @@ var interval = 3000;
 
                             const merge_data = obj.merge ? obj.merge : '';
                             await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
-                                .then(function (response) {
+                                .then(async function (response) {
                                     console_log(`Status : ${obj.token} Sent, ` + `Campaign : FreeToPlay Email`);
-                                    StoreFTPEmailHistory(el.id,obj.name,obj.email,obj.token,obj.from,obj.fromName,obj.subject,obj.templateID,JSON.stringify(obj.merge),'success',JSON.stringify(response.data));
+                                    StoreFTPEmailHistory(el.id, obj.name, obj.email, obj.token, obj.from, obj.fromName, obj.subject, obj.templateID, JSON.stringify(obj.merge), 'success', JSON.stringify(response.data));
+                                    await emailVerification(obj.email)
+                                        .then(function (response) {
+                                            console.log(`Email verified. Stopping the verification process.`);
+                                            local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${el.id}`, (err, res) => {
+                                                if (err) {
+                                                    console_log(`sendEmail[Error]: ${err.message}`);
+                                                }
+                                            });
+                                        })
+                                        .catch(function (error) {
+                                            //console.log('ERROR:', JSON.stringify(error.data));
+
+                                            setTimeout(async () => {
+                                                await sendEmailWithVerification(obj.from, obj.name, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data, el.id,obj.token);
+                                            }, VERIFICATION_INTERVAL);
+                                        })
+                                        .finally(async function () {
+
+                                        });
+
                                 }).catch(function (error) {
+                                    console.log(error);
                                     console_log(`Status : ${obj.token} Failed, ` + `Campaign : FreeToPlay Email}`);
-                                    StoreFTPEmailHistory(el.id,obj.name,obj.email,obj.token,obj.from,obj.fromName,obj.subject,obj.templateID,JSON.stringify(obj.merge),'failed',JSON.stringify(error.data));
+                                    StoreFTPEmailHistory(el.id, obj.name, obj.email, obj.token, obj.from, obj.fromName, obj.subject, obj.templateID, JSON.stringify(obj.merge), 'failed', JSON.stringify(error.data));
                                 }).finally(async function () {
                                     local_connection.query(`update ftp_email set triggerstatus= 'inactive' , status = 'sent' where id=${el.id}`, (err, res) => {
                                         if (err) {
@@ -55,6 +81,90 @@ var interval = 3000;
 
 })();
 
+async function emailVerification(email) {
+
+    let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+        url: `https://13.229.158.52:8069/emailsender/api/1?email=${email}`,
+        headers: {
+            'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzkzODc4NDYsImp0aSI6InVMMTNaVG1ETndjRVh1TlF0dm43Y3c9PSIsImlzcyI6IiIsIm5iZiI6MTY3OTM4Nzg0NiwiZXhwIjoxNjc5Mzg4MjA2LCJkYXRhIjp7InVzZXJuYW1lIjoicmFpbiIsInBhc3N3b3JkIjoicG9naTY5Iiwic2l0ZV9rZXkiOiJxcXFxcTY5In19.vmVRS4_aaBGvx_kCQO_lga7LWgAFUgGWmLyWeIrLBBc',
+            'Cookie': 'ci_session=qiie2l6mtsu39pe6mk1ie7tn83srb4om; ci_session=3qebtnrctcekndkrbmhl72peno56bs56; ci_session=mu2rfjorbt95nbgqpu0jncf9mu807nla'
+        }
+    };
+    return new Promise(async (resolve, reject) => {
+        axios.request(config)
+            .then((response) => {
+                if (response.data.code == '200')
+                    resolve(response)
+                else
+                    reject(response);
+            })
+            .catch((error) => {
+                reject(error);
+            });
+    });
+
+}
+
+
+
+async function sendEmailWithVerification(from,name, email, subject, template_id, fromName, merge_data, config_id,token) {
+    const sendEmailResponse = await sendEmail(from, email, subject, template_id, fromName, merge_data);
+
+    if (sendEmailResponse.data.success) {
+        console_log(`Status : ${token} Sent, ` + `Campaign : FreeToPlay Email`);
+        StoreFTPEmailHistory(config_id,name, email, token, from, fromName, subject, template_id, JSON.stringify(merge_data), 'success', JSON.stringify(sendEmailResponse.data));                                 
+        let isVerified = false;
+
+        async function verifyEmail(attempts) {
+            try {
+                const emailVerificationResponse = await emailVerification(email);
+
+                await local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${config_id}`);
+
+                console.log(`Email verified. Stopping the verification process.`);
+                isVerified = true;
+                return true;
+            } catch (error) {
+                //console.log('ERROR Verify attempt:', JSON.stringify(error.data));
+
+                if (attempts < MAX_VERIFICATION_ATTEMPTS) {
+                    return new Promise((resolve) => {
+                        setTimeout(() => {
+                            resolve(verifyEmail(attempts + 1));
+                        }, VERIFICATION_INTERVAL);
+                    });
+                }
+            }
+
+            return false;
+        }
+
+        await verifyEmail(verificationAttempts + 1);
+
+        if (isVerified) {
+            return;
+        }
+        if (verificationAttempts < MAX_VERIFICATION_ATTEMPTS) {
+            console_log(`Sending another email because the user's email has not yet been verified`);
+            verificationAttempts++;
+            await local_connection.query(`update ftp_email set email_attempt = ${verificationAttempts}, triggerstatus='inactive', status='sent' where id=${config_id};`);
+            await new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(sendEmailWithVerification(from,name, email, subject, template_id, fromName, merge_data, config_id,token));
+                }, VERIFICATION_INTERVAL);
+            });
+        } else {
+            console_log(`Maximum verification attempts reached. No more email attempts.`);
+        }
+    }
+}
+
+
+
+
 
 async function sendEmail(from, email, subject, template_id, fromName, merge_data) {
 
@@ -62,11 +172,11 @@ async function sendEmail(from, email, subject, template_id, fromName, merge_data
     const apikey = '7C41D4746E1C491FAB5CC72DFF9EF3F117A02CD035AEACE30E9823CD3D0581D20B61291546D6AF53BEA633563CE388E8'
     const email_subject = subject ? encodeURIComponent(subject) : encodeURIComponent('(no subject)');
     const encodedfromName = encodeURIComponent(fromName);
-    var merge_params = ""; 
+    var merge_params = "";
     for (const key in merge_data) {
         merge_params += `&${key}=${merge_data[key]}`;
-    } 
-    
+    }
+
     return new Promise(async (resolve, reject) => {
 
         var config = {
@@ -92,7 +202,7 @@ async function sendEmail(from, email, subject, template_id, fromName, merge_data
 
 }
 
-async function StoreFTPEmailHistory(email_id, name, email, token, from, fromname, subject, template_id,merge,status,api_response) {
+async function StoreFTPEmailHistory(email_id, name, email, token, from, fromname, subject, template_id, merge, status, api_response) {
 
 
     let local_time = new Date().toISOString();
@@ -139,7 +249,8 @@ upload = multer({
 insertEmailRequest = async (_req, _res) => {
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
-    local_connection.query(`INSERT INTO ftp_email (status,triggerstatus,sending,payload,created_at,updated_at) VALUES ('pending','active','${_req.body.sending}','${_req.body.payload}','${date_now}','${date_now}')`, (err, res) => {
+
+    local_connection.query(`INSERT INTO ftp_email (status,triggerstatus,sending,payload,created_at,updated_at,is_verified,email_attempt) VALUES ('pending','active','${_req.body.sending}','${_req.body.payload}','${date_now}','${date_now}',0,0)`, (err, res) => {
         if (err) {
             console_log(`insertEmailRequest[Error]: ${err.message}`);
         } else {
