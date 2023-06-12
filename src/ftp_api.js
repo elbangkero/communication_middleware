@@ -48,7 +48,7 @@ let verificationAttempts = 0;
                                             //console.log('ERROR:', JSON.stringify(error.data));
 
                                             setTimeout(async () => {
-                                                await sendEmailWithVerification(obj.from, obj.name, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data, el.id,obj.token);
+                                                await sendEmailWithVerification(obj.from, obj.name, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data, el.id, obj.token, verificationAttempts);
                                             }, VERIFICATION_INTERVAL);
                                         })
                                         .finally(async function () {
@@ -96,10 +96,17 @@ async function emailVerification(email) {
     return new Promise(async (resolve, reject) => {
         axios.request(config)
             .then((response) => {
-                if (response.data.code == '200')
-                    resolve(response)
-                else
+                if (response.data.code == '200') {
+                    if (response.data.data.is_verified == false) {
+                        reject(response);
+                    } else {
+                        resolve(response);
+                    }
+                }
+                else {
                     reject(response);
+                }
+
             })
             .catch((error) => {
                 reject(error);
@@ -110,12 +117,13 @@ async function emailVerification(email) {
 
 
 
-async function sendEmailWithVerification(from,name, email, subject, template_id, fromName, merge_data, config_id,token) {
+async function sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts) {
+
     const sendEmailResponse = await sendEmail(from, email, subject, template_id, fromName, merge_data);
 
     if (sendEmailResponse.data.success) {
         console_log(`Status : ${token} Sent, ` + `Campaign : FreeToPlay Email`);
-        StoreFTPEmailHistory(config_id,name, email, token, from, fromName, subject, template_id, JSON.stringify(merge_data), 'success', JSON.stringify(sendEmailResponse.data));                                 
+        StoreFTPEmailHistory(config_id, name, email, token, from, fromName, subject, template_id, JSON.stringify(merge_data), 'success', JSON.stringify(sendEmailResponse.data));
         let isVerified = false;
 
         async function verifyEmail(attempts) {
@@ -153,7 +161,7 @@ async function sendEmailWithVerification(from,name, email, subject, template_id,
             await local_connection.query(`update ftp_email set email_attempt = ${verificationAttempts}, triggerstatus='inactive', status='sent' where id=${config_id};`);
             await new Promise((resolve) => {
                 setTimeout(() => {
-                    resolve(sendEmailWithVerification(from,name, email, subject, template_id, fromName, merge_data, config_id,token));
+                    resolve(sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts));
                 }, VERIFICATION_INTERVAL);
             });
         } else {
