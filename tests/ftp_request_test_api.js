@@ -18,7 +18,7 @@ let config = {
 
 axios.request(config)
     .then((response) => {
-        console.log(JSON.stringify(response.data));
+        console.log(response);
     })
     .catch((error) => {
 
