@@ -31,41 +31,50 @@ let verificationAttempts = 0;
                             const obj = JSON.parse(utf8encoded);
 
                             const merge_data = obj.merge ? obj.merge : '';
-                            await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
-                                .then(async function (response) {
-                                    console_log(`Status : ${obj.token} Sent, ` + `Campaign : FreeToPlay Email`);
-                                    StoreFTPEmailHistory(el.id, obj.name, obj.email, obj.token, obj.from, obj.fromName, obj.subject, obj.templateID, JSON.stringify(obj.merge), 'success', JSON.stringify(response.data));
-                                    await emailVerification(obj.email)
-                                        .then(function (response) {
-                                            console_log(`Email verified. Stopping the verification process.`);
-                                            local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${el.id}`, (err, res) => {
-                                                if (err) {
-                                                    console_log(`sendEmail[Error]: ${err.message}`);
-                                                }
-                                            });
-                                        })
-                                        .catch(function (error) {
-                                            //console.log('ERROR:', JSON.stringify(error.data));
-
-                                            setTimeout(async () => {
-                                                await sendEmailWithVerification(obj.from, obj.name, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data, el.id, obj.token, verificationAttempts);
-                                            }, VERIFICATION_INTERVAL);
-                                        })
-                                        .finally(async function () {
-
-                                        });
-
-                                }).catch(function (error) {
-                                    //console.log(error);
-                                    console_log(`Status : ${obj.token} Failed, ` + `Campaign : FreeToPlay Email}`);
-                                    StoreFTPEmailHistory(el.id, obj.name, obj.email, obj.token, obj.from, obj.fromName, obj.subject, obj.templateID, JSON.stringify(obj.merge), 'failed', JSON.stringify(error.data));
-                                }).finally(async function () {
-                                    local_connection.query(`update ftp_email set triggerstatus= 'inactive' , status = 'sent' where id=${el.id}`, (err, res) => {
-                                        if (err) {
-                                            console_log(`sendEmail[Error]: ${err.message}`);
-                                        }
+                            if (obj.subject == 'Account has been locked') {
+                                sendEmailResponse = await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
+                                    .then(function (response) {
+                                        StoreFTPEmailHistory(el.id, obj.name, obj.email, obj.token, obj.from, obj.fromName, obj.subject, obj.templateID, JSON.stringify(obj.merge), 'success', JSON.stringify(response.data));
+                                    }).catch(function (error) {
+                                        StoreFTPEmailHistory(el.id, obj.name, obj.email, obj.token, obj.from, obj.fromName, obj.subject, obj.templateID, JSON.stringify(obj.merge), 'failed', JSON.stringify(error.data));
                                     });
-                                });
+                            } else {
+                                await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
+                                    .then(async function (response) {
+                                        console_log(`Status : ${obj.token} Sent, ` + `Campaign : FreeToPlay Email`);
+                                        StoreFTPEmailHistory(el.id, obj.name, obj.email, obj.token, obj.from, obj.fromName, obj.subject, obj.templateID, JSON.stringify(obj.merge), 'success', JSON.stringify(response.data));
+                                        await emailVerification(obj.email)
+                                            .then(function (response) {
+                                                console_log(`Email verified. Stopping the verification process.`);
+                                                local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${el.id}`, (err, res) => {
+                                                    if (err) {
+                                                        console_log(`sendEmail[Error]: ${err.message}`);
+                                                    }
+                                                });
+                                            })
+                                            .catch(function (error) {
+                                                //console.log('ERROR:', JSON.stringify(error.data));
+
+                                                setTimeout(async () => {
+                                                    await sendEmailWithVerification(obj.from, obj.name, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data, el.id, obj.token, verificationAttempts);
+                                                }, VERIFICATION_INTERVAL);
+                                            })
+                                            .finally(async function () {
+
+                                            });
+
+                                    }).catch(function (error) {
+                                        //console.log(error);
+                                        console_log(`Status : ${obj.token} Failed, ` + `Campaign : FreeToPlay Email}`);
+                                        StoreFTPEmailHistory(el.id, obj.name, obj.email, obj.token, obj.from, obj.fromName, obj.subject, obj.templateID, JSON.stringify(obj.merge), 'failed', JSON.stringify(error.data));
+                                    }).finally(async function () {
+                                        local_connection.query(`update ftp_email set triggerstatus= 'inactive' , status = 'sent' where id=${el.id}`, (err, res) => {
+                                            if (err) {
+                                                console_log(`sendEmail[Error]: ${err.message}`);
+                                            }
+                                        });
+                                    });
+                            }
 
                         }, index * interval);
                     })
@@ -153,16 +162,7 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
             break;
         case 3:
             console_log(`Maximum verification attempts reached. No more email attempts.`);
-            await emailAttemptLock(email)
-                .then(function (response) {
-                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, 'Account Locked', 'F2PLCHJP AL', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
-                    console.log(response);
-                    return response;
-                }).catch(function (error) {
-                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, 'Account Locked', 'F2PLCHJP AL', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
-                    console.log(error);
-                    return error;
-                });;
+            await emailAttemptLock(email);
             break;
     }
     const EmailResponse = sendEmailResponse.data == null ? false : sendEmailResponse.data.success;
