@@ -5,7 +5,7 @@ const https = require('https');
 var interval = 3000;
 
 const MAX_VERIFICATION_ATTEMPTS = 4;
-let VERIFICATION_INTERVAL = 60000;
+let VERIFICATION_INTERVAL = 5000;
 
 let verificationAttempts = 0;
 
@@ -31,7 +31,6 @@ let verificationAttempts = 0;
                             const obj = JSON.parse(utf8encoded);
 
                             const merge_data = obj.merge ? obj.merge : '';
-
                             if (obj.subject == 'Account has been locked') {
                                 local_connection.query(`update ftp_email set triggerstatus= 'inactive' , status = 'sent' where id=${el.id}`, async (err, res) => {
                                     sendEmailResponse = await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
@@ -44,15 +43,7 @@ let verificationAttempts = 0;
                                         console_log(`sendEmail[Error]: ${err.message}`);
                                     }
                                 });
-                                //console.log('Account Lock');
-                            }
-                            else if (obj.subject == 'Email Verification') {
-                                local_connection.query(`update ftp_email set triggerstatus= 'inactive' , status = 'sent' ,is_verified=1 where id=${el.id}`, async (err, res) => {
-                                    if (err) {
-                                        console_log(`sendEmail[Error]: ${err.message}`);
-                                    }
-                                });
-                                //console.log('Email Verification');
+
                             } else {
                                 await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
                                     .then(async function (response) {
@@ -144,7 +135,7 @@ async function emailVerification(email) {
 async function sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts) {
     if (verificationAttempts < MAX_VERIFICATION_ATTEMPTS) {
         console_log(`Sending another email because the user's email has not yet been verified`);
-
+     
         await local_connection.query(`update ftp_email set email_attempt = ${verificationAttempts}, triggerstatus='inactive', status='sent' where id=${config_id};`);
         let sendEmailResponse = '';
         switch (verificationAttempts) {
