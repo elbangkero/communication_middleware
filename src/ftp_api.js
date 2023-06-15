@@ -156,9 +156,11 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
             await emailAttemptLock(email)
                 .then(function (response) {
                     StoreFTPEmailHistory(config_id, name, email, token, from, fromName, 'Account Locked', 'F2PLCHJP AL', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
+                    console.log(response);
                     return response;
                 }).catch(function (error) {
                     StoreFTPEmailHistory(config_id, name, email, token, from, fromName, 'Account Locked', 'F2PLCHJP AL', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
+                    console.log(error);
                     return error;
                 });;
             break;
