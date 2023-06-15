@@ -133,7 +133,16 @@ async function emailVerification(email) {
 
 
 async function sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts) {
-
+    if (verificationAttempts < MAX_VERIFICATION_ATTEMPTS) {
+        console_log(`Sending another email because the user's email has not yet been verified`);
+        verificationAttempts++;
+        await local_connection.query(`update ftp_email set email_attempt = ${verificationAttempts}, triggerstatus='inactive', status='sent' where id=${config_id};`);
+        await new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts));
+            }, VERIFICATION_INTERVAL);
+        });
+    }
     let sendEmailResponse = '';
     switch (verificationAttempts) {
         case 0: //1st attempt
@@ -207,16 +216,7 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
         if (isVerified) {
             return;
         }
-        if (verificationAttempts < MAX_VERIFICATION_ATTEMPTS) {
-            console_log(`Sending another email because the user's email has not yet been verified`);
-            verificationAttempts++;
-            await local_connection.query(`update ftp_email set email_attempt = ${verificationAttempts}, triggerstatus='inactive', status='sent' where id=${config_id};`);
-            await new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve(sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts));
-                }, VERIFICATION_INTERVAL);
-            });
-        }
+
     }
 }
 
