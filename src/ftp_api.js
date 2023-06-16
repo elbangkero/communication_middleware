@@ -43,7 +43,7 @@ let verificationAttempts = 0;
                                         console_log(`sendEmail[Error]: ${err.message}`);
                                     }
                                 });
-
+                                console.log('Account has been locked');
                             } if (obj.subject == 'Email Verification') {
                                 local_connection.query(`update ftp_email set is_verified=1,triggerstatus= 'inactive' , status = 'sent' where id=${el.id}`, async (err, res) => {
                                     sendEmailResponse = await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
@@ -56,7 +56,7 @@ let verificationAttempts = 0;
                                         console_log(`sendEmail[Error]: ${err.message}`);
                                     }
                                 });
-
+                                console.log('Email Verification');
                             } else {
                                 await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
                                     .then(async function (response) {
