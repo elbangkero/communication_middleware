@@ -59,7 +59,7 @@ let verificationAttempts = 0;
                                     }
                                 });
                                 console.log('Email Verification');
-                                clearTimeout(timeoutId);
+                                clearTimeout(timeoutID);
                             } else {
                                 await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
                                     .then(async function (response) {
