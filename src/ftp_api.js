@@ -149,9 +149,10 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
     let isVerified = false;
     await emailVerification(email)
         .then(function (response) {
-
-            console_log(`Email verified. Stopping the verification process.`);
             clearTimeout(timeoutId);
+            console.log(timeoutId);
+            console_log(`Email verified. Stopping the verification process.`);
+         
             local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${el.id}`, (err, res) => {
                 if (err) {
                     console_log(`sendEmail[Error]: ${err.message}`);
