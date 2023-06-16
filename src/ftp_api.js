@@ -21,6 +21,7 @@ let verificationAttempts = 0;
                 console_log(`Config queue count : ${res.rowCount}`);
 
                 console_log(`payload : ${dataload}`);
+                let timeoutID;
                 const callback = dataload == res.rowCount;
                 if (callback) {
                     data.forEach(function (el, index) {
@@ -41,6 +42,7 @@ let verificationAttempts = 0;
                                         });
                                     if (err) {
                                         console_log(`sendEmail[Error]: ${err.message}`);
+                                        
                                     }
                                 });
                                 console.log('Account has been locked');
@@ -57,6 +59,7 @@ let verificationAttempts = 0;
                                     }
                                 });
                                 console.log('Email Verification');
+                                clearTimeout(timeoutId);
                             } else {
                                 await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
                                     .then(async function (response) {
@@ -72,10 +75,10 @@ let verificationAttempts = 0;
                                                 });
                                             })
                                             .catch(function (error) {
-                                                let timeoutId;
+                                                //console.log('ERROR:', JSON.stringify(error.data));
 
-                                                timeoutId = setTimeout(async () => {
-                                                    await sendEmailWithVerification(obj.from, obj.name, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data, el.id, obj.token, verificationAttempts, timeoutId);
+                                                timeoutID = setTimeout(async () => {
+                                                    await sendEmailWithVerification(obj.from, obj.name, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data, el.id, obj.token, verificationAttempts);
                                                 }, VERIFICATION_INTERVAL);
                                             })
                                             .finally(async function () {
@@ -145,112 +148,94 @@ async function emailVerification(email) {
 
 
 
-async function sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts, timeoutId) {
-    let isVerified = false;
-    await emailVerification(email)
-        .then(function (response) {
-            clearTimeout(timeoutId);
-            console.log(timeoutId);
-            console_log(`Email verified. Stopping the verification process.`);
+async function sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts) {
+    
+    if (verificationAttempts < MAX_VERIFICATION_ATTEMPTS) {
+        console_log(`Sending another email because the user's email has not yet been verified`);
 
-            local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${el.id}`, (err, res) => {
-                if (err) {
-                    console_log(`sendEmail[Error]: ${err.message}`);
-                }
-            });
-            isVerified = true;
-        })
-        .catch(async function (error) {
-              setTimeout(async () => {
-                if (verificationAttempts < MAX_VERIFICATION_ATTEMPTS) {
-                    console_log(`Sending another email because the user's email has not yet been verified`);
-
-                    await local_connection.query(`update ftp_email set email_attempt = ${verificationAttempts}, triggerstatus='inactive', status='sent' where id=${config_id};`);
-                    let sendEmailResponse = '';
-                    switch (verificationAttempts) {
-                        case 0: //1st attempt
-                            sendEmailResponse = await sendEmail(from, email, '2nd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
-                                .then(function (response) {
-                                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '2nd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
-                                    return response;
-                                }).catch(function (error) {
-                                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '2nd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
-                                    return error;
-                                });
-                            break;
-                        case 1: //2nd attempt
-                            sendEmailResponse = await sendEmail(from, email, '3rd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
-                                .then(function (response) {
-                                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '3rd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
-                                    return response;
-                                }).catch(function (error) {
-                                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '3rd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
-                                    return error;
-                                });
-                            break;
-                        case 2: //3rd attempt
-                            sendEmailResponse = await sendEmail(from, email, '4th Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
-                                .then(function (response) {
-                                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '4th Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
-                                    return response;
-                                }).catch(function (error) {
-                                    StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '4th Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
-                                    return error;
-                                });
-                            break;
-                        case 3:
-                            console_log(`Maximum verification attempts reached. No more email attempts.`);
-                            await emailAttemptLock(email);
-                            break;
-                    }
-                    const EmailResponse = sendEmailResponse.data == null ? false : sendEmailResponse.data.success;
-                    //console.log(EmailResponse);
-                    verificationAttempts++;
-                    if (EmailResponse) {
-                        console_log(`Status : ${token} Sent, ` + `Campaign : FreeToPlay Email`);
-
-                        async function verifyEmail(attempts) {
-                            try {
-                                const emailVerificationResponse = await emailVerification(email);
-
-                                await local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${config_id}`);
-
-                                console_log(`Email verified. Stopping the verification process.`);
-                                isVerified = true;
-                                return true;
-                            } catch (error) {
-                                //console.log('ERROR Verify attempt:', JSON.stringify(error.data));
-
-                                if (attempts < MAX_VERIFICATION_ATTEMPTS) {
-                                    return new Promise((resolve) => {
-                                        setTimeout(() => {
-                                            resolve(verifyEmail(attempts + 1));
-                                        }, VERIFICATION_INTERVAL);
-                                    });
-                                }
-                            }
-
-                            return false;
-                        }
-
-                        await verifyEmail(verificationAttempts + 1);
-
-                        if (isVerified) {
-                            return;
-                        }
-
-                    }
-                    await new Promise((resolve) => {
-                        setTimeout(() => {
-                            resolve(sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts, timeoutId));
-                        }, VERIFICATION_INTERVAL);
+        await local_connection.query(`update ftp_email set email_attempt = ${verificationAttempts}, triggerstatus='inactive', status='sent' where id=${config_id};`);
+        let sendEmailResponse = '';
+        switch (verificationAttempts) {
+            case 0: //1st attempt
+                sendEmailResponse = await sendEmail(from, email, '2nd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
+                    .then(function (response) {
+                        StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '2nd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
+                        return response;
+                    }).catch(function (error) {
+                        StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '2nd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
+                        return error;
                     });
+                break;
+            case 1: //2nd attempt
+                sendEmailResponse = await sendEmail(from, email, '3rd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
+                    .then(function (response) {
+                        StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '3rd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
+                        return response;
+                    }).catch(function (error) {
+                        StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '3rd Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
+                        return error;
+                    });
+                break;
+            case 2: //3rd attempt
+                sendEmailResponse = await sendEmail(from, email, '4th Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
+                    .then(function (response) {
+                        StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '4th Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'success', JSON.stringify(response.data));
+                        return response;
+                    }).catch(function (error) {
+                        StoreFTPEmailHistory(config_id, name, email, token, from, fromName, '4th Day Email Verification', 'F2PLCHJP 3DVE', JSON.stringify(merge_data), 'failed', JSON.stringify(error.data));
+                        return error;
+                    });
+                break;
+            case 3:
+                console_log(`Maximum verification attempts reached. No more email attempts.`);
+                await emailAttemptLock(email);
+                break;
+        }
+        const EmailResponse = sendEmailResponse.data == null ? false : sendEmailResponse.data.success;
+        //console.log(EmailResponse);
+        verificationAttempts++;
+        if (EmailResponse) {
+            console_log(`Status : ${token} Sent, ` + `Campaign : FreeToPlay Email`);
+
+            let isVerified = false;
+
+            async function verifyEmail(attempts) {
+                try {
+                    const emailVerificationResponse = await emailVerification(email);
+
+                    await local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${config_id}`);
+
+                    console_log(`Email verified. Stopping the verification process.`);
+                    isVerified = true;
+                    return true;
+                } catch (error) {
+                    //console.log('ERROR Verify attempt:', JSON.stringify(error.data));
+
+                    if (attempts < MAX_VERIFICATION_ATTEMPTS) {
+                        return new Promise((resolve) => {
+                            setTimeout(() => {
+                                resolve(verifyEmail(attempts + 1));
+                            }, VERIFICATION_INTERVAL);
+                        });
+                    }
                 }
-            }, 2000);
 
+                return false;
+            }
 
+            await verifyEmail(verificationAttempts + 1);
+
+            if (isVerified) {
+                return;
+            }
+
+        }
+        await new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts));
+            }, VERIFICATION_INTERVAL);
         });
-
+    }
 
 }
 
