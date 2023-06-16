@@ -161,6 +161,7 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
                                 console_log(`sendEmail[Error]: ${err.message}`);
                             }
                         });
+                        isVerified = true;
                     })
                     .catch(async function (error) {
                         sendEmailResponse = await sendEmail(from, email, '2nd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
@@ -182,6 +183,7 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
                                 console_log(`sendEmail[Error]: ${err.message}`);
                             }
                         });
+                        isVerified = true;
                     })
                     .catch(async function (error) {
                         sendEmailResponse = await sendEmail(from, email, '3rd Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
@@ -203,6 +205,7 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
                                 console_log(`sendEmail[Error]: ${err.message}`);
                             }
                         });
+                        isVerified = true;
                     })
                     .catch(async function (error) {
                         sendEmailResponse = await sendEmail(from, email, '4th Day Email Verification', 'F2PLCHJP 3DVE', fromName, merge_data)
