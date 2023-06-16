@@ -146,14 +146,18 @@ async function emailVerification(email) {
 
 
 async function sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts) {
+    let isVerified = false;
     await emailVerification(email)
         .then(function (response) {
+
             console_log(`Email verified. Stopping the verification process.`);
             local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${el.id}`, (err, res) => {
                 if (err) {
                     console_log(`sendEmail[Error]: ${err.message}`);
                 }
             });
+            isVerified = true;
+            return true;
         })
         .catch(async function (error) {
             if (verificationAttempts < MAX_VERIFICATION_ATTEMPTS) {
@@ -202,8 +206,6 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
                 verificationAttempts++;
                 if (EmailResponse) {
                     console_log(`Status : ${token} Sent, ` + `Campaign : FreeToPlay Email`);
-
-                    let isVerified = false;
 
                     async function verifyEmail(attempts) {
                         try {
