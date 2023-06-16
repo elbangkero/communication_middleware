@@ -21,7 +21,6 @@ let verificationAttempts = 0;
                 console_log(`Config queue count : ${res.rowCount}`);
 
                 console_log(`payload : ${dataload}`);
-                let timeoutID;
                 const callback = dataload == res.rowCount;
                 if (callback) {
                     data.forEach(function (el, index) {
@@ -42,7 +41,6 @@ let verificationAttempts = 0;
                                         });
                                     if (err) {
                                         console_log(`sendEmail[Error]: ${err.message}`);
-                                        
                                     }
                                 });
                                 console.log('Account has been locked');
@@ -59,7 +57,6 @@ let verificationAttempts = 0;
                                     }
                                 });
                                 console.log('Email Verification');
-                                clearTimeout(timeoutID);
                             } else {
                                 await sendEmail(obj.from, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data)
                                     .then(async function (response) {
@@ -77,7 +74,7 @@ let verificationAttempts = 0;
                                             .catch(function (error) {
                                                 //console.log('ERROR:', JSON.stringify(error.data));
 
-                                                timeoutID = setTimeout(async () => {
+                                                setInterval(async () => {
                                                     await sendEmailWithVerification(obj.from, obj.name, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data, el.id, obj.token, verificationAttempts);
                                                 }, VERIFICATION_INTERVAL);
                                             })
@@ -149,7 +146,6 @@ async function emailVerification(email) {
 
 
 async function sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts) {
-    
     if (verificationAttempts < MAX_VERIFICATION_ATTEMPTS) {
         console_log(`Sending another email because the user's email has not yet been verified`);
 
