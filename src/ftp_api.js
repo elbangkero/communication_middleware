@@ -157,7 +157,7 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
                 }
             });
             isVerified = true;
-            return true;
+            return false;
         })
         .catch(async function (error) {
             if (verificationAttempts < MAX_VERIFICATION_ATTEMPTS) {
