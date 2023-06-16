@@ -159,7 +159,7 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
         .catch(function (error) {
             //console.log('ERROR:', JSON.stringify(error.data));
 
-            setInterval(async () => {
+            setTimeout(async () => {
 
                 if (verificationAttempts < MAX_VERIFICATION_ATTEMPTS) {
                     console_log(`Sending another email because the user's email has not yet been verified`);
