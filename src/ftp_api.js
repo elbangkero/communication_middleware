@@ -72,10 +72,10 @@ let verificationAttempts = 0;
                                                 });
                                             })
                                             .catch(function (error) {
-                                                //console.log('ERROR:', JSON.stringify(error.data));
+                                                let timeoutId;
 
-                                                setTimeout(async () => {
-                                                    await sendEmailWithVerification(obj.from, obj.name, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data, el.id, obj.token, verificationAttempts);
+                                                timeoutId = setTimeout(async () => {
+                                                    await sendEmailWithVerification(obj.from, obj.name, obj.email, obj.subject, obj.templateID, obj.fromName, merge_data, el.id, obj.token, verificationAttempts, timeoutId);
                                                 }, VERIFICATION_INTERVAL);
                                             })
                                             .finally(async function () {
@@ -145,19 +145,19 @@ async function emailVerification(email) {
 
 
 
-async function sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts) {
+async function sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts,timeoutId) {
     let isVerified = false;
     await emailVerification(email)
         .then(function (response) {
 
             console_log(`Email verified. Stopping the verification process.`);
+            clearTimeout(timeoutId);
             local_connection.query(`update ftp_email set is_verified=1,triggerstatus='inactive', status='sent' where id=${el.id}`, (err, res) => {
                 if (err) {
                     console_log(`sendEmail[Error]: ${err.message}`);
                 }
             });
             isVerified = true;
-            return false;
         })
         .catch(async function (error) {
             if (verificationAttempts < MAX_VERIFICATION_ATTEMPTS) {
@@ -240,7 +240,7 @@ async function sendEmailWithVerification(from, name, email, subject, template_id
                 }
                 await new Promise((resolve) => {
                     setTimeout(() => {
-                        resolve(sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts));
+                        resolve(sendEmailWithVerification(from, name, email, subject, template_id, fromName, merge_data, config_id, token, verificationAttempts,timeoutId));
                     }, VERIFICATION_INTERVAL);
                 });
             }
