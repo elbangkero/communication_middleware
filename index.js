@@ -7,7 +7,6 @@ const cors = require('cors');
 app.use(cors());
 app.options('*', cors());
 require('./src/api')(app);
-require('./src/ftp_api')(app);
 require('./src/views/index')(app);
 
  
