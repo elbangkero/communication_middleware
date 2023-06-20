@@ -316,7 +316,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
 }
 
 async function apiAccount(country_code) {
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = ${provider_code.PROVIDER_SMS_SMART} and country_code = '${country_code}' LIMIT 1`);
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${provider_code.PROVIDER_SMS_SMART}' and country_code = '${country_code}' LIMIT 1`);
     const data = res.rows;
 
     const results = await Promise.all(
