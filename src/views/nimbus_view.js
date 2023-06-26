@@ -55,7 +55,8 @@ exports.API_Account_Providers = async (_req, _res) => {
     console.log(_req.query);
 
     try {
-        let query = `select cap.acct_id,cp.provider_name,cap.country_code,cp.application_id,cp.platform,cap.created_at from cmw_acct_providers cap left join cmw_providers cp on cap.provider_code = cp.provider_code`;
+        let query = `select cmw_acct_providers.acct_id,cmw_providers.provider_name,cmw_acct_providers.country_code,cmw_providers.application_id,cmw_providers.platform,cmw_acct_providers.created_at from cmw_acct_providers
+        left join cmw_providers  on cmw_acct_providers.provider_code = cmw_providers.provider_code;`;
 
         const queryParams = [];
 
