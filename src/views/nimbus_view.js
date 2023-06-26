@@ -61,21 +61,21 @@ exports.API_Account_Providers = async (_req, _res) => {
         const queryParams = [];
 
         if (provider_name) {
-            queryParams.push(`cp.provider_name LIKE '%${provider_name}%'`);
+            queryParams.push(`cmw_providers.provider_name LIKE '%${provider_name}%'`);
         }
         if (country_code) {
             const parseCountry = JSON.parse(`${_req.query.country_code}`);
-            queryParams.push(`cap.country_code LIKE '%${parseCountry.value}%'`);
+            queryParams.push(`cmw_acct_providers.country_code LIKE '%${parseCountry.value}%'`);
         }
         if (application_id) {
-            queryParams.push(`cp.application_id LIKE '%${application_id}%'`);
+            queryParams.push(`cmw_providers.application_id LIKE '%${application_id}%'`);
         }
         if (platform) {
             const parsePlatform = JSON.parse(`${_req.query.platform}`);
-            queryParams.push(`cp.platform LIKE '%${parsePlatform.value}%'`);
+            queryParams.push(`cmw_providers.platform LIKE '%${parsePlatform.value}%'`);
         }
         if (created_at) {
-            queryParams.push(`cap.created_at::text LIKE '%${created_at}%'`);
+            queryParams.push(`cmw_acct_providers.created_at::text LIKE '%${created_at}%'`);
         }
 
         if (queryParams.length > 0) {
@@ -85,7 +85,7 @@ exports.API_Account_Providers = async (_req, _res) => {
         const countQuery = `SELECT COUNT(*) FROM cmw_acct_providers ${queryParams.length > 0 ? `WHERE ${queryParams.join(' AND ')}` : ''}`;
         const countResult = await local_connection.query(countQuery);
 
-        query += ` ORDER BY cap.acct_id DESC LIMIT ${limit} OFFSET ${offset}`;
+        query += ` ORDER BY cmw_acct_providers.acct_id DESC LIMIT ${limit} OFFSET ${offset}`;
 
         const result = await local_connection.query(query);
 
