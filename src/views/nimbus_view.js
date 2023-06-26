@@ -85,7 +85,7 @@ exports.API_Account_Providers = async (_req, _res) => {
         const countQuery = `SELECT COUNT(*) FROM cmw_acct_providers ${queryParams.length > 0 ? `WHERE ${queryParams.join(' AND ')}` : ''}`;
         const countResult = await local_connection.query(countQuery);
 
-        query += `ORDER BY cmw_acct_providers.acct_id DESC LIMIT ${limit} OFFSET ${offset}`;
+        //query += `ORDER BY acct_id DESC LIMIT ${limit} OFFSET ${offset}`;
 
         const result = await local_connection.query(query);
 
