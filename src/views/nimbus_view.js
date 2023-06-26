@@ -52,10 +52,10 @@ exports.API_Providers = async (_req, _res) => {
 exports.API_Account_Providers = async (_req, _res) => {
     const { page, limit, provider_name, country_code, application_id, platform, created_at } = _req.query;
     const offset = (page - 1) * limit;
-    console.log(_req.query);
+    //console.log(_req.query);
 
     try {
-        let query = `select cmw_acct_providers.acct_id,cmw_providers.provider_name,cmw_acct_providers.country_code,cmw_providers.application_id,cmw_providers.platform,cmw_acct_providers.created_at from cmw_acct_providers left join cmw_providers  on cmw_acct_providers.provider_code = cmw_providers.provider_code`;
+        let query = `select cmw_acct_providers.acct_id, cmw_providers.provider_name, cmw_acct_providers.country_code, cmw_providers.application_id, cmw_providers.platform, cmw_acct_providers.created_at from cmw_acct_providers  left join cmw_providers  on cmw_acct_providers.provider_code = cmw_providers.provider_code`;
 
         const queryParams = [];
 
