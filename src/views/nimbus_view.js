@@ -55,7 +55,7 @@ exports.API_Account_Providers = async (_req, _res) => {
     //console.log(_req.query);
 
     try {
-        let query = `select cmw_acct_providers.acct_id, cmw_providers.provider_name, cmw_acct_providers.country_code, cmw_providers.application_id, cmw_providers.platform, cmw_acct_providers.created_at from cmw_acct_providers  left join cmw_providers  on cmw_acct_providers.provider_code = cmw_providers.provider_code`;
+        let query = `SELECT cmw_acct_providers.acct_id, cmw_providers.provider_name, cmw_acct_providers.country_code, cmw_providers.application_id, cmw_providers.platform, cmw_acct_providers.created_at from cmw_acct_providers  LEFT join cmw_providers  ON cmw_acct_providers.provider_code = cmw_providers.provider_code`;
 
         const queryParams = [];
 
@@ -81,7 +81,7 @@ exports.API_Account_Providers = async (_req, _res) => {
             query += ` WHERE ${queryParams.join(' AND ')}`;
         }
 
-        const countQuery = `SELECT COUNT(*) FROM cmw_acct_providers ${queryParams.length > 0 ? `WHERE ${queryParams.join(' AND ')}` : ''}`;
+        const countQuery = `SELECT COUNT(*) FROM cmw_acct_providers  LEFT join cmw_providers  ON cmw_acct_providers.provider_code = cmw_providers.provider_code ${queryParams.length > 0 ? `WHERE ${queryParams.join(' AND ')}` : ''}`;
         const countResult = await local_connection.query(countQuery);
 
         query += ` ORDER BY cmw_acct_providers.acct_id DESC LIMIT ${limit} OFFSET ${offset}`;
