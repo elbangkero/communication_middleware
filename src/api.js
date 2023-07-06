@@ -43,7 +43,7 @@ const environment = `${process.env.ENVIRONMENT}`;
                                 .pipe(csv())
                                 .on('data', function (data) {
                                     try {
-                                        pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'country': data.country, 'message_text': data.message_text, 'platform': data.platform, 'from': data.from, 'template_id': data.template_id, 'email_subject': data.email_subject, 'fromName': data.fromName, 'application_id': data.application_id }));
+                                        pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'country': data.country, 'message_text': data.message_text, 'platform': data.platform, 'from': data.from, 'template_id': data.template_id, 'email_subject': data.email_subject, 'fromName': data.fromName, 'application_id': data.application_id, 'merge': data.merge }));
                                         //console_log(data.playertoken + ',' + data.country + ',' + data.text_message + ',' + data.platform);
                                         //constructData(data.playertoken, data.country, data.message, data.platform);
                                     } catch (err) {
@@ -132,7 +132,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                                 query_instant++
                                                 dynamic_counter.counter.success++;
                                                 //console.log(response.data);
-                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id);
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge);
                                             })
                                             .catch(function (error) {
                                                 //console.log('error');
@@ -141,7 +141,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                                 dynamic_counter.counter.fails++
                                                 query_instant++
                                                 //console.error(error.response.data);
-                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.response.data), obj.from, '', '', obj.application_id);
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.response.data), obj.from, '', '', obj.application_id, obj.merge);
                                             })
                                             .finally(async function () {
                                                 if (pre_compile_data.length == query_instant) {
@@ -164,13 +164,13 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                                 console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                 query_instant++
                                                 dynamic_counter.counter.success++;
-                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id);
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge);
                                             })
                                             .catch(function (error) {
                                                 console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                                 dynamic_counter.counter.fails++
                                                 query_instant++
-                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, '', '', obj.application_id);
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, '', '', obj.application_id, obj.merge);
                                             })
                                             .finally(async function () {
                                                 if (pre_compile_data.length == query_instant) {
@@ -191,7 +191,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                         console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                         dynamic_counter.counter.fails++
                                         query_instant++
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, '', '', obj.application_id);
+                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, '', '', obj.application_id, obj.merge);
                                         if (pre_compile_data.length == query_instant) {
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
@@ -212,7 +212,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                     console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                     dynamic_counter.counter.fails++
                                     query_instant++
-                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, '', '', obj.application_id);
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, '', '', obj.application_id, obj.merge);
                                     if (pre_compile_data.length == query_instant) {
                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                         dynamic_counter.counter.success = 0;
@@ -236,19 +236,20 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                 const data = res.rows;
                                 data.forEach(async row_provider => {
                                     if (row_provider.provider_code == provider_code.PROVIDER_ELASTIC_EMAIL) {
-                                        await sendEmail(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, obj.country)
+
+                                        await sendEmail(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, obj.country, obj.merge)
                                             .then(function (response) {
                                                 console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                 query_instant++
                                                 dynamic_counter.counter.success++;
                                                 // console.log(JSON.stringify(response.data));
-                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, obj.email_subject, obj.template_id, obj.application_id);
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge);
                                             }).catch(function (error) {
                                                 console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                                 dynamic_counter.counter.fails++
                                                 query_instant++
                                                 //console.log(error.data);
-                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, obj.email_subject, obj.template_id, obj.application_id);
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge);
                                             }).finally(async function () {
                                                 if (pre_compile_data.length == query_instant) {
                                                     console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
@@ -267,7 +268,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                         console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                         dynamic_counter.counter.fails++
                                         query_instant++
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, obj.email_subject, obj.template_id, obj.application_id);
+                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge);
                                         if (pre_compile_data.length == query_instant) {
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
@@ -286,7 +287,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                     console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                     dynamic_counter.counter.fails++
                                     query_instant++
-                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, obj.email_subject, obj.template_id, obj.application_id);
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge);
                                     if (pre_compile_data.length == query_instant) {
                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                         dynamic_counter.counter.success = 0;
@@ -331,12 +332,12 @@ async function apiAccount(country_code) {
 }
 
 
-async function storeMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id) {
+async function storeMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id, merge) {
 
 
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
-    local_connection.query(`INSERT INTO cmw_history (config_id,campaign_name,player_token,player_contact,platform,country,message,status,created_at,updated_at,api_response,from_sender,email_subject,template_id,application_id) VALUES ('${config_id}','${campaign_name}','${player_token}','${player_contact}','${platform}','${country}','${message}','${status}','${date_now}','${date_now}','${api_response}','${from}','${email_subject}','${template_id}','${application_id}')`, (err, res) => {
+    local_connection.query(`INSERT INTO cmw_history (config_id,campaign_name,player_token,player_contact,platform,country,message,status,created_at,updated_at,api_response,from_sender,email_subject,template_id,application_id,merge) VALUES ('${config_id}','${campaign_name}','${player_token}','${player_contact}','${platform}','${country}','${message}','${status}','${date_now}','${date_now}','${api_response}','${from}','${email_subject}','${template_id}','${application_id}','${merge}')`, (err, res) => {
         if (err) {
             console_log(`storeMessageHistory[Error]: ${err}`);
         }
@@ -518,7 +519,7 @@ async function ElasticEmailAccount(country_code) {
 
 }
 
-async function sendEmail(from, email, subject, template_id, fromName, country_code) {
+async function sendEmail(from, email, subject, template_id, fromName, country_code, merge) {
 
 
     const apikey = await ElasticEmailAccount(country_code);
@@ -526,12 +527,19 @@ async function sendEmail(from, email, subject, template_id, fromName, country_co
     const email_subject = subject ? encodeURIComponent(subject) : encodeURIComponent('(no subject)');
     const encodedfromName = encodeURIComponent(fromName);
 
+    const merge_params = new URLSearchParams(merge);
+
+    var merge_type = "";
+    merge_params.forEach((value, key) => {
+        merge_type += `&merge_${key}=${value}`;
+    });
+
     return new Promise(async (resolve, reject) => {
 
         var config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: `https://api.elasticemail.com/v2/email/send?subject=${email_subject}&fromName=${encodedfromName}&from=${from}&to=${email}&template=${template_id}&isTransactional=true&apikey=${apikey.apikey}`,
+            url: `https://api.elasticemail.com/v2/email/send?subject=${email_subject}&fromName=${encodedfromName}&from=${from}&to=${email}&template=${template_id}&isTransactional=true&apikey=${apikey.apikey}&${merge_type}`,
             headers: {}
         };
 
@@ -672,7 +680,7 @@ API_ViewHistory = async (_req, _res) => {
     });
 };
 
- 
+
 
 
 module.exports = function (app) {
