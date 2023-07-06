@@ -9,6 +9,7 @@ app.options('*', cors());
 require('./src/api')(app);
 require('./src/ftp_api')(app);
 require('./src/views/index')(app);
+require('./src/elastic_email_logs');
 
  
 app.listen(`${process.env.PORT}`, () => {

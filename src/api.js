@@ -4,7 +4,6 @@ const multer = require('multer');
 const fs = require('fs');
 const csv = require('csv-parser');
 var axios = require('axios');
-const cron = require('node-cron');
 const schedule = require('node-schedule');
 const qs = require('qs');
 const md5 = require("md5");
@@ -237,7 +236,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                 const data = res.rows;
                                 data.forEach(async row_provider => {
                                     if (row_provider.provider_code == provider_code.PROVIDER_ELASTIC_EMAIL) {
-                                        await sendEmail(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName)
+                                        await sendEmail(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, obj.country)
                                             .then(function (response) {
                                                 console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                 query_instant++
@@ -501,25 +500,29 @@ async function sendAbosendSMS(message, from, phone_number, country_code, row_num
 
 
 
-async function ElasticEmailAccount() {
+async function ElasticEmailAccount(country_code) {
 
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${provider_code.PROVIDER_ELASTIC_EMAIL}' LIMIT 1`);
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${provider_code.PROVIDER_ELASTIC_EMAIL}'  and country_code like '${country_code}' LIMIT 1`);
     const data = res.rows;
 
     const results = await Promise.all(
         data.map(async row => {
-            return { 'apikey': row.apikey};
+            return { 'apikey': row.apikey };
         })
     );
     if (results.length > 0) {
         return results[0];
+    } else {
+        return { 'apikey': '' };
     }
+
 }
 
-async function sendEmail(from, email, subject, template_id, fromName) {
+async function sendEmail(from, email, subject, template_id, fromName, country_code) {
 
-   
-    const apikey =  await ElasticEmailAccount();
+
+    const apikey = await ElasticEmailAccount(country_code);
+
     const email_subject = subject ? encodeURIComponent(subject) : encodeURIComponent('(no subject)');
     const encodedfromName = encodeURIComponent(fromName);
 
@@ -545,6 +548,7 @@ async function sendEmail(from, email, subject, template_id, fromName) {
             });
 
     });
+
 
 }
 
@@ -668,50 +672,7 @@ API_ViewHistory = async (_req, _res) => {
     });
 };
 
-
-
-
-
-
-
-
-const getELasticEmailLogs = async function () {
-    const apiKey = '7C41D4746E1C491FAB5CC72DFF9EF3F117A02CD035AEACE30E9823CD3D0581D20B61291546D6AF53BEA633563CE388E8';
-
-    const now = new Date();
-    //const from = new Date(now.getTime() - 60000).toISOString();  //every 1minute
-    const from = new Date(now.getTime() - 30 * 60 * 1000).toISOString(); //every 30mins
-    const to = now.toISOString();
-    //const from = '2023-04-22T18:05:40.845Z'; //static from
-    //const to = '2023-04-22T18:30:40.845Z'; //static to
-    console.log('FROM: ', from + " TO: ", to)
-    const config = {
-        method: 'get',
-        maxBodyLength: Infinity,
-        url: `https://api.elasticemail.com/v2/log/events?statuses=0&apikey=${apiKey}&from=${from}&to=${to}`,
-        headers: {}
-    };
-
-    try {
-        // Make the HTTP request using Axios
-        const response = await axios(config);
-
-        response.data.data.recipients.forEach(data => {
-            local_connection.query(`INSERT INTO cmw_email_logs (jobid,msgid,fromemail,"to",subject,eventtype,eventdate,channel,channelid,messagecategory,nexttryon,message,ipaddress,ippoolname) VALUES ('${data.jobid}','${data.msgid}','${data.fromemail}','${data.to}','${data.subject}','${data.eventtype}','${data.eventdate}','${data.channel}','${data.channelid}','${data.messagecategory}','${data.nexttryon}','${data.message}','${data.ipaddress}','${data.ippoolname}')`, (err, res) => {
-                if (err) {
-                    console_log(`getELasticEmailLogs[Error]: ${err}`);
-                }
-            });
-        });
-        console.log("Cron Email Logs Result : ", response.data.data.recipients.length);
-
-
-    } catch (error) {
-        console.error('API call failed:', error.message);
-    }
-};
-//getELasticEmailLogs();
-const job = cron.schedule('*/30 * * * *', getELasticEmailLogs);
+ 
 
 
 module.exports = function (app) {
@@ -728,7 +689,7 @@ module.exports = function (app) {
     app.post('/upload/provider-account', upload.fields([]), insertProviderAccount);
 
     app.post('/stop_scheduled/:id', upload.fields([]), stopScheduled);
- 
+
     app.get('/api_history/view-history/:id', API_ViewHistory);
 
 
