@@ -10,9 +10,7 @@ require('./src/api')(app);
 require('./src/ftp_api')(app);
 require('./src/views/index')(app);
 require('./src/elastic_email_logs');
-app.use(cors({
-  origin: 'https://stg-nimbus.everlounge.net'
-}));
+
  
 app.listen(`${process.env.PORT}`, () => {
   console_log('Listening on port ' + `${process.env.PORT}`);
