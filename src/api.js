@@ -595,8 +595,6 @@ upload = multer({
 insertConfig = async (_req, _res) => {
 
 
-    console.log(_req.body);
-
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
     const sending = _req.body.sending == 'on' ? true : false;
