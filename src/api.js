@@ -10,11 +10,6 @@ const md5 = require("md5");
 
 var interval = 3000;
 
-let provider_code = {
-    "PROVIDER_SMS_SMART": "SMS11", //Smart SMS
-    "PROVIDER_ABOSEND": "SMS12", //Abosend SMS
-    "PROVIDER_ELASTIC_EMAIL": "EMAIL10" //Elastic Email
-};
 
 const environment = `${process.env.ENVIRONMENT}`;
 //let counter = { fails: 0, success: 0 };
@@ -122,7 +117,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                 const data = res.rows;
                                 data.forEach(async row_provider => {
 
-                                    if (row_provider.provider_code == provider_code.PROVIDER_SMS_SMART) {
+                                    if (row_provider.provider_code == process.env.PROVIDER_SMS_SMART) {
 
                                         await sendSmartSMS(obj.message_text, obj.from, row.phone_number, obj.country)
                                             .then(function (response) {
@@ -158,7 +153,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                                     });
                                                 }
                                             });
-                                    } else if (row_provider.provider_code == provider_code.PROVIDER_ABOSEND) {
+                                    } else if (row_provider.provider_code == process.env.PROVIDER_ABOSEND) {
                                         await sendAbosendSMS(obj.message_text, obj.from, row.phone_number, obj.country, row_number)
                                             .then(function (response) {
                                                 console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
@@ -181,6 +176,33 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                                     local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
                                                         if (err) {
                                                             console_log(`DoneAbosending[Error]: ${err.message}`);
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                    } else if (row_provider.provider_code == process.env.PROVIDER_ABENLA_SMS) {
+                                        await PROVIDER_ABENLA_SMS(obj.message_text, row.phone_number, obj.country)
+                                            .then(function (response) {
+                                                console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
+                                                query_instant++
+                                                dynamic_counter.counter.success++;
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge);
+                                            })
+                                            .catch(function (response) {
+                                                console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                                                dynamic_counter.counter.fails++
+                                                query_instant++
+                                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge);
+                                            })
+                                            .finally(async function () {
+                                                if (pre_compile_data.length == query_instant) {
+                                                    console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                                    dynamic_counter.counter.success = 0;
+                                                    dynamic_counter.counter.fails = 0;
+                                                    pre_compile_data.length = 0;
+                                                    local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
+                                                        if (err) {
+                                                            console_log(`DoneAbenlaSMS[Error]: ${err.message}`);
                                                         }
                                                     });
                                                 }
@@ -235,7 +257,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                             local_connection.query(`SELECT * FROM cmw_providers where application_id = '${obj.application_id}'`).then(res => {
                                 const data = res.rows;
                                 data.forEach(async row_provider => {
-                                    if (row_provider.provider_code == provider_code.PROVIDER_ELASTIC_EMAIL) {
+                                    if (row_provider.provider_code == process.env.PROVIDER_ELASTIC_EMAIL) {
 
                                         await sendEmail(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, obj.country, obj.merge)
                                             .then(function (response) {
@@ -316,7 +338,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
 }
 
 async function apiAccount(country_code) {
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${provider_code.PROVIDER_SMS_SMART}' and country_code = '${country_code}' and environment = '${environment}' LIMIT 1`);
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${process.env.PROVIDER_SMS_SMART}' and country_code = '${country_code}' and environment = '${environment}' LIMIT 1`);
     const data = res.rows;
 
     const results = await Promise.all(
@@ -345,6 +367,58 @@ async function storeMessageHistory(config_id, campaign_name, player_token, playe
 }
 
 
+
+async function API_Abenla_Account_SMS(country_code) {
+    const res = await local_connection.query(`SELECT username,md5key,endpoint FROM cmw_acct_providers cap
+    left join cmw_providers cp on cp.provider_code = cap.provider_code 
+    where cap.provider_code = '${process.env.PROVIDER_ABENLA_SMS}' and cap.country_code = '${country_code}' LIMIT 1`);
+    const data = res.rows;
+
+    const results = await Promise.all(
+        data.map(async row => {
+            return { "loginName": row.username, "sign": row.md5key, "endpoint": row.endpoint };
+        })
+    );
+    if (results.length > 0) {
+        return results[0];
+    } else {
+        return { "loginName": "", "sign": "", "endpoint": "" };
+    }
+}
+
+
+async function PROVIDER_ABENLA_SMS(message, phone_number, country_code) {
+
+    API_Abenla_Account_SMS(country_code);
+    const ServiceTypeId = 50;
+    const callBack = false;
+    const brandName = 'HQGlobal';
+    return new Promise(async (resolve, reject) => {
+        const result = await API_Abenla_Account_SMS(country_code);
+        let config = {
+            method: 'get',
+            maxBodyLength: Infinity,
+            url: `${result.endpoint}?loginName=${result.loginName}&sign=${result.sign}&phoneNumber=${phone_number}&message=${message}&brandName=${brandName}&callBack=${callBack}&smsGuid=&serviceTypeId=${ServiceTypeId}`,
+            headers: {}
+        };
+
+        axios.request(config)
+            .then((response) => {
+                if (response.data.Code == '106') 
+                    resolve(response);
+                else {
+                    reject(response);
+                }
+            })
+            .catch((error) => {
+                reject(error);
+            });
+
+    });
+
+
+}
+
 async function sendSmartSMS(message, from, phone_number, country_code) {
 
     apiAccount(country_code);
@@ -370,7 +444,7 @@ async function sendSmartSMS(message, from, phone_number, country_code) {
 }
 async function checkOddEven() {
 
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${provider_code.PROVIDER_ABOSEND}' ORDER BY random() LIMIT 1`);
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${process.env.PROVIDER_ABOSEND}' ORDER BY random() LIMIT 1`);
     const data = res.rows;
 
     const results = await Promise.all(
@@ -503,7 +577,7 @@ async function sendAbosendSMS(message, from, phone_number, country_code, row_num
 
 async function ElasticEmailAccount(country_code) {
 
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${provider_code.PROVIDER_ELASTIC_EMAIL}'  and country_code like '${country_code}' LIMIT 1`);
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${process.env.PROVIDER_ELASTIC_EMAIL}'  and country_code like '${country_code}' LIMIT 1`);
     const data = res.rows;
 
     const results = await Promise.all(
