@@ -359,7 +359,7 @@ async function storeMessageHistory(config_id, campaign_name, player_token, playe
 
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
-    local_connection.query(`INSERT INTO cmw_history (config_id,campaign_name,player_token,player_contact,platform,country,message,status,created_at,updated_at,api_response,from_sender,email_subject,template_id,application_id,merge) VALUES ('${config_id}','${campaign_name}','${player_token}','${player_contact}','${platform}','${country}','${message}','${status}','${date_now}','${date_now}','${api_response}','${from}','${email_subject}','${template_id}','${application_id}','${merge}')`, (err, res) => {
+    local_connection.query(`INSERT INTO cmw_history (config_id,campaign_name,player_token,player_contact,platform,country,message,status,created_at,updated_at,api_response,from_sender,email_subject,template_id,application_id,merge) VALUES ('${config_id}','${campaign_name}','${player_token}','${player_contact}','${platform}','${country}','${message}','${status}','${local_time}','${local_time}','${api_response}','${from}','${email_subject}','${template_id}','${application_id}','${merge}')`, (err, res) => {
         if (err) {
             console_log(`storeMessageHistory[Error]: ${err}`);
         }
@@ -404,7 +404,7 @@ async function PROVIDER_ABENLA_SMS(message, phone_number, country_code) {
 
         axios.request(config)
             .then((response) => {
-                if (response.data.Code == '106') 
+                if (response.data.Code == '106')
                     resolve(response);
                 else {
                     reject(response);
@@ -668,16 +668,42 @@ upload = multer({
 
 insertConfig = async (_req, _res) => {
 
-
+    let data_leads;
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
     const sending = _req.body.sending == 'on' ? true : false;
     const is_scheduled = _req.body.is_scheduled == 'on' ? true : false;
-    const data_leads = _req.body.data_source == 'csv' ? _req.files.data_leads[0].filename : Buffer.from(_req.body.data_leads).toString('base64');
+    //const data_leads = _req.body.data_source == 'csv' ? _req.files.data_leads[0].filename : Buffer.from(_req.body.data_leads).toString('base64');
+    if (_req.body.data_source == 'csv') {
+        if (_req.files.data_leads && _req.files.data_leads.length > 0 && _req.files.data_leads[0].filename) {
+            data_leads = _req.files.data_leads[0].filename;
+        } else {
+            data_leads = 'Invalid Data Leads';
+            _res.status(400).json({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] });
+            console_log(JSON.stringify({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] }));
+            return;
+        }
+    } else if (_req.body.data_source == 'json') {
+        if (_req.body.data_leads) {
+            data_leads = _req.body.data_leads
+        } else {
+            data_leads = 'Invalid Data Leads';
+            _res.status(400).json({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] });
+            console_log(JSON.stringify({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] }));
+            return;
+        }
+    } else {
+        data_leads = 'Invalid Data Source';
+        _res.status(400).json({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] });
+        console_log(JSON.stringify({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] }));
+        return;
+    }
+    //console.log(data_leads);
+
     const start_at = _req.body.start_at;
     let parseISO = new Date(start_at).toISOString();
     const parseStartAt = new Date(parseISO).toLocaleString();
-    local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_scheduled) VALUES ('pending','active','${date_now}','${date_now}','${parseStartAt}','${sending}','${_req.body.data_source}','${_req.body.campaign_name}','${data_leads}','${is_scheduled}')`, (err, res) => {
+    local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_scheduled) VALUES ('pending','active','${local_time}','${local_time}','${parseISO}','${sending}','${_req.body.data_source}','${_req.body.campaign_name}','${data_leads}','${is_scheduled}')`, (err, res) => {
         if (err) {
             console_log(`insertConfig[Error]: ${err.message}`);
         } else {
@@ -694,7 +720,7 @@ insertProvider = async (_req, _res) => {
     const date_now = new Date(local_time).toLocaleString();
     const platform = _req.body.platform == 'sms' ? 'SMS' : 'EMAIL';
 
-    local_connection.query(`INSERT INTO cmw_providers (provider_name,application_id,provider_code,platform,endpoint,created_at,updated_at) VALUES ('${_req.body.provider_name}','${_req.body.application_id}',(SELECT concat('${platform}', MAX(provider_id)+1) FROM cmw_providers),'${_req.body.platform}','${_req.body.endpoint}','${date_now}','${date_now}')`, (err, res) => {
+    local_connection.query(`INSERT INTO cmw_providers (provider_name,application_id,provider_code,platform,endpoint,created_at,updated_at) VALUES ('${_req.body.provider_name}','${_req.body.application_id}',(SELECT concat('${platform}', MAX(provider_id)+1) FROM cmw_providers),'${_req.body.platform}','${_req.body.endpoint}','${local_time}','${local_time}')`, (err, res) => {
         if (err) {
             console_log(`insertProvider[Error]: ${err.message}`);
         } else {
@@ -709,7 +735,7 @@ insertProviderAccount = async (_req, _res) => {
 
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
-    local_connection.query(`INSERT INTO cmw_acct_providers (country_code,provider_code,username,password,apikey,md5Key,rand,orgCode,created_at,updated_at) VALUES ('${_req.body.country_code}','${_req.body.provider_code}','${_req.body.username}','${_req.body.password}','${_req.body.apikey}','${_req.body.md5key}','${_req.body.rand}','${_req.body.orgCode}','${date_now}','${date_now}')`, (err, res) => {
+    local_connection.query(`INSERT INTO cmw_acct_providers (country_code,provider_code,username,password,apikey,md5Key,rand,orgCode,created_at,updated_at) VALUES ('${_req.body.country_code}','${_req.body.provider_code}','${_req.body.username}','${_req.body.password}','${_req.body.apikey}','${_req.body.md5key}','${_req.body.rand}','${_req.body.orgCode}','${local_time}','${local_time}')`, (err, res) => {
         if (err) {
             console_log(`insertProviderAccount[Error]: ${err.message}`);
         } else {
