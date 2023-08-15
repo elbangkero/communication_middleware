@@ -28,47 +28,89 @@ const environment = `${process.env.ENVIRONMENT}`;
                     console_log(`payload : ${dataload}`);
                     const callback = dataload == res.rowCount;
                     if (callback) {
-                        data.forEach(row => {
 
-                            var pre_compile_data = [];
-                            var dynamic_contact = row.config_id;
-                            pre_compile_data[dynamic_contact];
-                            //console.log(dynamic_contact);
-                            fs.createReadStream('./uploads/data_leads/' + row.data_leads)
-                                .pipe(csv())
-                                .on('data', function (data) {
+                        data.forEach(row => {
+                            const data_source = row.data_source;
+                            switch (data_source) {
+                                case 'json':
+                                    var pre_compile_data = [];
+                                    var dynamic_contact = row.config_id;
+                                    pre_compile_data[dynamic_contact];
+
+                                    const utf8encoded = (new Buffer.from(row.data_leads, 'base64')).toString('utf8');
+                                    const obj = JSON.parse(utf8encoded);
+
+                                    pre_compile_data.push(JSON.stringify({ 'player_token': obj.data_leads.playertoken, 'country': obj.data_leads.country, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge }));
+
                                     try {
-                                        pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'country': data.country, 'message_text': data.message_text, 'platform': data.platform, 'from': data.from, 'template_id': data.template_id, 'email_subject': data.email_subject, 'fromName': data.fromName, 'application_id': data.application_id, 'merge': data.merge }));
-                                        //console_log(data.playertoken + ',' + data.country + ',' + data.text_message + ',' + data.platform);
-                                        //constructData(data.playertoken, data.country, data.message, data.platform);
+                                        if (row.is_scheduled == true) {
+                                            const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
+                                                constructData(row.config_id, pre_compile_data, row.campaign_name);
+                                            });
+                                        } else {
+                                            constructData(row.config_id, pre_compile_data, row.campaign_name);
+                                        }
+
+
+                                        local_connection.query(`update cmw_config set status= 'sending' where config_id=${row.config_id}`, (err, res) => {
+                                            if (err) {
+                                                console_log(`Status_Update[Error]: ${err.message}`);
+                                            }
+                                        });
                                     } catch (err) {
                                         console_log(err);
                                         console_log('error contact number');
                                     }
-                                })
-                                .on('end', () => {
-                                    //console_log('done');
                                     //console.log(pre_compile_data);
+                                    break;
+                                case 'csv':
+                                    var pre_compile_data = [];
+                                    var dynamic_contact = row.config_id;
+                                    pre_compile_data[dynamic_contact];
+                                    //console.log(dynamic_contact);
+                                    fs.createReadStream('./uploads/data_leads/' + row.data_leads)
+                                        .pipe(csv())
+                                        .on('data', function (data) {
+                                            try {
+                                                pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'country': data.country, 'message_text': data.message_text, 'platform': data.platform, 'from': data.from, 'template_id': data.template_id, 'email_subject': data.email_subject, 'fromName': data.fromName, 'application_id': data.application_id, 'merge': data.merge }));
+                                                //console_log(data.playertoken + ',' + data.country + ',' + data.text_message + ',' + data.platform);
+                                                //constructData(data.playertoken, data.country, data.message, data.platform);
+                                            } catch (err) {
+                                                console_log(err);
+                                                console_log('error contact number');
+                                            }
+                                        })
+                                        .on('end', () => {
+                                            //console_log('done');
+                                            //console.log(pre_compile_data);
 
-                                    //constructData(row.config_id, pre_compile_data, row.campaign_name);
+                                            //constructData(row.config_id, pre_compile_data, row.campaign_name);
 
 
-                                    if (row.is_scheduled == true) {
-                                        const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
-                                            constructData(row.config_id, pre_compile_data, row.campaign_name);
+                                            if (row.is_scheduled == true) {
+                                                const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
+                                                    constructData(row.config_id, pre_compile_data, row.campaign_name);
+                                                });
+                                            } else {
+                                                constructData(row.config_id, pre_compile_data, row.campaign_name);
+                                            }
+
+
+                                            local_connection.query(`update cmw_config set status= 'sending' where config_id=${row.config_id}`, (err, res) => {
+                                                if (err) {
+                                                    console_log(`Status_Update[Error]: ${err.message}`);
+                                                }
+                                            });
                                         });
-                                    } else {
-                                        constructData(row.config_id, pre_compile_data, row.campaign_name);
-                                    }
+                                    break;
 
 
-                                    local_connection.query(`update cmw_config set status= 'sending' where config_id=${row.config_id}`, (err, res) => {
-                                        if (err) {
-                                            console_log(`Status_Update[Error]: ${err.message}`);
-                                        }
-                                    });
-                                });
+
+                                default:
+                                    console_log('data json not existing');
+                            }
                         })
+
                     }
                 })
             }, "10000")
@@ -679,8 +721,9 @@ insertConfig = async (_req, _res) => {
             data_leads = _req.files.data_leads[0].filename;
         } else {
             data_leads = 'Invalid Data Leads';
-            _res.status(400).json({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] });
-            console_log(JSON.stringify({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] }));
+            message = 'Data leads must be CSV or xlsx file only';
+            _res.status(400).json({ 'StatusCode': 400, 'Status': false, 'ErrorMessage': data_leads, 'Message': message });
+            console_log(JSON.stringify({ 'StatusCode': 400, 'Status': false, 'ErrorMessage': data_leads, 'Message': message }));
             return;
         }
     } else if (_req.body.data_source == 'json') {
@@ -688,14 +731,16 @@ insertConfig = async (_req, _res) => {
             data_leads = _req.body.data_leads
         } else {
             data_leads = 'Invalid Data Leads';
-            _res.status(400).json({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] });
-            console_log(JSON.stringify({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] }));
+            message = 'Data leads must be encoded in base64';
+            _res.status(400).json({ 'statusCode': 400, 'status': false, message: data_leads, 'Message': message });
+            console_log(JSON.stringify({ 'statusCode': 400, 'status': false, message: data_leads, 'Message': message }));
             return;
         }
     } else {
         data_leads = 'Invalid Data Source';
-        _res.status(400).json({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] });
-        console_log(JSON.stringify({ 'statusCode': 400, 'status': false, message: data_leads, 'data': [] }));
+        message = 'Data Source does not exist';
+        _res.status(400).json({ 'statusCode': 400, 'status': false, 'ErrorMessage': data_leads, 'Message': message });
+        console_log(JSON.stringify({ 'statusCode': 400, 'status': false, 'ErrorMessage': data_leads, 'Message': message }));
         return;
     }
     //console.log(data_leads);
@@ -783,14 +828,31 @@ API_ViewHistory = async (_req, _res) => {
 
 
 
-module.exports = function (app) {
+module.exports = function (app, jwt) {
+
+    function verifyToken(req, res, next) {
+        const tokenHeaderKey = process.env.TOKEN_HEADER_KEY;
+        const jwtSecretKey = process.env.JWT_SECRET_KEY;
+
+        try {
+            const token = req.header(tokenHeaderKey);
+            const verified = jwt.verify(token, jwtSecretKey);
+            if (verified) {
+                next();
+            } else {
+                return res.status(401).send("Token verification failed");
+            }
+        } catch (error) {
+            return res.status(401).send("Token verification failed");
+        }
+    }
 
     app.post('/upload/upload-config', upload.fields([
         {
             name: "data_leads",
             maxCount: 1,
         }
-    ]), insertConfig);
+    ]), verifyToken, insertConfig);
 
     app.post('/upload/upload-provider', upload.fields([]), insertProvider);
 
@@ -798,7 +860,7 @@ module.exports = function (app) {
 
     app.post('/stop_scheduled/:id', upload.fields([]), stopScheduled);
 
-    app.get('/api_history/view-history/:id', API_ViewHistory);
+    app.get('/api_history/view-history/:id', verifyToken, API_ViewHistory);
 
 
 
