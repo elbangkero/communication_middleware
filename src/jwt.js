@@ -15,14 +15,8 @@ async function ValidateUsername(username) {
 }
 async function authenticateLogin(username, password) {
 
-    bcrypt.compare(password, hash, (error, result) => {
-        if (error) console.log(error);
-        console.log(result);  // result is true when password and hashedPassword match
-    });
-
-    return local_connection.query(`select * FROM users where username = '${username}' and password ='${password}'`).then(res => {
-        const count = res.rowCount;
-        return count == 0 ? false : true;
+    return local_connection.query(`select password FROM users where username = '${username}'`).then(res => {
+        return res.rows[0].password;
     });
 }
 
@@ -111,26 +105,24 @@ module.exports = async function (app, jwt) {
 
     GenerateJWTToken = async (_req, _res) => {
 
-        bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(_req.body.password, salt, async function (err, hash) { 
+        const authLogin = await authenticateLogin(_req.body.username, _req.body.password);
+
+        console.log(authLogin);
 
         
-
-                const authLogin = await authenticateLogin(_req.body.username, hash);
-
-                console.log(authLogin);
-                let jwtSecretKey = process.env.JWT_SECRET_KEY;
-                let data = {
-                    "Username": "JavaInUse",
-                }
-                const token = jwt.sign(data, jwtSecretKey, { expiresIn: '365d' });
-
-                _res.send(token);
+        bcrypt.compare(password, hashedPassword, (error, result) => {
+            if (error) console.log(error);
+            console.log();
 
 
-            });
-        })
+            let jwtSecretKey = process.env.JWT_SECRET_KEY;
+            let data = {
+                "Username": "JavaInUse",
+            }
+            const token = jwt.sign(data, jwtSecretKey, { expiresIn: '365d' });
 
+            _res.send(token);
+        });
 
 
     };
