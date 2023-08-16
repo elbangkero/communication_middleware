@@ -16,7 +16,8 @@ async function ValidateUsername(username) {
 async function authenticateLogin(username, password) {
 
     return local_connection.query(`select password FROM users where username = '${username}'`).then(res => {
-        return res.rows[0].password;
+        const data = res.rowCount;
+        return data !== 0 ? res.rows[0].password : false;
     });
 }
 
@@ -106,23 +107,46 @@ module.exports = async function (app, jwt) {
     GenerateJWTToken = async (_req, _res) => {
 
         const authLogin = await authenticateLogin(_req.body.username, _req.body.password);
+        //console.log(authLogin);
+        let jwtSecretKey = process.env.JWT_SECRET_KEY;
 
-        console.log(authLogin);
+        if (!authLogin == false) {
+            bcrypt.compare(_req.body.password, authLogin, (error, result) => {
+                if (error) {
+                    const statusCode = '400';
+                    const message = 'Authentication failed';
+                    console_log(JSON.stringify({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] }));
+                    _res.status(200).json({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] });
+                    return;
+                }
+                if (!result) {
+                    const statusCode = '400';
+                    const message = 'Wrong password';
+                    console_log(JSON.stringify({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] }));
+                    _res.status(200).json({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] });
+                    return;
+                }
+                //console.log(result);
 
-        
-        bcrypt.compare(password, hashedPassword, (error, result) => {
-            if (error) console.log(error);
-            console.log();
+                let data = {
+                    "username": _req.body.username,
+                    "email": "email",
+                }
+                const statusCode = '200';
+                const message = 'Authentication Successfully';
+                const token = jwt.sign(data, jwtSecretKey, { expiresIn: '365d' });
+                console_log(JSON.stringify({ 'statusCode': statusCode, 'status': true, message: message, 'accessToken': token }));
+                _res.status(200).json({ 'statusCode': statusCode, 'status': true, message: message, 'accessToken': token });
+                return;
+            });
+        } else {
+            const statusCode = '400';
+            const message = 'Username does not exists';
+            console_log(JSON.stringify({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] }));
+            _res.status(200).json({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] });
+            return;
+        }
 
-
-            let jwtSecretKey = process.env.JWT_SECRET_KEY;
-            let data = {
-                "Username": "JavaInUse",
-            }
-            const token = jwt.sign(data, jwtSecretKey, { expiresIn: '365d' });
-
-            _res.send(token);
-        });
 
 
     };
