@@ -15,9 +15,12 @@ async function ValidateUsername(username) {
 }
 async function authenticateLogin(username, password) {
 
-    return local_connection.query(`select password FROM users where username = '${username}'`).then(res => {
+    return local_connection.query(`select password,email FROM users where username = '${username}'`).then(res => {
         const data = res.rowCount;
-        return data !== 0 ? res.rows[0].password : false;
+        return data !== 0 ? {
+            "password": res.rows[0].password,
+            "email": res.rows[0].email,
+        } : false;
     });
 }
 
@@ -107,11 +110,11 @@ module.exports = async function (app, jwt) {
     GenerateJWTToken = async (_req, _res) => {
 
         const authLogin = await authenticateLogin(_req.body.username, _req.body.password);
-        //console.log(authLogin);
+        //console.log(authLogin.password);
         let jwtSecretKey = process.env.JWT_SECRET_KEY;
 
         if (!authLogin == false) {
-            bcrypt.compare(_req.body.password, authLogin, (error, result) => {
+            bcrypt.compare(_req.body.password, authLogin.password, (error, result) => {
                 if (error) {
                     const statusCode = '400';
                     const message = 'Authentication failed';
@@ -121,7 +124,7 @@ module.exports = async function (app, jwt) {
                 }
                 if (!result) {
                     const statusCode = '400';
-                    const message = 'Wrong password';
+                    const message = 'Incorrect password';
                     console_log(JSON.stringify({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] }));
                     _res.status(200).json({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] });
                     return;
@@ -130,14 +133,27 @@ module.exports = async function (app, jwt) {
 
                 let data = {
                     "username": _req.body.username,
-                    "email": "email",
+                    "email": authLogin.email,
                 }
                 const statusCode = '200';
                 const message = 'Authentication Successfully';
                 const token = jwt.sign(data, jwtSecretKey, { expiresIn: '365d' });
-                console_log(JSON.stringify({ 'statusCode': statusCode, 'status': true, message: message, 'accessToken': token }));
-                _res.status(200).json({ 'statusCode': statusCode, 'status': true, message: message, 'accessToken': token });
-                return;
+
+                local_connection.query(`UPDATE users SET token = '${token}' WHERE username = '${_req.body.username}'`, (err, res) => {
+                    if (err) {
+                        console_log(`UpdateToken[Error]: ${err.message}`);
+                    } else {
+                        console_log(JSON.stringify({ 'statusCode': statusCode, 'status': true, message: message, 'accessToken': token }));
+                        _res.status(200).json({ 'statusCode': statusCode, 'status': true, message: message, 'accessToken': token });
+                        return;
+
+                    }
+                });
+
+
+
+
+
             });
         } else {
             const statusCode = '400';
@@ -151,28 +167,11 @@ module.exports = async function (app, jwt) {
 
     };
 
-    ValidateJWTToken = async (_req, _res) => {
-        let tokenHeaderKey = process.env.TOKEN_HEADER_KEY;
-        let jwtSecretKey = process.env.JWT_SECRET_KEY;
-        console.log(tokenHeaderKey);
-        try {
-            const token = _req.header(tokenHeaderKey);
 
-            const verified = jwt.verify(token, jwtSecretKey);
-            if (verified) {
-                return _res.send("Successfully Verified");
-            } else {
-                return _res.status(401).send(error);
-            }
-        } catch (error) {
-            return _res.status(401).send(error);
-        }
-    };
 
 
     app.post("/create-user", upload.fields([]), CreateUser);
     app.post("/generate-token", upload.fields([]), GenerateJWTToken);
-    app.get("/validate-token", ValidateJWTToken);
 
 
 };

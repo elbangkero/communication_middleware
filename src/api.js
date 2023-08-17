@@ -33,16 +33,17 @@ const environment = `${process.env.ENVIRONMENT}`;
                             const data_source = row.data_source;
                             switch (data_source) {
                                 case 'json':
-                                    var pre_compile_data = [];
-                                    var dynamic_contact = row.config_id;
-                                    pre_compile_data[dynamic_contact];
-
-                                    const utf8encoded = (new Buffer.from(row.data_leads, 'base64')).toString('utf8');
-                                    const obj = JSON.parse(utf8encoded);
-
-                                    pre_compile_data.push(JSON.stringify({ 'player_token': obj.data_leads.playertoken, 'country': obj.data_leads.country, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge }));
-
                                     try {
+                                        var pre_compile_data = [];
+                                        var dynamic_contact = row.config_id;
+                                        pre_compile_data[dynamic_contact];
+
+                                        const utf8encoded = (new Buffer.from(row.data_leads, 'base64')).toString('utf8');
+                                        const obj = JSON.parse(utf8encoded);
+
+                                        pre_compile_data.push(JSON.stringify({ 'player_token': obj.data_leads.playertoken, 'country': obj.data_leads.country, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge }));
+
+
                                         if (row.is_scheduled == true) {
                                             const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
                                                 constructData(row.config_id, pre_compile_data, row.campaign_name);
@@ -58,8 +59,14 @@ const environment = `${process.env.ENVIRONMENT}`;
                                             }
                                         });
                                     } catch (err) {
-                                        console_log(err);
-                                        console_log('error contact number');
+
+                                        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${row.config_id}`, (err, res) => {
+                                            if (err) {
+                                                console_log(`Status_Update[Error]: ${err.message}`);
+                                            }
+                                            console_log(err);
+                                            console_log('Error Json format');
+                                        });
                                     }
                                     //console.log(pre_compile_data);
                                     break;
@@ -107,7 +114,7 @@ const environment = `${process.env.ENVIRONMENT}`;
 
 
                                 default:
-                                    console_log('data json not existing');
+                                    console_log('Incorrect Dataleads');
                             }
                         })
 
@@ -833,17 +840,23 @@ module.exports = function (app, jwt) {
     function verifyToken(req, res, next) {
         const tokenHeaderKey = process.env.TOKEN_HEADER_KEY;
         const jwtSecretKey = process.env.JWT_SECRET_KEY;
-
+        const statusCode = '400';
+        const message = 'Token Verification Failed';
         try {
             const token = req.header(tokenHeaderKey);
             const verified = jwt.verify(token, jwtSecretKey);
             if (verified) {
                 next();
             } else {
-                return res.status(401).send("Token verification failed");
+
+                console_log(JSON.stringify({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] }));
+                res.status(200).json({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] });
+                return;
             }
         } catch (error) {
-            return res.status(401).send("Token verification failed");
+            console_log(JSON.stringify({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] }));
+            res.status(200).json({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] });
+            return;
         }
     }
 
