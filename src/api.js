@@ -867,11 +867,11 @@ module.exports = function (app, jwt) {
         }
     ]), verifyToken, insertConfig);
 
-    app.post('/upload/upload-provider', upload.fields([]), insertProvider);
+    app.post('/upload/upload-provider', upload.fields([]), verifyToken, insertProvider);
 
-    app.post('/upload/provider-account', upload.fields([]), insertProviderAccount);
+    app.post('/upload/provider-account', upload.fields([]), verifyToken, insertProviderAccount);
 
-    app.post('/stop_scheduled/:id', upload.fields([]), stopScheduled);
+    app.post('/stop_scheduled/:id', upload.fields([]), verifyToken, stopScheduled);
 
     app.get('/api_history/view-history/:id', verifyToken, API_ViewHistory);
 
