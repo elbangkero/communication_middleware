@@ -151,7 +151,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
             var row_number = index;
             //console.log(obj.player_token, obj.country, obj.text_message, obj.platform);
             //counter.success++;
-            joystick_connection.query(`select pdr.email,pdr.phone_number from  afun_afun.player_data pd   
+            joystick_connection.query(`select pdr.email,pdr.phone_number,pd.classificationcode from  afun_afun.player_data pd   
             left join afun_afun.player_data_revision pdr on pdr.playerid = pd.playerid 
             and pdr.dw_iscurrent = '1'
             where pd.playertoken ='${obj.player_token}'`, (err, res) => {
@@ -230,7 +230,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                                 }
                                             });
                                     } else if (row_provider.provider_code == process.env.PROVIDER_ABENLA_SMS) {
-                                        await PROVIDER_ABENLA_SMS(obj.message_text, row.phone_number, obj.country)
+                                        await PROVIDER_ABENLA_SMS(obj.message_text, row.phone_number, obj.country, row.classificationcode)
                                             .then(function (response) {
                                                 console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                 query_instant++
@@ -262,7 +262,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                         console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                         dynamic_counter.counter.fails++
                                         query_instant++
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, '', '', obj.application_id, obj.merge);
+                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist in sms platform"}', obj.from, '', '', obj.application_id, obj.merge);
                                         if (pre_compile_data.length == query_instant) {
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
@@ -283,7 +283,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                     console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                     dynamic_counter.counter.fails++
                                     query_instant++
-                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, '', '', obj.application_id, obj.merge);
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist in sms platform"}', obj.from, '', '', obj.application_id, obj.merge);
                                     if (pre_compile_data.length == query_instant) {
                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                         dynamic_counter.counter.success = 0;
@@ -339,7 +339,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                         console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                         dynamic_counter.counter.fails++
                                         query_instant++
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge);
+                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist in email platform"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge);
                                         if (pre_compile_data.length == query_instant) {
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
@@ -358,7 +358,7 @@ function constructData(config_id, pre_compile_data, campaign_name) {
                                     console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                     dynamic_counter.counter.fails++
                                     query_instant++
-                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge);
+                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', obj.country, obj.message_text, 'failed', '{"message":"Provider does not exist in email platform"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge);
                                     if (pre_compile_data.length == query_instant) {
                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                         dynamic_counter.counter.success = 0;
@@ -417,33 +417,46 @@ async function storeMessageHistory(config_id, campaign_name, player_token, playe
 
 
 
-async function API_Abenla_Account_SMS(country_code) {
-    const res = await local_connection.query(`SELECT username,md5key,endpoint FROM cmw_acct_providers cap
-    left join cmw_providers cp on cp.provider_code = cap.provider_code 
-    where cap.provider_code = '${process.env.PROVIDER_ABENLA_SMS}' and cap.country_code = '${country_code}' LIMIT 1`);
-    const data = res.rows;
+async function API_Abenla_Account_SMS(country_code, classificationcode) {
+    const vip_classification = ['VVIP', 'VIP_DEAL', 'VIP4', 'VIP3', 'VIP2', 'VIP1', 'VIP0', 'VIP 1', 'VIP'];
+    const ClassResult = vip_classification.includes(classificationcode);
+
+    if (ClassResult) {
+        const res = await local_connection.query(`SELECT username,md5key,endpoint FROM cmw_acct_providers cap
+        left join cmw_providers cp on cp.provider_code = cap.provider_code 
+        where cap.provider_code = '${process.env.PROVIDER_ABENLA_SMS}' and cap.country_code = '${country_code}' and rand = 'VIP' LIMIT 1`);
+        var data = res.rows;
+
+    } else {
+        const res = await local_connection.query(`SELECT username,md5key,endpoint FROM cmw_acct_providers cap
+        left join cmw_providers cp on cp.provider_code = cap.provider_code 
+        where cap.provider_code = '${process.env.PROVIDER_ABENLA_SMS}' and cap.country_code = '${country_code}' and rand = 'Regular' LIMIT 1`);
+        var data = res.rows;
+    }
 
     const results = await Promise.all(
         data.map(async row => {
             return { "loginName": row.username, "sign": row.md5key, "endpoint": row.endpoint };
         })
     );
+
     if (results.length > 0) {
         return results[0];
     } else {
         return { "loginName": "", "sign": "", "endpoint": "" };
     }
+
 }
 
 
-async function PROVIDER_ABENLA_SMS(message, phone_number, country_code) {
+async function PROVIDER_ABENLA_SMS(message, phone_number, country_code, classificationcode) {
 
-    API_Abenla_Account_SMS(country_code);
-    const ServiceTypeId = 50;
+    //API_Abenla_Account_SMS(country_code, classificationcode);
+    const ServiceTypeId = 550;
     const callBack = false;
-    const brandName = 'HQGlobal';
+    const brandName = 'LongCode';
     return new Promise(async (resolve, reject) => {
-        const result = await API_Abenla_Account_SMS(country_code);
+        const result = await API_Abenla_Account_SMS(country_code, classificationcode);
         let config = {
             method: 'get',
             maxBodyLength: Infinity,
