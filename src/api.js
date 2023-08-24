@@ -834,17 +834,6 @@ stopScheduled = async (_req, _res) => {
 }
 
 
-API_ViewHistory = async (_req, _res) => {
-    local_connection.query(`select * from cmw_history where history_id ='${_req.params.id}'`, (err, res) => {
-        if (err) {
-            console.error('Error fetching data:', err);
-            _res.status(500).json({ error: 'Internal Server Error' });
-        } else {
-            _res.json({ data: res.rows });
-        }
-    });
-};
-
 
 
 
@@ -886,7 +875,6 @@ module.exports = function (app, jwt) {
 
     app.post('/stop_scheduled/:id', upload.fields([]), verifyToken, stopScheduled);
 
-    app.get('/api_history/view-history/:id', verifyToken, API_ViewHistory);
 
 
 

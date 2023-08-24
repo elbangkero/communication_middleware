@@ -230,3 +230,16 @@ exports.API_DisplayTriggers = async (_req, _res) => {
     }
 };
 
+exports.API_ViewHistory = async (_req, _res) => {
+    local_connection.query(`select * from cmw_history where history_id ='${_req.params.id}'`, (err, res) => {
+        if (err) {
+            console.error('Error fetching data:', err);
+            _res.status(500).json({ error: 'Internal Server Error' });
+        } else {
+            _res.json({ data: res.rows });
+        }
+    });
+};
+
+
+
