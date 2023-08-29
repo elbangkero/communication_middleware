@@ -15,7 +15,9 @@ const environment = `${process.env.ENVIRONMENT}`;
 //let counter = { fails: 0, success: 0 };
 (async () => {
     const client = await local_connection.connect();
-    client.on('error', console.error);
+    local_connection.on('error', (err) => {
+        console_log('Local connection error', err); 
+    });
     await client.query('LISTEN cmw_listener');
     client.on('notification', function (data) {
         getConfig(parseInt(data.payload));
