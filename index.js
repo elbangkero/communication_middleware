@@ -9,7 +9,6 @@ app.options('*', cors());
 const jwt = require('jsonwebtoken');
 require('./src/api')(app, jwt);
 require('./src/jwt')(app, jwt);
-require('./src/ftp_api')(app);
 require('./src/views/index')(app);
 require('./src/elastic_email_logs');
 

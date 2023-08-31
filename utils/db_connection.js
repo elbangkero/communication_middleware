@@ -24,7 +24,7 @@ const local_connection = new Pool
 
 
 function joystick_client() {
-    joystick_connection.connect((err, client) => {
+    joystick_connection.query(`SELECT 1`, (err, res) => {
         if (err) {
             console_log(`Error connecting to {${process.env.JOYSTICK_HOST}}`);
             setTimeout(joystick_client, 60000);
@@ -35,7 +35,7 @@ function joystick_client() {
 }
 
 function local_client() {
-    local_connection.connect((err, client) => {
+    local_connection.query(`SELECT 1`, (err, res) => {
         if (err) {
             console_log(`Error connecting to {${process.env.LOCAL_HOST}}`);
             setTimeout(local_client, 60000);
@@ -46,23 +46,9 @@ function local_client() {
 }
 
 
-joystick_connection.on('error', (err) => {
-    console_log('Joystick Database error',err);
-    setTimeout(joystick_client, 60000);
-});
-
-local_connection.on('error', (err) => {
-    console_log('Local connection error',err);
-    setTimeout(local_client, 60000);
-});
-
-
-
 joystick_client();
 local_client();
 
 
 
-
-
-module.exports = { joystick_connection, local_connection,joystick_client};
+module.exports = { joystick_connection, local_connection };
