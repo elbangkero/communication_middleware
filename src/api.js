@@ -483,7 +483,13 @@ async function PROVIDER_ABENLA_SMS(message, phone_number, country_code, classifi
                 }
             })
             .catch((error) => {
-                reject(error);
+                var ErrorMEssage = {
+                    "data": {
+                        "SmsPerMessage": 1, "Code": 110, "Message": "SendSmsFail"
+                    }
+                };
+                reject(ErrorMEssage);
+
             });
 
     });
