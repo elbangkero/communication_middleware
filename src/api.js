@@ -45,7 +45,7 @@ const environment = `${process.env.ENVIRONMENT}`;
                                             const utf8encoded = (new Buffer.from(row.data_leads, 'base64')).toString('utf8');
                                             const obj = JSON.parse(utf8encoded);
 
-                                            pre_compile_data.push(JSON.stringify({ 'player_token': obj.data_leads.playertoken, 'country': obj.data_leads.country, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge }));
+                                            pre_compile_data.push(JSON.stringify({ 'player_token': obj.data_leads.playertoken, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge }));
 
 
                                             if (row.is_scheduled == true) {
