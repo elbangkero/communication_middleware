@@ -8,8 +8,8 @@ const schedule = require('node-schedule');
 const qs = require('qs');
 const md5 = require("md5");
 
-var interval = 3000;
-
+const interval = `${process.env.INTERVAL_TIME}`;
+const throttling = `${process.env.THROTTLING_TIME}`;
 
 const environment = `${process.env.ENVIRONMENT}`;
 //let counter = { fails: 0, success: 0 };
@@ -126,7 +126,7 @@ const environment = `${process.env.ENVIRONMENT}`;
                     }
 
                 })
-            }, "10000")
+            }, throttling)
         }
 
     });
