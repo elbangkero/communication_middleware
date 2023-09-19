@@ -1,4 +1,4 @@
-const { local_connection } = require('../utils/db_connection');
+const { local_connection } = require('../../utils/db_connection');
 const multer = require('multer');
 const axios = require('axios');
 const https = require('https');
