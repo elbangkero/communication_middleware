@@ -781,12 +781,14 @@ insertConfig = async (_req, _res) => {
         console_log(JSON.stringify({ 'statusCode': 400, 'status': false, 'ErrorMessage': data_leads, 'Message': message }));
         return;
     }
-    //console.log(data_leads);
 
     const start_at = _req.body.start_at;
-    let parseISO = new Date(start_at).toISOString();
-    const parseStartAt = new Date(parseISO).toLocaleString();
-    local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_scheduled) VALUES ('pending','active','${local_time}','${local_time}','${parseISO}','${sending}','${_req.body.data_source}','${_req.body.campaign_name}','${data_leads}','${is_scheduled}')`, (err, res) => {
+    const parsedDate = new Date(start_at);
+
+     
+    var parseISO = !isNaN(parsedDate) ? parsedDate.toISOString() : '1998-10-06 00:00:00.000';
+    
+    local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_scheduled,site_id) VALUES ('pending','active','${local_time}','${local_time}','${parseISO}','${sending}','${_req.body.data_source}','${_req.body.campaign_name}','${data_leads}','${is_scheduled}','${_req.body.site_id}')`, (err, res) => {
         if (err) {
             console_log(`insertConfig[Error]: ${err.message}`);
         } else {
@@ -794,7 +796,6 @@ insertConfig = async (_req, _res) => {
             _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] });
         }
     });
-
 }
 
 insertProvider = async (_req, _res) => {
