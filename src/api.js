@@ -1,5 +1,5 @@
 
-const { local_connection, joystick_connection, joystick_client } = require('../utils/db_connection');
+const { local_connection, joystick_connection } = require('../utils/db_connection');
 const { SpinTheWheelSender } = require('./custom_site_api/wheel_api');
 const { ElasticEmailSender } = require('./provider_api/elastic_email');
 const { AbenlaSMSSender } = require('./provider_api/abenla_sms');
@@ -17,7 +17,6 @@ const schedule = require('node-schedule');
 const interval = `${process.env.INTERVAL_TIME}`;
 const throttling = `${process.env.THROTTLING_TIME}`;
 
-const environment = `${process.env.ENVIRONMENT}`;
 //let counter = { fails: 0, success: 0 };
 (async () => {
     const client = await local_connection.connect();

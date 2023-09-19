@@ -44,7 +44,7 @@ async function AbenlaSMSSender(message, phone_number, country_code, classificati
         let config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: `${result.endpoint}?loginName = ${result.loginName}& sign=${result.sign}& phoneNumber=${phone_number}& message=${message}& brandName=${brandName}& callBack=${callBack}& smsGuid=& serviceTypeId=${ServiceTypeId} `,
+            url: `${result.endpoint}?loginName=${result.loginName}&sign=${result.sign}&phoneNumber=${phone_number}&message=${message}&brandName=${brandName}&callBack=${callBack}&smsGuid=&serviceTypeId=${ServiceTypeId}`,
             headers: {}
         };
 

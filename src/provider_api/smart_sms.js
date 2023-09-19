@@ -1,8 +1,9 @@
 const { local_connection } = require('../../utils/db_connection');
 const axios = require('axios');
+ 
 
 async function apiAccount(country_code) {
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${process.env.PROVIDER_SMS_SMART}' and country_code = '${country_code}' and environment = '${environment}' LIMIT 1`);
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${process.env.PROVIDER_SMS_SMART}' and country_code = '${country_code}' and environment = '${process.env.ENVIRONMENT}' LIMIT 1`);
     const data = res.rows;
 
     const results = await Promise.all(

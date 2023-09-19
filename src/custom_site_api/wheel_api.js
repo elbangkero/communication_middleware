@@ -3,7 +3,7 @@ const axios = require('axios');
 
 async function ElasticEmailAccount(country_code) {
 
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${process.env.PROVIDER_ELASTIC_EMAIL}'  and country_code like '${country_code}' LIMIT 1`);
+    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${process.env.PROVIDER_ELASTIC_EMAIL}'  and rand = 'Spin The Wheel' LIMIT 1`);
     const data = res.rows;
 
     const results = await Promise.all(
