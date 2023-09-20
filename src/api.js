@@ -5,8 +5,8 @@ const { ElasticEmailSender } = require('./provider_api/elastic_email');
 const { AbenlaSMSSender } = require('./provider_api/abenla_sms');
 const { AbosendSMSSender } = require('./provider_api/abosend_sms');
 const { SmartSMSSender } = require('./provider_api/smart_sms');
-
-
+const ControllerAPI = require('./Http/Controller/ControllerAPI');
+const _ControllerAPI = new ControllerAPI();
 const multer = require('multer');
 const fs = require('fs');
 const csv = require('csv-parser');
@@ -178,9 +178,9 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
 
 
                         //SPEFICY SITE SENDER
-                        const res = await local_connection.query(`SELECT sitename FROM cmw_site_config where site_id = '${site_id}' LIMIT 1`);
-                        const data = res.rows;
+                        const data = await _ControllerAPI.GetSiteName(site_id);
                         if (data.length === 0 || data[0].sitename === 'Invalid') {
+                            console.log('Invalid');
                             console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                             dynamic_counter.counter.fails++
                             query_instant++
@@ -198,6 +198,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                             }
                             return;
                         } else if (res.rowCount != 0 && data[0].sitename === 'Spin The Wheel') {
+                            console.log('Spin The Wheel');
                             await SpinTheWheelSender(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, row.country, obj.merge).then(function (response) {
                                 console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                 query_instant++
@@ -465,8 +466,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
 
 
 async function storeMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id, merge, brandcode) {
-
-    const res = await local_connection.query(`select brand_id from cmw_brands cb where brandcode = '${brandcode}' limit 1; `);
+    const res = await _ControllerAPI.GetBrandID(brandcode);
     const brand_id = res.rows[0].brand_id;
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
@@ -548,9 +548,9 @@ insertConfig = async (_req, _res) => {
     const start_at = _req.body.start_at;
     const parsedDate = new Date(start_at);
 
-
     var parseISO = !isNaN(parsedDate) ? parsedDate.toISOString() : '1998-10-06 00:00:00.000';
-    const site_id = _req.body.site_id ? _req.body.site_id : 1;
+    const site_id = await _ControllerAPI.GetValidateSiteID(_req.body.site_id) ? _req.body.site_id : 1;
+
     local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_scheduled,site_id) VALUES ('pending','active','${local_time}','${local_time}','${parseISO}','${sending}','${_req.body.data_source}','${_req.body.campaign_name}','${data_leads}','${is_scheduled}','${site_id}')`, (err, res) => {
         if (err) {
             console_log(`insertConfig[Error]: ${err.message}`);
