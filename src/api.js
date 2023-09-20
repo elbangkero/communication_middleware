@@ -166,10 +166,10 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
             left join afun_afun.player_data_revision pdr on pdr.playerid = pd.playerid 
             left join afun_afun.site_config sc on sc.siteid = pd.siteid 
             where pdr.dw_iscurrent = '1'
-            and pd.playertoken ='${obj.player_token}'`, (err, res) => {
+            and pd.playertoken ='${obj.player_token}'`, async (err, res) => {
 
                 if (err) {
-                    storeMessageHistory(config_id, campaign_name, obj.player_token, '', obj.platform, '', obj.message_text, 'failed', err.message, obj.from, '', '', obj.application_id, obj.merge, '');
+                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, '', obj.platform, '', obj.message_text, 'failed', err.message, obj.from, '', '', obj.application_id, obj.merge, '');
                     console_log('Error player data query');
                 } else {
                     const data = res.rows;
@@ -184,7 +184,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                             console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                             dynamic_counter.counter.fails++
                             query_instant++
-                            storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, '', row.country, obj.message_text, 'failed', '{"message":"Invalid Site ID"}', obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                            await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, '', row.country, obj.message_text, 'failed', '{"message":"Invalid Site ID"}', obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                             if (pre_compile_data.length == query_instant) {
                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                 dynamic_counter.counter.success = 0;
@@ -199,16 +199,16 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                             return;
                         } else if (res.rowCount != 0 && data[0].sitename === 'Spin The Wheel') {
                             console.log('Spin The Wheel');
-                            await SpinTheWheelSender(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, row.country, obj.merge).then(function (response) {
+                            await SpinTheWheelSender(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, row.country, obj.merge).then(async function (response) {
                                 console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                 query_instant++
                                 dynamic_counter.counter.success++;
-                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
-                            }).catch(function (error) {
+                                await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
+                            }).catch(async function (error) {
                                 console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                 dynamic_counter.counter.fails++
                                 query_instant++
-                                storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
+                                await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
                             }).finally(async function () {
                                 if (pre_compile_data.length == query_instant) {
                                     console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
@@ -230,10 +230,10 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
 
                         //GENERAL SENDER
                         if (obj.platform == 'sms') {
-                            local_connection.query(`SELECT * FROM cmw_providers where application_id = '${obj.application_id}'`, (err, res) => {
+                            local_connection.query(`SELECT * FROM cmw_providers where application_id = '${obj.application_id}'`, async (err, res) => {
                                 if (err) {
                                     //console_log(`[Error]: ${err.message}`);
-                                    storeMessageHistory(config_id, campaign_name, obj.player_token, '', '', row.country, obj.message_text, 'failed', err.message, obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, '', '', row.country, obj.message_text, 'failed', err.message, obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                                 }
                                 else {
                                     const data = res.rows;
@@ -242,23 +242,23 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                         if (row_provider.provider_code == process.env.PROVIDER_SMS_SMART) {
 
                                             await SmartSMSSender(obj.message_text, obj.from, row.phone_number, row.country)
-                                                .then(function (response) {
+                                                .then(async function (response) {
                                                     //console.log('success');
                                                     console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                     //counter.success++;
                                                     query_instant++
                                                     dynamic_counter.counter.success++;
                                                     //console.log(response.data);
-                                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                                                 })
-                                                .catch(function (error) {
+                                                .catch(async function (error) {
                                                     //console.log('error');
                                                     console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                                     //counter.fails++;
                                                     dynamic_counter.counter.fails++
                                                     query_instant++
                                                     //console.error(error.response.data);
-                                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', JSON.stringify(error.response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', JSON.stringify(error.response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                                                 })
                                                 .finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
@@ -277,17 +277,17 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 });
                                         } else if (row_provider.provider_code == process.env.PROVIDER_ABOSEND) {
                                             await AbosendSMSSender(obj.message_text, obj.from, row.phone_number, row.country, row_number)
-                                                .then(function (response) {
+                                                .then(async function (response) {
                                                     console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                     query_instant++
                                                     dynamic_counter.counter.success++;
-                                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                                                 })
-                                                .catch(function (error) {
+                                                .catch(async function (error) {
                                                     console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                                     dynamic_counter.counter.fails++
                                                     query_instant++
-                                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                                                 })
                                                 .finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
@@ -304,17 +304,17 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 });
                                         } else if (row_provider.provider_code == process.env.PROVIDER_ABENLA_SMS) {
                                             await AbenlaSMSSender(obj.message_text, row.phone_number, row.country, row.classificationcode)
-                                                .then(function (response) {
+                                                .then(async function (response) {
                                                     console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                     query_instant++
                                                     dynamic_counter.counter.success++;
-                                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                                                 })
-                                                .catch(function (response) {
+                                                .catch(async function (response) {
                                                     console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                                     dynamic_counter.counter.fails++
                                                     query_instant++
-                                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                                                 })
                                                 .finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
@@ -335,7 +335,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                             console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                             dynamic_counter.counter.fails++
                                             query_instant++
-                                            storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in sms platform"}', obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                            await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in sms platform"}', obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                                             if (pre_compile_data.length == query_instant) {
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
@@ -356,7 +356,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                         console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                         dynamic_counter.counter.fails++
                                         query_instant++
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in sms platform"}', obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                        await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in sms platform"}', obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                                         if (pre_compile_data.length == query_instant) {
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
@@ -373,10 +373,10 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                             })
                         }
                         else if (obj.platform == 'email') {
-                            local_connection.query(`SELECT * FROM cmw_providers where application_id = '${obj.application_id}'`, (err, res) => {
+                            local_connection.query(`SELECT * FROM cmw_providers where application_id = '${obj.application_id}'`, async (err, res) => {
                                 if (err) {
                                     console_log(`[Error]: ${err.message}`);
-                                    storeMessageHistory(config_id, campaign_name, obj.player_token, '', '', row.country, obj.message_text, 'failed', err.message, obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, '', '', row.country, obj.message_text, 'failed', err.message, obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                                 }
                                 else {
                                     const data = res.rows;
@@ -386,18 +386,18 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
 
 
                                             await ElasticEmailSender(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, row.country, obj.merge)
-                                                .then(function (response) {
+                                                .then(async function (response) {
                                                     console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                     query_instant++
                                                     dynamic_counter.counter.success++;
                                                     // console.log(JSON.stringify(response.data));
-                                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
-                                                }).catch(function (error) {
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
+                                                }).catch(async function (error) {
                                                     console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                                     dynamic_counter.counter.fails++
                                                     query_instant++
                                                     //console.log(error.data);
-                                                    storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
                                                 }).finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
                                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
@@ -419,7 +419,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                             console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                             dynamic_counter.counter.fails++
                                             query_instant++
-                                            storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in email platform"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
+                                            await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in email platform"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
                                             if (pre_compile_data.length == query_instant) {
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
@@ -438,7 +438,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                         console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                         dynamic_counter.counter.fails++
                                         query_instant++
-                                        storeMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in email platform"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
+                                        await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in email platform"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
                                         if (pre_compile_data.length == query_instant) {
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
@@ -462,20 +462,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
     });
 
 }
-
-
-
-async function storeMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id, merge, brandcode) {
-    const res = await _ControllerAPI.GetBrandID(brandcode);
-    const brand_id = res.rows[0].brand_id;
-    let local_time = new Date().toISOString();
-    const date_now = new Date(local_time).toLocaleString();
-    local_connection.query(`INSERT INTO cmw_history(config_id, campaign_name, player_token, player_contact, platform, country, message, status, created_at, updated_at, api_response, from_sender, email_subject, template_id, application_id, merge, brand_id) VALUES('${config_id}', '${campaign_name}', '${player_token}', '${player_contact}', '${platform}', '${country}', '${message}', '${status}', '${local_time}', '${local_time}', '${api_response}', '${from}', '${email_subject}', '${template_id}', '${application_id}', '${merge}', '${brand_id}')`, (err, res) => {
-        if (err) {
-            console_log(`storeMessageHistory[Error]: ${err} `);
-        }
-    });
-}
+ 
 
 const multerStorage = multer.diskStorage({
 
