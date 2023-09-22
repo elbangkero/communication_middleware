@@ -177,10 +177,10 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
 
 
 
-                        //SPEFICY SITE SENDER
+                        //SPECIFY SITE SENDER
                         const data = await _ControllerAPI.GetSiteName(site_id);
                         if (data.length === 0 || data[0].sitename === 'Invalid') {
-                            console.log('Invalid');
+                            //console.log('Invalid');
                             console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                             dynamic_counter.counter.fails++
                             query_instant++
@@ -198,7 +198,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                             }
                             return;
                         } else if (res.rowCount != 0 && data[0].sitename === 'Spin The Wheel') {
-                            console.log('Spin The Wheel');
+                            //console.log('Spin The Wheel');
                             await SpinTheWheelSender(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, row.country, obj.merge).then(async function (response) {
                                 console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                 query_instant++
@@ -224,7 +224,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                             });
                             return;
                         }
-                        //SPEFICY SITE SENDER
+                        //SPECIFY SITE SENDER
 
 
 
