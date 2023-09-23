@@ -4,6 +4,10 @@ const Brands = require('../Classes/Brands');
 const _Brands = new Brands();
 const History = require('../Classes/History');
 const _History = new History();
+const Config = require('../Classes/Config');
+const _Config = new Config();
+const Providers = require('../Classes/Providers');
+const _Providers = new Providers();
 
 async function GetValidateSiteID(site_id) {
     const result = await _SiteConfig.setConfig(site_id);
@@ -22,9 +26,24 @@ async function GetStoreMessageHistory(config_id, campaign_name, player_token, pl
     await _History.setMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id, merge, local_time, brand_id);
 
 }
-
+async function GetListenerPayload() {
+    return await _Config.SetListenerPayload();
+}
+async function GetUpdateConfigSending(config_id) {
+    return await _Config.SetUpdateConfigSending(config_id);
+}
+async function GetUpdateConfigSent(config_id) {
+    return await _Config.SetUpdateConfigSent(config_id);
+}
+async function GetProviders(application_id) {
+    return await _Providers.SetProviders(application_id);
+}
 module.exports = function () {
     this.GetValidateSiteID = GetValidateSiteID;
     this.GetSiteName = GetSiteName;
     this.GetStoreMessageHistory = GetStoreMessageHistory;
+    this.GetListenerPayload = GetListenerPayload;
+    this.GetUpdateConfigSending = GetUpdateConfigSending;
+    this.GetUpdateConfigSent = GetUpdateConfigSent;
+    this.GetProviders = GetProviders;
 }

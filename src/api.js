@@ -25,112 +25,91 @@ const throttling = `${process.env.THROTTLING_TIME}`;
         getConfig(parseInt(data.payload));
         //console.log("data", JSON.parse(data.payload)) ;
         function getConfig(dataload) {
-            setTimeout(() => {
-                local_connection.query(`SELECT * FROM cmw_config where triggerstatus='active' and sending ='true' and status !='sending'`, (err, res) => {
-                    if (err) {
-                        console_log(`Connection[Error]: ${err.message}`);
-                    }
-                    else {
-                        const data = res.rows;
-                        console_log(`Config queue count : ${res.rowCount}`);
+            setTimeout(async () => {
+                const res = await _ControllerAPI.GetListenerPayload();
+                const data = res.rows;
+                console_log(`Config queue count : ${res.rowCount}`);
 
-                        console_log(`payload : ${dataload}`);
-                        const callback = dataload == res.rowCount;
-                        if (callback) {
+                console_log(`payload : ${dataload}`);
+                const callback = dataload == res.rowCount;
+                if (callback) {
+                    data.forEach(async row => {
+                        const data_source = row.data_source;
+                        switch (data_source) {
+                            case 'json':
+                                try {
+                                    var pre_compile_data = [];
+                                    var dynamic_contact = row.config_id;
+                                    pre_compile_data[dynamic_contact];
 
-                            data.forEach(row => {
-                                const data_source = row.data_source;
-                                switch (data_source) {
-                                    case 'json':
-                                        try {
-                                            var pre_compile_data = [];
-                                            var dynamic_contact = row.config_id;
-                                            pre_compile_data[dynamic_contact];
+                                    const utf8encoded = (new Buffer.from(row.data_leads, 'base64')).toString('utf8');
+                                    const obj = JSON.parse(utf8encoded);
 
-                                            const utf8encoded = (new Buffer.from(row.data_leads, 'base64')).toString('utf8');
-                                            const obj = JSON.parse(utf8encoded);
-
-                                            pre_compile_data.push(JSON.stringify({ 'player_token': obj.data_leads.playertoken, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge }));
+                                    pre_compile_data.push(JSON.stringify({ 'player_token': obj.data_leads.playertoken, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge }));
 
 
-                                            if (row.is_scheduled == true) {
-                                                const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
-                                                    constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
-                                                });
-                                            } else {
-                                                constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
-                                            }
+                                    if (row.is_scheduled == true) {
+                                        const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
+                                            constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                        });
+                                    } else {
+                                        constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                    }
+
+                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
 
 
-                                            local_connection.query(`update cmw_config set status= 'sending' where config_id=${row.config_id}`, (err, res) => {
-                                                if (err) {
-                                                    console_log(`Status_Update[Error]: ${err.message}`);
-                                                }
-                                            });
-                                        } catch (err) {
-
-                                            local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${row.config_id}`, (err, res) => {
-                                                if (err) {
-                                                    console_log(`Status_Update[Error]: ${err.message}`);
-                                                }
-                                                console_log(err);
-                                                console_log('Error Json format');
-                                            });
-                                        }
-                                        //console.log(pre_compile_data);
-                                        break;
-                                    case 'csv':
-                                        var pre_compile_data = [];
-                                        var dynamic_contact = row.config_id;
-                                        pre_compile_data[dynamic_contact];
-                                        //console.log(dynamic_contact);
-                                        fs.createReadStream('./uploads/data_leads/' + row.data_leads)
-                                            .pipe(csv())
-                                            .on('data', function (data) {
-                                                try {
-                                                    pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'message_text': data.message_text, 'platform': data.platform, 'from': data.from, 'template_id': data.template_id, 'email_subject': data.email_subject, 'fromName': data.fromName, 'application_id': data.application_id, 'merge': data.merge }));
-                                                    //console_log(data.playertoken + ',' + data.country + ',' + data.text_message + ',' + data.platform);
-                                                    //constructData(data.playertoken, data.country, data.message, data.platform);
-                                                } catch (err) {
-                                                    console_log(err);
-                                                    console_log('error contact number');
-                                                }
-                                            })
-                                            .on('end', () => {
-                                                //console_log('done');
-                                                //console.log(pre_compile_data);
-
-                                                //constructData(row.config_id, pre_compile_data, row.campaign_name);
-
-
-                                                if (row.is_scheduled == true) {
-                                                    const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
-                                                        constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
-                                                    });
-                                                } else {
-                                                    constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
-                                                }
-
-
-                                                local_connection.query(`update cmw_config set status= 'sending' where config_id=${row.config_id}`, (err, res) => {
-                                                    if (err) {
-                                                        console_log(`Status_Update[Error]: ${err.message}`);
-                                                    }
-                                                });
-                                            });
-                                        break;
-
-
-
-                                    default:
-                                        console_log('Incorrect Dataleads');
+                                } catch (err) {
+                                    await _ControllerAPI.GetUpdateConfigSent(row.config_id);
+                                    console_log(err);
+                                    console_log('Error Json format');
                                 }
-                            })
+                                //console.log(pre_compile_data);
+                                break;
+                            case 'csv':
+                                var pre_compile_data = [];
+                                var dynamic_contact = row.config_id;
+                                pre_compile_data[dynamic_contact];
+                                //console.log(dynamic_contact);
+                                fs.createReadStream('./uploads/data_leads/' + row.data_leads)
+                                    .pipe(csv())
+                                    .on('data', function (data) {
+                                        try {
+                                            pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'message_text': data.message_text, 'platform': data.platform, 'from': data.from, 'template_id': data.template_id, 'email_subject': data.email_subject, 'fromName': data.fromName, 'application_id': data.application_id, 'merge': data.merge }));
+                                            //console_log(data.playertoken + ',' + data.country + ',' + data.text_message + ',' + data.platform);
+                                            //constructData(data.playertoken, data.country, data.message, data.platform);
+                                        } catch (err) {
+                                            console_log(err);
+                                            console_log('error contact number');
+                                        }
+                                    })
+                                    .on('end', async () => {
+                                        //console_log('done');
+                                        //console.log(pre_compile_data);
 
+                                        //constructData(row.config_id, pre_compile_data, row.campaign_name);
+
+
+                                        if (row.is_scheduled == true) {
+                                            const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
+                                                constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                            });
+                                        } else {
+                                            constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                        }
+
+                                        await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                                    });
+                                break;
+
+
+
+                            default:
+                                console_log('Incorrect Dataleads');
                         }
-                    }
+                    })
 
-                })
+                }
             }, throttling)
         }
 
@@ -174,9 +153,6 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                 } else {
                     const data = res.rows;
                     data.forEach(async row => {
-
-
-
                         //SPECIFY SITE SENDER
                         const data = await _ControllerAPI.GetSiteName(site_id);
                         if (data.length === 0 || data[0].sitename === 'Invalid') {
@@ -190,11 +166,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                 dynamic_counter.counter.success = 0;
                                 dynamic_counter.counter.fails = 0;
                                 pre_compile_data.length = 0;
-                                local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
-                                    if (err) {
-                                        console_log(`Error[Error]: ${err.message}`);
-                                    }
-                                });
+                                await _ControllerAPI.GetUpdateConfigSent(config_id);
                             }
                             return;
                         } else if (res.rowCount != 0 && data[0].sitename === 'Spin The Wheel') {
@@ -215,11 +187,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                     dynamic_counter.counter.success = 0;
                                     dynamic_counter.counter.fails = 0;
                                     pre_compile_data.length = 0;
-                                    local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
-                                        if (err) {
-                                            console_log(`DoneEmailSending[Error]: ${err.message}`);
-                                        }
-                                    });
+                                    await _ControllerAPI.GetUpdateConfigSent(config_id);
                                 }
                             });
                             return;
@@ -230,17 +198,11 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
 
                         //GENERAL SENDER
                         if (obj.platform == 'sms') {
-                            local_connection.query(`SELECT * FROM cmw_providers where application_id = '${obj.application_id}'`, async (err, res) => {
-                                if (err) {
-                                    //console_log(`[Error]: ${err.message}`);
-                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, '', '', row.country, obj.message_text, 'failed', err.message, obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
-                                }
-                                else {
-                                    const data = res.rows;
+                            await _ControllerAPI.GetProviders(obj.application_id)
+                                .then(async function (response) {
+                                    const data = response.rows;
                                     data.forEach(async row_provider => {
-
                                         if (row_provider.provider_code == process.env.PROVIDER_SMS_SMART) {
-
                                             await SmartSMSSender(obj.message_text, obj.from, row.phone_number, row.country)
                                                 .then(async function (response) {
                                                     //console.log('success');
@@ -267,12 +229,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                         dynamic_counter.counter.success = 0;
                                                         dynamic_counter.counter.fails = 0;
                                                         pre_compile_data.length = 0;
-
-                                                        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
-                                                            if (err) {
-                                                                console_log(`DoneSMSSmartSending[Error]: ${err.message}`);
-                                                            }
-                                                        });
+                                                        await _ControllerAPI.GetUpdateConfigSent(config_id);
                                                     }
                                                 });
                                         } else if (row_provider.provider_code == process.env.PROVIDER_ABOSEND) {
@@ -295,11 +252,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                         dynamic_counter.counter.success = 0;
                                                         dynamic_counter.counter.fails = 0;
                                                         pre_compile_data.length = 0;
-                                                        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
-                                                            if (err) {
-                                                                console_log(`DoneAbosending[Error]: ${err.message}`);
-                                                            }
-                                                        });
+                                                        await _ControllerAPI.GetUpdateConfigSent(config_id);
                                                     }
                                                 });
                                         } else if (row_provider.provider_code == process.env.PROVIDER_ABENLA_SMS) {
@@ -322,11 +275,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                         dynamic_counter.counter.success = 0;
                                                         dynamic_counter.counter.fails = 0;
                                                         pre_compile_data.length = 0;
-                                                        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
-                                                            if (err) {
-                                                                console_log(`DoneAbenlaSMS[Error]: ${err.message}`);
-                                                            }
-                                                        });
+                                                        await _ControllerAPI.GetUpdateConfigSent(config_id);
                                                     }
                                                 });
                                         }
@@ -341,11 +290,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
                                                 pre_compile_data.length = 0;
-                                                local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
-                                                    if (err) {
-                                                        console_log(`DoneAbosending[Error]: ${err.message}`);
-                                                    }
-                                                });
+                                                await _ControllerAPI.GetUpdateConfigSent(config_id);
                                             }
 
                                         }
@@ -362,29 +307,32 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                             dynamic_counter.counter.success = 0;
                                             dynamic_counter.counter.fails = 0;
                                             pre_compile_data.length = 0;
-                                            local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
-                                                if (err) {
-                                                    console_log(`DoneAbosending[Error]: ${err.message}`);
-                                                }
-                                            });
+                                            await _ControllerAPI.GetUpdateConfigSent(config_id);
                                         }
                                     }
-                                }
-                            })
+                                })
+                                .catch(async function (err) {
+                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, '', 'sms', row.country, obj.message_text, 'failed', err.message, obj.from, '', '', obj.application_id, obj.merge, row.brandcode).then(async function (response) {
+                                        console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                                        dynamic_counter.counter.fails++
+                                        query_instant++
+                                    }).finally(async function () {
+                                        if (pre_compile_data.length == query_instant) {
+                                            console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                            dynamic_counter.counter.success = 0;
+                                            dynamic_counter.counter.fails = 0;
+                                            pre_compile_data.length = 0;
+                                            await _ControllerAPI.GetUpdateConfigSent(config_id);
+                                        }
+                                    });
+                                });
                         }
                         else if (obj.platform == 'email') {
-                            local_connection.query(`SELECT * FROM cmw_providers where application_id = '${obj.application_id}'`, async (err, res) => {
-                                if (err) {
-                                    console_log(`[Error]: ${err.message}`);
-                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, '', '', row.country, obj.message_text, 'failed', err.message, obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
-                                }
-                                else {
-                                    const data = res.rows;
+                            await _ControllerAPI.GetProviders(obj.application_id)
+                                .then(async function (response) {
+                                    const data = response.rows;
                                     data.forEach(async row_provider => {
                                         if (row_provider.provider_code == process.env.PROVIDER_ELASTIC_EMAIL) {
-
-
-
                                             await ElasticEmailSender(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, row.country, obj.merge)
                                                 .then(async function (response) {
                                                     console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
@@ -404,12 +352,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                         dynamic_counter.counter.success = 0;
                                                         dynamic_counter.counter.fails = 0;
                                                         pre_compile_data.length = 0;
-
-                                                        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
-                                                            if (err) {
-                                                                console_log(`DoneEmailSending[Error]: ${err.message}`);
-                                                            }
-                                                        });
+                                                        await _ControllerAPI.GetUpdateConfigSent(config_id);
                                                     }
                                                 });
 
@@ -425,11 +368,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
                                                 pre_compile_data.length = 0;
-                                                local_connection.query(`update cmw_config set triggerstatus = 'inactive', status = 'sent' where config_id = ${config_id}`, (err, res) => {
-                                                    if (err) {
-                                                        console_log(`DoneEmailSending[Error]: ${err.message}`);
-                                                    }
-                                                });
+                                                await _ControllerAPI.GetUpdateConfigSent(config_id);
                                             }
                                         }
 
@@ -444,15 +383,24 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                             dynamic_counter.counter.success = 0;
                                             dynamic_counter.counter.fails = 0;
                                             pre_compile_data.length = 0;
-                                            local_connection.query(`update cmw_config set triggerstatus = 'inactive', status = 'sent' where config_id = ${config_id}`, (err, res) => {
-                                                if (err) {
-                                                    console_log(`DoneEmailSending[Error]: ${err.message}`);
-                                                }
-                                            });
+                                            await _ControllerAPI.GetUpdateConfigSent(config_id);
                                         }
                                     }
-                                }
-                            });
+                                }).catch(async function (err) {
+                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, '', 'email', row.country, obj.message_text, 'failed', err.message, obj.from, '', '', obj.application_id, obj.merge, row.brandcode).then(async function (response) {
+                                        console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                                        dynamic_counter.counter.fails++
+                                        query_instant++
+                                    }).finally(async function () {
+                                        if (pre_compile_data.length == query_instant) {
+                                            console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                            dynamic_counter.counter.success = 0;
+                                            dynamic_counter.counter.fails = 0;
+                                            pre_compile_data.length = 0;
+                                            await _ControllerAPI.GetUpdateConfigSent(config_id);
+                                        }
+                                    });
+                                });
                         }
                         //GENERAL SENDER
                     });
@@ -462,7 +410,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
     });
 
 }
- 
+
 
 const multerStorage = multer.diskStorage({
 
