@@ -141,17 +141,9 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
             var row_number = index;
             //console.log(obj.player_token, obj.country, obj.text_message, obj.platform);
             //counter.success++;
-            joystick_connection.query(`select pdr.email,pdr.phone_number,pd.classificationcode,sc.brandcode ,pdr.country from  afun_afun.player_data pd   
-            left join afun_afun.player_data_revision pdr on pdr.playerid = pd.playerid 
-            left join afun_afun.site_config sc on sc.siteid = pd.siteid 
-            where pdr.dw_iscurrent = '1'
-            and pd.playertoken ='${obj.player_token}'`, async (err, res) => {
-
-                if (err) {
-                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, '', obj.platform, '', obj.message_text, 'failed', err.message, obj.from, '', '', obj.application_id, obj.merge, '');
-                    console_log('Error player data query');
-                } else {
-                    const data = res.rows;
+            await _ControllerAPI.GetUserInfoFromJoystick(obj.player_token)
+                .then(async function (response) {
+                    const data = response.rows;
                     data.forEach(async row => {
                         //SPECIFY SITE SENDER
                         const data = await _ControllerAPI.GetSiteName(site_id);
@@ -404,8 +396,22 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                         }
                         //GENERAL SENDER
                     });
-                }
-            });
+
+                })
+                .catch(async function (err) {
+                    console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                    dynamic_counter.counter.fails++
+                    query_instant++
+                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, '', obj.platform, '', obj.message_text, 'failed', err, obj.from, '', '', obj.application_id, obj.merge, '');
+                }).finally(async function () {
+                    if (pre_compile_data.length == query_instant) {
+                        console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                        dynamic_counter.counter.success = 0;
+                        dynamic_counter.counter.fails = 0;
+                        pre_compile_data.length = 0;
+                        await _ControllerAPI.GetUpdateConfigSent(config_id);
+                    }
+                });
         }, index * interval);
     });
 
@@ -486,14 +492,13 @@ insertConfig = async (_req, _res) => {
     var parseISO = !isNaN(parsedDate) ? parsedDate.toISOString() : '1998-10-06 00:00:00.000';
     const site_id = await _ControllerAPI.GetValidateSiteID(_req.body.site_id) ? _req.body.site_id : 1;
 
-    local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_scheduled,site_id) VALUES ('pending','active','${local_time}','${local_time}','${parseISO}','${sending}','${_req.body.data_source}','${_req.body.campaign_name}','${data_leads}','${is_scheduled}','${site_id}')`, (err, res) => {
-        if (err) {
-            console_log(`insertConfig[Error]: ${err.message}`);
-        } else {
+    await _ControllerAPI.GetInsertConfig(local_time, parseISO, sending, _req.body.data_source, _req.body.campaign_name, data_leads, is_scheduled, site_id)
+        .then(async function (response) {
             console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] }));
             _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] });
-        }
-    });
+        });
+
+
 }
 
 insertProvider = async (_req, _res) => {
@@ -502,14 +507,11 @@ insertProvider = async (_req, _res) => {
     const date_now = new Date(local_time).toLocaleString();
     const platform = _req.body.platform == 'sms' ? 'SMS' : 'EMAIL';
 
-    local_connection.query(`INSERT INTO cmw_providers (provider_name,application_id,provider_code,platform,endpoint,created_at,updated_at) VALUES ('${_req.body.provider_name}','${_req.body.application_id}',(SELECT concat('${platform}', MAX(provider_id)+1) FROM cmw_providers),'${_req.body.platform}','${_req.body.endpoint}','${local_time}','${local_time}')`, (err, res) => {
-        if (err) {
-            console_log(`insertProvider[Error]: ${err.message}`);
-        } else {
+    await _ControllerAPI.GetInsertProviders(_req.body.provider_name, _req.body.application_id, platform, _req.body.platform, _req.body.endpoint, local_time)
+        .then(async function (response) {
             console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Provider Added', 'data': [] }));
             _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Provider Added', 'data': [] });
-        }
-    });
+        });
 
 }
 
@@ -517,26 +519,20 @@ insertProviderAccount = async (_req, _res) => {
 
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
-    local_connection.query(`INSERT INTO cmw_acct_providers (country_code,provider_code,username,password,apikey,md5Key,rand,orgCode,created_at,updated_at) VALUES ('${_req.body.country_code}','${_req.body.provider_code}','${_req.body.username}','${_req.body.password}','${_req.body.apikey}','${_req.body.md5key}','${_req.body.rand}','${_req.body.orgCode}','${local_time}','${local_time}')`, (err, res) => {
-        if (err) {
-            console_log(`insertProviderAccount[Error]: ${err.message}`);
-        } else {
+
+    await _ControllerAPI.GetInsertAcctProviders(_req.body.country_code, _req.body.provider_code, _req.body.username, _req.body.password, _req.body.apikey, _req.body.md5key, _req.body.rand, _req.body.orgCode, local_time)
+        .then(async function (response) {
             console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Provider Account Added', 'data': [] }));
             _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Provider Account Added', 'data': [] });
-        }
-    });
+        });
 
 }
 
 
 stopScheduled = async (_req, _res) => {
-
-    local_connection.query(`update cmw_config set status= 'cancelled', is_scheduled = 'false' , triggerstatus='inactive' where config_id='${_req.params.id}'`, (err, res) => {
-        if (err) {
-            console_log(`stopScheduled[Error]: ${err.message}`);
-        } else {
+    await _ControllerAPI.GetStopScheduled(_req.params.id)
+        .then(async function (response) {
             try {
-
                 var my_job = schedule.scheduledJobs[_req.params.id];
                 my_job.cancel();
                 console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Scheduled Stop', 'data': [] }));
@@ -545,9 +541,7 @@ stopScheduled = async (_req, _res) => {
                 console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Scheduled Stop', 'data': [] }));
                 _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Scheduled Stop', 'data': [] });
             }
-        }
-    });
-
+        });
 }
 
 
