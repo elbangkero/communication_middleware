@@ -1,5 +1,5 @@
 
-const { local_connection, joystick_connection } = require('../../../utils/db_connection');
+const { local_connection } = require('../../../utils/db_connection');
 
 
 async function SetInsertAcctProviders(country_code, provider_code, username, password, apikey, md5key, rand, orgCode, local_time) {
@@ -16,7 +16,12 @@ async function SetAbenlaAccount(country_code, vip_classification) {
     where cap.provider_code = '${process.env.PROVIDER_ABENLA_SMS}' and cap.country_code = '${country_code}' and rand = '${vip_classification}' LIMIT 1`);
 }
 
+async function SetAbosendAccount(app_id) {
+    return res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${app_id}' ORDER BY random() LIMIT 1`);
+}
+
 module.exports = function () {
     this.SetInsertAcctProviders = SetInsertAcctProviders;
     this.SetAbenlaAccount = SetAbenlaAccount;
+    this.SetAbosendAccount = SetAbosendAccount;
 }

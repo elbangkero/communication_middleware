@@ -1,11 +1,14 @@
-const { local_connection } = require('../../utils/db_connection');
+const ControllerAbosend = require('.././Http/Controller/Provider/ControllerAbosend');
+const _ControllerAbosend = new ControllerAbosend();
 const axios = require('axios');
 const qs = require('qs');
 const md5 = require("md5");
 
+const PROVIDER_ABOSEND = process.env.PROVIDER_ABOSEND;
 async function checkOddEven() {
 
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${process.env.PROVIDER_ABOSEND}' ORDER BY random() LIMIT 1`);
+
+    const res = await _ControllerAbosend.GetAbosendAccount(PROVIDER_ABOSEND);
     const data = res.rows;
 
     const results = await Promise.all(
