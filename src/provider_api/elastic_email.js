@@ -1,12 +1,14 @@
-const { local_connection } = require('../../utils/db_connection');
+const ControllerElasticEmail = require('.././Http/Controller/Provider/ControllerElasticEmail');
+const _ControllerElasticEmail = new ControllerElasticEmail();
 const axios = require('axios');
 
 
+const PROVIDER_ELASTIC_EMAIL = process.env.PROVIDER_ELASTIC_EMAIL;
 async function ElasticEmailAccount(country_code) {
 
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${process.env.PROVIDER_ELASTIC_EMAIL}'  and country_code like '${country_code}' LIMIT 1`);
-    const data = res.rows;
 
+    const res = await _ControllerElasticEmail.GetElasticEmailAccount(PROVIDER_ELASTIC_EMAIL, country_code);
+    const data = res.rows;
     const results = await Promise.all(
         data.map(async row => {
             return { 'apikey': row.apikey };
