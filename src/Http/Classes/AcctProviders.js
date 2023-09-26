@@ -10,7 +10,13 @@ async function SetInsertAcctProviders(country_code, provider_code, username, pas
     });
 }
 
+async function SetAbenlaAccount(country_code, vip_classification) {
+    return res = await local_connection.query(`SELECT username, md5key, endpoint FROM cmw_acct_providers cap
+    left join cmw_providers cp on cp.provider_code = cap.provider_code 
+    where cap.provider_code = '${process.env.PROVIDER_ABENLA_SMS}' and cap.country_code = '${country_code}' and rand = '${vip_classification}' LIMIT 1`);
+}
+
 module.exports = function () {
     this.SetInsertAcctProviders = SetInsertAcctProviders;
-
+    this.SetAbenlaAccount = SetAbenlaAccount;
 }

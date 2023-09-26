@@ -1,22 +1,13 @@
-const { local_connection } = require('../../utils/db_connection');
+const ControllerAbenla = require('.././Http/Controller/Provider/ControllerAbenla');
+const _ControllerAbenla = new ControllerAbenla();
 const axios = require('axios');
 
 async function API_Abenla_Account_SMS(country_code, classificationcode) {
     const vip_classification = ['VVIP', 'VIP_DEAL', 'VIP4', 'VIP3', 'VIP2', 'VIP1', 'VIP0', 'VIP 1', 'VIP'];
     const ClassResult = vip_classification.includes(classificationcode);
 
-    if (ClassResult) {
-        const res = await local_connection.query(`SELECT username, md5key, endpoint FROM cmw_acct_providers cap
-        left join cmw_providers cp on cp.provider_code = cap.provider_code 
-        where cap.provider_code = '${process.env.PROVIDER_ABENLA_SMS}' and cap.country_code = '${country_code}' and rand = 'VIP' LIMIT 1`);
-        var data = res.rows;
-
-    } else {
-        const res = await local_connection.query(`SELECT username, md5key, endpoint FROM cmw_acct_providers cap
-        left join cmw_providers cp on cp.provider_code = cap.provider_code 
-        where cap.provider_code = '${process.env.PROVIDER_ABENLA_SMS}' and cap.country_code = '${country_code}' and rand = 'Regular' LIMIT 1`);
-        var data = res.rows;
-    }
+    const res = ClassResult ? await _ControllerAbenla.GetAbenlaAccount(country_code, 'VIP') : await _ControllerAbenla.GetAbenlaAccount(country_code, 'Regular');
+    const data = res.rows;
 
     const results = await Promise.all(
         data.map(async row => {
