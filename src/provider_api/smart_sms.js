@@ -1,11 +1,17 @@
-const { local_connection } = require('../../utils/db_connection');
+const ControllerSmartSMS = require('.././Http/Controller/Provider/ControllerSmartSMS');
+const _ControllerSmartSMS = new ControllerSmartSMS();
 const axios = require('axios');
- 
 
+const PROVIDER_SMS_SMART = process.env.PROVIDER_SMS_SMART;
+const ENVIRONMENT = process.env.ENVIRONMENT;
 async function apiAccount(country_code) {
-    const res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${process.env.PROVIDER_SMS_SMART}' and country_code = '${country_code}' and environment = '${process.env.ENVIRONMENT}' LIMIT 1`);
+
+    const res = await _ControllerSmartSMS.GetSmartSMSAccount(PROVIDER_SMS_SMART, country_code, ENVIRONMENT);
     const data = res.rows;
 
+
+
+    console.log(data);
     const results = await Promise.all(
         data.map(async row => {
             return { "username": row.username, "password": row.password };
@@ -22,7 +28,6 @@ async function apiAccount(country_code) {
 
 async function SmartSMSSender(message, from, phone_number, country_code) {
 
-    apiAccount(country_code);
     const encodedParamValueMessage = encodeURIComponent(message);
     const encodedParamValueFrom = encodeURIComponent(from);
     return new Promise(async (resolve, reject) => {
