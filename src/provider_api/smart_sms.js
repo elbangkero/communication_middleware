@@ -10,8 +10,7 @@ async function apiAccount(country_code) {
     const data = res.rows;
 
 
-
-    console.log(data);
+ 
     const results = await Promise.all(
         data.map(async row => {
             return { "username": row.username, "password": row.password };

@@ -5,6 +5,7 @@ const { ElasticEmailSender } = require('./provider_api/elastic_email');
 const { AbenlaSMSSender } = require('./provider_api/abenla_sms');
 const { AbosendSMSSender } = require('./provider_api/abosend_sms');
 const { SmartSMSSender } = require('./provider_api/smart_sms');
+const { TextLocalSender } = require('./provider_api/textLocal_sms');
 const ControllerAPI = require('./Http/Controller/ControllerAPI');
 const _ControllerAPI = new ControllerAPI();
 const multer = require('multer');
@@ -192,7 +193,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                             console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                             dynamic_counter.counter.fails++
                                             query_instant++
-                                            await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', `{"message":"Provider is not assigned on site_id"}`, obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
+                                            await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', `{"message":"Provider does not exist"}`, obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
                                             if (pre_compile_data.length == query_instant) {
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
@@ -207,7 +208,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                         console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
                                         dynamic_counter.counter.fails++
                                         query_instant++
-                                        await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', `{"message":"Provider is not assigned on site_id"}`, obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
+                                        await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', `{"message":"Provider does not exist"}`, obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode);
                                         if (pre_compile_data.length == query_instant) {
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
@@ -298,6 +299,29 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 });
                                         } else if (row_provider.provider_code == process.env.PROVIDER_ABENLA_SMS) {
                                             await AbenlaSMSSender(obj.message_text, row.phone_number, row.country, row.classificationcode)
+                                                .then(async function (response) {
+                                                    console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
+                                                    query_instant++
+                                                    dynamic_counter.counter.success++;
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                                })
+                                                .catch(async function (response) {
+                                                    console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                                                    dynamic_counter.counter.fails++
+                                                    query_instant++
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                                })
+                                                .finally(async function () {
+                                                    if (pre_compile_data.length == query_instant) {
+                                                        console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                                        dynamic_counter.counter.success = 0;
+                                                        dynamic_counter.counter.fails = 0;
+                                                        pre_compile_data.length = 0;
+                                                        await _ControllerAPI.GetUpdateConfigSent(config_id);
+                                                    }
+                                                });
+                                        } else if (row_provider.provider_code == process.env.PROVIDER_TEXT_LOCAL_SMS) {
+                                            await TextLocalSender(obj.from, obj.message_text, row.phone_number)
                                                 .then(async function (response) {
                                                     console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                     query_instant++
