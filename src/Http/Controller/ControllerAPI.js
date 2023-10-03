@@ -12,6 +12,8 @@ const AcctProviders = require('../Classes/AcctProviders');
 const _AcctProviders = new AcctProviders();
 const Joystick = require('../Classes/Joystick');
 const _Joystick = new Joystick();
+const Callback = require('../Classes/Callback');
+const _Callback = new Callback();
 
 async function GetValidateSiteID(site_id) {
     const result = await _SiteConfig.setConfig(site_id);
@@ -22,12 +24,24 @@ async function GetSiteName(site_id) {
     const result = await _SiteConfig.setConfig(site_id);
     return result.rows;
 }
-async function GetStoreMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id, merge, brandcode) {
+async function GetStoreMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id, merge, brandcode, callback_url) {
     const res = await _Brands.setBrands(brandcode);
     const brand_id = res.rowCount != 0 ? res.rows[0].brand_id : 1;
     let local_time = new Date().toISOString();
     const date_now = new Date(local_time).toLocaleString();
-    await _History.setMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id, merge, local_time, brand_id);
+    const Callback = callback_url !== undefined ? callback_url : '';
+    await _History.setMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id, merge, local_time, brand_id, Callback)
+        .then(async result => {
+            const history_id = result.rows[0].history_id;
+            await _Callback.SetCallback(history_id)
+                .then(result => {
+                    console.log('Callback Successfully inserted');
+                });
+
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
 }
 async function GetListenerPayload() {
