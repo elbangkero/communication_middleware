@@ -46,7 +46,15 @@ const throttling = `${process.env.THROTTLING_TIME}`;
                                     const utf8encoded = (new Buffer.from(row.data_leads, 'base64')).toString('utf8');
                                     const obj = JSON.parse(utf8encoded);
 
-                                    pre_compile_data.push(JSON.stringify({ 'player_token': obj.data_leads.playertoken, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge, 'callback_url': obj.data_leads.callback_url }));
+
+                                    let result = Array.isArray(obj.data_leads.playertoken);
+                                    if (result) {
+                                        obj.data_leads.playertoken.forEach((token) => {
+                                            pre_compile_data.push(JSON.stringify({ 'player_token': token, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge, 'callback_url': obj.data_leads.callback_url }));
+                                        });
+                                    } else {
+                                        pre_compile_data.push(JSON.stringify({ 'player_token': obj.data_leads.playertoken, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge, 'callback_url': obj.data_leads.callback_url }));
+                                    }
 
 
                                     if (row.is_scheduled == true) {
@@ -170,6 +178,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                     const data = response.rows;
                                     data.forEach(async row_provider => {
                                         if (row_provider.provider_code == process.env.PROVIDER_ELASTIC_EMAIL) {
+                                            obj.merge += `&playername=${row.playername}`;
                                             await SpinTheWheelSender(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, row.country, obj.merge).then(async function (response) {
                                                 console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                 query_instant++
