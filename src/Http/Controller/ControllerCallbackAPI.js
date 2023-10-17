@@ -7,12 +7,16 @@ const axios = require('axios');
 const PROVIDER_ELASTIC_EMAIL = process.env.PROVIDER_ELASTIC_EMAIL;
 
 
-async function GetCallbackItems() {
-    return await _Callback.SetCallbackItems();
+async function GetCallbackItems(status) {
+    return await _Callback.SetCallbackItems(status);
 }
 
 async function GetUpdateCallback(id, callback_status, api_response) {
     return await _Callback.SetUpdateCallback(id, callback_status, api_response);
+}
+
+async function GetUpdateCallbackAttempt(id, attemptcount) {
+    return await _Callback.SetUpdateCallbackAttempt(id, attemptcount);
 }
 
 
@@ -75,11 +79,34 @@ async function GetElasticSendingCallback(api_response, country) {
     });
 
 }
+
+
+async function SpinWheelCallback() {
+    const id = 1;
+    const status = 'sent';
+    const msg = 'SpinWheelCallback';
+    let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `https://13.229.158.52:8022/callback/${id}?status=${status}&msg=${msg}`,
+        headers: {}
+    };
+
+    axios.request(config)
+        .then((response) => {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+}
 module.exports = function () {
     this.GetCallbackItems = GetCallbackItems;
     this.GetElasticSendingCallback = GetElasticSendingCallback;
     this.GetUpdateCallback = GetUpdateCallback;
-
+    this.SpinWheelCallback = SpinWheelCallback;
+    this.GetUpdateCallbackAttempt = GetUpdateCallbackAttempt;
 
 }
 
