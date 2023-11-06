@@ -2,30 +2,18 @@ const ControllerCallback = require('../Http/Controller/ControllerCallbackAPI');
 const _ControllerCallback = new ControllerCallback();
 const cron = require("node-cron");
 
-async function Throttled() {
-    console.log('running Throttled');
-    const res = await _ControllerCallback.GetCallbackItems('Throttled');
-    const data = res.rows;
-    data.forEach(async row => {
-        console.log(`THROTTLED ID : ${row.id}`);
-    })
-}
-
+ 
 async function CB() {
 
-
-    let dynamic_counter = {};
-    let counter_name = 'counter';
-
-    dynamic_counter[counter_name] = { attempt: 0 };
-
-
-
-    const res = await _ControllerCallback.GetCallbackItems('Pending');
+    const res = await _ControllerCallback.GetCallbackItems();
     const data = res.rows;
     data.forEach(async row => {
 
-        dynamic_counter.counter.attempt++;
+        let dynamic_counter = {};
+        let counter_name = `${row.id}`;
+
+        dynamic_counter[counter_name] = { attempt: 0 };
+        //console.log(dynamic_counter[`${row.id}`].attempt);
         switch (row.application_id) {
             case 'EMAIL_EE':
                 await _ControllerCallback.GetElasticSendingCallback(row.api_response, row.country)
@@ -35,6 +23,7 @@ async function CB() {
                         console.log(response);*/
                         const jsonObject = JSON.parse(response);
                         const status = jsonObject.status;
+                        dynamic_counter[`${row.id}`].attempt++;
                         if (status === 'Throttled')
                             await _ControllerCallback.GetUpdateCallback(row.id, status, response);
                         else if (status === 'Sent')
@@ -43,14 +32,16 @@ async function CB() {
                         /*
                         console.log('----------ERROR-----------');
                         console.log(error);*/
-                        console.log(error);
                         const jsonObject = JSON.parse(error);
                         const status = jsonObject.status;
                         await _ControllerCallback.GetUpdateCallback(row.id, status, error);
                     }).finally(async function () {
-                        console.log(`Attempt : ${dynamic_counter.counter.attempt}`);
-                        await _ControllerCallback.GetUpdateCallbackAttempt(row.id, dynamic_counter.counter.attempt);
-                        dynamic_counter.counter.attempt = 0;
+                        //console.log(`Attempt : ${dynamic_counter[`${row.id}`].attempt}`);
+                        await _ControllerCallback.GetUpdateCallbackAttempt(row.id, dynamic_counter[`${row.id}`].attempt)
+                            .then(async function (response) {
+                                //console.log(response);
+                                dynamic_counter[`${row.id}`].attempt = 0;
+                            });
                     });
                 break;
             /*
@@ -71,5 +62,5 @@ async function CB() {
 }
 CB();
 
-var cronJob = cron.schedule("*/1 * * * * *", CB, false);
+var cronJob = cron.schedule("*/30 * * * *", CB, false);
 cronJob.start();

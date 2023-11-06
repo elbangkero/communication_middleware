@@ -7,8 +7,8 @@ const axios = require('axios');
 const PROVIDER_ELASTIC_EMAIL = process.env.PROVIDER_ELASTIC_EMAIL;
 
 
-async function GetCallbackItems(status) {
-    return await _Callback.SetCallbackItems(status);
+async function GetCallbackItems() {
+    return await _Callback.SetCallbackItems();
 }
 
 async function GetUpdateCallback(id, callback_status, api_response) {
