@@ -254,6 +254,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                     const data = response.rows;
                                     data.forEach(async row_provider => {
                                         if (row_provider.provider_code == process.env.PROVIDER_SMS_SMART) {
+                                            const from_value =  obj.from.length === 0 ? "CMW" : obj.from; 
                                             await SmartSMSSender(obj.message_text, obj.from, row.phone_number, row.country)
                                                 .then(async function (response) {
                                                     //console.log('success');
@@ -262,7 +263,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                     query_instant++
                                                     dynamic_counter.counter.success++;
                                                     //console.log(response.data);
-                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'success', JSON.stringify(response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode, obj.callback_url);
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'success', JSON.stringify(response.data),from_value, '', '', obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                                                 })
                                                 .catch(async function (error) {
                                                     //console.log('error');
@@ -271,7 +272,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                     dynamic_counter.counter.fails++
                                                     query_instant++
                                                     //console.error(error.response.data);
-                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', JSON.stringify(error.response.data), obj.from, '', '', obj.application_id, obj.merge, row.brandcode, obj.callback_url);
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', JSON.stringify(error.response.data), from_value, '', '', obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                                                 })
                                                 .finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
