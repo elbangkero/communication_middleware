@@ -14,7 +14,7 @@ async function ValidateUsername(username) {
     });
 }
 async function authenticateLogin(username, password) {
-
+    
     return local_connection.query(`select password,email FROM users where username = '${username}'`).then(res => {
         const data = res.rowCount;
         return data !== 0 ? {
@@ -128,8 +128,7 @@ module.exports = async function (app, jwt) {
                     console_log(JSON.stringify({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] }));
                     _res.status(200).json({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] });
                     return;
-                }
-                //console.log(result);
+                } 
 
                 let data = {
                     "username": _req.body.username,
@@ -138,8 +137,8 @@ module.exports = async function (app, jwt) {
                 const statusCode = '200';
                 const message = 'Authentication Successfully';
                 const token = jwt.sign(data, jwtSecretKey, { expiresIn: '365d' });
-
-                local_connection.query(`UPDATE users SET token = '${token}' WHERE username = '${_req.body.username}'`, (err, res) => {
+                let local_time = new Date().toISOString();
+                local_connection.query(`UPDATE users SET token = '${token}',last_login = '${local_time}' WHERE username = '${_req.body.username}'`, (err, res) => {
                     if (err) {
                         console_log(`UpdateToken[Error]: ${err.message}`);
                     } else {

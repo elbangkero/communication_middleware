@@ -591,54 +591,72 @@ upload = multer({
 });
 
 
-insertConfig = async (_req, _res) => {
 
-    let data_leads;
-    let local_time = new Date().toISOString();
-    const date_now = new Date(local_time).toLocaleString();
-    const sending = _req.body.sending == 'on' ? true : false;
-    const is_scheduled = _req.body.is_scheduled == 'on' ? true : false;
-    //const data_leads = _req.body.data_source == 'csv' ? _req.files.data_leads[0].filename : Buffer.from(_req.body.data_leads).toString('base64');
-    if (_req.body.data_source == 'csv') {
-        if (_req.files.data_leads && _req.files.data_leads.length > 0 && _req.files.data_leads[0].filename) {
-            data_leads = _req.files.data_leads[0].filename;
+async function verifySiteID(token, site_id) {
+    return await _ControllerAPI.GetUserSiteID(token, site_id)
+        .then(function (result) {
+            return result.rowCount === 1 ? true : false;
+        }).catch(function (error) {
+            return false;
+        })
+}
+
+
+
+insertConfig = async (_req, _res) => {
+    const verify_site_id = await verifySiteID(_req.header(process.env.TOKEN_HEADER_KEY), _req.body.site_id);
+    if (verify_site_id) {
+
+        let data_leads;
+        let local_time = new Date().toISOString();
+        const date_now = new Date(local_time).toLocaleString();
+        const sending = _req.body.sending == 'on' ? true : false;
+        const is_scheduled = _req.body.is_scheduled == 'on' ? true : false;
+        //const data_leads = _req.body.data_source == 'csv' ? _req.files.data_leads[0].filename : Buffer.from(_req.body.data_leads).toString('base64');
+        if (_req.body.data_source == 'csv') {
+            if (_req.files.data_leads && _req.files.data_leads.length > 0 && _req.files.data_leads[0].filename) {
+                data_leads = _req.files.data_leads[0].filename;
+            } else {
+                data_leads = 'Invalid Data Leads';
+                message = 'Data leads must be CSV or xlsx file only';
+                _res.status(400).json({ 'StatusCode': 400, 'Status': false, 'ErrorMessage': data_leads, 'Message': message });
+                console_log(JSON.stringify({ 'StatusCode': 400, 'Status': false, 'ErrorMessage': data_leads, 'Message': message }));
+                return;
+            }
+        } else if (_req.body.data_source == 'json') {
+            if (_req.body.data_leads) {
+                data_leads = _req.body.data_leads
+            } else {
+                data_leads = 'Invalid Data Leads';
+                message = 'Data leads must be encoded in base64';
+                _res.status(400).json({ 'statusCode': 400, 'status': false, message: data_leads, 'Message': message });
+                console_log(JSON.stringify({ 'statusCode': 400, 'status': false, message: data_leads, 'Message': message }));
+                return;
+            }
         } else {
-            data_leads = 'Invalid Data Leads';
-            message = 'Data leads must be CSV or xlsx file only';
-            _res.status(400).json({ 'StatusCode': 400, 'Status': false, 'ErrorMessage': data_leads, 'Message': message });
-            console_log(JSON.stringify({ 'StatusCode': 400, 'Status': false, 'ErrorMessage': data_leads, 'Message': message }));
+            data_leads = 'Invalid Data Source';
+            message = 'Data Source does not exist';
+            _res.status(400).json({ 'statusCode': 400, 'status': false, 'ErrorMessage': data_leads, 'Message': message });
+            console_log(JSON.stringify({ 'statusCode': 400, 'status': false, 'ErrorMessage': data_leads, 'Message': message }));
             return;
         }
-    } else if (_req.body.data_source == 'json') {
-        if (_req.body.data_leads) {
-            data_leads = _req.body.data_leads
-        } else {
-            data_leads = 'Invalid Data Leads';
-            message = 'Data leads must be encoded in base64';
-            _res.status(400).json({ 'statusCode': 400, 'status': false, message: data_leads, 'Message': message });
-            console_log(JSON.stringify({ 'statusCode': 400, 'status': false, message: data_leads, 'Message': message }));
-            return;
-        }
+
+        const start_at = _req.body.start_at;
+        const parsedDate = new Date(start_at);
+
+        var parseISO = !isNaN(parsedDate) ? parsedDate.toISOString() : '1998-10-06 00:00:00.000';
+        const site_id = await _ControllerAPI.GetValidateSiteID(_req.body.site_id) ? _req.body.site_id : 1;
+
+        await _ControllerAPI.GetInsertConfig(local_time, parseISO, sending, _req.body.data_source, _req.body.campaign_name, data_leads, is_scheduled, site_id)
+            .then(async function (response) {
+                console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] }));
+                _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] });
+            });
+
     } else {
-        data_leads = 'Invalid Data Source';
-        message = 'Data Source does not exist';
-        _res.status(400).json({ 'statusCode': 400, 'status': false, 'ErrorMessage': data_leads, 'Message': message });
-        console_log(JSON.stringify({ 'statusCode': 400, 'status': false, 'ErrorMessage': data_leads, 'Message': message }));
+        _res.status(200).json({ 'statusCode': 400, 'status': false, message:'site_id is not assigned on this account', 'data': [] });
         return;
     }
-
-    const start_at = _req.body.start_at;
-    const parsedDate = new Date(start_at);
-
-    var parseISO = !isNaN(parsedDate) ? parsedDate.toISOString() : '1998-10-06 00:00:00.000';
-    const site_id = await _ControllerAPI.GetValidateSiteID(_req.body.site_id) ? _req.body.site_id : 1;
-
-    await _ControllerAPI.GetInsertConfig(local_time, parseISO, sending, _req.body.data_source, _req.body.campaign_name, data_leads, is_scheduled, site_id)
-        .then(async function (response) {
-            console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] }));
-            _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] });
-        });
-
 
 }
 
@@ -687,28 +705,34 @@ stopScheduled = async (_req, _res) => {
 
 
 module.exports = function (app, jwt) {
-
-    function verifyToken(req, res, next) {
+    async function verifyLocalToken(token) {
+        return await _ControllerAPI.GetLocalToken(token)
+            .then(function (result) {
+                return result.rowCount === 1 ? true : false;
+            }).catch(function (error) {
+                return false;
+            })
+    }
+   async function verifyToken(req, res, next) {
         const tokenHeaderKey = process.env.TOKEN_HEADER_KEY;
         const jwtSecretKey = process.env.JWT_SECRET_KEY;
         const statusCode = '400';
         const message = 'Token Verification Failed';
+        const verify_site_id = await verifyLocalToken(req.header(tokenHeaderKey));
         try {
             const token = req.header(tokenHeaderKey);
             const verified = jwt.verify(token, jwtSecretKey);
-            if (verified) {
+            if (verified && verify_site_id) {
                 next();
-            } else {
-
-                console_log(JSON.stringify({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] }));
+            } else { 
                 res.status(200).json({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] });
                 return;
             }
-        } catch (error) {
-            console_log(JSON.stringify({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] }));
+        } catch (error) { 
             res.status(200).json({ 'statusCode': statusCode, 'status': false, message: message, 'data': [] });
             return;
         }
+
     }
 
     app.post('/upload/upload-config', upload.fields([

@@ -2,11 +2,13 @@ const ControllerAbenla = require('.././Http/Controller/Provider/ControllerAbenla
 const _ControllerAbenla = new ControllerAbenla();
 const axios = require('axios');
 
-async function API_Abenla_Account_SMS(country_code, classificationcode) {
+
+const PROVIDER_ABENLA_SMS = process.env.PROVIDER_ABENLA_SMS;
+async function API_Abenla_Account_SMS(PROVIDER_ABENLA_SMS, country_code, classificationcode) {
     const vip_classification = ['VVIP', 'VIP_DEAL', 'VIP4', 'VIP3', 'VIP2', 'VIP1', 'VIP0', 'VIP 1', 'VIP'];
     const ClassResult = vip_classification.includes(classificationcode);
 
-    const res = ClassResult ? await _ControllerAbenla.GetAbenlaAccount(country_code, 'VIP') : await _ControllerAbenla.GetAbenlaAccount(country_code, 'Regular');
+    const res = ClassResult ? await _ControllerAbenla.GetAbenlaAccount(PROVIDER_ABENLA_SMS, country_code, 'VIP') : await _ControllerAbenla.GetAbenlaAccount(PROVIDER_ABENLA_SMS, country_code, 'Regular');
     const data = res.rows;
 
     const results = await Promise.all(
@@ -31,7 +33,7 @@ async function AbenlaSMSSender(message, phone_number, country_code, classificati
     const callBack = false;
     const brandName = 'LongCode';
     return new Promise(async (resolve, reject) => {
-        const result = await API_Abenla_Account_SMS(country_code, classificationcode);
+        const result = await API_Abenla_Account_SMS(PROVIDER_ABENLA_SMS, country_code, classificationcode);
         let config = {
             method: 'get',
             maxBodyLength: Infinity,

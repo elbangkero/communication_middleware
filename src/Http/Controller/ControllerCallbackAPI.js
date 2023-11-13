@@ -21,7 +21,7 @@ async function GetUpdateCallbackAttempt(id, attemptcount) {
 
 
 async function ElasticEmailAccount(country_code) {
-    const res = await _AcctProviders.SetElasticEmailAccount(PROVIDER_ELASTIC_EMAIL, country_code);
+    const res = await _AcctProviders.SetElasticCronAccount(PROVIDER_ELASTIC_EMAIL, country_code);
     const data = res.rows;
     const results = await Promise.all(
         data.map(async row => {

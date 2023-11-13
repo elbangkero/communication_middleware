@@ -14,6 +14,8 @@ const Joystick = require('../Classes/Joystick');
 const _Joystick = new Joystick();
 const Callback = require('../Classes/Callback');
 const _Callback = new Callback();
+const Users = require('../Classes/Users');
+const _Users = new Users();
 
 async function GetValidateSiteID(site_id) {
     const result = await _SiteConfig.setConfig(site_id);
@@ -31,7 +33,7 @@ async function GetStoreMessageHistory(config_id, campaign_name, player_token, pl
     const date_now = new Date(local_time).toLocaleString();
     const Callback = callback_url !== undefined ? callback_url : '';
     await _History.setMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id, merge, local_time, brand_id, Callback)
-        .then(async result => { 
+        .then(async result => {
             if (result.rows[0].status === 'success') {
                 const history_id = result.rows[0].history_id;
                 await _Callback.SetCallback(history_id);
@@ -69,6 +71,13 @@ async function GetStopScheduled(id) {
 async function GetUserInfoFromJoystick(player_token) {
     return await _Joystick.SetUserInfoFromJoystick(player_token);
 }
+async function GetUserSiteID(token, site_id) {
+    return await _Users.SetUserSiteID(token, site_id);
+}
+async function GetLocalToken(token) {
+    return await _Users.SetLocalToken(token);
+}
+
 module.exports = function () {
     this.GetValidateSiteID = GetValidateSiteID;
     this.GetSiteName = GetSiteName;
@@ -82,4 +91,6 @@ module.exports = function () {
     this.GetInsertAcctProviders = GetInsertAcctProviders;
     this.GetStopScheduled = GetStopScheduled;
     this.GetUserInfoFromJoystick = GetUserInfoFromJoystick;
+    this.GetUserSiteID = GetUserSiteID;
+    this.GetLocalToken = GetLocalToken;
 }
