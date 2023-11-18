@@ -76,42 +76,91 @@ const throttling = `${process.env.THROTTLING_TIME}`;
                                 //console.log(pre_compile_data);
                                 break;
                             case 'csv':
+
+
+                                let retryCounts = {};
+
                                 var pre_compile_data = [];
                                 var dynamic_contact = row.config_id;
                                 pre_compile_data[dynamic_contact];
-                                //console.log(dynamic_contact);
-                                fs.createReadStream('./uploads/data_leads/' + row.data_leads)
-                                    .pipe(csv())
-                                    .on('data', function (data) {
-                                        try {
-                                            pre_compile_data.push(JSON.stringify({ 'player_token': data.playertoken, 'message_text': data.message_text, 'platform': data.platform, 'from': data.from, 'template_id': data.template_id, 'email_subject': data.email_subject, 'fromName': data.fromName, 'application_id': data.application_id, 'merge': data.merge }));
-                                            //console_log(data.playertoken + ',' + data.country + ',' + data.text_message + ',' + data.platform);
-                                            //constructData(data.playertoken, data.country, data.message, data.platform);
-                                        } catch (err) {
-                                            console_log(err);
-                                            console_log('error contact number');
-                                        }
-                                    })
-                                    .on('end', async () => {
-                                        //console_log('done');
-                                        //console.log(pre_compile_data);
 
-                                        //constructData(row.config_id, pre_compile_data, row.campaign_name);
+                                const filePath = './uploads/data_leads/' + row.data_leads;
 
+                                async function processFile(maxRetries) {
+                                    try {
+                                        //throw new Error("Forced error for testing");
+                                        if (fs.existsSync(filePath)) {
+                                            fs.createReadStream(filePath)
+                                                .pipe(csv())
+                                                .on('data', function (data) {
+                                                    try {
+                                                        pre_compile_data.push(JSON.stringify({
+                                                            'player_token': data.playertoken,
+                                                            'message_text': data.message_text,
+                                                            'platform': data.platform,
+                                                            'from': data.from,
+                                                            'template_id': data.template_id,
+                                                            'email_subject': data.email_subject,
+                                                            'fromName': data.fromName,
+                                                            'application_id': data.application_id,
+                                                            'merge': data.merge
+                                                        }));
+                                                    } catch (err) {
+                                                        console.log(err);
+                                                        console.log('error contact number');
+                                                    }
+                                                })
+                                                .on('end', async () => {
+                                                    if (row.is_scheduled == true) {
+                                                        const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
+                                                            constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                                        });
+                                                    } else {
+                                                        constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                                    }
 
-                                        if (row.is_scheduled == true) {
-                                            const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
-                                                constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
-                                            });
+                                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                                                });
                                         } else {
-                                            constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                            if (!retryCounts[dynamic_contact]) {
+                                                retryCounts[dynamic_contact] = 0;
+                                            }
+
+                                            if (retryCounts[dynamic_contact] < maxRetries) {
+                                                retryCounts[dynamic_contact]++;
+                                                await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                                                console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
+                                                setTimeout(() => processFile(maxRetries), 5000);
+                                            } else {
+                                                console.log('Maximum retries reached. Unable to process file.');
+                                                await _ControllerAPI.GetUpdateConfigSent(row.config_id);
+                                            }
+                                        }
+                                    } catch (err) {
+                                        //console.log('error detected');
+                                        if (!retryCounts[dynamic_contact]) {
+                                            retryCounts[dynamic_contact] = 0;
                                         }
 
-                                        await _ControllerAPI.GetUpdateConfigSending(row.config_id);
-                                    });
+                                        if (retryCounts[dynamic_contact] < maxRetries) {
+                                            retryCounts[dynamic_contact]++;
+                                            await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                                            console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
+                                            setTimeout(() => processFile(maxRetries), 5000);
+                                        } else {
+                                            console.log('Maximum retries reached. Unable to process file.');
+                                            await _ControllerAPI.GetUpdateConfigSent(row.config_id);
+                                        }
+                                    }
+                                }
+
+                                const maxRetries = 3;
+                                processFile(maxRetries);
+
+
                                 break;
 
-
+                                
 
                             default:
                                 console_log('Incorrect Dataleads');
@@ -516,10 +565,11 @@ const multerStorage = multer.diskStorage({
 });
 const multerFilter = (req, file, cb) => {
     if (file.fieldname === "data_leads") {
+        /*
         if (!file.originalname.match(/\.csv$|\.xlsx$/)) {
             // upload only png and jpg format
             return cb(new Error('Please upload a CSV or xlsx file only'))
-        }
+        }*/
         cb(null, true)
     }
 
