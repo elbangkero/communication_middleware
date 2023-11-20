@@ -93,17 +93,24 @@ const throttling = `${process.env.THROTTLING_TIME}`;
                                             fs.createReadStream(filePath)
                                                 .pipe(csv())
                                                 .on('data', function (data) {
+                                                    const sanitizedData = Object.fromEntries(
+                                                        Object.entries(data).map(([key, value]) => [
+                                                            key.replace(/[\s']/g, ''),
+                                                            value === '' ? null : value
+                                                        ])
+                                                    );
+
                                                     try {
                                                         pre_compile_data.push(JSON.stringify({
-                                                            'player_token': data.playertoken,
-                                                            'message_text': data.message_text,
-                                                            'platform': data.platform,
-                                                            'from': data.from,
-                                                            'template_id': data.template_id,
-                                                            'email_subject': data.email_subject,
-                                                            'fromName': data.fromName,
-                                                            'application_id': data.application_id,
-                                                            'merge': data.merge
+                                                            'player_token': sanitizedData.playertoken,
+                                                            'message_text': sanitizedData.message_text,
+                                                            'platform': sanitizedData.platform,
+                                                            'from': sanitizedData.from,
+                                                            'template_id': sanitizedData.template_id,
+                                                            'email_subject': sanitizedData.email_subject,
+                                                            'fromName': sanitizedData.fromName,
+                                                            'application_id': sanitizedData.application_id,
+                                                            'merge': sanitizedData.merge
                                                         }));
                                                     } catch (err) {
                                                         console.log(err);
@@ -111,6 +118,7 @@ const throttling = `${process.env.THROTTLING_TIME}`;
                                                     }
                                                 })
                                                 .on('end', async () => {
+                                                    //console.log(pre_compile_data);
                                                     if (row.is_scheduled == true) {
                                                         const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
                                                             constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
