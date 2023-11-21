@@ -96,7 +96,7 @@ const throttling = `${process.env.THROTTLING_TIME}`;
                                                     const sanitizedData = Object.fromEntries(
                                                         Object.entries(data).map(([key, value]) => [
                                                             key.replace(/[\s']/g, ''),
-                                                            value === '' ? null : value
+                                                            value === '' ? '' : value
                                                         ])
                                                     );
 
