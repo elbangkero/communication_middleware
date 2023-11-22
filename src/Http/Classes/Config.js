@@ -1,5 +1,5 @@
 
-const { local_connection, joystick_connection } = require('../../../utils/db_connection');
+const { local_connection } = require('../../../utils/db_connection');
 
 async function SetListenerPayload() {
     return new Promise(async (resolve, reject) => {

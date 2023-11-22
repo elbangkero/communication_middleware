@@ -1,5 +1,5 @@
 
-const { local_connection, joystick_connection } = require('../utils/db_connection');
+const { local_connection } = require('../utils/db_connection');
 const { SpinTheWheelSender } = require('./custom_site_api/wheel_api');
 const { ElasticEmailSender } = require('./provider_api/elastic_email');
 const { AbenlaSMSSender } = require('./provider_api/abenla_sms');
@@ -209,7 +209,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
             //counter.success++;
             await _ControllerAPI.GetUserInfoFromJoystick(obj.player_token)
                 .then(async function (response) {
-                    const data = response.rows;
+                    const data = [response];  
                     data.forEach(async row => {
                         //SPECIFY SITE SENDER
                         const data = await _ControllerAPI.GetSiteName(site_id);

@@ -4,11 +4,22 @@ const axios = require('axios');
 
 async function API_Abenla_Account_SMS(country_code, classificationcode) {
     const vip_classification = ['VVIP', 'VIP_DEAL', 'VIP4', 'VIP3', 'VIP2', 'VIP1', 'VIP0', 'VIP 1', 'VIP'];
-    const ClassResult = vip_classification.includes(classificationcode);
+    function findCommonElement(vip_classification, classificationcode) {
+        for (let i = 0; i < vip_classification.length; i++) {
+            for (let j = 0; j < classificationcode.length; j++) {
+                if (vip_classification[i] === classificationcode[j]) {
 
-    const res = ClassResult ? await _ControllerAbenla.GetAbenlaAccount(country_code, 'VIP') : await _ControllerAbenla.GetAbenlaAccount(country_code, 'Regular');
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+ 
+
+    const res = findCommonElement(vip_classification, classificationcode) ? await _ControllerAbenla.GetAbenlaAccount(country_code, 'VIP') : await _ControllerAbenla.GetAbenlaAccount(country_code, 'Regular');
     const data = res.rows;
-
+    
     const results = await Promise.all(
         data.map(async row => {
             return { "loginName": row.username, "sign": row.md5key, "endpoint": row.endpoint };

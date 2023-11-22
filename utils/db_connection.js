@@ -3,6 +3,7 @@ const { Pool } = require('pg');
 const dotenv = require('dotenv');
 dotenv.config();
 
+/*
 const joystick_connection = new Pool
     ({
         user: `${process.env.JOYSTICK_USER_DB}`,
@@ -12,7 +13,7 @@ const joystick_connection = new Pool
         port: `${process.env.JOYSTICK_DB_PORT}`,
         ssl: true,
     });
-
+*/
 const local_connection = new Pool
     ({
         user: `${process.env.LOCAL_USER_DB}`,
@@ -22,7 +23,7 @@ const local_connection = new Pool
         port: `${process.env.LOCAL_DB_PORT}`,
     });
 
-
+/*
 function joystick_client() {
     joystick_connection.query(`SELECT 1`, (err, res) => {
         if (err) {
@@ -33,7 +34,7 @@ function joystick_client() {
         }
     });
 }
-
+*/
 function local_client() {
     local_connection.query(`SELECT 1`, (err, res) => {
         if (err) {
@@ -46,9 +47,9 @@ function local_client() {
 }
 
 
-joystick_client();
+//joystick_client();
 local_client();
 
 
 
-module.exports = { joystick_connection, local_connection };
+module.exports = {local_connection };

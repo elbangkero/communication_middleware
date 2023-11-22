@@ -1,5 +1,5 @@
 
-const { local_connection, joystick_connection } = require('../../../utils/db_connection');
+const { local_connection } = require('../../../utils/db_connection');
 
 async function setMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id, merge, local_time, brand_id, callback_url) {
     return new Promise(async (resolve, reject) => {
