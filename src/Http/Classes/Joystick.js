@@ -27,14 +27,19 @@ async function SetUserInfoFromJoystick(token) {
 
         axios.request(config)
             .then((response) => {
-                resolve({
-                    'email': response.data.results[0].profile.email,
-                    'phone_number': response.data.results[0].profile.phoneNumber,
-                    'classificationcode': response.data.results[0].tags,
-                    'brandcode': response.data.results[0].info.siteCode,
-                    'country': response.data.results[0].profile.country,
-                    'playername': response.data.results[0].profile.firstName + ' ' + response.data.results[0].profile.lastName
-                });
+                if (response.data.results.length === 0) {
+                    reject('Invalid {PlayerToken}');
+                } else {
+                    resolve({
+                        'email': response.data.results[0].profile.email,
+                        'phone_number': response.data.results[0].profile.phoneNumber,
+                        'classificationcode': response.data.results[0].tags,
+                        'brandcode': response.data.results[0].info.siteCode,
+                        'country': response.data.results[0].profile.country,
+                        'playername': response.data.results[0].profile.firstName + ' ' + response.data.results[0].profile.lastName
+                    });
+                }
+
             })
             .catch((error) => {
                 reject(error);
