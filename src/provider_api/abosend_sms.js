@@ -21,84 +21,49 @@ async function checkOddEven() {
     }
 }
 
+function validateAndExtractAreaCode(phoneNumber) {
+    // Define a regular expression for a common phone number format
+    const phoneRegex = /^\+?(\d{1,2})?[\s.-]?(\(\d{1,4}\)|\d{1,4})([\s.-]?)\d{1,10}$/;
+
+    // Test the phone number against the regular expression
+    const match = phoneNumber.match(phoneRegex);
+
+    if (match) {
+        // Extract the area code
+        const areaCode = match[1];
+
+        return {
+            isValid: true,
+            areaCode: areaCode ? `+${areaCode}` : null,
+            FinalPhoneNumber: phoneNumber.startsWith('+') ? phoneNumber : `+${phoneNumber}`,
+        };
+    } else {
+        // If the phone number is not valid, return the original phone number with a plus sign
+        return {
+            isValid: false,
+            areaCode: null,
+            FinalPhoneNumber: `+${phoneNumber}`,
+        };
+    }
+}
 
 async function abosendAPIParameters(country_code, phone_number, message, row_number) {
 
     const api_details = await checkOddEven(row_number);
     const data_encrytpion = `${api_details.orgCode}${message}${api_details.rand}${api_details.md5Key}`;
     const hash = md5(data_encrytpion).toUpperCase();
-
-    if (country_code == 'IN') {
+    const validated = validateAndExtractAreaCode(phone_number);
+ 
+    if (validated) {
         let data = qs.stringify({
             'orgCode': api_details.orgCode,
-            'mobileArea': '+91',
+            'mobileArea': validated.areaCode,
             'rand': api_details.rand,
             'content': message,
-            'mobiles': phone_number,
+            'mobiles': validated.FinalPhoneNumber,
             'sign': hash
         });
         return data;
-    } else if (country_code == 'ID') {
-        let data = qs.stringify({
-            'orgCode': api_details.orgCode,
-            'mobileArea': '+62',
-            'rand': api_details.rand,
-            'content': message,
-            'mobiles': phone_number,
-            'sign': hash
-        });
-        return data;
-    } else if (country_code == 'JP') {
-        let data = qs.stringify({
-            'orgCode': api_details.orgCode,
-            'mobileArea': '+81',
-            'rand': api_details.rand,
-            'content': message,
-            'mobiles': phone_number,
-            'sign': hash
-        });
-        return data;
-    } else if (country_code == 'MY') {
-        let data = qs.stringify({
-            'orgCode': api_details.orgCode,
-            'mobileArea': '+60',
-            'rand': api_details.rand,
-            'content': message,
-            'mobiles': phone_number,
-            'sign': hash
-        });
-        return data;
-    } else if (country_code == 'TH') {
-        let data = qs.stringify({
-            'orgCode': api_details.orgCode,
-            'mobileArea': '+66',
-            'rand': api_details.rand,
-            'content': message,
-            'mobiles': phone_number,
-            'sign': hash
-        });
-        return data;
-    } else if (country_code == 'VN') {
-        let data = qs.stringify({
-            'orgCode': api_details.orgCode,
-            'mobileArea': '+84',
-            'rand': api_details.rand,
-            'content': message,
-            'mobiles': phone_number,
-            'sign': hash
-        });
-        return data;
-    } else if (country_code == 'PH') {
-        let data = qs.stringify({
-            'orgCode': api_details.orgCode,
-            'mobileArea': '+63',
-            'rand': api_details.rand,
-            'content': message,
-            'mobiles': phone_number,
-            'sign': hash
-        });
-        return data;
-
     } else {
         let data = qs.stringify({
             'orgCode': '',
