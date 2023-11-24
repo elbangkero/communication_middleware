@@ -21,15 +21,12 @@ async function checkOddEven() {
     }
 }
 
-function validateAndExtractAreaCode(phoneNumber) {
-    // Define a regular expression for a common phone number format
+async function validateAndExtractAreaCode(phoneNumber) { 
     const phoneRegex = /^\+?(\d{1,2})?[\s.-]?(\(\d{1,4}\)|\d{1,4})([\s.-]?)\d{1,10}$/;
-
-    // Test the phone number against the regular expression
+ 
     const match = phoneNumber.match(phoneRegex);
 
-    if (match) {
-        // Extract the area code
+    if (match) { 
         const areaCode = match[1];
 
         return {
@@ -37,8 +34,7 @@ function validateAndExtractAreaCode(phoneNumber) {
             areaCode: areaCode ? `+${areaCode}` : null,
             FinalPhoneNumber: phoneNumber.startsWith('+') ? phoneNumber : `+${phoneNumber}`,
         };
-    } else {
-        // If the phone number is not valid, return the original phone number with a plus sign
+    } else { 
         return {
             isValid: false,
             areaCode: null,
@@ -52,7 +48,7 @@ async function abosendAPIParameters(country_code, phone_number, message, row_num
     const api_details = await checkOddEven(row_number);
     const data_encrytpion = `${api_details.orgCode}${message}${api_details.rand}${api_details.md5Key}`;
     const hash = md5(data_encrytpion).toUpperCase();
-    const validated = validateAndExtractAreaCode(phone_number);
+    const validated = await validateAndExtractAreaCode(phone_number);
  
     if (validated) {
         let data = qs.stringify({
