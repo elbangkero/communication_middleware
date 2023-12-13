@@ -3,6 +3,7 @@ const _Callback = new Callback();
 const AcctProviders = require('../Classes/AcctProviders');
 const _AcctProviders = new AcctProviders();
 const axios = require('axios');
+const https = require('https');
 
 const PROVIDER_ELASTIC_EMAIL = process.env.PROVIDER_ELASTIC_EMAIL;
 
@@ -81,24 +82,35 @@ async function GetElasticSendingCallback(api_response, country) {
 }
 
 
-async function SpinWheelCallback() {
-    const id = 1;
-    const status = 'sent';
-    const msg = 'SpinWheelCallback';
-    let config = {
-        method: 'get',
-        maxBodyLength: Infinity,
-        url: `https://13.229.158.52:8022/callback/${id}?status=${status}&msg=${msg}`,
-        headers: {}
-    };
+async function SpinWheelCallback(url, payload) {
+    let result = url;
+    const JsonPayload = JSON.parse(payload);
+    const _response = encodeURIComponent(JsonPayload.response);
+    const _status = encodeURIComponent(JsonPayload.status);
+    if (result.indexOf('http://') > -1) {
+        result = url.replace("http://", "https://");
+    }
 
-    axios.request(config)
-        .then((response) => {
-            console.log(JSON.stringify(response.data));
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+    const _url = result += `?status=${_status}&msg=${_response}`;
+
+
+    return new Promise(async (resolve, reject) => {
+        let config = {
+            method: 'get',
+            maxBodyLength: Infinity,
+            httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+            url: _url,
+            headers: {}
+        };
+
+        axios.request(config)
+            .then((response) => {
+                resolve(JSON.stringify(response.data));
+            })
+            .catch((error) => {
+                reject(error);
+            });
+    });
 
 }
 module.exports = function () {

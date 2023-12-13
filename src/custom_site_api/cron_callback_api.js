@@ -24,10 +24,19 @@ async function CB() {
                         const jsonObject = JSON.parse(response);
                         const status = jsonObject.status;
                         dynamic_counter[`${row.id}`].attempt++;
-                        if (status === 'Throttled')
-                            await _ControllerCallback.GetUpdateCallback(row.id, status, response);
-                        else if (status === 'Sent')
-                            await _ControllerCallback.GetUpdateCallback(row.id, 'Received', response);
+
+                        if (status === 'Throttled') { 
+                            await _ControllerCallback.GetUpdateCallback(row.id, status, response)
+                                .then(async function () {
+                                    await _ControllerCallback.SpinWheelCallback(row.callback_url, JSON.stringify({ id: row.id, status: status, response: response }));
+                                });
+                        } else if (status === 'Sent') { 
+                            await _ControllerCallback.GetUpdateCallback(row.id, 'Received', response)
+                                .then(async function () {
+                                    await _ControllerCallback.SpinWheelCallback(row.callback_url, JSON.stringify({ id: row.id, status: 'Received', response: response }));
+                                });;
+                        }
+
                     }).catch(async function (error) {
                         /*
                         console.log('----------ERROR-----------');
