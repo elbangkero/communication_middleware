@@ -109,7 +109,8 @@ exports.API_DisplayHistory = async (_req, _res) => {
     //console.log(_req.query);
 
     try {
-        let query = `SELECT history_id, campaign_name, player_token, platform, country, status, created_at FROM cmw_history`;
+        let query = `SELECT ch.history_id,ch.campaign_name,ch.player_token,ch.platform,ch.country,INITCAP(case when cc.callback_status = 'Pending' then 'sent' when (cc.callback_status  IS NULL OR cc.callback_status = '') then ch.status else cc.callback_status end)  as status ,ch.created_at  FROM cmw_history ch 
+        left join cmw_callback cc on cc.history_id = ch.history_id::varchar`;
 
         const queryParams = [];
 

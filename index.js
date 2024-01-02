@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken');
 require('./src/api')(app, jwt);
 require('./src/jwt')(app, jwt);
 require('./src/views/index')(app);
-require('./src/elastic_email_logs');
+//require('./src/elastic_email_logs');
 require('./src/custom_site_api/cron_callback_api');
 
 
