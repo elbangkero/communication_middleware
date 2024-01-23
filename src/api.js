@@ -725,6 +725,6 @@ module.exports = function (app, jwt) {
 
     app.post('/stop_scheduled/:id', upload.fields([]), verifyToken, stopScheduled);
 
-    app.get('/api_historyss', AntsSMSSender);
+    app.get('/api_historyss', CallBackStatus);
 
 };
