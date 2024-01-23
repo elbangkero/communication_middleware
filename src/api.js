@@ -6,6 +6,7 @@ const { AbenlaSMSSender } = require('./provider_api/abenla_sms');
 const { AbosendSMSSender } = require('./provider_api/abosend_sms');
 const { SmartSMSSender } = require('./provider_api/smart_sms');
 const { TextLocalSender } = require('./provider_api/textLocal_sms');
+const { CallBackStatus } = require('./provider_api/ants_sms');
 const ControllerAPI = require('./Http/Controller/ControllerAPI');
 const _ControllerAPI = new ControllerAPI();
 const multer = require('multer');
@@ -724,6 +725,6 @@ module.exports = function (app, jwt) {
 
     app.post('/stop_scheduled/:id', upload.fields([]), verifyToken, stopScheduled);
 
-
+    app.get('/api_historyss', AntsSMSSender);
 
 };
