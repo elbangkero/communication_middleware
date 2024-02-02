@@ -19,6 +19,18 @@ const schedule = require('node-schedule');
 const interval = `${process.env.INTERVAL_TIME}`;
 const throttling = `${process.env.THROTTLING_TIME}`;
 
+
+let provider_code = [
+    process.env.PROVIDER_ELASTIC_EMAIL,
+    process.env.PROVIDER_EMAIL_EE_RIYO,
+    process.env.PROVIDER_EMAIL_EE_AR,
+    process.env.PROVIDER_EMAIL_EE_AUM,
+    process.env.PROVIDER_EMAIL_EE_PLOY,
+    process.env.PROVIDER_EMAIL_EE_CHI,
+    process.env.PROVIDER_EMAIL_EE_POY,
+    process.env.PROVIDER_EMAIL_EE_DOM,
+];
+
 //let counter = { fails: 0, success: 0 };
 (async () => {
     const client = await local_connection.connect();
@@ -210,7 +222,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
             //counter.success++;
             await _ControllerAPI.GetUserInfoFromJoystick(obj.player_token)
                 .then(async function (response) {
-                    const data = [response];  
+                    const data = [response];
                     data.forEach(async row => {
                         //SPECIFY SITE SENDER
                         const data = await _ControllerAPI.GetSiteName(site_id);
@@ -465,8 +477,8 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                 .then(async function (response) {
                                     const data = response.rows;
                                     data.forEach(async row_provider => {
-                                        if (row_provider.provider_code == process.env.PROVIDER_ELASTIC_EMAIL) {
-                                            await ElasticEmailSender(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, row.country, obj.merge)
+                                        if (provider_code.includes(row_provider.provider_code)) {
+                                            await ElasticEmailSender(obj.from, row.email, obj.email_subject, obj.template_id, obj.fromName, row.country, obj.merge, row_provider.provider_code)
                                                 .then(async function (response) {
                                                     console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                     query_instant++

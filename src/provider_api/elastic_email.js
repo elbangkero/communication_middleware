@@ -4,10 +4,14 @@ const axios = require('axios');
 
 
 const PROVIDER_ELASTIC_EMAIL = process.env.PROVIDER_ELASTIC_EMAIL;
-async function ElasticEmailAccount(country_code) {
+async function ElasticEmailAccount(country_code, provider_code) {
+    let res;
+    if (PROVIDER_ELASTIC_EMAIL == provider_code) {
+        res = await _ControllerElasticEmail.GetElasticEmailAccount(provider_code, country_code);
+    } else {
+        res = await _ControllerElasticEmail.GetElasticEmailAccount(provider_code);
+    }
 
-
-    const res = await _ControllerElasticEmail.GetElasticEmailAccount(PROVIDER_ELASTIC_EMAIL, country_code);
     const data = res.rows;
     const results = await Promise.all(
         data.map(async row => {
@@ -22,10 +26,10 @@ async function ElasticEmailAccount(country_code) {
 
 }
 
-async function ElasticEmailSender(from, email, subject, template_id, fromName, country_code, merge) {
+async function ElasticEmailSender(from, email, subject, template_id, fromName, country_code, merge, provider_code) {
 
 
-    const apikey = await ElasticEmailAccount(country_code);
+    const apikey = await ElasticEmailAccount(country_code, provider_code);
 
     const email_subject = subject ? encodeURIComponent(subject) : encodeURIComponent('(no subject)');
     const encodedfromName = encodeURIComponent(fromName);

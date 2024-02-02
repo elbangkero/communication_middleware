@@ -20,8 +20,11 @@ async function SetAbosendAccount(app_id) {
     return res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${app_id}' ORDER BY random() LIMIT 1`);
 }
 
-async function SetElasticEmailAccount(app_id, country_code) {
+async function SetElasticEmailAccountSegregation(app_id, country_code) {
     return res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${app_id}'  and country_code like '${country_code}' LIMIT 1`);
+}
+async function SetElasticEmailAccount(app_id) {
+    return res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${app_id}' LIMIT 1`);
 }
 
 async function SetSmartSMSAccount(app_id, country_code, environment) {
@@ -42,4 +45,5 @@ module.exports = function () {
     this.SetElasticEmailAccount = SetElasticEmailAccount;
     this.SetSmartSMSAccount = SetSmartSMSAccount;
     this.SetTextLocalAccount = SetTextLocalAccount;
+    this.SetElasticEmailAccountSegregation = SetElasticEmailAccountSegregation;
 }
