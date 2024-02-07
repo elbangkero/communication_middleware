@@ -26,19 +26,38 @@ async function AntsAccount(country_code) {
     }
 
 }
+ 
+function extractBulkId(url) {
+    const questionMarkIndex = url.indexOf('?');
+    if (questionMarkIndex !== -1) {
+        const queryString = url.slice(questionMarkIndex + 1);
 
-async function AntsSMSSender(from, text, to, country_code) {
+        const queryParams = queryString.split('&');
 
+        for (let i = 0; i < queryParams.length; i++) {
+            const param = queryParams[i].split('=');
+            if (param[0] === 'bulkId') {
+                return param[1];
+            }
+        }
+    }
+    return null;
+}
+
+
+
+async function AntsSMSSender(from, text, to, country_code, _callback) {
 
     const Authorization = await AntsAccount(country_code);
     const credentials = `${Authorization.username}:${Authorization.password}`;;
     const encodedCredentials = Buffer.from(credentials).toString('base64');
 
-
+    const bulkId = extractBulkId(_callback);
+ 
 
     return new Promise(async (resolve, reject) => {
         let data = JSON.stringify({
-            "bulkId": "testEL-01/23/24-02",
+            "bulkId": bulkId,
             "messages": [
                 {
                     "from": from,
@@ -50,7 +69,7 @@ async function AntsSMSSender(from, text, to, country_code) {
                     ],
                     "text": text,
                     "shorturl": "n",
-                    "notifyUrl": process.env.ANTS_CALLBACK_URL,
+                    "notifyUrl": _callback,
                     "notifyContentType": "application/json",
                     "callbackData": "ANTS Data"
                 }
@@ -71,10 +90,8 @@ async function AntsSMSSender(from, text, to, country_code) {
                 var name = response.data.details[0].status.name;
                 //debug structure// console.log(response.data.details[0].status.description);
                 if (name == "REJECTED") {
-                    reject(JSON.stringify(response.data.details[0].status.description));
-                } else {
-                    resolve(JSON.stringify(response.data.details[0].status.description));
-                }
+                    reject(response.data.details[0].status.description);
+                } resolve(response.data.details[0].status.description);
             })
             .catch((error) => {
                 //console.log(error.response.data.error);
@@ -83,8 +100,5 @@ async function AntsSMSSender(from, text, to, country_code) {
     });
 }
 
-CallBackStatus = async (_req, _res) => {
-    _res.json({ data: 'Callback Status!' });
-};
 
-module.exports = { AntsSMSSender, CallBackStatus };
+module.exports = { AntsSMSSender };

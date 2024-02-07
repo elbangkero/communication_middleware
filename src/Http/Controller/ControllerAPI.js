@@ -31,10 +31,14 @@ async function GetStoreMessageHistory(config_id, campaign_name, player_token, pl
     const date_now = new Date(local_time).toLocaleString();
     const Callback = callback_url !== undefined ? callback_url : '';
     await _History.setMessageHistory(config_id, campaign_name, player_token, player_contact, platform, country, message, status, api_response, from, email_subject, template_id, application_id, merge, local_time, brand_id, Callback)
-        .then(async result => { 
+        .then(async result => {
             if (result.rows[0].status === 'success') {
                 const history_id = result.rows[0].history_id;
                 await _Callback.SetCallback(history_id);
+            }
+            if (application_id == 'ANTS_SMS') {
+                const history_id = result.rows[0].history_id;
+                await _Callback.SetCallbackSMSAnts(history_id, Callback);
             }
         })
         .catch(error => {

@@ -9,6 +9,30 @@ async function SetCallback(history_id) {
     });
 }
 
+async function SetCallbackSMSAnts(history_id, Callback) {
+    function extractBulkId(url) {
+        const questionMarkIndex = url.indexOf('?');
+        if (questionMarkIndex !== -1) {
+            const queryString = url.slice(questionMarkIndex + 1);
+
+            const queryParams = queryString.split('&');
+
+            for (let i = 0; i < queryParams.length; i++) {
+                const param = queryParams[i].split('=');
+                if (param[0] === 'bulkId') {
+                    return param[1];
+                }
+            }
+        }
+        return null;
+    }
+    return new Promise(async (resolve, reject) => {
+        local_connection.query(`INSERT INTO cmw_callback(history_id, callback_status, api_response,attemptCount) VALUES('${history_id}', 'Pending', '${extractBulkId(Callback)}',0)`, (err, res) => {
+            err ? reject(`SetCallbackSMSAnts[Error]: ${err.message}`) : resolve(res);
+        });
+    });
+}
+
 async function SetCallbackItems() {
     //console.log(`Status : ${status}`);
     return new Promise(async (resolve, reject) => {
@@ -35,6 +59,7 @@ async function SetUpdateCallbackAttempt(id, attemptcount) {
 
 module.exports = function () {
     this.SetCallback = SetCallback;
+    this.SetCallbackSMSAnts = SetCallbackSMSAnts;
     this.SetCallbackItems = SetCallbackItems;
     this.SetUpdateCallback = SetUpdateCallback;
     this.SetUpdateCallbackAttempt = SetUpdateCallbackAttempt;
