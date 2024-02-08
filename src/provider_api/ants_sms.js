@@ -26,7 +26,7 @@ async function AntsAccount(country_code) {
     }
 
 }
- 
+
 function extractBulkId(url) {
     const questionMarkIndex = url.indexOf('?');
     if (questionMarkIndex !== -1) {
@@ -53,28 +53,28 @@ async function AntsSMSSender(from, text, to, country_code, _callback) {
     const encodedCredentials = Buffer.from(credentials).toString('base64');
 
     const bulkId = extractBulkId(_callback);
- 
+
 
     return new Promise(async (resolve, reject) => {
+
         let data = JSON.stringify({
-            "bulkId": bulkId,
+            "bulkId": `${bulkId}`,
             "messages": [
                 {
-                    "from": from,
+                    "from": `${from}`,
                     "destinations": [
                         {
-                            "to": to,
-                            "messageId": "testdev02"
+                            "to": `${to}`,
+                            "messageId": `${bulkId}`
                         }
                     ],
-                    "text": text,
-                    "shorturl": "n",
-                    "notifyUrl": _callback,
-                    "notifyContentType": "application/json",
-                    "callbackData": "ANTS Data"
+                    "text": `${text}`,
+                    "notifyUrl": `${_callback}`,
                 }
             ]
         });
+
+
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
