@@ -8,6 +8,9 @@ async function AntsUpdateCallback(bulkid) {
         });
     });
 }
+async function CheckCallbackStatus(bulkId) {
+    return res = await local_connection.query(`select * from cmw_callback where api_response = '${bulkId}'`);
+}
 
 function CallbackTimeStatus() {
     const now = new Date();
@@ -30,9 +33,25 @@ function CallbackTimeStatus() {
 
 
 CallBackStatus = async (_req, _res) => {
-    _res.status(200).json({ 'statusCode': 200, message: 'Callback update status succesfully', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] });
-    console_log(JSON.stringify({ 'statusCode': 200, message: 'Callback update status succesfully', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] }));
-    await AntsUpdateCallback(_req.query.bulkId);
+
+    const res = await CheckCallbackStatus(_req.query.bulkId);
+    const data = res.rows;
+    try {
+        if (data[0].callback_status == 'Received') {
+            _res.status(200).json({ 'statusCode': 200, message: 'Already Received', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] });
+        } else {
+            _res.status(200).json({ 'statusCode': 200, message: 'Callback update status succesfully', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] });
+            console_log(JSON.stringify({ 'statusCode': 200, message: 'Callback update status succesfully', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] }));
+            await AntsUpdateCallback(_req.query.bulkId);
+
+        }
+    }
+    catch (err) {
+        _res.status(404).json({ 'statusCode': 404, message: 'BulkId does not existing', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] });
+    }
+
+
+
 };
 
 module.exports = function (app) {
