@@ -57,11 +57,12 @@ async function AntsSMSSender(from, text, to, country_code, _callback) {
 
     return new Promise(async (resolve, reject) => {
 
+
         let data = JSON.stringify({
             "bulkId": `${bulkId}`,
             "messages": [
                 {
-                    "from": `${from}`,
+                    "from": "AntsTestSMS",
                     "destinations": [
                         {
                             "to": `${to}`,
@@ -69,11 +70,13 @@ async function AntsSMSSender(from, text, to, country_code, _callback) {
                         }
                     ],
                     "text": `${text}`,
+                    "shorturl": "n",
                     "notifyUrl": `${_callback}`,
+                    "notifyContentType": "application/json",
+                    "callbackData": "ANTS Data"
                 }
             ]
         });
-
 
         let config = {
             method: 'post',
