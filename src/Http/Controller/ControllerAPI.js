@@ -36,9 +36,11 @@ async function GetStoreMessageHistory(config_id, campaign_name, player_token, pl
                 if (application_id == 'ANTS_SMS') {
                     const history_id = result.rows[0].history_id;
                     await _Callback.SetCallbackSMSAnts(history_id, Callback);
+                } else {
+                    const history_id = result.rows[0].history_id;
+                    await _Callback.SetCallback(history_id);
                 }
-                const history_id = result.rows[0].history_id;
-                await _Callback.SetCallback(history_id);
+
             }
 
         })
