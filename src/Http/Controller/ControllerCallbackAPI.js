@@ -6,7 +6,7 @@ const axios = require('axios');
 const https = require('https');
 
 const PROVIDER_ELASTIC_EMAIL = process.env.PROVIDER_ELASTIC_EMAIL;
-
+const PROVIDER_ANTS_SMS = process.env.PROVIDER_ANTS_SMS;
 
 async function GetCallbackItems() {
     return await _Callback.SetCallbackItems();
@@ -18,6 +18,29 @@ async function GetUpdateCallback(id, callback_status, api_response) {
 
 async function GetUpdateCallbackAttempt(id, attemptcount) {
     return await _Callback.SetUpdateCallbackAttempt(id, attemptcount);
+}
+
+
+async function AntsAccount(country_code) {
+
+    const res = await _AcctProviders.SetAntsAccount(PROVIDER_ANTS_SMS, country_code);
+
+
+    const data = res.rows;
+
+
+    const results = await Promise.all(
+        data.map(async row => {
+            return { "username": row.username, "password": row.password };
+        })
+    );
+
+    if (results.length > 0) {
+        return results[0];
+    } else {
+        return { "username": '', "password": '' };
+    }
+
 }
 
 
@@ -101,6 +124,11 @@ function extractBulkId(url) {
 
 async function GetAntsCallBack(api_response) {
 
+
+    const Authorization = await AntsAccount(api_response.country);
+    const credentials = `${Authorization.username}:${Authorization.password}`;;
+    const encodedCredentials = Buffer.from(credentials).toString('base64');
+
     const bulkId = extractBulkId(api_response.callback_url);
     return new Promise(async (resolve, reject) => {
         let config = {
@@ -108,7 +136,7 @@ async function GetAntsCallBack(api_response) {
             maxBodyLength: Infinity,
             url: `https://api-service.ants.co.th/sms/loginfo?bulkId=${bulkId}&messageId=${bulkId}`,
             headers: {
-                'Authorization': 'Basic RUxBUEkxOkVMQEFQSTIwMjQ='
+                'Authorization': `Basic ${encodedCredentials}`
             }
         };
 
