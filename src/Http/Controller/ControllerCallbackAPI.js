@@ -81,6 +81,79 @@ async function GetElasticSendingCallback(api_response, country) {
 
 }
 
+function extractBulkId(url) {
+    const questionMarkIndex = url.indexOf('?');
+    if (questionMarkIndex !== -1) {
+        const queryString = url.slice(questionMarkIndex + 1);
+
+        const queryParams = queryString.split('&');
+
+        for (let i = 0; i < queryParams.length; i++) {
+            const param = queryParams[i].split('=');
+            if (param[0] === 'bulkId') {
+                return param[1];
+            }
+        }
+    }
+    return null;
+}
+
+
+async function GetAntsCallBack(api_response) {
+
+    const bulkId = extractBulkId(api_response.callback_url);
+    return new Promise(async (resolve, reject) => {
+        let config = {
+            method: 'get',
+            maxBodyLength: Infinity,
+            url: `https://api-service.ants.co.th/sms/loginfo?bulkId=${bulkId}&messageId=${bulkId}`,
+            headers: {
+                'Authorization': 'Basic RUxBUEkxOkVMQEFQSTIwMjQ='
+            }
+        };
+
+        axios.request(config)
+            .then((response) => {
+                if (response.data.length === 0) {
+                    const __json = new Object();
+                    __json.id = bulkId;
+                    __json.status = 'PENDING';
+                    __json.message = 'Pending - Message has been accepted by the system';
+                    const apiResponse = JSON.stringify(__json);
+                    resolve(apiResponse);
+                } else {
+                    if (response.data[0].details[0].status.name == 'DELIVERED') {
+                        const __json = new Object();
+                        __json.id = response.data[0].details[0].messageId;
+                        __json.status = response.data[0].details[0].status.name;
+                        __json.message = response.data[0].details[0].status.description;
+                        const apiResponse = JSON.stringify(__json);
+                        resolve(apiResponse);
+                    } else if (response.data[0].details[0].status.name == 'COMPLETED') {
+                        const __json = new Object();
+                        __json.id = response.data[0].details[0].messageId;
+                        __json.status = response.data[0].details[0].status.name;
+                        __json.message = response.data[0].details[0].status.description;
+                        const apiResponse = JSON.stringify(__json);
+                        resolve(apiResponse);
+                    } else if (response.data[0].details[0].status.name == 'PENDING') {
+                        const __json = new Object();
+                        __json.id = response.data[0].details[0].messageId;
+                        __json.status = response.data[0].details[0].status.name;
+                        __json.message = response.data[0].details[0].status.description;
+                        const apiResponse = JSON.stringify(__json);
+                        resolve(apiResponse);
+                    }
+                }
+
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    });
+
+}
 
 async function SpinWheelCallback(url, payload) {
     let result = url;
@@ -119,6 +192,7 @@ module.exports = function () {
     this.GetUpdateCallback = GetUpdateCallback;
     this.SpinWheelCallback = SpinWheelCallback;
     this.GetUpdateCallbackAttempt = GetUpdateCallbackAttempt;
+    this.GetAntsCallBack = GetAntsCallBack;
 
 }
 
