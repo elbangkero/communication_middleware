@@ -29,6 +29,12 @@ let provider_code = [
     process.env.PROVIDER_EMAIL_EE_CHI,
     process.env.PROVIDER_EMAIL_EE_POY,
     process.env.PROVIDER_EMAIL_EE_DOM,
+    process.env.PROVIDER_EMAIL_EE_JJ,
+    process.env.PROVIDER_EMAIL_EE_BANK,
+    process.env.PROVIDER_EMAIL_EE_SATANG,
+    process.env.PROVIDER_EMAIL_EE_WINNIE,
+    process.env.PROVIDER_EMAIL_EE_DORIS,
+    process.env.PROVIDER_EMAIL_EE_MAIKO
 ];
 
 //let counter = { fails: 0, success: 0 };
