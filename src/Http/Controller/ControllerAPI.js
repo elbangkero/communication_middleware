@@ -58,6 +58,9 @@ async function GetUpdateConfigSending(config_id) {
 async function GetUpdateConfigSent(config_id) {
     return await _Config.SetUpdateConfigSent(config_id);
 }
+async function GetUpdateConfigError(config_id) {
+    return await _Config.SetUpdateConfigError(config_id);
+}
 async function GetProviders(application_id) {
     return await _Providers.SetProviders(application_id);
 }
@@ -89,4 +92,5 @@ module.exports = function () {
     this.GetInsertAcctProviders = GetInsertAcctProviders;
     this.GetStopScheduled = GetStopScheduled;
     this.GetUserInfoFromJoystick = GetUserInfoFromJoystick;
+    this.GetUpdateConfigError = GetUpdateConfigError;
 }

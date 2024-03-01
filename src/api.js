@@ -34,7 +34,10 @@ let provider_code = [
     process.env.PROVIDER_EMAIL_EE_SATANG,
     process.env.PROVIDER_EMAIL_EE_WINNIE,
     process.env.PROVIDER_EMAIL_EE_DORIS,
-    process.env.PROVIDER_EMAIL_EE_MAIKO
+    process.env.PROVIDER_EMAIL_EE_MAIKO,
+    process.env.PROVIDER_EMAIL_EE_ARISA,
+    process.env.PROVIDER_EMAIL_EE_DORA,
+    process.env.PROVIDER_EMAIL_EE_GRACE
 ];
 
 //let counter = { fails: 0, success: 0 };
@@ -104,39 +107,69 @@ let provider_code = [
                                 pre_compile_data[dynamic_contact];
 
                                 const filePath = './uploads/data_leads/' + row.data_leads;
-
+                                let stopProcessing = false; 
                                 async function processFile(maxRetries) {
                                     try {
                                         //throw new Error("Forced error for testing");
                                         if (fs.existsSync(filePath)) {
                                             fs.createReadStream(filePath)
                                                 .pipe(csv())
-                                                .on('data', function (data) {
+                                                .on('data', async function (data) {
+                                                    if (stopProcessing) {
+                                                        return; // Stop processing if flag is set
+                                                    }
                                                     const sanitizedData = Object.fromEntries(
                                                         Object.entries(data).map(([key, value]) => [
                                                             key.replace(/[\s']/g, ''),
                                                             value === '' ? '' : value
                                                         ])
                                                     );
+                                                    if (sanitizedData.playertoken == undefined || sanitizedData.message_text == undefined || sanitizedData.platform == undefined
+                                                        || sanitizedData.from == undefined || sanitizedData.template_id == undefined || sanitizedData.email_subject == undefined
+                                                        || sanitizedData.fromName == undefined || sanitizedData.merge == undefined) {
 
-                                                    try {
-                                                        pre_compile_data.push(JSON.stringify({
-                                                            'player_token': sanitizedData.playertoken,
-                                                            'message_text': sanitizedData.message_text,
-                                                            'platform': sanitizedData.platform,
-                                                            'from': sanitizedData.from,
-                                                            'template_id': sanitizedData.template_id,
-                                                            'email_subject': sanitizedData.email_subject,
-                                                            'fromName': sanitizedData.fromName,
-                                                            'application_id': sanitizedData.application_id,
-                                                            'merge': sanitizedData.merge
-                                                        }));
-                                                    } catch (err) {
-                                                        console.log(err);
-                                                        console.log('error contact number');
+                                                        //console.log('error detected');
+                                                        if (!retryCounts[dynamic_contact]) {
+                                                            retryCounts[dynamic_contact] = 0;
+                                                        }
+
+                                                        if (retryCounts[dynamic_contact] < maxRetries) {
+                                                            retryCounts[dynamic_contact]++;
+                                                            await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                                                            console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
+                                                            setTimeout(() => processFile(maxRetries), 5000);
+                                                        } else {
+                                                            stopProcessing = true;
+                                                            console.log('Maximum retries reached. Unable to process file.');
+                                                            await _ControllerAPI.GetUpdateConfigError(row.config_id);
+                                                            
+                                                        }
+
+                                                        
+                                                    } else {
+                                                        try {
+                                                            pre_compile_data.push(JSON.stringify({
+                                                                'player_token': sanitizedData.playertoken,
+                                                                'message_text': sanitizedData.message_text,
+                                                                'platform': sanitizedData.platform,
+                                                                'from': sanitizedData.from,
+                                                                'template_id': sanitizedData.template_id,
+                                                                'email_subject': sanitizedData.email_subject,
+                                                                'fromName': sanitizedData.fromName,
+                                                                'application_id': sanitizedData.application_id,
+                                                                'merge': sanitizedData.merge
+                                                            }));
+                                                        } catch (err) {
+                                                            console.log(err);
+                                                            console.log('error contact number');
+                                                        }
                                                     }
+
                                                 })
                                                 .on('end', async () => {
+                                                    if (stopProcessing) {
+                                                        return; // Stop processing if flag is set
+                                                    }
                                                     //console.log(pre_compile_data);
                                                     if (row.is_scheduled == true) {
                                                         const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
@@ -159,8 +192,9 @@ let provider_code = [
                                                 console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
                                                 setTimeout(() => processFile(maxRetries), 5000);
                                             } else {
+                                                stopProcessing = true;
                                                 console.log('Maximum retries reached. Unable to process file.');
-                                                await _ControllerAPI.GetUpdateConfigSent(row.config_id);
+                                                await _ControllerAPI.GetUpdateConfigError(row.config_id);
                                             }
                                         }
                                     } catch (err) {
@@ -175,8 +209,9 @@ let provider_code = [
                                             console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
                                             setTimeout(() => processFile(maxRetries), 5000);
                                         } else {
+                                            stopProcessing = true;
                                             console.log('Maximum retries reached. Unable to process file.');
-                                            await _ControllerAPI.GetUpdateConfigSent(row.config_id);
+                                            await _ControllerAPI.GetUpdateConfigError(row.config_id);
                                         }
                                     }
                                 }
