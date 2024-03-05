@@ -76,8 +76,14 @@ async function GetInsertAcctProviders(country_code, provider_code, username, pas
 async function GetStopScheduled(id) {
     return await _Config.SetStopScheduled(id);
 }
+async function GetStopTrigger(id) {
+    return await _Config.SetStopTrigger(id);
+}
 async function GetUserInfoFromJoystick(player_token) {
     return await _Joystick.SetUserInfoFromJoystick(player_token);
+}
+async function GetStopTriggerStatus(id) {
+    return await _Config.SetStopTriggerStatus(id);
 }
 module.exports = function () {
     this.GetValidateSiteID = GetValidateSiteID;
@@ -93,4 +99,6 @@ module.exports = function () {
     this.GetStopScheduled = GetStopScheduled;
     this.GetUserInfoFromJoystick = GetUserInfoFromJoystick;
     this.GetUpdateConfigError = GetUpdateConfigError;
+    this.GetStopTrigger = GetStopTrigger;
+    this.GetStopTriggerStatus = GetStopTriggerStatus;
 }

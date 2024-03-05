@@ -11,7 +11,7 @@ async function SetListenerPayload() {
 }
 async function SetUpdateConfigSending(config_id) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`update cmw_config set status= 'sending' where config_id=${config_id}`, (err, res) => {
+        local_connection.query(`update cmw_config set status= 'sending' ,  updated_at = CURRENT_TIMESTAMP  where config_id=${config_id}`, (err, res) => {
             err ? reject(`SetUpdateConfigSendingError]: ${err.message}`) : resolve(res);
         });
     });
@@ -19,7 +19,7 @@ async function SetUpdateConfigSending(config_id) {
 
 async function SetUpdateConfigSent(config_id) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' where config_id=${config_id}`, (err, res) => {
+        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'sent' ,  updated_at = CURRENT_TIMESTAMP  where config_id=${config_id}`, (err, res) => {
             err ? reject(`SetUpdateConfigSent[Error]: ${err.message}`) : resolve(res);
         });
     });
@@ -27,7 +27,7 @@ async function SetUpdateConfigSent(config_id) {
 
 async function SetUpdateConfigError(config_id) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'error' where config_id=${config_id}`, (err, res) => {
+        local_connection.query(`update cmw_config set triggerstatus= 'inactive' , status = 'error' ,  updated_at = CURRENT_TIMESTAMP  where config_id=${config_id}`, (err, res) => {
             err ? reject(`SetUpdateConfigError[Error]: ${err.message}`) : resolve(res);
         });
     });
@@ -43,7 +43,7 @@ async function SetInsertConfig(local_time, parseISO, sending, data_source, campa
 
 async function SetStopScheduled(id) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`update cmw_config set status= 'cancelled', is_scheduled = 'false' , triggerstatus='inactive' where config_id='${id}'`, (err, res) => {
+        local_connection.query(`update cmw_config set status= 'cancelled', is_scheduled = 'false' , triggerstatus='inactive' ,  sending = false ,  updated_at = CURRENT_TIMESTAMP  where config_id='${id}'`, (err, res) => {
             err ? reject(`SetStopScheduled[Error]: ${err.message}`) : resolve(res);
         });
     });
@@ -51,10 +51,19 @@ async function SetStopScheduled(id) {
 
 async function SetStopTrigger(id) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`update cmw_config set status= 'cancelled', triggerstatus='inactive' where config_id='${id}'`, (err, res) => {
-            err ? reject(`SetStopScheduled[Error]: ${err.message}`) : resolve(res);
+        local_connection.query(`update cmw_config set status= 'cancelled', triggerstatus='inactive' , sending = false , updated_at = CURRENT_TIMESTAMP where config_id='${id}'`, (err, res) => {
+            err ? reject(`SetStopTrigger[Error]: ${err.message}`) : resolve(res);
         });
     });
+}
+
+async function SetStopTriggerStatus(id) {
+    return new Promise(async (resolve, reject) => {
+        local_connection.query(`SELECT sending FROM cmw_config where config_id ='${id}'`, (err, res) => {
+            err ? reject(`SetStopTriggerStatus[Error]: ${err.message}`) : resolve(res);
+        })
+    });
+
 }
 
 module.exports = function () {
@@ -65,5 +74,7 @@ module.exports = function () {
     this.SetStopScheduled = SetStopScheduled;
     this.SetUpdateConfigError = SetUpdateConfigError;
     this.SetStopTrigger = SetStopTrigger;
+    this.SetStopTriggerStatus = SetStopTriggerStatus;
+
 
 }

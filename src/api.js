@@ -61,6 +61,7 @@ let provider_code = [
                         switch (data_source) {
                             case 'json':
                                 try {
+                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
                                     var pre_compile_data = [];
                                     var dynamic_contact = row.config_id;
                                     pre_compile_data[dynamic_contact];
@@ -87,13 +88,11 @@ let provider_code = [
                                         constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
                                     }
 
-                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
 
 
                                 } catch (err) {
                                     await _ControllerAPI.GetUpdateConfigError(row.config_id);
-                                    //console_log(err);
-                                    console_log('Error Json format');
+                                    console.error('Error Json format');
                                 }
                                 //console.log(pre_compile_data);
                                 break;
@@ -107,7 +106,7 @@ let provider_code = [
                                 pre_compile_data[dynamic_contact];
 
                                 const filePath = './uploads/data_leads/' + row.data_leads;
-                                let stopProcessing = false; 
+                                let stopProcessing = false;
                                 async function processFile(maxRetries) {
                                     try {
                                         //throw new Error("Forced error for testing");
@@ -135,17 +134,17 @@ let provider_code = [
 
                                                         if (retryCounts[dynamic_contact] < maxRetries) {
                                                             retryCounts[dynamic_contact]++;
-                                                            await _ControllerAPI.GetUpdateConfigSending(row.config_id);
                                                             console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
                                                             setTimeout(() => processFile(maxRetries), 5000);
-                                                        } else {
+                                                            await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                                                        } if (retryCounts[dynamic_contact] == maxRetries) {
                                                             stopProcessing = true;
                                                             console.log('Maximum retries reached. Unable to process file.');
                                                             await _ControllerAPI.GetUpdateConfigError(row.config_id);
-                                                            
+
                                                         }
 
-                                                        
+
                                                     } else {
                                                         try {
                                                             pre_compile_data.push(JSON.stringify({
@@ -160,8 +159,7 @@ let provider_code = [
                                                                 'merge': sanitizedData.merge
                                                             }));
                                                         } catch (err) {
-                                                            console.log(err);
-                                                            console.log('error contact number');
+                                                            console.error('error contact number');
                                                         }
                                                     }
 
@@ -188,10 +186,10 @@ let provider_code = [
 
                                             if (retryCounts[dynamic_contact] < maxRetries) {
                                                 retryCounts[dynamic_contact]++;
-                                                await _ControllerAPI.GetUpdateConfigSending(row.config_id);
                                                 console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
                                                 setTimeout(() => processFile(maxRetries), 5000);
-                                            } else {
+                                                await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                                            } if (retryCounts[dynamic_contact] == maxRetries) {
                                                 stopProcessing = true;
                                                 console.log('Maximum retries reached. Unable to process file.');
                                                 await _ControllerAPI.GetUpdateConfigError(row.config_id);
@@ -205,10 +203,10 @@ let provider_code = [
 
                                         if (retryCounts[dynamic_contact] < maxRetries) {
                                             retryCounts[dynamic_contact]++;
-                                            await _ControllerAPI.GetUpdateConfigSending(row.config_id);
                                             console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
                                             setTimeout(() => processFile(maxRetries), 5000);
-                                        } else {
+                                            await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                                        } if (retryCounts[dynamic_contact] == maxRetries) {
                                             stopProcessing = true;
                                             console.log('Maximum retries reached. Unable to process file.');
                                             await _ControllerAPI.GetUpdateConfigError(row.config_id);
@@ -268,10 +266,16 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
     pre_compile_data.forEach(function (el, index) {
         setTimeout(async function () {
 
+
             var obj = JSON.parse(el);
             var row_number = index;
             //console.log(obj.player_token, obj.country, obj.text_message, obj.platform);
             //counter.success++;
+            const res = await _ControllerAPI.GetStopTriggerStatus(config_id);
+            const data = res.rows; 
+            if (!data[0].sending) {
+                return;
+            }
             await _ControllerAPI.GetUserInfoFromJoystick(obj.player_token)
                 .then(async function (response) {
                     const data = [response];
@@ -645,6 +649,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
         }, index * interval);
     });
 
+
 }
 
 
@@ -775,6 +780,19 @@ stopScheduled = async (_req, _res) => {
         });
 }
 
+stopTrigger = async (_req, _res) => {
+    await _ControllerAPI.GetStopTrigger(_req.params.id)
+        .then(async function (response) {
+            try {
+                console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Trigger Stop', 'data': [] }));
+                _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Trigger Stop', 'data': [] });
+            } catch (err) {
+                console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Trigger Stop', 'data': [] }));
+                _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Trigger Stop', 'data': [] });
+            }
+        });
+}
+
 
 module.exports = function (app, jwt) {
 
@@ -813,5 +831,7 @@ module.exports = function (app, jwt) {
     app.post('/upload/provider-account', upload.fields([]), verifyToken, insertProviderAccount);
 
     app.post('/stop_scheduled/:id', upload.fields([]), verifyToken, stopScheduled);
+
+    app.post('/stop_tigger/:id', upload.fields([]), verifyToken, stopTrigger);
 
 };
