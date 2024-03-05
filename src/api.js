@@ -91,8 +91,8 @@ let provider_code = [
 
 
                                 } catch (err) {
-                                    await _ControllerAPI.GetUpdateConfigSent(row.config_id);
-                                    console_log(err);
+                                    await _ControllerAPI.GetUpdateConfigError(row.config_id);
+                                    //console_log(err);
                                     console_log('Error Json format');
                                 }
                                 //console.log(pre_compile_data);
