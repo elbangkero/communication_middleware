@@ -30,7 +30,7 @@ async function TextLocalSender(from, message, phone_number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: `https://api.txtlocal.com/send/?apiKey=${result.apikey}&numbers=${encodedPhoneNumber}&message=${encodedMessage}&sender=${encodedFrom}`,
+            url: `https://api.txtlocal.com/send/?apiKey=${result.apikey}&numbers=${encodedPhoneNumber}&message=${encodedMessage}&sender=${encodedFrom}&unicode=true`,
             headers: {
                 'Cookie': 'PHPSESSID=jtenbp0mn67tsfcor7g1l22mh6'
             }
