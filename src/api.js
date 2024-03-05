@@ -165,6 +165,7 @@ let provider_code = [
 
                                                 })
                                                 .on('end', async () => {
+                                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
                                                     if (stopProcessing) {
                                                         return; // Stop processing if flag is set
                                                     }
@@ -176,8 +177,6 @@ let provider_code = [
                                                     } else {
                                                         constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
                                                     }
-
-                                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
                                                 });
                                         } else {
                                             if (!retryCounts[dynamic_contact]) {
