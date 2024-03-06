@@ -61,7 +61,7 @@ let provider_code = [
                         switch (data_source) {
                             case 'json':
                                 try {
-                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+
                                     var pre_compile_data = [];
                                     var dynamic_contact = row.config_id;
                                     pre_compile_data[dynamic_contact];
@@ -87,7 +87,7 @@ let provider_code = [
                                     } else {
                                         constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
                                     }
-
+                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
 
 
                                 } catch (err) {
