@@ -165,10 +165,10 @@ let provider_code = [
 
                                                 })
                                                 .on('end', async () => {
-                                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
                                                     if (stopProcessing) {
                                                         return; // Stop processing if flag is set
                                                     }
+                                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
                                                     //console.log(pre_compile_data);
                                                     if (row.is_scheduled == true) {
                                                         const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
