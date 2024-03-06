@@ -23,7 +23,7 @@ async function SetUserInfoFromJoystick(token) {
             headers: {
                 'Authorization': 'Basic bmltYnVzOndeN3FCUCpOJlRaZQ=='
             },
-            timeout: 1000
+            timeout: 60000
         };
 
         axios.request(config)
