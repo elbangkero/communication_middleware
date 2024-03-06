@@ -3,7 +3,7 @@ const path = require('path');
 const cron = require('node-cron');
 const tar = require('tar'); // Import the entire tar module
 
-const folderPath = '../uploads/data_leads'; // Specify the path to your folder here
+const folderPath = 'uploads/data_leads'; // Specify the path to your folder here
 
 function archiveAndDeleteFiles() {
   fs.readdir(folderPath, (err, files) => {

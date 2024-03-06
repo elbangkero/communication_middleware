@@ -12,6 +12,7 @@ require('./src/jwt')(app, jwt);
 require('./src/views/index')(app);
 //require('./src/elastic_email_logs');
 require('./src/custom_site_api/cron_callback_api');
+require('./src/log_file_zip');
 
 app.listen(`${process.env.PORT}`, () => {
   console_log('CMW listening on port : ' + `${process.env.PORT}`);
