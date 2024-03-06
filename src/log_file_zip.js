@@ -1,107 +1,64 @@
 const fs = require('fs');
 const path = require('path');
-const archiver = require('archiver');
 const cron = require('node-cron');
+const tar = require('tar'); // Import the entire tar module
 
-const folderPath = '../logs'; // Current directory where the index.js file is located
+const folderPath = '../uploads/data_leads'; // Specify the path to your folder here
 
-// Weekly cron job to zip files every Sunday at midnight (0:00)
-cron.schedule('* * * * *', () => {
-  zipWeeklyFiles();
-});
-
-// Monthly cron job to zip files on the 1st day of every month at midnight (0:00)
-cron.schedule('*/5 * * * *', () => {
-  zipMonthlyFiles();
-});
-
-function zipWeeklyFiles() {
+function archiveAndDeleteFiles() {
   fs.readdir(folderPath, (err, files) => {
     if (err) {
-      console.error('Error reading directory:', err);
+      console.error('Error reading folder:', err);
       return;
     }
 
-    files = files.filter((file) => {
-      const filePath = path.join(folderPath, file);
-      return fs.statSync(filePath).isFile();
-    });
+    // Filter out .tar files
+    const nonTarFiles = files.filter(file => !file.endsWith('.tar'));
 
-    const fileGroups = [];
-    while (files.length > 0) {
-      fileGroups.push(files.splice(0, 7));
-    }
-
-    const weeklyZipFiles = [];
-
-    fileGroups.forEach((group, week) => {
-      const zipFileName = path.join(folderPath, `week${week + 1}.zip`);
-      const output = fs.createWriteStream(zipFileName);
-      const archive = archiver('zip', {
-        zlib: { level: 9 }, // Set compression level
-      });
-
-      output.on('close', () => {
-        console.log(`Week ${week + 1} ZIP file created: ${zipFileName}`);
-        weeklyZipFiles.push(zipFileName);
-
-        if (weeklyZipFiles.length === fileGroups.length) {
-          // No need to create the monthly zip file here
-          // It will be created by the monthly cron job
-        }
-      });
-
-      archive.pipe(output);
-
-      group.forEach((file) => {
-        const filePath = path.join(folderPath, file);
-        archive.file(filePath, { name: file });
-      });
-
-      archive.finalize();
-    });
-
-    console.log(`Total number of files in ${folderPath}: ${files.length}`);
-  });
-}
-
-function zipMonthlyFiles() {
-  const now = new Date();
-  const month = now.toLocaleString('en-US', { month: 'long' });
-  const year = now.getFullYear();
-  const folderName = `${month}_${year}`;
-  const zipFileName = path.join(folderPath, `${folderName}.zip`);
-  const output = fs.createWriteStream(zipFileName);
-  const archive = archiver('zip', {
-    zlib: { level: 9 }, // Set compression level
-  });
-
-  output.on('close', () => {
-    console.log(`Monthly ZIP file created: ${zipFileName}`);
-  });
-
-  archive.pipe(output);
-
-  // Collect weekly zip files to include in the monthly zip
-  const weeklyZipFiles = [];
-
-  fs.readdir(folderPath, (err, files) => {
-    if (err) {
-      console.error('Error reading directory:', err);
+    // If there are no non-tar files, do nothing
+    if (nonTarFiles.length === 0) {
+      //console.log('No files to archive.');
       return;
     }
 
-    files.forEach((file) => {
-      if (file.startsWith('week')) {
-        weeklyZipFiles.push(file);
-      }
-    });
+    let filesToDelete = nonTarFiles.slice(0, 10); // Take only the first 10 files
 
-    weeklyZipFiles.forEach((weeklyZipFile) => {
-      const filePath = path.join(folderPath, weeklyZipFile);
-      archive.file(filePath, { name: path.basename(weeklyZipFile) });
-    });
+    // Create the tar file
+    const tarFileName = `archive_${Date.now()}.tar`;
+    const tarFilePath = path.join(folderPath, tarFileName);
 
-    archive.finalize();
+    tar.create({
+      file: tarFilePath,
+      cwd: folderPath
+    }, filesToDelete)
+      .then(() => {
+        console.log(`Tar file ${tarFileName} created successfully.`);
+
+        // Delete original files
+        filesToDelete.forEach((file) => {
+          fs.unlink(path.join(folderPath, file), (err) => {
+            if (err) {
+              fs.rmdir(err.path, { recursive: true }, (err) => {
+                if (err) {
+                  console.error('Error deleting folder:', err);
+                  return;
+                }
+                //console.log('Folder deleted successfully.');
+              });
+              return;
+            }
+            //console.log(`Deleted file: ${file}`);
+          });
+        });
+      })
+      .catch((err) => {
+        console.error('Error creating tar file:', err);
+      });
   });
 }
+
+// Schedule the cron job
+cron.schedule('0 */3 * * *', () => {
+  //console.log('Starting archiving process...');
+  archiveAndDeleteFiles();
+});
