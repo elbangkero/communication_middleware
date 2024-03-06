@@ -22,7 +22,8 @@ async function SetUserInfoFromJoystick(token) {
             url: `https://afun-playerinfo-ap-prod.vitruviandata.com/player?token=${token}`,
             headers: {
                 'Authorization': 'Basic bmltYnVzOndeN3FCUCpOJlRaZQ=='
-            }
+            },
+            timeout: 1000
         };
 
         axios.request(config)
@@ -42,7 +43,11 @@ async function SetUserInfoFromJoystick(token) {
 
             })
             .catch((error) => {
-                reject(error);
+                if (error.code === 'ECONNABORTED') {
+                    reject('Request Timeout From Vitruvian');
+                } else {
+                    reject(error);
+                }
             });
     });
 
