@@ -40,161 +40,120 @@ let provider_code = [
     process.env.PROVIDER_EMAIL_EE_GRACE
 ];
 
-//let counter = { fails: 0, success: 0 };
+let isProcessing = false;
+
 (async () => {
     const client = await local_connection.connect();
     await client.query('LISTEN cmw_listener');
+
     client.on('notification', function (data) {
-        getConfig(parseInt(data.payload));
-        //console.log("data", JSON.parse(data.payload)) ;
-        function getConfig(dataload) {
-            setTimeout(async () => {
+        if (!isProcessing) {
+            getConfig(parseInt(data.payload));
+        }
+    });
+
+    async function getConfig(dataload) {
+        if (isProcessing) {
+            return;
+        }
+
+        isProcessing = true;
+
+        setTimeout(async () => {
+            try {
                 const res = await _ControllerAPI.GetListenerPayload();
                 const data = res.rows;
-                console_log(`Config queue count : ${res.rowCount}`);
 
-                console_log(`payload : ${dataload}`);
-                const callback = dataload == res.rowCount;
-                if (callback) {
-                    data.forEach(async row => {
-                        const data_source = row.data_source;
-                        switch (data_source) {
-                            case 'json':
-                                try {
+                console_log(`Config queue count: ${res.rowCount}`);
+                console_log(`Payload: ${dataload}`);
+                for (let i = 0; i < data.length; i++) {
+                    try {
+                        await processRow(data[i]);
+                        await delay(interval);
+                    } catch (error) {
+                        console.error('Error processing row:', error);
+                    }
+                }
 
-                                    var pre_compile_data = [];
-                                    var dynamic_contact = row.config_id;
-                                    pre_compile_data[dynamic_contact];
+            } catch (error) {
+                console.error('Error retrieving configurations:', error);
+            } finally {
+                isProcessing = false;
+            }
+        }, throttling);
+    }
 
-                                    const utf8encoded = (new Buffer.from(row.data_leads, 'base64')).toString('utf8');
-                                    const obj = JSON.parse(utf8encoded);
+    async function processRow(row) {
+        const data_source = row.data_source;
+        switch (data_source) {
+            case 'json':
+                try {
+
+                    var pre_compile_data = [];
+                    var dynamic_contact = row.config_id;
+                    pre_compile_data[dynamic_contact];
+
+                    const utf8encoded = (new Buffer.from(row.data_leads, 'base64')).toString('utf8');
+                    const obj = JSON.parse(utf8encoded);
 
 
-                                    let result = Array.isArray(obj.data_leads.playertoken);
-                                    if (result) {
-                                        obj.data_leads.playertoken.forEach((token) => {
-                                            pre_compile_data.push(JSON.stringify({ 'player_token': token, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge, 'callback_url': obj.data_leads.callback_url }));
-                                        });
-                                    } else {
-                                        pre_compile_data.push(JSON.stringify({ 'player_token': obj.data_leads.playertoken, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge, 'callback_url': obj.data_leads.callback_url }));
+                    let result = Array.isArray(obj.data_leads.playertoken);
+                    if (result) {
+                        obj.data_leads.playertoken.forEach((token) => {
+                            pre_compile_data.push(JSON.stringify({ 'player_token': token, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge, 'callback_url': obj.data_leads.callback_url }));
+                        });
+                    } else {
+                        pre_compile_data.push(JSON.stringify({ 'player_token': obj.data_leads.playertoken, 'message_text': obj.data_leads.message_text, 'platform': obj.data_leads.platform, 'from': obj.data_leads.from, 'template_id': obj.data_leads.template_id, 'email_subject': obj.data_leads.email_subject, 'fromName': obj.data_leads.fromName, 'application_id': obj.data_leads.application_id, 'merge': obj.data_leads.merge, 'callback_url': obj.data_leads.callback_url }));
+                    }
+
+
+                    if (row.is_scheduled == true) {
+                        const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
+                            constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                        });
+                    } else {
+                        constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                    }
+                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+
+
+                } catch (err) {
+                    await _ControllerAPI.GetUpdateConfigError(row.config_id);
+                    console.error('Error Json format');
+                }
+                //console.log(pre_compile_data);
+                break;
+            case 'csv':
+
+
+                let retryCounts = {};
+
+                var pre_compile_data = [];
+                var dynamic_contact = row.config_id;
+                pre_compile_data[dynamic_contact];
+
+                const filePath = './uploads/data_leads/' + row.data_leads;
+                let stopProcessing = false;
+                async function processFile(maxRetries) {
+                    try {
+                        //throw new Error("Forced error for testing");
+                        if (fs.existsSync(filePath)) {
+                            fs.createReadStream(filePath)
+                                .pipe(csv())
+                                .on('data', async function (data) {
+                                    if (stopProcessing) {
+                                        return; // Stop processing if flag is set
                                     }
+                                    const sanitizedData = Object.fromEntries(
+                                        Object.entries(data).map(([key, value]) => [
+                                            key.replace(/[\s']/g, ''),
+                                            value === '' ? '' : value
+                                        ])
+                                    );
+                                    if (sanitizedData.playertoken == undefined || sanitizedData.message_text == undefined || sanitizedData.platform == undefined
+                                        || sanitizedData.from == undefined || sanitizedData.template_id == undefined || sanitizedData.email_subject == undefined
+                                        || sanitizedData.fromName == undefined || sanitizedData.application_id == undefined || sanitizedData.merge == undefined) {
 
-
-                                    if (row.is_scheduled == true) {
-                                        const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
-                                            constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
-                                        });
-                                    } else {
-                                        constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
-                                    }
-                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
-
-
-                                } catch (err) {
-                                    await _ControllerAPI.GetUpdateConfigError(row.config_id);
-                                    console.error('Error Json format');
-                                }
-                                //console.log(pre_compile_data);
-                                break;
-                            case 'csv':
-
-
-                                let retryCounts = {};
-
-                                var pre_compile_data = [];
-                                var dynamic_contact = row.config_id;
-                                pre_compile_data[dynamic_contact];
-
-                                const filePath = './uploads/data_leads/' + row.data_leads;
-                                let stopProcessing = false;
-                                async function processFile(maxRetries) {
-                                    try {
-                                        //throw new Error("Forced error for testing");
-                                        if (fs.existsSync(filePath)) {
-                                            fs.createReadStream(filePath)
-                                                .pipe(csv())
-                                                .on('data', async function (data) {
-                                                    if (stopProcessing) {
-                                                        return; // Stop processing if flag is set
-                                                    }
-                                                    const sanitizedData = Object.fromEntries(
-                                                        Object.entries(data).map(([key, value]) => [
-                                                            key.replace(/[\s']/g, ''),
-                                                            value === '' ? '' : value
-                                                        ])
-                                                    );
-                                                    if (sanitizedData.playertoken == undefined || sanitizedData.message_text == undefined || sanitizedData.platform == undefined
-                                                        || sanitizedData.from == undefined || sanitizedData.template_id == undefined || sanitizedData.email_subject == undefined
-                                                        || sanitizedData.fromName == undefined || sanitizedData.merge == undefined) {
-
-                                                        //console.log('error detected');
-                                                        if (!retryCounts[dynamic_contact]) {
-                                                            retryCounts[dynamic_contact] = 0;
-                                                        }
-
-                                                        if (retryCounts[dynamic_contact] < maxRetries) {
-                                                            retryCounts[dynamic_contact]++;
-                                                            console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
-                                                            setTimeout(() => processFile(maxRetries), 5000);
-                                                            await _ControllerAPI.GetUpdateConfigSending(row.config_id);
-                                                        } if (retryCounts[dynamic_contact] == maxRetries) {
-                                                            stopProcessing = true;
-                                                            console.log('Maximum retries reached. Unable to process file.');
-                                                            await _ControllerAPI.GetUpdateConfigError(row.config_id);
-
-                                                        }
-
-
-                                                    } else {
-                                                        try {
-                                                            pre_compile_data.push(JSON.stringify({
-                                                                'player_token': sanitizedData.playertoken,
-                                                                'message_text': sanitizedData.message_text,
-                                                                'platform': sanitizedData.platform,
-                                                                'from': sanitizedData.from,
-                                                                'template_id': sanitizedData.template_id,
-                                                                'email_subject': sanitizedData.email_subject,
-                                                                'fromName': sanitizedData.fromName,
-                                                                'application_id': sanitizedData.application_id,
-                                                                'merge': sanitizedData.merge
-                                                            }));
-                                                        } catch (err) {
-                                                            console.error('error contact number');
-                                                        }
-                                                    }
-
-                                                })
-                                                .on('end', async () => {
-                                                    if (stopProcessing) {
-                                                        return; // Stop processing if flag is set
-                                                    }
-                                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
-                                                    //console.log(pre_compile_data);
-                                                    if (row.is_scheduled == true) {
-                                                        const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
-                                                            constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
-                                                        });
-                                                    } else {
-                                                        constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
-                                                    }
-                                                });
-                                        } else {
-                                            if (!retryCounts[dynamic_contact]) {
-                                                retryCounts[dynamic_contact] = 0;
-                                            }
-
-                                            if (retryCounts[dynamic_contact] < maxRetries) {
-                                                retryCounts[dynamic_contact]++;
-                                                console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
-                                                setTimeout(() => processFile(maxRetries), 5000);
-                                                await _ControllerAPI.GetUpdateConfigSending(row.config_id);
-                                            } if (retryCounts[dynamic_contact] == maxRetries) {
-                                                stopProcessing = true;
-                                                console.log('Maximum retries reached. Unable to process file.');
-                                                await _ControllerAPI.GetUpdateConfigError(row.config_id);
-                                            }
-                                        }
-                                    } catch (err) {
                                         //console.log('error detected');
                                         if (!retryCounts[dynamic_contact]) {
                                             retryCounts[dynamic_contact] = 0;
@@ -209,34 +168,95 @@ let provider_code = [
                                             stopProcessing = true;
                                             console.log('Maximum retries reached. Unable to process file.');
                                             await _ControllerAPI.GetUpdateConfigError(row.config_id);
+
+                                        }
+
+
+                                    } else {
+                                        try {
+                                            pre_compile_data.push(JSON.stringify({
+                                                'player_token': sanitizedData.playertoken,
+                                                'message_text': sanitizedData.message_text,
+                                                'platform': sanitizedData.platform,
+                                                'from': sanitizedData.from,
+                                                'template_id': sanitizedData.template_id,
+                                                'email_subject': sanitizedData.email_subject,
+                                                'fromName': sanitizedData.fromName,
+                                                'application_id': sanitizedData.application_id,
+                                                'merge': sanitizedData.merge
+                                            }));
+                                        } catch (err) {
+                                            console.error('error contact number');
                                         }
                                     }
-                                }
 
-                                const maxRetries = 3;
-                                processFile(maxRetries);
+                                })
+                                .on('end', async () => {
+                                    if (stopProcessing) {
+                                        return; // Stop processing if flag is set
+                                    }
+                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                                    //console.log(pre_compile_data);
+                                    if (row.is_scheduled == true) {
+                                        const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
+                                            constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                        });
+                                    } else {
+                                        constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                    }
+                                });
+                        } else {
+                            if (!retryCounts[dynamic_contact]) {
+                                retryCounts[dynamic_contact] = 0;
+                            }
 
-
-                                break;
-
-
-
-                            default:
-                                console_log('Incorrect Dataleads');
+                            if (retryCounts[dynamic_contact] < maxRetries) {
+                                retryCounts[dynamic_contact]++;
+                                console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
+                                setTimeout(() => processFile(maxRetries), 5000);
+                                await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                            } if (retryCounts[dynamic_contact] == maxRetries) {
+                                stopProcessing = true;
+                                console.log('Maximum retries reached. Unable to process file.');
+                                await _ControllerAPI.GetUpdateConfigError(row.config_id);
+                            }
                         }
-                    })
+                    } catch (err) {
+                        //console.log('error detected');
+                        if (!retryCounts[dynamic_contact]) {
+                            retryCounts[dynamic_contact] = 0;
+                        }
 
+                        if (retryCounts[dynamic_contact] < maxRetries) {
+                            retryCounts[dynamic_contact]++;
+                            console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
+                            setTimeout(() => processFile(maxRetries), 5000);
+                            await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                        } if (retryCounts[dynamic_contact] == maxRetries) {
+                            stopProcessing = true;
+                            console.log('Maximum retries reached. Unable to process file.');
+                            await _ControllerAPI.GetUpdateConfigError(row.config_id);
+                        }
+                    }
                 }
-            }, throttling)
+
+                const maxRetries = 3;
+                processFile(maxRetries);
+
+
+                break;
+
+
+
+            default:
+                console_log('Incorrect Dataleads');
         }
+    }
 
-    });
-    //counter.success = 0;
-    //counter.fails = 0;
-
-
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 })();
-
 
 function generateRandomString() {
     const chars = '0123456789abcdef';
@@ -271,7 +291,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
             //console.log(obj.player_token, obj.country, obj.text_message, obj.platform);
             //counter.success++;
             const res = await _ControllerAPI.GetStopTriggerStatus(config_id);
-            const data = res.rows; 
+            const data = res.rows;
             if (!data[0].sending) {
                 return;
             }
