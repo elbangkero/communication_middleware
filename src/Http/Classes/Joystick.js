@@ -17,17 +17,17 @@ async function SetUserInfoFromJoystick(token) {
 
     return new Promise(async (resolve, reject) => {
 
-        setTimeout(async () => {
-            let config = {
-                method: 'get',
-                maxBodyLength: Infinity,
-                url: `https://afun-playerinfo-ap-prod.vitruviandata.com/player?token=${token}`,
-                headers: {
-                    'Authorization': 'Basic bmltYnVzOndeN3FCUCpOJlRaZQ=='
-                },
-                timeout: 60000
-            };
 
+        let config = {
+            method: 'get',
+            maxBodyLength: Infinity,
+            url: `https://afun-playerinfo-ap-prod.vitruviandata.com/player?token=${token}`,
+            headers: {
+                'Authorization': 'Basic bmltYnVzOndeN3FCUCpOJlRaZQ=='
+            },
+            timeout: 60000
+        };
+        setTimeout(async () => {
             axios.request(config)
                 .then((response) => {
                     if (response.data.results.length === 0) {
@@ -47,6 +47,9 @@ async function SetUserInfoFromJoystick(token) {
                 .catch((error) => {
                     if (error.code === 'ECONNABORTED') {
                         reject('Request Timeout From Vitruvian');
+                    }
+                    else if (error.code === 'ERR_BAD_RESPONSE') {
+                        reject('Vitruvian API Service Unavailable');
                     } else {
                         reject(error);
                     }
