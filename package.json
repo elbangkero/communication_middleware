@@ -4,7 +4,7 @@
   "description": "Communication Middleware Created by Eldev",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "pm2 start index.js --name 'fork-process' | pm2 start cluster-index.js -i max --name 'worker-process' | pm2 flush | pm2 logs"
   },
   "author": "Eldev",
   "license": "MIT",
