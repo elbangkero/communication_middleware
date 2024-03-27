@@ -9,7 +9,8 @@ app.options('*', cors());
 const jwt = require('jsonwebtoken');
 const httpProxy = require('http-proxy');
 const proxy = httpProxy.createProxyServer({});
-require('./src/api')(app, jwt, proxy);
+
+require('./src/api')(app, jwt);
 require('./src/jwt')(app, jwt);
 require('./src/views/index')(app);
 //require('./src/elastic_email_logs');
@@ -33,4 +34,14 @@ require('./src/ants_callback')(app2);
 const PORT2 = parseInt(process.env.PORT) + 1;
 app2.listen(PORT2, () => {
   console_log('Ants-Callback listening on port : ' + PORT2);
+});
+
+
+app.use((req, res, next) => {
+  proxy.web(req, res, {
+    target: `http://${process.env.SERVER_IP}:8043`
+  }, err => {
+    console.error('Proxy error:', err);
+    res.status(500).send('Proxy Error');
+  });
 });
