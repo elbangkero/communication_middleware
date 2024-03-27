@@ -37,7 +37,7 @@ app2.listen(PORT2, () => {
 });
 
 
-app.use((req, res, next) => {
+app.post('/upload/upload-config', (req, res) => {
   proxy.web(req, res, {
     target: `http://${process.env.SERVER_IP}:8043`
   }, err => {
