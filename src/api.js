@@ -826,7 +826,7 @@ stopTrigger = async (_req, _res) => {
 }
 
 
-module.exports = function (app, jwt) {
+module.exports = function (app, jwt, proxy) {
 
     function verifyToken(req, res, next) {
         const tokenHeaderKey = process.env.TOKEN_HEADER_KEY;
@@ -851,12 +851,14 @@ module.exports = function (app, jwt) {
         }
     }
 
-    app.post('/upload/upload-config', upload.fields([
-        {
-            name: "data_leads",
-            maxCount: 1,
-        }
-    ]), verifyToken, insertConfig);
+    app.use((req, res, next) => {
+        proxy.web(req, res, {
+            target: `http://${process.env.SERVER_IP}:8043`
+        }, err => {
+            console.error('Proxy error:', err);
+            res.status(500).send('Proxy Error');
+        });
+    });
 
     app.post('/upload/upload-provider', upload.fields([]), verifyToken, insertProvider);
 

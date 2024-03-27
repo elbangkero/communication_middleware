@@ -7,7 +7,9 @@ const cors = require('cors');
 app.use(cors());
 app.options('*', cors());
 const jwt = require('jsonwebtoken');
-require('./src/api')(app, jwt);
+const httpProxy = require('http-proxy');
+const proxy = httpProxy.createProxyServer({});
+require('./src/api')(app, jwt, proxy);
 require('./src/jwt')(app, jwt);
 require('./src/views/index')(app);
 //require('./src/elastic_email_logs');
@@ -28,7 +30,7 @@ app2.use(cors());
 app2.options('*', cors());
 require('./src/ants_callback')(app2);
 
-const PORT2 = parseInt(process.env.PORT) + 1; 
+const PORT2 = parseInt(process.env.PORT) + 1;
 app2.listen(PORT2, () => {
   console_log('Ants-Callback listening on port : ' + PORT2);
 });
