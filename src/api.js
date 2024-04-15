@@ -501,7 +501,7 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                         } else if (row_provider.provider_code == process.env.PROVIDER_ANTS_SMS) {
                                             const _callback = `${process.env.ANTS_CALLBACK_URL}?bulkId=${generateRandomString()}`;
                                             //console.log(_callback);
-                                            await AntsSMSSender(obj.from, obj.message_text, row.phone_number, row.country, _callback)
+                                            await AntsSMSSender(row.brandcode, obj.message_text, row.phone_number, row.country, _callback)
                                                 .then(async function (response) {
                                                     console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                                     query_instant++

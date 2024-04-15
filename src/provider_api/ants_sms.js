@@ -44,25 +44,35 @@ function extractBulkId(url) {
     return null;
 }
 
+async function fromSender(brandcode) {
+    if (brandcode === 'LIVECASINOHOUSE_COM') {
+        return 'LCH-TH';
+    } else if (brandcode === 'HAPPYLUKE_COM') {
+        return 'HL-TH';
+    } else {
+        return 'Income88th';
+    }
+}
 
-
-async function AntsSMSSender(from, text, to, country_code, _callback) {
-
+async function AntsSMSSender(brandcode, text, to, country_code, _callback) {
+    const from = await fromSender(brandcode);
     const Authorization = await AntsAccount(country_code);
     const credentials = `${Authorization.username}:${Authorization.password}`;;
     const encodedCredentials = Buffer.from(credentials).toString('base64');
-
     const bulkId = extractBulkId(_callback);
 
 
     return new Promise(async (resolve, reject) => {
 
+        if (country_code != 'TH') {
+            reject({ "message": "ANTS_SMS is only available on TH country" });
+        }
 
         let data = JSON.stringify({
             "bulkId": `${bulkId}`,
             "messages": [
                 {
-                    "from": "AntsTestSMS",
+                    "from": from,
                     "destinations": [
                         {
                             "to": `${to}`,
