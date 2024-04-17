@@ -47,8 +47,7 @@ async function SmartSMSSender(message, from, phone_number, country_code) {
                         response: {
                             data: {
                                 error: {
-                                    message: "Invalid contact number",
-                                    code: 402
+                                    message: "Invalid contact number"
                                 }
                             }
                         }
