@@ -10,7 +10,7 @@ async function apiAccount(country_code) {
     const data = res.rows;
 
 
- 
+
     const results = await Promise.all(
         data.map(async row => {
             return { "username": row.username, "password": row.password };
@@ -42,6 +42,19 @@ async function SmartSMSSender(message, from, phone_number, country_code) {
                 resolve(response);
             })
             .catch(function (error) {
+                if (error.response.status === 402) {
+                    const error = {
+                        response: {
+                            data: {
+                                error: {
+                                    message: "Invalid contact number",
+                                    code: 402
+                                }
+                            }
+                        }
+                    };
+                    reject(error);
+                }
                 reject(error);
             });
     });
