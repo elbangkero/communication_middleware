@@ -43,7 +43,7 @@ async function SetInsertConfig(local_time, parseISO, sending, data_source, campa
 
 async function SetStopScheduled(id) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`update cmw_config set status= 'cancelled', is_scheduled = 'false' , triggerstatus='inactive' ,  sending = false ,  updated_at = CURRENT_TIMESTAMP  where config_id='${id}'`, (err, res) => {
+        local_connection.query(`update cmw_config set status= 'cancelled' , triggerstatus='inactive' ,  sending = false ,  updated_at = CURRENT_TIMESTAMP  where config_id='${id}'`, (err, res) => {
             err ? reject(`SetStopScheduled[Error]: ${err.message}`) : resolve(res);
         });
     });

@@ -866,6 +866,6 @@ module.exports = function (app, jwt) {
 
     app.post('/stop_scheduled/:id', upload.fields([]), verifyToken, stopScheduled);
 
-    app.post('/stop_tigger/:id', upload.fields([]), verifyToken, stopTrigger);
+    app.post('/stop_trigger/:id', upload.fields([]), verifyToken, stopTrigger);
 
 };
