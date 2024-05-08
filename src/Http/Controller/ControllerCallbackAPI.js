@@ -2,6 +2,8 @@ const Callback = require('../Classes/Callback');
 const _Callback = new Callback();
 const AcctProviders = require('../Classes/AcctProviders');
 const _AcctProviders = new AcctProviders();
+const Providers = require('../Classes/Providers');
+const _Providers = new Providers();
 const axios = require('axios');
 const https = require('https');
 
@@ -18,6 +20,11 @@ async function GetUpdateCallback(id, callback_status, api_response) {
 
 async function GetUpdateCallbackAttempt(id, attemptcount) {
     return await _Callback.SetUpdateCallbackAttempt(id, attemptcount);
+}
+
+
+async function GetProviderCallbackEmail() {
+    return await _Providers.SetProviderCallbackEmail();
 }
 
 
@@ -44,26 +51,26 @@ async function AntsAccount(country_code) {
 }
 
 
-async function ElasticEmailAccount(country_code) {
-    const res = await _AcctProviders.SetElasticEmailAccount(PROVIDER_ELASTIC_EMAIL, country_code);
+async function ElasticEmailAccount(application_id, country) {
+    const res = await _AcctProviders.SetElasticEmailCallback(application_id, country);
     const data = res.rows;
     const results = await Promise.all(
         data.map(async row => {
-            return { 'apikey': row.apikey };
+            return { 'apikey': row.apikey, 'country_code': row.country_code, 'provider_code': row.provider_code, 'provider_name': row.provider_name };
         })
     );
     if (results.length > 0) {
         return results[0];
     } else {
-        return { 'apikey': '' };
+        return { 'apikey': '', 'country_code': '', 'provider_code': '', 'provider_name': '' };
     }
 
 }
-async function GetElasticSendingCallback(api_response, country) {
+async function GetElasticSendingCallback(api_response, country, application_id) {
     const _json_parse = JSON.parse(api_response);
     const parse_transacID = String(_json_parse.data.transactionid);
 
-    const apikey = await ElasticEmailAccount(country);
+    const apikey = await ElasticEmailAccount(application_id, country);
 
 
     return new Promise(async (resolve, reject) => {
@@ -98,7 +105,7 @@ async function GetElasticSendingCallback(api_response, country) {
                     const apiResponse = JSON.stringify(__json);
                     resolve(apiResponse);
                 }
-            }).catch((error) => { });
+            }).catch((error) => { reject('Failed'); });
 
     });
 
@@ -221,7 +228,7 @@ module.exports = function () {
     this.SpinWheelCallback = SpinWheelCallback;
     this.GetUpdateCallbackAttempt = GetUpdateCallbackAttempt;
     this.GetAntsCallBack = GetAntsCallBack;
-
+    this.GetProviderCallbackEmail = GetProviderCallbackEmail;
 }
 
 

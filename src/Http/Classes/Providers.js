@@ -18,8 +18,18 @@ async function SetInsertProviders(provider_name, application_id, _platform, plat
     });
 }
 
+async function SetProviderCallbackEmail() {
+    return new Promise(async (resolve, reject) => {
+        local_connection.query(`SELECT '[' || string_agg(quote_literal(application_id), ',') || ']' AS result_array
+        FROM cmw_providers
+        WHERE provider_name = 'Elastic Email' AND platform = 'email';`, (err, res) => {
+            err ? reject(err) : resolve(res);
+        })
+    });
+}
+
 module.exports = function () {
     this.SetProviders = SetProviders;
     this.SetInsertProviders = SetInsertProviders;
-
+    this.SetProviderCallbackEmail = SetProviderCallbackEmail;
 }
