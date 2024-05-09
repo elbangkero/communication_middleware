@@ -36,7 +36,8 @@ async function SetCallbackSMSAnts(history_id, Callback) {
 async function SetCallbackItems() {
     //console.log(`Status : ${status}`);
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`select * from cmw_callback cc left join cmw_history ch on ch.history_id::varchar = cc.history_id where cc.callback_status IN('Pending','Throttled') and cc.attemptcount != 10 order by ch.history_id desc limit 1000`, (err, res) => {
+        local_connection.query(`select * from cmw_callback cc left join cmw_history ch on ch.history_id::varchar = cc.history_id where cc.callback_status IN('Pending','Throttled') and cc.attemptcount != 10 and (ch.application_id in ('ANTS_SMS') or ch.application_id in 
+        (SELECT application_id FROM cmw_providers WHERE provider_name = 'Elastic Email' AND platform = 'email')) order by ch.history_id desc limit 1000;`, (err, res) => {
             err ? reject(`SetCallbackItems[Error]: ${err.message}`) : resolve(res);
         })
     });

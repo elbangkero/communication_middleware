@@ -94,7 +94,7 @@ async function GetElasticSendingCallback(api_response, country, application_id) 
                     const __json = new Object();
                     __json.id = response.data.data.id;
                     __json.status = 'Failed';
-                    __json.error_message = response.data.data.failed;
+                    __json.error_message = response.data.data.failed.error;
                     const apiResponse = JSON.stringify(__json);
                     reject(apiResponse);
                 } else if (response.data.data.pendingcount !== 0) {
@@ -105,7 +105,13 @@ async function GetElasticSendingCallback(api_response, country, application_id) 
                     const apiResponse = JSON.stringify(__json);
                     resolve(apiResponse);
                 }
-            }).catch((error) => { reject('Failed'); });
+            }).catch((error) => {
+                const __json = new Object();
+                __json.status = 'Failed';
+                __json.error_message = 'Internal Server Error';
+                const apiResponse = JSON.stringify(__json);
+                reject(apiResponse);
+            });
 
     });
 
