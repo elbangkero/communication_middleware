@@ -53,10 +53,21 @@ async function ElasticEmailSender(from, email, subject, template_id, fromName, c
 
         axios(config)
             .then(function (response) {
-                if (response.data.success)
-                    resolve(response)
-                else
+                if (response.data.success) {
+                    resolve(response);
+                }
+                else if (response.data.error.includes("Sorry, but the unexpected error occurred.") && !response.data.success) {
+                    const response = {
+                        data: {
+                            success: false,
+                            error: 'template_id does not exist for application_id',
+                            errordata: ''
+                        }
+                    };
                     reject(response);
+                } else {
+                    reject(response);
+                }
             })
             .catch(function (error) {
                 reject(error);
