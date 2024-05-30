@@ -192,17 +192,35 @@ let isProcessing = false;
 
                                 })
                                 .on('end', async () => {
-                                    if (stopProcessing) {
-                                        return; // Stop processing if flag is set
-                                    }
-                                    await _ControllerAPI.GetUpdateConfigSending(row.config_id);
-                                    //console.log(pre_compile_data);
-                                    if (row.is_scheduled == true) {
-                                        const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
-                                            constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
-                                        });
+                                    if (pre_compile_data.length === 0) {
+                                        //console.log('error detected');
+                                        if (!retryCounts[dynamic_contact]) {
+                                            retryCounts[dynamic_contact] = 0;
+                                        }
+
+                                        if (retryCounts[dynamic_contact] < maxRetries) {
+                                            retryCounts[dynamic_contact]++;
+                                            console.log(`Retrying (attempt ${retryCounts[dynamic_contact]})...`, dynamic_contact);
+                                            setTimeout(() => processFile(maxRetries), 5000);
+                                            await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                                        } if (retryCounts[dynamic_contact] == maxRetries) {
+                                            stopProcessing = true;
+                                            console.log('Maximum retries reached. Unable to process file.');
+                                            await _ControllerAPI.GetUpdateConfigError(row.config_id);
+                                        }
                                     } else {
-                                        constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                        if (stopProcessing) {
+                                            return; // Stop processing if flag is set
+                                        }
+                                        await _ControllerAPI.GetUpdateConfigSending(row.config_id);
+                                        //console.log(pre_compile_data);
+                                        if (row.is_scheduled == true) {
+                                            const job = schedule.scheduleJob(`${row.config_id}`, row.start_at, async function () {
+                                                constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                            });
+                                        } else {
+                                            constructData(row.config_id, pre_compile_data, row.campaign_name, row.site_id);
+                                        }
                                     }
                                 });
                         } else {
