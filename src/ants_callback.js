@@ -3,7 +3,7 @@ const { local_connection } = require('../utils/db_connection');
 
 async function AntsUpdateCallback(bulkid) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`update cmw_callback set callback_status = 'Received' , attemptcount = '1' where api_response='${bulkid}'`, (err, res) => {
+        local_connection.query(`update cmw_callback set callback_status = 'Received' , attemptcount = '1' , last_update = CURRENT_TIMESTAMP where api_response='${bulkid}'`, (err, res) => {
             err ? reject(`AntsUpdateCallback[Error]: ${err.message}`) : resolve(res);
         });
     });

@@ -3,7 +3,7 @@ const { local_connection } = require('../../../utils/db_connection');
 
 async function SetCallback(history_id) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`INSERT INTO cmw_callback(history_id, callback_status, api_response,attemptCount) VALUES('${history_id}', 'Pending', '',0)`, (err, res) => {
+        local_connection.query(`INSERT INTO cmw_callback(history_id, callback_status, api_response,attemptCount,last_update) VALUES('${history_id}', 'Pending', '',0,CURRENT_TIMESTAMP)`, (err, res) => {
             err ? reject(`SetCallback[Error]: ${err.message}`) : resolve(res);
         });
     });
@@ -27,7 +27,7 @@ async function SetCallbackSMSAnts(history_id, Callback) {
         return null;
     }
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`INSERT INTO cmw_callback(history_id, callback_status, api_response,attemptCount) VALUES('${history_id}', 'Pending', '${extractBulkId(Callback)}',0)`, (err, res) => {
+        local_connection.query(`INSERT INTO cmw_callback(history_id, callback_status, api_response,attemptCount,last_update) VALUES('${history_id}', 'Pending', '${extractBulkId(Callback)}',0,CURRENT_TIMESTAMP)`, (err, res) => {
             err ? reject(`SetCallbackSMSAnts[Error]: ${err.message}`) : resolve(res);
         });
     });
@@ -45,14 +45,14 @@ async function SetCallbackItems() {
 
 async function SetUpdateCallback(id, callback_status, api_response) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`update cmw_callback set callback_status = '${callback_status}' , api_response = '${api_response}' where id=${id}`, (err, res) => {
+        local_connection.query(`update cmw_callback set callback_status = '${callback_status}' , api_response = '${api_response}' , last_update = CURRENT_TIMESTAMP where id=${id}`, (err, res) => {
             err ? reject(`SetUpdateCallback[Error]: ${err.message}`) : resolve(res);
         });
     });
 }
 async function SetUpdateCallbackAttempt(id, attemptcount) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`update cmw_callback set attemptcount = '${attemptcount}' where id=${id}`, (err, res) => {
+        local_connection.query(`update cmw_callback set attemptcount = '${attemptcount}' ,last_update = CURRENT_TIMESTAMP where id=${id}`, (err, res) => {
             err ? reject(`SetUpdateCallbackAttempt[Error]: ${err.message}`) : resolve(res);
         });
     });

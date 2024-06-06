@@ -174,19 +174,22 @@ let isProcessing = false;
 
                                     } else {
                                         try {
+                                            const isPlayertokenEmpty = sanitizedData.playertoken === undefined || sanitizedData.playertoken === null || sanitizedData.playertoken === '';
                                             const isDataEmpty = Object.values(sanitizedData).every(value => value === undefined || value === null || value === '');
                                             if (!isDataEmpty) {
-                                                pre_compile_data.push(JSON.stringify({
-                                                    'player_token': sanitizedData.playertoken,
-                                                    'message_text': sanitizedData.message_text,
-                                                    'platform': sanitizedData.platform,
-                                                    'from': sanitizedData.from,
-                                                    'template_id': sanitizedData.template_id,
-                                                    'email_subject': sanitizedData.email_subject,
-                                                    'fromName': sanitizedData.fromName,
-                                                    'application_id': sanitizedData.application_id,
-                                                    'merge': sanitizedData.merge
-                                                }));
+                                                if (!isPlayertokenEmpty) {
+                                                    pre_compile_data.push(JSON.stringify({
+                                                        'player_token': sanitizedData.playertoken,
+                                                        'message_text': sanitizedData.message_text,
+                                                        'platform': sanitizedData.platform,
+                                                        'from': sanitizedData.from,
+                                                        'template_id': sanitizedData.template_id,
+                                                        'email_subject': sanitizedData.email_subject,
+                                                        'fromName': sanitizedData.fromName,
+                                                        'application_id': sanitizedData.application_id,
+                                                        'merge': sanitizedData.merge
+                                                    }));
+                                                }
                                             }
                                         } catch (err) {
                                             console.error('error contact number');
