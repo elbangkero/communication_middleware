@@ -34,21 +34,34 @@ function CallbackTimeStatus() {
 
 CallBackStatus = async (_req, _res) => {
 
-    const res = await CheckCallbackStatus(_req.query.bulkId);
-    const data = res.rows;
-    try {
-        if (data[0].callback_status == 'Received') {
-            _res.status(200).json({ 'statusCode': 200, message: 'Already Received', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] });
-        } else {
-            _res.status(200).json({ 'statusCode': 200, message: 'Callback update status succesfully', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] });
-            console_log(JSON.stringify({ 'statusCode': 200, message: 'Callback update status succesfully', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] }));
-            await AntsUpdateCallback(_req.query.bulkId);
 
+    //Callback Type Segregation
+    if (_req.query.bulkId) {
+        //console.log('ANTS SMS');
+        const res = await CheckCallbackStatus(_req.query.bulkId);
+        const data = res.rows;
+        try {
+            if (data[0].callback_status == 'Received') {
+                _res.status(200).json({ 'statusCode': 200, message: 'Already Received', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] });
+            } else {
+                _res.status(200).json({ 'statusCode': 200, message: 'Callback update status succesfully', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] });
+                console_log(JSON.stringify({ 'statusCode': 200, message: 'Callback update status succesfully', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] }));
+                await AntsUpdateCallback(_req.query.bulkId);
+
+            }
         }
+        catch (err) {
+            _res.status(404).json({ 'statusCode': 404, message: 'BulkId does not existing', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] });
+        }
+
+    } else if (_req.query.ani || _req.query.dnis || _req.query.message) {
+        console.log('SMART SMS');
+        console.log(_req.query);
+        _res.status(200).json({ 'statusCode': 200, message: 'Already Received', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] });
+    } else {
+        _res.status(200).json({ 'statusCode': 200, message: 'Communication Middleware API', 'data': 'Callback System' });
     }
-    catch (err) {
-        _res.status(404).json({ 'statusCode': 404, message: 'BulkId does not existing', 'data': [_req.query, { "timestamp": CallbackTimeStatus() }] });
-    }
+
 
 
 
