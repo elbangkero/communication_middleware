@@ -242,5 +242,28 @@ exports.API_ViewHistory = async (_req, _res) => {
     });
 };
 
+exports.Sendouts_Status = async (_req, _res) => {
+    //console.log(_req.params);
+    
+    local_connection.query(`
+    SELECT s.status, COALESCE(COUNT(cmw.status), 0) AS count
+    FROM (VALUES ('failed'), ('success')) AS s(status)
+    LEFT JOIN cmw_history cmw
+    ON cmw.status = s.status AND cmw.config_id ='${_req.params.config_id}'
+    GROUP BY s.status
+    UNION ALL
+    SELECT 'total' AS status, COUNT(*)
+    FROM cmw_history
+    WHERE config_id ='${_req.params.config_id}';`, (err, res) => {
+        if (err) {
+            console.error('Error fetching data:', err);
+            _res.status(500).json({ error: 'Internal Server Error' });
+        } else {
+            _res.json({ data: res.rows });
+        }
+    });
+};
+
+
 
 
