@@ -104,15 +104,19 @@ exports.API_Account_Providers = async (_req, _res) => {
 
 
 exports.API_DisplayHistory = async (_req, _res) => {
-    const { page, limit, player_token, campaign_name, platform, country, status, created_at } = _req.query;
+    const { page, limit, player_token, campaign_name, platform, country, status, created_at, config_id } = _req.query;
     const offset = (page - 1) * limit;
     //console.log(_req.query);
 
     try {
-        let query = `SELECT ch.history_id,ch.campaign_name,ch.player_token,ch.platform,ch.country,INITCAP(case when cc.callback_status = 'Pending' then 'sent' when (cc.callback_status  IS NULL OR cc.callback_status = '') then ch.status else cc.callback_status end)  as status ,ch.created_at  FROM cmw_history ch 
+        let query = `SELECT ch.history_id,ch.config_id,ch.campaign_name,ch.player_token,ch.platform,ch.country,INITCAP(case when cc.callback_status = 'Pending' then 'sent' when (cc.callback_status  IS NULL OR cc.callback_status = '') then ch.status else cc.callback_status end)  as status ,ch.created_at  FROM cmw_history ch 
         left join cmw_callback cc on cc.history_id = ch.history_id::varchar`;
 
         const queryParams = [];
+
+        if (config_id) {
+            queryParams.push(`config_id = '${config_id}'`);
+        }
 
         if (player_token) {
             queryParams.push(`player_token LIKE '%${player_token}%'`);
@@ -164,7 +168,7 @@ exports.API_DisplayHistory = async (_req, _res) => {
 
 
 exports.API_DisplayTriggers = async (_req, _res) => {
-    const { page, limit, campaign_name, status, triggerstatus, created_at, is_scheduled, data_source, start_at } = _req.query;
+    const { page, limit, campaign_name, status, triggerstatus, created_at, is_scheduled, data_source, start_at, config_id } = _req.query;
     const offset = (page - 1) * limit;
 
     // console.log(_req.query);
@@ -174,6 +178,9 @@ exports.API_DisplayTriggers = async (_req, _res) => {
 
         const queryParams = [];
 
+        if (config_id) {
+            queryParams.push(`config_id = '${config_id}'`);
+        }
         if (campaign_name) {
             queryParams.push(`campaign_name LIKE '%${campaign_name}%'`);
         }
@@ -244,7 +251,7 @@ exports.API_ViewHistory = async (_req, _res) => {
 
 exports.Sendouts_Status = async (_req, _res) => {
     //console.log(_req.params);
-    
+
     local_connection.query(`
     SELECT s.status, COALESCE(COUNT(cmw.status), 0) AS count
     FROM (VALUES ('failed'), ('success')) AS s(status)
