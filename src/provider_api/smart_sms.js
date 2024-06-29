@@ -42,31 +42,46 @@ async function SmartSMSSender(message, from, phone_number, country_code) {
                 resolve(response);
             })
             .catch(function (error) {
-                if (error.response.status === 402) {
-                    if (error.response.data.error_message == 'updateBalance') {
+                try {
+                    if (error.response.status === 402) {
+                        if (error.response.data.error_message == 'updateBalance') {
+                            const errorMessage = {
+                                response: {
+                                    data: {
+                                        error: {
+                                            message: "updateBalance"
+                                        }
+                                    }
+                                }
+                            };
+                            reject(errorMessage);
+                        }
+                        else if (error.response.data.error_message.includes("Rates not found for accountId")) {
+                            const errorMessage = {
+                                response: {
+                                    data: {
+                                        error: {
+                                            message: "Invalid contact number"
+                                        }
+                                    }
+                                }
+                            };
+                            reject(errorMessage);
+                        }
                         const errorMessage = {
                             response: {
                                 data: {
                                     error: {
-                                        message: "updateBalance"
+                                        message: "Bad Request"
                                     }
                                 }
                             }
                         };
                         reject(errorMessage);
+
                     }
-                    else if (error.response.data.error_message.includes("Rates not found for accountId")) {
-                        const errorMessage = {
-                            response: {
-                                data: {
-                                    error: {
-                                        message: "Invalid contact number"
-                                    }
-                                }
-                            }
-                        };
-                        reject(errorMessage);
-                    }
+                    reject(error);
+                } catch {
                     const errorMessage = {
                         response: {
                             data: {
@@ -77,9 +92,11 @@ async function SmartSMSSender(message, from, phone_number, country_code) {
                         }
                     };
                     reject(errorMessage);
-
                 }
-                reject(error);
+
+
+
+
             });
     });
 
