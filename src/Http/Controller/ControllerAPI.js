@@ -64,8 +64,8 @@ async function GetUpdateConfigError(config_id) {
 async function GetProviders(application_id) {
     return await _Providers.SetProviders(application_id);
 }
-async function GetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id) {
-    return await _Config.SetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id);
+async function GetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by) {
+    return await _Config.SetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by);
 }
 async function GetInsertProviders(provider_name, application_id, _platform, platform, endpoint, local_time) {
     return await _Providers.SetInsertProviders(provider_name, application_id, _platform, platform, endpoint, local_time);
