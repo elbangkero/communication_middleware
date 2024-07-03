@@ -239,7 +239,12 @@ exports.API_DisplayTriggers = async (_req, _res) => {
 };
 
 exports.API_ViewHistory = async (_req, _res) => {
-    local_connection.query(`select * from cmw_history where history_id ='${_req.params.id}'`, (err, res) => {
+    local_connection.query(`SELECT CASE
+        WHEN cc.callback_status = 'Received' THEN cc.api_response
+        ELSE ch.api_response
+        END AS api_response,ch.from_sender,ch.email_subject,ch.message,ch.status ,ch.template_id,ch.application_id FROM cmw_history ch
+        LEFT join cmw_callback cc on cc.history_id::int = ch.history_id::int
+        WHERE ch.history_id ='${_req.params.id}'`, (err, res) => {
         if (err) {
             console.error('Error fetching data:', err);
             _res.status(500).json({ error: 'Internal Server Error' });
