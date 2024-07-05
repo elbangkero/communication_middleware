@@ -1,5 +1,6 @@
 const { local_connection } = require('../../utils/db_connection');
-
+const APIResponse = require('../Helper/APIResponse');
+const _APIResponse = new APIResponse();
 
 exports.API_Providers = async (_req, _res) => {
     const { page, limit, provider_name, application_id, platform, created_at } = _req.query;
@@ -258,7 +259,12 @@ exports.API_ViewHistory = async (_req, _res) => {
             console.error('Error fetching data:', err);
             _res.status(500).json({ error: 'Internal Server Error' });
         } else {
-            _res.json({ data: res.rows });
+
+            const response = res.rows;
+            response[0].api_response = _APIResponse.parseAPIResponse(response[0].api_response);
+            _res.json(
+                { data: res.rows }
+            );
         }
     });
 };
