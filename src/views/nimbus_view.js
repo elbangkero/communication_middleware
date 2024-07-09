@@ -176,11 +176,9 @@ exports.API_DisplayTriggers = async (_req, _res) => {
     try {
 
         let query = `SELECT config_id,
-                    CASE WHEN (start_at AT TIME ZONE 'UTC' AT TIME ZONE 'GMT-8' > current_timestamp AND is_scheduled = true AND status = 'sending') THEN 'scheduled' 
-                    WHEN status = 'sent' THEN 'sent' 
-                    WHEN status = 'error' THEN 'error'
-                    WHEN status = 'cancelled' THEN 'cancelled' 
-                    ELSE 'sending' END AS status,
+                    CASE WHEN (start_at AT TIME ZONE 'UTC' AT TIME ZONE 'GMT-8' > NOW() AND is_scheduled = true AND status = 'sending') THEN 'scheduled' 
+                    WHEN (start_at AT TIME ZONE 'UTC' AT TIME ZONE 'GMT-8' < NOW() AND is_scheduled = true AND status = 'sending') THEN 'sending' 
+                    ELSE status END AS status,
                     triggerstatus,created_at,created_by,data_source,campaign_name,is_scheduled,start_at 
                     FROM cmw_config`;
 
