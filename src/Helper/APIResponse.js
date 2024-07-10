@@ -14,15 +14,17 @@ function errorMessages(api_response) {
         { substring: '{"error":{"message":"Invalid contact number"}}', value: 'The playertoken phone number formatted incorrectly' },
         { substring: '"Invalid number - phone number formatted incorrectly"', value: 'The playertoken phone number formatted incorrectly' }
     ];
-    
-
-    for (const mapping of mappings) {
-        if (api_response.includes(mapping.substring)) {
-            return mapping.value;
+    try {
+        for (const mapping of mappings) {
+            if (api_response.includes(mapping.substring)) {
+                return mapping.value;
+            }
         }
-    }
 
-    return api_response;
+        return api_response;
+    } catch {
+        return 'Error Bad Request';
+    }
 }
 
 
