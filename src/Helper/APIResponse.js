@@ -1,5 +1,6 @@
 function parseAPIResponse(api_response) {
-    return errorMessages(api_response);
+    const msg = api_response == null ? 'Error Bad Request' : api_response;
+    return errorMessages(msg);
 }
 
 function errorMessages(api_response) {
