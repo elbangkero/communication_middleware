@@ -50,6 +50,9 @@ async function SetElasticEmailCallback(application_id, country_code) {
 }
 
 
+async function SetSMSMKTAccount(app_id, country_code) {
+    return res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${app_id}' and country_code = '${country_code}' LIMIT 1`);
+}
 
 
 module.exports = function () {
@@ -62,5 +65,6 @@ module.exports = function () {
     this.SetElasticEmailAccountSegregation = SetElasticEmailAccountSegregation;
     this.SetAntsAccount = SetAntsAccount;
     this.SetElasticEmailCallback = SetElasticEmailCallback;
+    this.SetSMSMKTAccount = SetSMSMKTAccount;
 
 }

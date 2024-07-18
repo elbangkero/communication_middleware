@@ -7,6 +7,7 @@ const { AbosendSMSSender } = require('./provider_api/abosend_sms');
 const { SmartSMSSender } = require('./provider_api/smart_sms');
 const { TextLocalSender } = require('./provider_api/textLocal_sms');
 const { AntsSMSSender } = require('./provider_api/ants_sms');
+const { SMSMKTSMSSender } = require('./provider_api/sms_mkt');
 const ControllerAPI = require('./Http/Controller/ControllerAPI');
 const _ControllerAPI = new ControllerAPI();
 const multer = require('multer');
@@ -539,6 +540,29 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                     dynamic_counter.counter.fails++
                                                     query_instant++
                                                     await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', JSON.stringify(response), obj.from, '', '', obj.application_id, obj.merge, row.brandcode, _callback);
+                                                })
+                                                .finally(async function () {
+                                                    if (pre_compile_data.length == query_instant) {
+                                                        console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                                        dynamic_counter.counter.success = 0;
+                                                        dynamic_counter.counter.fails = 0;
+                                                        pre_compile_data.length = 0;
+                                                        await _ControllerAPI.GetUpdateConfigSent(config_id);
+                                                    }
+                                                });
+                                        } else if (row_provider.provider_code == process.env.PROVIDER_SMS_MKT) {
+                                            await SMSMKTSMSSender(obj.from, obj.message_text, row.phone_number, row.country)
+                                                .then(async function (response) {
+                                                    console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
+                                                    query_instant++
+                                                    dynamic_counter.counter.success++;
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'success', JSON.stringify(response), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
+                                                })
+                                                .catch(async function (response) {
+                                                    console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                                                    dynamic_counter.counter.fails++
+                                                    query_instant++
+                                                    await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', JSON.stringify(response), obj.from, '', '', obj.application_id, obj.merge, row.brandcode);
                                                 })
                                                 .finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
