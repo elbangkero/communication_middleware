@@ -275,15 +275,36 @@ exports.Sendouts_Status = async (_req, _res) => {
     //console.log(_req.params);
 
     local_connection.query(`
+    WITH StatusCounts AS (
     SELECT s.status, COALESCE(COUNT(cmw.status), 0) AS count
     FROM (VALUES ('failed'), ('success')) AS s(status)
     LEFT JOIN cmw_history cmw
-    ON cmw.status = s.status AND cmw.config_id ='${_req.params.config_id}'
+    ON cmw.status = s.status AND cmw.config_id = '${_req.params.config_id}'
     GROUP BY s.status
+    ),
+    TotalCount AS (
+        SELECT COUNT(*) AS total
+        FROM cmw_history
+        WHERE config_id = '${_req.params.config_id}'
+    ),
+    Duration AS (
+        SELECT  MAX(created_at) - MIN(created_at) AS total_run_time
+        FROM cmw_history
+        WHERE config_id = '${_req.params.config_id}'
+    )
+    SELECT status, count::TEXT
+    FROM StatusCounts
     UNION ALL
-    SELECT 'total' AS status, COUNT(*)
-    FROM cmw_history
-    WHERE config_id ='${_req.params.config_id}';`, (err, res) => {
+    SELECT 'total' AS status, total::TEXT
+    FROM TotalCount
+    UNION ALL
+    SELECT 'success_rate_ratio' AS status, 
+        CASE WHEN total = 0 THEN '0%' 
+                ELSE CONCAT(ROUND(CAST((CAST((SELECT count FROM StatusCounts WHERE status = 'success') AS FLOAT) / total) * 100 AS NUMERIC), 1), '%') END AS count
+    FROM TotalCount
+    UNION ALL
+    SELECT 'duration' AS status,total_run_time::TEXT
+    FROM Duration;`, (err, res) => {
         if (err) {
             console.error('Error fetching data:', err);
             _res.status(500).json({ error: 'Internal Server Error' });
