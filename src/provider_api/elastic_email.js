@@ -69,13 +69,26 @@ async function ElasticEmailSender(from, email, subject, template_id, fromName, c
                     reject(response);
                 }
             })
-            .catch(function (error) {
-                console.log(error);
+            .catch(function (error) { 
                 if (error.code === 'ECONNABORTED') {
-                    reject('Request Timeout From Elastic Email');
+                    const response = {
+                        data: {
+                            success: false,
+                            error: 'Exceeded 1min Request Timeout',
+                            errordata: ''
+                        }
+                    };
+                    reject(response);
                 }
                 else if (error.code === 'ERR_BAD_RESPONSE') {
-                    reject('Elastic Email API Service Not Available');
+                    const response = {
+                        data: {
+                            success: false,
+                            error: 'Elastic Email API Service Not Available',
+                            errordata: ''
+                        }
+                    };
+                    reject(response);
                 } else {
                     reject(error);
                 }
