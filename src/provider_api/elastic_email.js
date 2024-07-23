@@ -1,7 +1,7 @@
 const ControllerElasticEmail = require('.././Http/Controller/Provider/ControllerElasticEmail');
 const _ControllerElasticEmail = new ControllerElasticEmail();
 const axios = require('axios');
-
+const https = require('https');
 
 const PROVIDER_ELASTIC_EMAIL = process.env.PROVIDER_ELASTIC_EMAIL;
 async function ElasticEmailAccount(country_code, provider_code) {
@@ -47,7 +47,9 @@ async function ElasticEmailSender(from, email, subject, template_id, fromName, c
             method: 'post',
             maxBodyLength: Infinity,
             url: `https://api.elasticemail.com/v2/email/send?subject=${email_subject}&fromName=${encodedfromName}&from=${from}&to=${email}&template=${template_id}&isTransactional=true&apikey=${apikey.apikey}&${merge_type}`,
-            headers: {}
+            headers: {},
+            httpsAgent: new https.Agent({ keepAlive: true }),
+            timeout: 60000
         };
 
 
@@ -68,7 +70,15 @@ async function ElasticEmailSender(from, email, subject, template_id, fromName, c
                 }
             })
             .catch(function (error) {
-                reject(error);
+                console.log(error);
+                if (error.code === 'ECONNABORTED') {
+                    reject('Request Timeout From Elastic Email');
+                }
+                else if (error.code === 'ERR_BAD_RESPONSE') {
+                    reject('Elastic Email API Service Not Available');
+                } else {
+                    reject(error);
+                }
             });
 
     });
