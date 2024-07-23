@@ -65,8 +65,6 @@ async function ElasticEmailSender(from, email, subject, template_id, fromName, c
                         }
                     };
                     reject(response);
-                } else {
-                    reject(response);
                 }
             })
             .catch(function (error) {
