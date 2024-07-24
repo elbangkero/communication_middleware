@@ -26,9 +26,7 @@ async function ElasticEmailAccount(country_code, provider_code) {
 
 }
 
-async function ElasticEmailSender(from, email, subject, template_id, fromName, country_code, merge, provider_code) {
-
-
+async function ElasticEmailSender(from, email, subject, template_id, fromName, country_code, merge, provider_code, retries = 5) {
     const apikey = await ElasticEmailAccount(country_code, provider_code);
 
     const email_subject = subject ? encodeURIComponent(subject) : encodeURIComponent('(no subject)');
@@ -36,14 +34,14 @@ async function ElasticEmailSender(from, email, subject, template_id, fromName, c
 
     const merge_params = new URLSearchParams(merge);
 
-    var merge_type = "";
+    let merge_type = "";
     merge_params.forEach((value, key) => {
         merge_type += `&merge_${key}=${value}`;
     });
 
     return new Promise(async (resolve, reject) => {
 
-        var config = {
+        const config = {
             method: 'post',
             maxBodyLength: Infinity,
             url: `https://api.elasticemail.com/v2/email/send?subject=${email_subject}&fromName=${encodedfromName}&from=${from}&to=${email}&template=${template_id}&isTransactional=true&apikey=${apikey.apikey}&${merge_type}`,
@@ -52,51 +50,57 @@ async function ElasticEmailSender(from, email, subject, template_id, fromName, c
             timeout: 60000
         };
 
-
-        axios(config)
-            .then(function (response) {
+        const sendEmail = async (attempt) => {
+            try {
+                const response = await axios(config);
                 if (response.data.success) {
                     resolve(response);
-                }
-                else if (response.data.error.includes("Sorry, but the unexpected error occurred.") && !response.data.success) {
-                    const response = {
+                } else if (response.data.error.includes("Sorry, but the unexpected error occurred.") && !response.data.success) {
+                    const errorResponse = {
                         data: {
                             success: false,
                             error: 'template_id does not exist for application_id',
                             errordata: ''
                         }
                     };
+                    reject(errorResponse);
+                } else {
                     reject(response);
                 }
-            })
-            .catch(function (error) { 
+            } catch (error) {
                 if (error.code === 'ECONNABORTED') {
-                    const response = {
-                        data: {
-                            success: false,
-                            error: 'Exceeded 1min Request Timeout',
-                            errordata: ''
-                        }
-                    };
-                    reject(response);
-                }
-                else if (error.code === 'ERR_BAD_RESPONSE') {
-                    const response = {
+                    if (attempt < retries) {
+                        setTimeout(async function () {
+                            console_log(`Retrying... Attempt ${attempt + 1}`);
+                            await sendEmail(attempt + 1);
+                        }, attempt * 10000);
+                    } else {
+                        const errorResponse = {
+                            data: {
+                                success: false,
+                                error: 'Exceeded 1 min Request Timeout',
+                                errordata: `${retries} attempts for this request have been exhausted`
+                            }
+                        };
+                        reject(errorResponse);
+                    }
+                } else if (error.code === 'ERR_BAD_RESPONSE') {
+                    const errorResponse = {
                         data: {
                             success: false,
                             error: 'Elastic Email API Service Not Available',
                             errordata: ''
                         }
                     };
-                    reject(response);
+                    reject(errorResponse);
                 } else {
                     reject(error);
                 }
-            });
+            }
+        };
 
+        await sendEmail(0);
     });
-
-
 }
 
 module.exports = { ElasticEmailSender };
