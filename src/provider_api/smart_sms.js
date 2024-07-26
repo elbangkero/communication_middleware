@@ -37,37 +37,53 @@ async function SmartSMSSender(message, from, phone_number, country_code) {
             url: `https://my.sms-smart.com/rest/send_sms?from=${encodedParamValueFrom}&to=${phone_number}&message=${encodedParamValueMessage}&username=${result.username}&password=${result.password}`
         };
 
-        await axios(config)
-            .then(function (response) {
-                resolve(response);
-            })
-            .catch(function (error) {
-                try {
-                    if (error.response.status === 402) {
-                        if (error.response.data.error_message == 'updateBalance') {
+
+        try {
+            await axios(config)
+                .then(function (response) {
+                    resolve(response);
+                })
+                .catch(function (error) {
+                    try {
+                        if (error.response.status === 402) {
+                            if (error.response.data.error_message == 'updateBalance') {
+                                const errorMessage = {
+                                    response: {
+                                        data: {
+                                            error: {
+                                                message: "updateBalance"
+                                            }
+                                        }
+                                    }
+                                };
+                                reject(errorMessage);
+                            }
+                            else if (error.response.data.error_message.includes("Rates not found for accountId")) {
+                                const errorMessage = {
+                                    response: {
+                                        data: {
+                                            error: {
+                                                message: "Invalid contact number"
+                                            }
+                                        }
+                                    }
+                                };
+                                reject(errorMessage);
+                            }
                             const errorMessage = {
                                 response: {
                                     data: {
                                         error: {
-                                            message: "updateBalance"
+                                            message: "Bad Request"
                                         }
                                     }
                                 }
                             };
                             reject(errorMessage);
+
                         }
-                        else if (error.response.data.error_message.includes("Rates not found for accountId")) {
-                            const errorMessage = {
-                                response: {
-                                    data: {
-                                        error: {
-                                            message: "Invalid contact number"
-                                        }
-                                    }
-                                }
-                            };
-                            reject(errorMessage);
-                        }
+                        reject(error);
+                    } catch {
                         const errorMessage = {
                             response: {
                                 data: {
@@ -78,26 +94,28 @@ async function SmartSMSSender(message, from, phone_number, country_code) {
                             }
                         };
                         reject(errorMessage);
-
                     }
-                    reject(error);
-                } catch {
-                    const errorMessage = {
-                        response: {
-                            data: {
-                                error: {
-                                    message: "Bad Request"
-                                }
-                            }
-                        }
-                    };
-                    reject(errorMessage);
+
+
+
+
+                });
+
+        } catch (err) {
+            const errorMessage = {
+                response: {
+                    data: {
+                        success: false,
+                        error: 'Error 520: Unknown Error',
+                        errordata: 'ops! Something went wrong.'
+                    }
                 }
+            };
+            reject(errorMessage);
 
 
+        }
 
-
-            });
     });
 
 }

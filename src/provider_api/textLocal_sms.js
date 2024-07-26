@@ -36,16 +36,28 @@ async function TextLocalSender(from, message, phone_number) {
             }
         };
 
-        axios.request(config)
-            .then((response) => {
-                if (response.data.status == 'success')
-                    resolve(response)
-                else
-                    reject(response);
-            })
-            .catch((error) => {
-                reject(error);
-            });
+        try {
+            axios.request(config)
+                .then((response) => {
+                    if (response.data.status == 'success')
+                        resolve(response)
+                    else
+                        reject(response);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        } catch (err) {
+            const errorResponse = {
+                "data": {
+                    success: false,
+                    error: 'Error 520: Unknown Error',
+                    errordata: 'ops! Something went wrong.'
+                }
+            };
+            reject(errorResponse);
+        }
+
 
     });
 

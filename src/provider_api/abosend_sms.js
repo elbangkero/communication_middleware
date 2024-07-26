@@ -21,12 +21,12 @@ async function checkOddEven() {
     }
 }
 
-async function validateAndExtractAreaCode(phoneNumber) { 
+async function validateAndExtractAreaCode(phoneNumber) {
     const phoneRegex = /^\+?(\d{1,2})?[\s.-]?(\(\d{1,4}\)|\d{1,4})([\s.-]?)\d{1,10}$/;
- 
+
     const match = phoneNumber.match(phoneRegex);
 
-    if (match) { 
+    if (match) {
         const areaCode = match[1];
 
         return {
@@ -34,7 +34,7 @@ async function validateAndExtractAreaCode(phoneNumber) {
             areaCode: areaCode ? `+${areaCode}` : null,
             FinalPhoneNumber: phoneNumber.startsWith('+') ? phoneNumber : `+${phoneNumber}`,
         };
-    } else { 
+    } else {
         return {
             isValid: false,
             areaCode: null,
@@ -49,7 +49,7 @@ async function abosendAPIParameters(country_code, phone_number, message, row_num
     const data_encrytpion = `${api_details.orgCode}${message}${api_details.rand}${api_details.md5Key}`;
     const hash = md5(data_encrytpion).toUpperCase();
     const validated = await validateAndExtractAreaCode(phone_number);
- 
+
     if (validated) {
         let data = qs.stringify({
             'orgCode': api_details.orgCode,
@@ -84,16 +84,28 @@ async function AbosendSMSSender(message, from, phone_number, country_code, row_n
             data: await abosendAPIParameters(country_code, phone_number, message, row_number)
         };
 
-        axios.request(config)
-            .then((response) => {
-                if (response.data.code == '200')
-                    resolve(response)
-                else
-                    reject(response);
-            })
-            .catch((error) => {
-                reject(error);
-            });
+        try {
+            axios.request(config)
+                .then((response) => {
+                    if (response.data.code == '200')
+                        resolve(response)
+                    else
+                        reject(response);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        } catch (err) {
+            const errorResponse = {
+                "data": {
+                    success: false,
+                    error: 'Error 520: Unknown Error',
+                    errordata: 'ops! Something went wrong.'
+                }
+            };
+            reject(errorResponse);
+        }
+
 
     });
 

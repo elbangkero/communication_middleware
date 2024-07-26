@@ -94,7 +94,14 @@ async function ElasticEmailSender(from, email, subject, template_id, fromName, c
                     };
                     reject(errorResponse);
                 } else {
-                    reject(error);
+                    const errorResponse = {
+                        data: {
+                            success: false,
+                            error: error,
+                            errordata: ''
+                        }
+                    };
+                    reject(errorResponse);
                 }
             }
         };

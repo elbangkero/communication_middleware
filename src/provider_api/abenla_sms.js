@@ -15,11 +15,11 @@ async function API_Abenla_Account_SMS(country_code, classificationcode) {
         }
         return false;
     }
- 
+
 
     const res = findCommonElement(vip_classification, classificationcode) ? await _ControllerAbenla.GetAbenlaAccount(country_code, 'VIP') : await _ControllerAbenla.GetAbenlaAccount(country_code, 'Regular');
     const data = res.rows;
-    
+
     const results = await Promise.all(
         data.map(async row => {
             return { "loginName": row.username, "sign": row.md5key, "endpoint": row.endpoint };
@@ -50,23 +50,35 @@ async function AbenlaSMSSender(message, phone_number, country_code, classificati
             headers: {}
         };
 
-        axios.request(config)
-            .then((response) => {
-                if (response.data.Code == '106')
-                    resolve(response);
-                else {
-                    reject(response);
-                }
-            })
-            .catch((error) => {
-                var ErrorMEssage = {
-                    "data": {
-                        "SmsPerMessage": 1, "Code": 110, "Message": "SendSmsFail"
+        try {
+            axios.request(config)
+                .then((response) => {
+                    if (response.data.Code == '106')
+                        resolve(response);
+                    else {
+                        reject(response);
                     }
-                };
-                reject(ErrorMEssage);
+                })
+                .catch((error) => {
+                    var ErrorMEssage = {
+                        "data": {
+                            "SmsPerMessage": 1, "Code": 110, "Message": "SendSmsFail"
+                        }
+                    };
+                    reject(ErrorMEssage);
 
-            });
+                });
+        } catch (err) {
+            const errorResponse = {
+                "data": {
+                    success: false,
+                    error: 'Error 520: Unknown Error',
+                    errordata: 'ops! Something went wrong.'
+                }
+            };
+            reject(errorResponse);
+        }
+
 
     });
 
