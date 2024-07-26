@@ -4,7 +4,7 @@
   "description": "Communication Middleware Created by Eldev",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --name 'fork-process' | pm2 start cluster-index.js -i max --name 'worker-process' | pm2 flush | pm2 logs"
+    "start": "pm2 start index.js --name 'fork-process' --log-date-format 'YYYY-DD-MM HH:mm:ss.SSS' | pm2 start cluster-index.js -i max --name 'worker-process' --log-date-format 'YYYY-DD-MM HH:mm:ss.SSS' | pm2 logs"
   },
   "author": "Eldev",
   "license": "MIT",
