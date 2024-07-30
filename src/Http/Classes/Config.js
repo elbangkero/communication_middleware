@@ -33,9 +33,9 @@ async function SetUpdateConfigError(config_id) {
     });
 }
 
-async function SetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by) {
+async function SetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by, db_connection) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_scheduled,site_id,created_by) VALUES ('pending','active','${local_time}','${local_time}','${parseISO}','${sending}','${data_source}','${campaign_name}','${data_leads}','${is_scheduled}','${site_id}','${created_by}')`, (err, res) => {
+        local_connection.query(`INSERT INTO cmw_config(status,triggerstatus,created_at,updated_at,start_at,sending,data_source,campaign_name,data_leads,is_scheduled,site_id,created_by,db_connection) VALUES ('pending','active','${local_time}','${local_time}','${parseISO}','${sending}','${data_source}','${campaign_name}','${data_leads}','${is_scheduled}','${site_id}','${created_by}','${db_connection}')`, (err, res) => {
             err ? reject(`SetInsertConfig[Error]: ${err.message}`) : resolve(res);
         });
     });

@@ -46,6 +46,17 @@ insertConfig = async (_req, _res) => {
     const date_now = new Date(local_time).toLocaleString();
     const sending = _req.body.sending == 'on' ? true : false;
     const is_scheduled = _req.body.is_scheduled == 'on' ? true : false;
+
+    const array_connection = ['fsbo', 'zgaming'];
+    if (array_connection.includes(_req.body.db_connection)) {
+        db_connection = _req.body.db_connection;
+    } else {
+        data_leads = 'Invalid Database Connection';
+        message = 'Data Connection does not exist';
+        _res.status(400).json({ 'StatusCode': 400, 'Status': false, 'ErrorMessage': data_leads, 'Message': message });
+        console_log(JSON.stringify({ 'StatusCode': 400, 'Status': false, 'ErrorMessage': data_leads, 'Message': message }));
+        return;
+    }
     if (_req.body.data_source == 'csv') {
         if (_req.files.data_leads && _req.files.data_leads.length > 0 && _req.files.data_leads[0].filename) {
             data_leads = _req.files.data_leads[0].filename;
@@ -80,7 +91,7 @@ insertConfig = async (_req, _res) => {
     var parseISO = !isNaN(parsedDate) ? parsedDate.toISOString() : '1998-10-06 00:00:00.000';
     const site_id = await _ControllerAPI.GetValidateSiteID(_req.body.site_id) ? _req.body.site_id : 1;
     const created_by = (_req.body.created_by == '' || _req.body.created_by == undefined) ? 'Unknown' : _req.body.created_by;
-    await _ControllerAPI.GetInsertConfig(local_time, parseISO, sending, _req.body.data_source, _req.body.campaign_name, data_leads, is_scheduled, site_id, created_by)
+    await _ControllerAPI.GetInsertConfig(local_time, parseISO, sending, _req.body.data_source, _req.body.campaign_name, data_leads, is_scheduled, site_id, created_by, db_connection)
         .then(async function (response) {
             console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] }));
             _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] });

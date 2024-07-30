@@ -49,6 +49,8 @@ async function fromSender(brandcode) {
         return 'LCH-TH';
     } else if (brandcode === 'HAPPYLUKE_COM') {
         return 'HL-TH';
+    } else if (brandcode === 'HAPPYVEGAS_COM') {
+        return 'HV-TH';
     } else {
         return 'Income88th';
     }

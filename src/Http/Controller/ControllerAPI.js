@@ -12,6 +12,8 @@ const AcctProviders = require('../Classes/AcctProviders');
 const _AcctProviders = new AcctProviders();
 const Joystick = require('../Classes/Joystick');
 const _Joystick = new Joystick();
+const Zgaming = require('../Classes/Zgaming');
+const _Zgaming = new Zgaming();
 const Callback = require('../Classes/Callback');
 const _Callback = new Callback();
 
@@ -64,8 +66,8 @@ async function GetUpdateConfigError(config_id) {
 async function GetProviders(application_id) {
     return await _Providers.SetProviders(application_id);
 }
-async function GetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by) {
-    return await _Config.SetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by);
+async function GetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by, db_connection) {
+    return await _Config.SetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by, db_connection);
 }
 async function GetInsertProviders(provider_name, application_id, _platform, platform, endpoint, local_time) {
     return await _Providers.SetInsertProviders(provider_name, application_id, _platform, platform, endpoint, local_time);
@@ -81,6 +83,9 @@ async function GetStopTrigger(id) {
 }
 async function GetUserInfoFromJoystick(player_token) {
     return await _Joystick.SetUserInfoFromJoystick(player_token);
+}
+async function GetUserInfoFromZgaming(player_token) {
+    return await _Zgaming.SetUserInfoFromZgaming(player_token);
 }
 async function GetStopTriggerStatus(id) {
     return await _Config.SetStopTriggerStatus(id);
@@ -101,4 +106,5 @@ module.exports = function () {
     this.GetUpdateConfigError = GetUpdateConfigError;
     this.GetStopTrigger = GetStopTrigger;
     this.GetStopTriggerStatus = GetStopTriggerStatus;
+    this.GetUserInfoFromZgaming = GetUserInfoFromZgaming;
 }
