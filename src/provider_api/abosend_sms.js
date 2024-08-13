@@ -93,7 +93,19 @@ async function AbosendSMSSender(message, from, phone_number, country_code, row_n
                         reject(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    try {
+                        reject(error);
+                    } catch (err) {
+                        const errorResponse = {
+                            data: {
+                                success: false,
+                                error: 'Error 520: Unknown Error',
+                                errordata: 'ops! Something went wrong.'
+                            }
+                        };
+                        reject(errorResponse);
+                    }
+
                 });
         } catch (err) {
             const errorResponse = {

@@ -1,5 +1,6 @@
 const axios = require('axios');
 const interval = `${process.env.INTERVAL_TIME}`;
+const https = require('https');
 /*
 async function SetUserInfoFromJoystick(player_token) {
     return new Promise(async (resolve, reject) => {
@@ -25,7 +26,10 @@ async function SetUserInfoFromJoystick(token) {
             headers: {
                 'Authorization': 'Basic bmltYnVzOndeN3FCUCpOJlRaZQ=='
             },
-            timeout: 60000
+            timeout: 60000,
+            httpsAgent: new https.Agent({
+                rejectUnauthorized: false, // Disables SSL verification
+            })
         };
         setTimeout(async () => {
             axios.request(config)

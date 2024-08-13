@@ -105,11 +105,22 @@ async function AntsSMSSender(brandcode, text, to, country_code, _callback) {
                     //debug structure// console.log(response.data.details[0].status.description);
                     if (name == "REJECTED") {
                         reject(response.data.details[0].status.description);
-                    } resolve(response.data.details[0].status.description);
+                    }
+                    resolve(response.data.details[0].status.description);
                 })
                 .catch((error) => {
-                    //console.log(error.response.data.error);
-                    reject(error.response.data.error);
+                    try {
+                        reject(error.response.data.error);
+                    } catch (err) {
+                        const errorResponse = {
+                            data: {
+                                success: false,
+                                error: 'Error 520: Unknown Error',
+                                errordata: 'ops! Something went wrong.'
+                            }
+                        };
+                        reject(errorResponse);
+                    }
                 });
         } catch (err) {
             const errorResponse = {
