@@ -14,10 +14,9 @@ async function SetUserInfoFromJoystick(player_token) {
     });
 }*/
 
-async function SetUserInfoFromJoystick(token) {
+async function SetUserInfoFromJoystick(token, retries = 10) {
 
     return new Promise(async (resolve, reject) => {
-
 
         let config = {
             method: 'get',
@@ -31,9 +30,11 @@ async function SetUserInfoFromJoystick(token) {
                 rejectUnauthorized: false, // Disables SSL verification
             })
         };
-        setTimeout(async () => {
-            axios.request(config)
-                .then((response) => {
+
+        const requestVitruvian = async (attempt) => {
+            setTimeout(async () => {
+                try {
+                    const response = await axios(config);
                     if (response.data.results.length === 0) {
                         reject('Invalid {PlayerToken}');
                     } else {
@@ -46,19 +47,34 @@ async function SetUserInfoFromJoystick(token) {
                             'playername': response.data.results[0].profile.firstName + ' ' + response.data.results[0].profile.lastName
                         });
                     }
-
-                })
-                .catch((error) => {
+                } catch (error) {
                     if (error.code === 'ECONNABORTED') {
                         reject('Request Timeout From Vitruvian');
                     }
                     else if (error.code === 'ERR_BAD_RESPONSE') {
-                        reject('Vitruvian API Service Unavailable');
+
+                        if (attempt < retries) {
+                            setTimeout(async function () {
+                                console_log(`Retrying... Attempt on Token : ${token} Attempt : ${attempt + 1}`);
+                                await requestVitruvian(attempt + 1);
+                            }, attempt * 10000);
+                        } else {
+                            const errorResponse = {
+                                data: {
+                                    success: false,
+                                    error: 'Vitruvian API Service Unavailable Exceeded 1 min Request',
+                                    errordata: `${retries} attempts for this request have been exhausted`
+                                }
+                            };
+                            reject(errorResponse);
+                        }
                     } else {
                         reject(error);
                     }
-                });
-        }, interval);
+                }
+            }, interval);
+        };
+        await requestVitruvian(0);
     });
 
 }
