@@ -1,50 +1,21 @@
 const axios = require('axios');
+let msg = '{"error":{"message":"updateBalance"}}';
 
-async function VitruvianAPI(token) {
+let config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'https://chat.googleapis.com/v1/spaces/AAAA3kY0_3c/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=OyB9SAe8ncudmNjP7WtX4XZ5szes4cWfiG0u58HejdM',
+  headers: {
+    'Content-Type': 'application/json; charset=UTF-8',
+    'Cookie': 'COMPASS=dynamite-integration=CgAQ0rCWtgYaTQAJa4lXEMJ_fYXhHgLEYndozdzwMVA36P_k9s2w7I8cdYpBB7AlKyFweqLWHKW5zrJdc2Rmqx_Ve23FTjx5cTN3usKmMVAk-FKwPmeJMAE'
+  },
+  data: { "text": msg }
+};
 
-  return new Promise(async (resolve, reject) => {
-    let config = {
-      method: 'get',
-      maxBodyLength: Infinity,
-      url: `https://afun-playerinfo-ap-prod.vitruviandata.com/player?token=${token}`,
-      headers: {
-        'Authorization': 'Basic bmltYnVzOndeN3FCUCpOJlRaZQ=='
-      }
-    };
-
-    axios.request(config)
-      .then((response) => {
-        resolve({
-          'email': response.data.results[0].profile.email,
-          'phone_number': response.data.results[0].profile.phoneNumber,
-          'classificationcode': response.data.results[0].tags,
-          'brandcode': response.data.results[0].info.siteCode,
-          'country': response.data.results[0].profile.country,
-          'playername': response.data.results[0].profile.firstName + ' ' + response.data.results[0].profile.lastName
-        });
-      })
-      .catch((error) => {
-        reject(error);
-      });
+axios.request(config)
+  .then((response) => {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch((error) => {
+    console.log(error);
   });
-
-}
-
-async function VITRUVIAN(player_token) {
-  await VitruvianAPI(player_token)
-    .then(async function (response) {
-      console.log(response);
-
-    })
-    .catch(async function (err) {
-    }).finally(async function () {
-
-    });
-}
-
-
-VITRUVIAN('s2tnnlvy074288');
-
-
-
-

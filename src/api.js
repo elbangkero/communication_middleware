@@ -14,6 +14,7 @@ const multer = require('multer');
 const fs = require('fs');
 const csv = require('csv-parser');
 const schedule = require('node-schedule');
+const { GoogleWebHook } = require('./Helper/GoogleWebHook');
 
 
 
@@ -335,6 +336,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                             query_instant++
                             await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, '', row.country, obj.message_text, 'failed', '{"message":"Invalid Site ID"}', obj.from, '', '', obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                             if (pre_compile_data.length == query_instant) {
+                                const success_rate_ratio = {
+                                    'success': dynamic_counter.counter.success,
+                                    'failed': dynamic_counter.counter.fails,
+                                    'config_id': config_id
+                                };
+                                await GoogleWebHook(success_rate_ratio);
                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                 dynamic_counter.counter.success = 0;
                                 dynamic_counter.counter.fails = 0;
@@ -363,6 +370,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                                             }).finally(async function () {
                                                 if (pre_compile_data.length == query_instant) {
+                                                    const success_rate_ratio = {
+                                                        'success': dynamic_counter.counter.success,
+                                                        'failed': dynamic_counter.counter.fails,
+                                                        'config_id': config_id
+                                                    };
+                                                    await GoogleWebHook(success_rate_ratio);
                                                     console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                     dynamic_counter.counter.success = 0;
                                                     dynamic_counter.counter.fails = 0;
@@ -376,6 +389,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                             query_instant++
                                             await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', `{"message":"Provider does not exist"}`, obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                                             if (pre_compile_data.length == query_instant) {
+                                                const success_rate_ratio = {
+                                                    'success': dynamic_counter.counter.success,
+                                                    'failed': dynamic_counter.counter.fails,
+                                                    'config_id': config_id
+                                                };
+                                                await GoogleWebHook(success_rate_ratio);
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
@@ -391,6 +410,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                         query_instant++
                                         await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', `{"message":"Provider does not exist"}`, obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                                         if (pre_compile_data.length == query_instant) {
+                                            const success_rate_ratio = {
+                                                'success': dynamic_counter.counter.success,
+                                                'failed': dynamic_counter.counter.fails,
+                                                'config_id': config_id
+                                            };
+                                            await GoogleWebHook(success_rate_ratio);
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
                                             dynamic_counter.counter.fails = 0;
@@ -405,6 +430,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                         query_instant++
                                     }).finally(async function () {
                                         if (pre_compile_data.length == query_instant) {
+                                            const success_rate_ratio = {
+                                                'success': dynamic_counter.counter.success,
+                                                'failed': dynamic_counter.counter.fails,
+                                                'config_id': config_id
+                                            };
+                                            await GoogleWebHook(success_rate_ratio);
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
                                             dynamic_counter.counter.fails = 0;
@@ -448,7 +479,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 })
                                                 .finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
-
+                                                        const success_rate_ratio = {
+                                                            'success': dynamic_counter.counter.success,
+                                                            'failed': dynamic_counter.counter.fails,
+                                                            'config_id': config_id
+                                                        };
+                                                        await GoogleWebHook(success_rate_ratio);
                                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                         dynamic_counter.counter.success = 0;
                                                         dynamic_counter.counter.fails = 0;
@@ -472,6 +508,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 })
                                                 .finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
+                                                        const success_rate_ratio = {
+                                                            'success': dynamic_counter.counter.success,
+                                                            'failed': dynamic_counter.counter.fails,
+                                                            'config_id': config_id
+                                                        };
+                                                        await GoogleWebHook(success_rate_ratio);
                                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                         dynamic_counter.counter.success = 0;
                                                         dynamic_counter.counter.fails = 0;
@@ -495,6 +537,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 })
                                                 .finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
+                                                        const success_rate_ratio = {
+                                                            'success': dynamic_counter.counter.success,
+                                                            'failed': dynamic_counter.counter.fails,
+                                                            'config_id': config_id
+                                                        };
+                                                        await GoogleWebHook(success_rate_ratio);
                                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                         dynamic_counter.counter.success = 0;
                                                         dynamic_counter.counter.fails = 0;
@@ -518,6 +566,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 })
                                                 .finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
+                                                        const success_rate_ratio = {
+                                                            'success': dynamic_counter.counter.success,
+                                                            'failed': dynamic_counter.counter.fails,
+                                                            'config_id': config_id
+                                                        };
+                                                        await GoogleWebHook(success_rate_ratio);
                                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                         dynamic_counter.counter.success = 0;
                                                         dynamic_counter.counter.fails = 0;
@@ -543,6 +597,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 })
                                                 .finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
+                                                        const success_rate_ratio = {
+                                                            'success': dynamic_counter.counter.success,
+                                                            'failed': dynamic_counter.counter.fails,
+                                                            'config_id': config_id
+                                                        };
+                                                        await GoogleWebHook(success_rate_ratio);
                                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                         dynamic_counter.counter.success = 0;
                                                         dynamic_counter.counter.fails = 0;
@@ -566,6 +626,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                 })
                                                 .finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
+                                                        const success_rate_ratio = {
+                                                            'success': dynamic_counter.counter.success,
+                                                            'failed': dynamic_counter.counter.fails,
+                                                            'config_id': config_id
+                                                        };
+                                                        await GoogleWebHook(success_rate_ratio);
                                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                         dynamic_counter.counter.success = 0;
                                                         dynamic_counter.counter.fails = 0;
@@ -581,6 +647,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                             query_instant++
                                             await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in sms platform"}', obj.from, '', '', obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                                             if (pre_compile_data.length == query_instant) {
+                                                const success_rate_ratio = {
+                                                    'success': dynamic_counter.counter.success,
+                                                    'failed': dynamic_counter.counter.fails,
+                                                    'config_id': config_id
+                                                };
+                                                await GoogleWebHook(success_rate_ratio);
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
@@ -598,6 +670,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                         query_instant++
                                         await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.phone_number, 'sms', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in sms platform"}', obj.from, '', '', obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                                         if (pre_compile_data.length == query_instant) {
+                                            const success_rate_ratio = {
+                                                'success': dynamic_counter.counter.success,
+                                                'failed': dynamic_counter.counter.fails,
+                                                'config_id': config_id
+                                            };
+                                            await GoogleWebHook(success_rate_ratio);
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
                                             dynamic_counter.counter.fails = 0;
@@ -613,6 +691,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                         query_instant++
                                     }).finally(async function () {
                                         if (pre_compile_data.length == query_instant) {
+                                            const success_rate_ratio = {
+                                                'success': dynamic_counter.counter.success,
+                                                'failed': dynamic_counter.counter.fails,
+                                                'config_id': config_id
+                                            };
+                                            await GoogleWebHook(success_rate_ratio);
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
                                             dynamic_counter.counter.fails = 0;
@@ -643,6 +727,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                                     await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', JSON.stringify(error.data), obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                                                 }).finally(async function () {
                                                     if (pre_compile_data.length == query_instant) {
+                                                        const success_rate_ratio = {
+                                                            'success': dynamic_counter.counter.success,
+                                                            'failed': dynamic_counter.counter.fails,
+                                                            'config_id': config_id
+                                                        };
+                                                        await GoogleWebHook(success_rate_ratio);
                                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                         dynamic_counter.counter.success = 0;
                                                         dynamic_counter.counter.fails = 0;
@@ -659,6 +749,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                             query_instant++
                                             await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in email platform"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                                             if (pre_compile_data.length == query_instant) {
+                                                const success_rate_ratio = {
+                                                    'success': dynamic_counter.counter.success,
+                                                    'failed': dynamic_counter.counter.fails,
+                                                    'config_id': config_id
+                                                };
+                                                await GoogleWebHook(success_rate_ratio);
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
@@ -674,6 +770,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                         query_instant++
                                         await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', '{"message":"Provider does not exist in email platform"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                                         if (pre_compile_data.length == query_instant) {
+                                            const success_rate_ratio = {
+                                                'success': dynamic_counter.counter.success,
+                                                'failed': dynamic_counter.counter.fails,
+                                                'config_id': config_id
+                                            };
+                                            await GoogleWebHook(success_rate_ratio);
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
                                             dynamic_counter.counter.fails = 0;
@@ -688,6 +790,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                                         query_instant++
                                     }).finally(async function () {
                                         if (pre_compile_data.length == query_instant) {
+                                            const success_rate_ratio = {
+                                                'success': dynamic_counter.counter.success,
+                                                'failed': dynamic_counter.counter.fails,
+                                                'config_id': config_id
+                                            };
+                                            await GoogleWebHook(success_rate_ratio);
                                             console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                             dynamic_counter.counter.success = 0;
                                             dynamic_counter.counter.fails = 0;
@@ -703,6 +811,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                             query_instant++
                             await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, row.email, 'email', row.country, obj.message_text, 'failed', '{"message":"platform does not exist"}', obj.from, obj.email_subject, obj.template_id, obj.application_id, obj.merge, row.brandcode, obj.callback_url);
                             if (pre_compile_data.length == query_instant) {
+                                const success_rate_ratio = {
+                                    'success': dynamic_counter.counter.success,
+                                    'failed': dynamic_counter.counter.fails,
+                                    'config_id': config_id
+                                };
+                                await GoogleWebHook(success_rate_ratio);
                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                 dynamic_counter.counter.success = 0;
                                 dynamic_counter.counter.fails = 0;
@@ -721,6 +835,12 @@ function constructData(config_id, pre_compile_data, campaign_name, site_id) {
                     await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, '', obj.platform, '', obj.message_text, 'failed', err, obj.from, '', '', obj.application_id, obj.merge, '');
                 }).finally(async function () {
                     if (pre_compile_data.length == query_instant) {
+                        const success_rate_ratio = {
+                            'success': dynamic_counter.counter.success,
+                            'failed': dynamic_counter.counter.fails,
+                            'config_id': config_id
+                        };
+                        await GoogleWebHook(success_rate_ratio);
                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                         dynamic_counter.counter.success = 0;
                         dynamic_counter.counter.fails = 0;
