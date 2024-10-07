@@ -33,9 +33,9 @@ async function Sending(msg = [], config_id, created_by) {
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
-        url: 'https://chat.googleapis.com/v1/spaces/AAAAA3jff-c/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=absbzPMeW7Flcuz7FrrQUHrNi16JVVRIQZL7cEgYVlU',
-        headers: { 
-          'Content-Type': 'application/json; charset=UTF-8'
+        url: process.env.ENVIRONMENT = 'development' ? 'https://chat.googleapis.com/v1/spaces/AAAAKo_jn1E/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=Zs5XPK8LO3bz9VGnNSp50NRNCqjdorRXiLVdKBH2rnQ' : process.env.ENVIRONMENT,
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
         },
         data: {
             "cards": [

@@ -41,7 +41,9 @@ let provider_code = [
     process.env.PROVIDER_EMAIL_EE_DORA,
     process.env.PROVIDER_EMAIL_EE_GRACE,
     process.env.PROVIDER_EMAIL_EE_KELLY,
-    process.env.PROVIDER_EMAIL_EE_JOHNY
+    process.env.PROVIDER_EMAIL_EE_JOHNY,
+    process.env.PROVIDER_SMS_MKT,
+    process.env.PROVIDER_EMAIL_EE_BEN
 ];
 
 let isProcessing = false;
