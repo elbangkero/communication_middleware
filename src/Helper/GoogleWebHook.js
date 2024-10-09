@@ -33,7 +33,7 @@ async function Sending(msg = [], config_id, created_by) {
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
-        url: process.env.ENVIRONMENT = 'production' ? process.env.ENVIRONMENT : 'https://chat.googleapis.com/v1/spaces/AAAAKo_jn1E/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=Zs5XPK8LO3bz9VGnNSp50NRNCqjdorRXiLVdKBH2rnQ',
+        url: process.env.ENVIRONMENT = 'production' ? process.env.GOOGLE_API_WEBHOOK : 'https://chat.googleapis.com/v1/spaces/AAAAKo_jn1E/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=Zs5XPK8LO3bz9VGnNSp50NRNCqjdorRXiLVdKBH2rnQ',
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'
         },
