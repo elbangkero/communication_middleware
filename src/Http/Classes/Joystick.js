@@ -21,13 +21,10 @@ async function SetUserInfoFromJoystick(token, retries = 10) {
         let config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: `https://afun-playerinfo-ap-prod.vitruviandata.com/player?token=${token}`,
-            headers: {
-                'Authorization': 'Basic bmltYnVzOndeN3FCUCpOJlRaZQ=='
-            },
-            timeout: 60000,
+            url: `http://172.31.11.15:2041/player-info?token=${token}`,
+            headers: {},
             httpsAgent: new https.Agent({
-                rejectUnauthorized: false, // Disables SSL verification
+                rejectUnauthorized: false,
             })
         };
 
@@ -35,16 +32,16 @@ async function SetUserInfoFromJoystick(token, retries = 10) {
             setTimeout(async () => {
                 try {
                     const response = await axios(config);
-                    if (response.data.results.length === 0) {
+                    if (response.data.data == 'Player does not exist') {
                         reject('Invalid {PlayerToken}');
                     } else {
                         resolve({
-                            'email': response.data.results[0].profile.email,
-                            'phone_number': response.data.results[0].profile.phoneNumber,
-                            'classificationcode': response.data.results[0].tags,
-                            'brandcode': response.data.results[0].info.siteCode,
-                            'country': response.data.results[0].profile.country,
-                            'playername': response.data.results[0].profile.firstName + ' ' + response.data.results[0].profile.lastName
+                            'email': response.data.data.profile.email,
+                            'phone_number': response.data.data.profile.phoneNumber,
+                            'classificationcode': response.data.data.tags,
+                            'brandcode': response.data.data.info.siteCode,
+                            'country': response.data.data.profile.country,
+                            'playername': response.data.data.profile.firstName + ' ' + response.data.data.profile.lastName
                         });
                     }
                 } catch (error) {
