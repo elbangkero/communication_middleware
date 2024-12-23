@@ -14,6 +14,8 @@ const Joystick = require('../Classes/Joystick');
 const _Joystick = new Joystick();
 const Callback = require('../Classes/Callback');
 const _Callback = new Callback();
+const Zgaming = require('../Classes/Zgaming');
+const _Zgaming = new Zgaming();
 
 async function GetValidateSiteID(site_id) {
     const result = await _SiteConfig.setConfig(site_id);
@@ -82,6 +84,9 @@ async function GetStopTrigger(id) {
 async function GetUserInfoFromJoystick(player_token) {
     return await _Joystick.SetUserInfoFromJoystick(player_token);
 }
+async function GetZgamingUserInfo(player_tokens,config_id) {
+    return await _Zgaming.SetZgamingUserInfo(player_tokens,config_id);
+}
 async function GetStopTriggerStatus(id) {
     return await _Config.SetStopTriggerStatus(id);
 }
@@ -101,4 +106,5 @@ module.exports = function () {
     this.GetUpdateConfigError = GetUpdateConfigError;
     this.GetStopTrigger = GetStopTrigger;
     this.GetStopTriggerStatus = GetStopTriggerStatus;
+    this.GetZgamingUserInfo = GetZgamingUserInfo;
 }
