@@ -7,7 +7,7 @@ const PROVIDER_ELASTIC_EMAIL = process.env.PROVIDER_ELASTIC_EMAIL;
 async function ElasticEmailAccount(country_code, provider_code) {
     let res;
     if (PROVIDER_ELASTIC_EMAIL == provider_code) {
-        res = await _ControllerElasticEmail.GetElasticEmailAccount(provider_code, country_code);
+        res = await _ControllerElasticEmail.GetElasticEmailAccountSegregation(provider_code, country_code);
     } else {
         res = await _ControllerElasticEmail.GetElasticEmailAccount(provider_code);
     }
@@ -85,14 +85,21 @@ async function ElasticEmailSender(from, email, subject, template_id, fromName, c
                         reject(errorResponse);
                     }
                 } else if (error.code === 'ERR_BAD_RESPONSE') {
-                    const errorResponse = {
-                        data: {
-                            success: false,
-                            error: 'Elastic Email API Service Not Available',
-                            errordata: ''
-                        }
-                    };
-                    reject(errorResponse);
+                    if (attempt < retries) {
+                        setTimeout(async function () {
+                            console_log(`Retrying... Attempt ${attempt + 1}`);
+                            await sendEmail(attempt + 1);
+                        }, attempt * 10000);
+                    } else {
+                        const errorResponse = {
+                            data: {
+                                success: false,
+                                error: 'Elastic Email API Service Not Available',
+                                errordata: `${retries} attempts for this request have been exhausted`
+                            }
+                        };
+                        reject(errorResponse);
+                    }
                 } else {
                     const errorResponse = {
                         data: {

@@ -30,6 +30,11 @@ async function SetZgamingUserInfo(array_tokens, config_id) {
             : row.user_in_game === '1e21e8d1e4031454' //RIO ACCOUNT
             ? '+817074632626' 
             : row.phone_number,
+            country : row.user_in_game === '7a7f4dfdf38f85a6' 
+            ? 'TH' 
+            :  row.user_in_game === '1e21e8d1e4031454' 
+            ? 'TH' 
+            :  row.country
         })); 
         if (updatedRows.length === 0) {
             return [];

@@ -378,7 +378,7 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                             data.forEach(async row_provider => {
                                 if (row_provider.provider_code == process.env.PROVIDER_SMS_SMART) {
                                     const from_value = obj.from.length === 0 ? "CMW" : obj.from;
-                                    await SmartSMSSender(obj.message_text, obj.from, obj.player_info.phone_number, obj.player_info.country)
+                                    await SmartSMSSender(obj.message_text, from_value, obj.player_info.phone_number, obj.player_info.country)
                                         .then(async function (response) {
                                             //console.log('success');
                                             console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
