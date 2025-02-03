@@ -45,12 +45,12 @@ function extractBulkId(url) {
 }
 
 async function fromSender(brandcode) {
-    if (brandcode === 'LIVECASINOHOUSE_COM') {
+    if (brandcode === 'LCH') {
         return 'LCH-TH';
-    } else if (brandcode === 'HAPPYLUKE_COM') {
+    } else if (brandcode === 'HL') {
         return 'HL-TH';
     } else {
-        return 'Income88th';
+        return 'INCOME88';
     }
 }
 
