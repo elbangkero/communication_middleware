@@ -45,7 +45,7 @@ async function generateReportImage(msg, config_id, created_by) {
   ctx.fillRect(0, 0, width, 50);
   ctx.fillStyle = "#ffffff";
   ctx.font = "bold 20px Arial";
-  ctx.fillText("📢    Summary Report", 20, 30);
+  ctx.fillText("Summary Report", 20, 30);
 
   // Title
   ctx.fillStyle = "#333";
