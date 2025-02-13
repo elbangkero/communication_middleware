@@ -14,8 +14,8 @@ const multer = require('multer');
 const fs = require('fs');
 const csv = require('csv-parser');
 const schedule = require('node-schedule');
-const { GoogleWebHook } = require('./Helper/GoogleWebHook');
-
+//const { GoogleWebHook } = require('./Helper/GoogleWebHook');
+const { TelegramBot } = require('./Helper/TelegramBot');
 
 
 const interval = `${process.env.INTERVAL_TIME}`;
@@ -359,7 +359,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                             'failed': dynamic_counter.counter.fails,
                             'config_id': config_id
                         };
-                        await GoogleWebHook(success_rate_ratio);
+                        //await GoogleWebHook(success_rate_ratio);
+                        await TelegramBot(success_rate_ratio);
                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                         dynamic_counter.counter.success = 0;
                         dynamic_counter.counter.fails = 0;
@@ -404,7 +405,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                                     'failed': dynamic_counter.counter.fails,
                                                     'config_id': config_id
                                                 };
-                                                await GoogleWebHook(success_rate_ratio);
+                                                //await GoogleWebHook(success_rate_ratio);
+                                                await TelegramBot(success_rate_ratio);
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
@@ -433,7 +435,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                                     'failed': dynamic_counter.counter.fails,
                                                     'config_id': config_id
                                                 };
-                                                await GoogleWebHook(success_rate_ratio);
+                                                //await GoogleWebHook(success_rate_ratio);
+                                                await TelegramBot(success_rate_ratio);
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
@@ -462,7 +465,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                                     'failed': dynamic_counter.counter.fails,
                                                     'config_id': config_id
                                                 };
-                                                await GoogleWebHook(success_rate_ratio);
+                                                //await GoogleWebHook(success_rate_ratio);
+                                                await TelegramBot(success_rate_ratio);
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
@@ -491,7 +495,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                                     'failed': dynamic_counter.counter.fails,
                                                     'config_id': config_id
                                                 };
-                                                await GoogleWebHook(success_rate_ratio);
+                                                //await GoogleWebHook(success_rate_ratio);
+                                                await TelegramBot(success_rate_ratio);
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
@@ -522,7 +527,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                                     'failed': dynamic_counter.counter.fails,
                                                     'config_id': config_id
                                                 };
-                                                await GoogleWebHook(success_rate_ratio);
+                                                //await GoogleWebHook(success_rate_ratio);
+                                                await TelegramBot(success_rate_ratio);
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
@@ -551,7 +557,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                                     'failed': dynamic_counter.counter.fails,
                                                     'config_id': config_id
                                                 };
-                                                await GoogleWebHook(success_rate_ratio);
+                                                //await GoogleWebHook(success_rate_ratio);
+                                                await TelegramBot(success_rate_ratio);
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
@@ -572,7 +579,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                             'failed': dynamic_counter.counter.fails,
                                             'config_id': config_id
                                         };
-                                        await GoogleWebHook(success_rate_ratio);
+                                        //await GoogleWebHook(success_rate_ratio);
+                                        await TelegramBot(success_rate_ratio);
                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                         dynamic_counter.counter.success = 0;
                                         dynamic_counter.counter.fails = 0;
@@ -595,7 +603,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                         'failed': dynamic_counter.counter.fails,
                                         'config_id': config_id
                                     };
-                                    await GoogleWebHook(success_rate_ratio);
+                                    //await GoogleWebHook(success_rate_ratio);
+                                    await TelegramBot(success_rate_ratio);
                                     console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                     dynamic_counter.counter.success = 0;
                                     dynamic_counter.counter.fails = 0;
@@ -616,7 +625,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                         'failed': dynamic_counter.counter.fails,
                                         'config_id': config_id
                                     };
-                                    await GoogleWebHook(success_rate_ratio);
+                                    //await GoogleWebHook(success_rate_ratio);
+                                    await TelegramBot(success_rate_ratio);
                                     console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                     dynamic_counter.counter.success = 0;
                                     dynamic_counter.counter.fails = 0;
@@ -653,7 +663,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                                     'failed': dynamic_counter.counter.fails,
                                                     'config_id': config_id
                                                 };
-                                                await GoogleWebHook(success_rate_ratio);
+                                                //await GoogleWebHook(success_rate_ratio);
+                                                await TelegramBot(success_rate_ratio);
                                                 console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                                 dynamic_counter.counter.success = 0;
                                                 dynamic_counter.counter.fails = 0;
@@ -675,7 +686,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                             'failed': dynamic_counter.counter.fails,
                                             'config_id': config_id
                                         };
-                                        await GoogleWebHook(success_rate_ratio);
+                                        //await GoogleWebHook(success_rate_ratio);
+                                        await TelegramBot(success_rate_ratio);
                                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                         dynamic_counter.counter.success = 0;
                                         dynamic_counter.counter.fails = 0;
@@ -696,7 +708,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                         'failed': dynamic_counter.counter.fails,
                                         'config_id': config_id
                                     };
-                                    await GoogleWebHook(success_rate_ratio);
+                                    //await GoogleWebHook(success_rate_ratio);
+                                    await TelegramBot(success_rate_ratio);
                                     console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                     dynamic_counter.counter.success = 0;
                                     dynamic_counter.counter.fails = 0;
@@ -716,7 +729,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                         'failed': dynamic_counter.counter.fails,
                                         'config_id': config_id
                                     };
-                                    await GoogleWebHook(success_rate_ratio);
+                                    //await GoogleWebHook(success_rate_ratio);
+                                    await TelegramBot(success_rate_ratio);
                                     console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                                     dynamic_counter.counter.success = 0;
                                     dynamic_counter.counter.fails = 0;
@@ -737,7 +751,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                             'failed': dynamic_counter.counter.fails,
                             'config_id': config_id
                         };
-                        await GoogleWebHook(success_rate_ratio);
+                        //await GoogleWebHook(success_rate_ratio);
+                        await TelegramBot(success_rate_ratio);
                         console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                         dynamic_counter.counter.success = 0;
                         dynamic_counter.counter.fails = 0;
@@ -758,7 +773,8 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                         'failed': dynamic_counter.counter.fails,
                         'config_id': config_id
                     };
-                    await GoogleWebHook(success_rate_ratio);
+                    //await GoogleWebHook(success_rate_ratio);
+                    await TelegramBot(success_rate_ratio);
                     console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
                     dynamic_counter.counter.success = 0;
                     dynamic_counter.counter.fails = 0;
