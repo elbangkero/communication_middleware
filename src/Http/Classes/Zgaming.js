@@ -26,14 +26,14 @@ async function SetZgamingUserInfo(array_tokens, config_id) {
         const updatedRows = rows.map(row => ({
             ...row,
             phone_number: row.user_in_game === '7a7f4dfdf38f85a6' //RHOY ACCT
-            ? '639611573154' 
+            ? '84555567017' 
             : row.user_in_game === '1e21e8d1e4031454' //RIO ACCOUNT
-            ? '+817074632626' 
+            ? '+84855543206' 
             : row.phone_number,
             country : row.user_in_game === '7a7f4dfdf38f85a6' 
-            ? 'TH' 
+            ? 'VN' 
             :  row.user_in_game === '1e21e8d1e4031454' 
-            ? 'TH' 
+            ? 'VN' 
             :  row.country
         })); 
         if (updatedRows.length === 0) {

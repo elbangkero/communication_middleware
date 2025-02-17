@@ -39,6 +39,10 @@ async function SetAntsAccount(app_id, country_code) {
     return res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${app_id}' and country_code = '${country_code}' LIMIT 1`);
 }
 
+async function SetLaafficAccount(app_id, country_code) {
+    return res = await local_connection.query(`SELECT cap.apikey,cap.md5key,cp.endpoint,cap.rand  FROM cmw_acct_providers cap left join cmw_providers cp on cp.provider_code = cap.provider_code where cap.provider_code = '${app_id}' and cap.country_code = '${country_code}'  LIMIT 1`);
+}
+
 async function SetElasticEmailCallback(application_id, country_code) {
     const email_type = application_id == 'EMAIL_EE' ? `and cp.application_id  = 'EMAIL_EE' and cap.country_code = '${country_code}'` : `and cp.application_id  = '${application_id}'`;
     return res = await local_connection.query(`    SELECT  cap.country_code,cap.apikey,cp.provider_code,cp.provider_name  FROM cmw_acct_providers cap
@@ -66,5 +70,5 @@ module.exports = function () {
     this.SetAntsAccount = SetAntsAccount;
     this.SetElasticEmailCallback = SetElasticEmailCallback;
     this.SetSMSMKTAccount = SetSMSMKTAccount;
-
+    this.SetLaafficAccount = SetLaafficAccount;
 }

@@ -8,6 +8,7 @@ const { SmartSMSSender } = require('./provider_api/smart_sms');
 const { TextLocalSender } = require('./provider_api/textLocal_sms');
 const { AntsSMSSender } = require('./provider_api/ants_sms');
 const { SMSMKTSMSSender } = require('./provider_api/sms_mkt');
+const { SMSLaafficSender } = require('./provider_api/laaffic_sms');
 const ControllerAPI = require('./Http/Controller/ControllerAPI');
 const _ControllerAPI = new ControllerAPI();
 const multer = require('multer');
@@ -43,7 +44,8 @@ let provider_code = [
     process.env.PROVIDER_EMAIL_EE_KELLY,
     process.env.PROVIDER_EMAIL_EE_JOHNY,
     process.env.PROVIDER_SMS_MKT,
-    process.env.PROVIDER_EMAIL_EE_BEN
+    process.env.PROVIDER_EMAIL_EE_BEN,
+    process.env.PROVIDER_SMS_LAAFFIC,
 ];
 
 let isProcessing = false;
@@ -538,6 +540,36 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                         });
                                 } else if (row_provider.provider_code == process.env.PROVIDER_SMS_MKT) {
                                     await SMSMKTSMSSender(obj.from, obj.message_text, obj.player_info.phone_number, obj.player_info.country)
+                                        .then(async function (response) {
+                                            console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
+                                            query_instant++
+                                            dynamic_counter.counter.success++;
+                                            await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, obj.player_info.phone_number, 'sms', obj.player_info.country, obj.message_text, 'success', JSON.stringify(response), obj.from, '', '', obj.application_id, obj.merge, obj.player_info.brandcode);
+                                        })
+                                        .catch(async function (response) {
+                                            console_log(`Status : ${obj.player_token} Failed, ` + `Campaign : ${campaign_name}`);
+                                            dynamic_counter.counter.fails++
+                                            query_instant++
+                                            await _ControllerAPI.GetStoreMessageHistory(config_id, campaign_name, obj.player_token, obj.player_info.phone_number, 'sms', obj.player_info.country, obj.message_text, 'failed', JSON.stringify(response), obj.from, '', '', obj.application_id, obj.merge, obj.player_info.brandcode);
+                                        })
+                                        .finally(async function () {
+                                            if (combinedResults.length == query_instant) {
+                                                const success_rate_ratio = {
+                                                    'success': dynamic_counter.counter.success,
+                                                    'failed': dynamic_counter.counter.fails,
+                                                    'config_id': config_id
+                                                };
+                                                //await GoogleWebHook(success_rate_ratio);
+                                                await TelegramBot(success_rate_ratio);
+                                                console_log(`Campaign: ${campaign_name}, Result: ${dynamic_counter.counter.success} sent, ${dynamic_counter.counter.fails} failed`);
+                                                dynamic_counter.counter.success = 0;
+                                                dynamic_counter.counter.fails = 0;
+                                                combinedResults.length = 0;
+                                                await _ControllerAPI.GetUpdateConfigSent(config_id);
+                                            }
+                                        });
+                                } else if (row_provider.provider_code == process.env.PROVIDER_SMS_LAAFFIC) {
+                                    await SMSLaafficSender(obj.from, obj.message_text, obj.player_info.phone_number, obj.player_info.country,obj.player_info.brandcode)
                                         .then(async function (response) {
                                             console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                             query_instant++
