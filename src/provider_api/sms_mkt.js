@@ -26,7 +26,7 @@ async function API_Account(PROVIDER_SMS_MKT, country_code) {
 
 }
 
-async function SMSMKTSMSSender(sender, message, phone, country_code) {
+async function SMSMKTSMSSender(_final_sender, message, phone, country_code) {
 
     const result = await API_Account(PROVIDER_SMS_MKT, country_code);
 
@@ -41,7 +41,7 @@ async function SMSMKTSMSSender(sender, message, phone, country_code) {
             let data = qs.stringify({
                 'message': message,
                 'phone': phone,
-                'sender': sender
+                'sender': _final_sender
             });
 
             let config = {

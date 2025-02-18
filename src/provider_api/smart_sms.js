@@ -25,10 +25,10 @@ async function apiAccount(country_code) {
 
 
 
-async function SmartSMSSender(message, from, phone_number, country_code) {
+async function SmartSMSSender(message, _final_sender, phone_number, country_code) {
 
     const encodedParamValueMessage = encodeURIComponent(message);
-    const encodedParamValueFrom = encodeURIComponent(from);
+    const encodedParamValueFrom = encodeURIComponent(_final_sender);
     return new Promise(async (resolve, reject) => {
         const result = await apiAccount(country_code);
         var config = {

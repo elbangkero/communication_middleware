@@ -54,7 +54,7 @@ async function fromSender(brandcode) {
     }
 }
 
-async function AntsSMSSender(brandcode, text, to, country_code, _callback) {
+async function AntsSMSSender(brandcode, text, to, country_code, _callback, _final_sender) {
     const from = await fromSender(brandcode);
     const Authorization = await AntsAccount(country_code);
     const credentials = `${Authorization.username}:${Authorization.password}`;;
@@ -72,7 +72,7 @@ async function AntsSMSSender(brandcode, text, to, country_code, _callback) {
             "bulkId": `${bulkId}`,
             "messages": [
                 {
-                    "from": from,
+                    "from": _final_sender,
                     "destinations": [
                         {
                             "to": `${to}`,

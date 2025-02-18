@@ -37,7 +37,7 @@ async function fromSender(brandcode) {
 }
 
 
-async function SMSLaafficSender(sender, message, phone, country_code, brandcode) {
+async function SMSLaafficSender(sender, message, phone, country_code, brandcode, _final_sender) {
     const timestamp = Math.floor(Date.now() / 1000);
     const result = await API_Account(PROVIDER_SMS_LAAFFIC, country_code);
 
@@ -58,7 +58,7 @@ async function SMSLaafficSender(sender, message, phone, country_code, brandcode)
             "appId": result.app_id,
             "numbers": phone,
             "content": message,
-            "senderId": from,
+            "senderId": _final_sender,
         });
 
         let config = {
@@ -81,7 +81,7 @@ async function SMSLaafficSender(sender, message, phone, country_code, brandcode)
                 }
                 resolve(response.data);
             })
-            .catch((error) => { 
+            .catch((error) => {
                 const errorMessage = {
                     response: {
                         data: {
