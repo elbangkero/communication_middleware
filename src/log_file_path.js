@@ -11,7 +11,7 @@ if (!fs.existsSync(dir)) {
 // Redirect console output to a file
 //const logStream = fs.createWriteStream(logFilePath, { flags: 'a' });
 console_log = function (message) {
-    console.log(`${new Date().toISOString()}: ${message}\n`);
+    console.log(`${new Date().toISOString()}: ${message}`);
     //logStream.write(`${new Date().toISOString()}: ${message}\n`);
     //process.stdout.write(`${new Date().toISOString()}: ${message}\n`);
 };
