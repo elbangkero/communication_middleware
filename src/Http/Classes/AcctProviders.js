@@ -58,6 +58,14 @@ async function SetSMSMKTAccount(app_id, country_code) {
     return res = await local_connection.query(`SELECT * FROM cmw_acct_providers where provider_code = '${app_id}' and country_code = '${country_code}' LIMIT 1`);
 }
 
+async function SetElasticEmailBulk(app_id) {
+    return res = await local_connection.query(`
+            select cap.apikey from cmw_acct_providers cap 
+            left join cmw_providers cp on cp.provider_code = cap.provider_code 
+            where cp.provider_code = '${app_id}'
+            limit 1;
+            `);
+}
 
 module.exports = function () {
     this.SetInsertAcctProviders = SetInsertAcctProviders;
@@ -71,4 +79,6 @@ module.exports = function () {
     this.SetElasticEmailCallback = SetElasticEmailCallback;
     this.SetSMSMKTAccount = SetSMSMKTAccount;
     this.SetLaafficAccount = SetLaafficAccount;
+    this.SetElasticEmailBulk = SetElasticEmailBulk;
+
 }

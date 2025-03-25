@@ -2,6 +2,7 @@
 const { local_connection } = require('../utils/db_connection');
 const { SpinTheWheelSender } = require('./custom_site_api/wheel_api');
 const { ElasticEmailSender } = require('./provider_api/elastic_email');
+const { ElasticEmailSenderBulk } = require('./provider_api/elastic_email_bulk');
 const { AbenlaSMSSender } = require('./provider_api/abenla_sms');
 const { AbosendSMSSender } = require('./provider_api/abosend_sms');
 const { SmartSMSSender } = require('./provider_api/smart_sms');
@@ -43,6 +44,7 @@ let provider_code = [
     process.env.PROVIDER_EMAIL_EE_GRACE,
     process.env.PROVIDER_EMAIL_EE_KELLY,
     process.env.PROVIDER_EMAIL_EE_JOHNY,
+    process.env.PROVIDER_EMAIL_EE_MIKA,
     process.env.PROVIDER_SMS_MKT,
     process.env.PROVIDER_EMAIL_EE_BEN,
     process.env.PROVIDER_SMS_LAAFFIC,
@@ -302,19 +304,23 @@ function generateRandomString() {
 }
 
 async function constructData(config_id, pre_compile_data, campaign_name, site_id) {
-
     const playerTokens = pre_compile_data.map(data => {
         const parsed = JSON.parse(data);
         return parsed.player_token;
     });
 
     const query_result = await _ControllerAPI.GetZgamingUserInfo(playerTokens, config_id);
-    const combinedResults = pre_compile_data.map((data, index) => {
+
+    const combinedResults = [];
+    const combinedResultEmailBulk = [];
+    let emailReference = null; // Stores the first email entry as a reference for comparison
+
+    pre_compile_data.forEach((data, index) => {
         const parsed = JSON.parse(data);
         const playerToken = parsed.player_token;
         const queryData = query_result.find(item => item.user_in_game === playerToken);
 
-        return {
+        const resultObject = {
             ...parsed,
             player_info: queryData ? {
                 user_in_game: queryData.user_in_game,
@@ -324,16 +330,39 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                 brandcode: queryData.brandcode,
                 country: queryData.country,
                 playername: queryData.playername
-            } : 'Invalid {PlayerToken}'
+            } : `Invalid {PlayerToken}`
         };
-    });
-    let dynamic_counter = {};
-    let counter_name = 'counter';
 
-    dynamic_counter[counter_name] = { fails: 0, success: 0 };
-    //console.log(dynamic_counter.counter);
+        if (parsed.platform === 'sms') {
+            combinedResults.push(resultObject);
+        } else if (parsed.platform === 'email') {
+            // If it's the first email entry, set it as the reference
+            if (emailReference === null) {
+                emailReference = { ...parsed, player_token: null }; // Ignore user_in_game
+                combinedResultEmailBulk.push(resultObject);
+            } else {
+                // Compare all fields except 'user_in_game'
+                const allSame = Object.keys(parsed)
+                    .filter(key => key !== "player_token") // Ignore unique identifier
+                    .every(key => parsed[key] === emailReference[key]);
+
+                if (allSame) {
+                    combinedResultEmailBulk.push(resultObject);
+                } else {
+                    combinedResults.push(resultObject); // Mismatch → move to combinedResults
+                }
+            }
+        }
+    });
+
+    let dynamic_counter = { counter: { fails: 0, success: 0 } };
 
     let query_instant = 0;
+    //console.log("SMS Results:", combinedResults);
+    //console.log("Email Bulk:", combinedResultEmailBulk);
+
+
+    ElasticEmailSenderBulk(combinedResultEmailBulk, config_id, campaign_name);
 
     combinedResults.forEach(function (el, index) {
         setTimeout(async function () {
