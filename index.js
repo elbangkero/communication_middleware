@@ -31,7 +31,6 @@ const app2 = express();
 app2.use(cors());
 app2.options('*', cors());
 require('./src/ants_callback')(app2);
-require('./src/flyfone_postback')(app2);
 
 const PORT2 = parseInt(process.env.PORT) + 1;
 app2.listen(PORT2, () => {

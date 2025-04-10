@@ -62,7 +62,7 @@ async function SetElasticEmailBulk(app_id) {
     return res = await local_connection.query(`
             select cap.apikey from cmw_acct_providers cap 
             left join cmw_providers cp on cp.provider_code = cap.provider_code 
-            where cp.provider_code = '${app_id}'
+            where cp.application_id = '${app_id}'
             limit 1;
             `);
 }
