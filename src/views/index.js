@@ -1,6 +1,7 @@
 
 
 const nimbus = require('../views/nimbus_view.js');
+const elastic_nimbus_report = require('../views/report_proxyAPI.js');
 
 module.exports = function (app) {
  
@@ -10,6 +11,6 @@ module.exports = function (app) {
     app.get('/api_triggers', nimbus.API_DisplayTriggers);
     app.get('/api_history/view-history/:id', nimbus.API_ViewHistory);
     app.get('/sending/status/:config_id', nimbus.Sendouts_Status);
-
+    app.get('/elastic_report/:config_id', elastic_nimbus_report.getElasticReport);
 
 };

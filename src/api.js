@@ -45,6 +45,7 @@ let provider_code = [
     process.env.PROVIDER_EMAIL_EE_KELLY,
     process.env.PROVIDER_EMAIL_EE_JOHNY,
     process.env.PROVIDER_EMAIL_EE_MIKA,
+    process.env.PROVIDER_EMAIL_EE_SELINA,
     process.env.PROVIDER_SMS_MKT,
     process.env.PROVIDER_EMAIL_EE_BEN,
     process.env.PROVIDER_SMS_LAAFFIC,
