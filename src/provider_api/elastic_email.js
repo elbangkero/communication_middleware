@@ -117,4 +117,4 @@ async function ElasticEmailSender(from, email, subject, template_id, fromName, c
     });
 }
 
-module.exports = { ElasticEmailSender };
+module.exports = { ElasticEmailSender, ElasticEmailAccount };
