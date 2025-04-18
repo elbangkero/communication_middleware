@@ -67,6 +67,16 @@ async function SetElasticEmailBulk(app_id) {
             `);
 }
 
+async function SetElasticEmailApiKey(config_id) {
+    return res = await local_connection.query(`
+        select cap.apikey from cmw_history ch 
+        left join cmw_providers cp on cp.application_id = ch.application_id
+        left join cmw_acct_providers cap on cp.provider_code = cap.provider_code
+        where  ch.config_id = '${config_id}' and  ch.platform = 'email' 
+        group by  cap.apikey;
+            `);
+}
+
 module.exports = function () {
     this.SetInsertAcctProviders = SetInsertAcctProviders;
     this.SetAbenlaAccount = SetAbenlaAccount;
@@ -80,5 +90,6 @@ module.exports = function () {
     this.SetSMSMKTAccount = SetSMSMKTAccount;
     this.SetLaafficAccount = SetLaafficAccount;
     this.SetElasticEmailBulk = SetElasticEmailBulk;
+    this.SetElasticEmailApiKey = SetElasticEmailApiKey;
 
 }

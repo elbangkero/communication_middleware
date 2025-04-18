@@ -5,7 +5,11 @@ const _ControllerElasticEmail = new ControllerElasticEmail();
 const ControllerAPI = require('../Http/Controller/ControllerAPI');
 const _ControllerAPI = new ControllerAPI();
 
-async function ElasticEmailSenderBulk(data, config_id, campaign_name, batchSize = 10) {
+async function ElasticEmailSenderBulk(data, config_id, campaign_name, batchSize = 200) {
+    if (!Array.isArray(data) || data.length === 0) {
+        console.log('Sendouts is not related on email');
+        return;
+    }
     const parsed_subject = data[0].email_subject;
     const parsed_fromName = data[0].fromName;
     const parsed_template = data[0].template_id;

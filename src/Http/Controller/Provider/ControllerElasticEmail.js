@@ -14,8 +14,14 @@ async function GetElasticEmailBulkAPI(app_id) {
     return await _AcctProviders.SetElasticEmailBulk(app_id);
 }
 
+async function GetElasticEmailApiKey(app_id) {
+    return await _AcctProviders.SetElasticEmailApiKey(app_id);
+}
+
 module.exports = function () {
     this.GetElasticEmailAccount = GetElasticEmailAccount;
     this.GetElasticEmailAccountSegregation = GetElasticEmailAccountSegregation;
     this.GetElasticEmailBulkAPI = GetElasticEmailBulkAPI;
+    this.GetElasticEmailApiKey = GetElasticEmailApiKey;
+
 }
