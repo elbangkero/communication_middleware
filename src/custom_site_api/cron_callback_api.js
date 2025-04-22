@@ -63,4 +63,4 @@ async function CB() {
 CB();
 
 var cronJob = cron.schedule("*/15 * * * *", CB, false);
-cronJob.start();
+//cronJob.start();
