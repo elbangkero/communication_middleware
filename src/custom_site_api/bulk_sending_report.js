@@ -47,8 +47,24 @@ async function InsertCampaignHistory(config_id, campaign_name, recipients, email
         local_connection.query(`
 INSERT INTO cmw_campaign_report_history
 (config_id, campaign_name, recipients, email_total, sms_total, delivered, bounced, in_progress, opened, clicked, unsubscribed, complaints, inbound, manual_cancel, not_delivered)
-VALUES(${config_id},'${campaign_name}', ${recipients}, ${email_total}, ${sms_total}, ${delivered},${bounced}, ${in_progress}, ${opened}, ${clicked}, ${unsubscribed}, ${complaints}, ${inbound}, ${manual_cancel}, ${not_delivered});`, (err, res) => {
-            err ? reject(`InsertCampaignTrigger[Error]: ${err.message}`) : resolve(res);
+VALUES(${config_id},'${campaign_name}', ${recipients}, ${email_total}, ${sms_total}, ${delivered},${bounced}, ${in_progress}, ${opened}, ${clicked}, ${unsubscribed}, ${complaints}, ${inbound}, ${manual_cancel}, ${not_delivered})
+ON CONFLICT (config_id) 
+DO UPDATE SET 
+    campaign_name = '${campaign_name}',
+    recipients = ${recipients}, 
+    email_total = ${email_total}, 
+    sms_total = ${sms_total}, 
+    delivered = ${delivered}, 
+    bounced = ${bounced}, 
+    in_progress = ${in_progress}, 
+    opened = ${opened}, 
+    clicked = ${clicked}, 
+    unsubscribed = ${unsubscribed}, 
+    complaints = ${complaints}, 
+    inbound = ${inbound}, 
+    manual_cancel = ${manual_cancel}, 
+    not_delivered = ${not_delivered}`, (err, res) => {
+            err ? reject(`InsertCampaignHistory[Error]: ${err.message}`) : resolve(res);
         });
     });
 }
@@ -57,7 +73,7 @@ function GetReport() {
     GetBulkCampaignList()
         .then(result => {
             console.log(`Found ${result.length} campaigns to process`);
-            
+
             result.forEach(async item => {
                 const formattedDate = item.created_at;
                 let config = {
@@ -69,8 +85,8 @@ function GetReport() {
                 await axios.request(config)
                     .then(async (response) => {
                         const status = response.status === 200 ? 'success' : 'failed';
-                        await InsertCampaignTrigger(item.config_id, formattedDate, status); 
-                        if (response.status === 200) { 
+                        await InsertCampaignTrigger(item.config_id, formattedDate, status);
+                        if (response.status === 200) {
                             await InsertCampaignHistory(item.config_id, item.campaign_name, response.data.Recipients, response.data.EmailTotal,
                                 response.data.SmsTotal, response.data.Delivered, response.data.Bounced, response.data.InProgress,
                                 response.data.Opened, response.data.Clicked, response.data.Unsubscribed,
