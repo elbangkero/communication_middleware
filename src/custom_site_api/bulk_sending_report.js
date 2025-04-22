@@ -54,8 +54,6 @@ VALUES(${config_id},'${campaign_name}', ${recipients}, ${email_total}, ${sms_tot
 }
 
 function GetReport() {
-    console.log(`Running GetReport at ${new Date().toISOString()}`);
-    
     GetBulkCampaignList()
         .then(result => {
             console.log(`Found ${result.length} campaigns to process`);
@@ -77,11 +75,9 @@ function GetReport() {
                                 response.data.SmsTotal, response.data.Delivered, response.data.Bounced, response.data.InProgress,
                                 response.data.Opened, response.data.Clicked, response.data.Unsubscribed,
                                 response.data.Complaints, response.data.Inbound, response.data.ManualCancel, response.data.NotDelivered);
-                            console.log(`Successfully processed campaign ${item.config_id} - ${item.campaign_name}`);
                         }
                     })
                     .catch(async (error) => {
-                        console.error(`Error processing campaign ${item.config_id}: ${error.message}`);
                         await InsertCampaignTrigger(item.config_id, formattedDate, 'failed');
                     });
             });
