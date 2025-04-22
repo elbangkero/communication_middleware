@@ -14,8 +14,9 @@ require('./src/api')(app, jwt);
 require('./src/jwt')(app, jwt);
 require('./src/views/index')(app);
 //require('./src/elastic_email_logs');
-require('./src/custom_site_api/cron_callback_api');
+//require('./src/custom_site_api/cron_callback_api');
 //require('./src/log_file_zip');
+require('./src/custom_site_api/bulk_sending_report');
 require('./src/download-csv')(app);
 
 app.listen(`${process.env.PORT}`, () => {

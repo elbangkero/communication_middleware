@@ -13,7 +13,7 @@ exports.getElasticReport = async (_req, _res) => {
     try {
         const res = await _ControllerElasticEmail.GetElasticEmailApiKey(config_id);
         if (!res || !res.rows[0] || !res.rows[0].apikey) {
-            console.error("No API key found for the given config_id.");
+            //console.error("No API key found for the given config_id.");
             _res.status(500).json({ error: "No API key found for the given config_id." });
         } else { 
             const response = await axios.get(url, {
@@ -27,7 +27,7 @@ exports.getElasticReport = async (_req, _res) => {
         }
 
     } catch (error) {
-        console.error("Failed to fetch Elastic Email report:", error.message);
+        //console.error("Failed to fetch Elastic Email report:", error.message);
         _res.status(500).json({ error: `Failed to fetch Elastic Email report:${error.message}` });
     }
 };
