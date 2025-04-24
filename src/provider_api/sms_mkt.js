@@ -26,7 +26,7 @@ async function API_Account(PROVIDER_SMS_MKT, country_code) {
 
 }
 
-async function SMSMKTSMSSender(_final_sender, message, phone, country_code) {
+async function SMSMKTSMSSender(_final_sender, message, phone, country_code, config_id) {
 
     const result = await API_Account(PROVIDER_SMS_MKT, country_code);
 
@@ -37,13 +37,23 @@ async function SMSMKTSMSSender(_final_sender, message, phone, country_code) {
                 status: 'failed',
                 error: 'PlayerToken country code is not available on this application_id',
             });
+        } else if (_final_sender !== 'HappyV') {
+            reject({
+                status: 'failed',
+                error: 'SMS MKT is only available on HappyVegas',
+            });
+        } else if (country_code !== 'TH') {
+            reject({
+                status: 'failed',
+                error: 'SMS MKT is only available on Thailand',
+            });
         } else {
             let data = qs.stringify({
-                'message': message,
-                'phone': phone,
-                'sender': _final_sender
+                "message": message,
+                "sender": _final_sender,
+                "phone": phone,
+                "campaign_name": config_id
             });
-
             let config = {
                 method: 'post',
                 maxBodyLength: Infinity,

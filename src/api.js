@@ -605,25 +605,19 @@ async function constructData(config_id, pre_compile_data, campaign_name, site_id
                                             }
                                         });
                                 } else if (row_provider.provider_code == process.env.PROVIDER_SMS_MKT) {
-
                                     const _sender = {
                                         from: obj.from,
                                         fromName: obj.fromName
                                     };
                                     function fromSender(brandcode) {
-                                        if (brandcode === 'LCH') {
-                                            return 'LCH-TH';
-                                        } else if (brandcode === 'HL') {
-                                            return 'HL-TH';
-                                        } else {
-                                            return 'Income88';
+                                        if (brandcode === 'HV') {
+                                            return 'HappyV';
                                         }
                                     }
                                     const _from = fromSender(obj.player_info.brandcode);
 
                                     const _final_sender = _sender.from || _sender.fromName || _from;
-
-                                    await SMSMKTSMSSender(_final_sender, obj.message_text, obj.player_info.phone_number, obj.player_info.country)
+                                    await SMSMKTSMSSender(_final_sender, obj.message_text, obj.player_info.phone_number, obj.player_info.country, config_id)
                                         .then(async function (response) {
                                             console_log(`Status : ${obj.player_token} Sent, ` + `Campaign : ${campaign_name}`);
                                             query_instant++
