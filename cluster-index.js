@@ -80,7 +80,11 @@ insertConfig = async (_req, _res) => {
     var parseISO = !isNaN(parsedDate) ? parsedDate.toISOString() : '1998-10-06 00:00:00.000';
     const site_id = await _ControllerAPI.GetValidateSiteID(_req.body.site_id) ? _req.body.site_id : 1;
     const created_by = (_req.body.created_by == '' || _req.body.created_by == undefined) ? 'Unknown' : _req.body.created_by;
-    await _ControllerAPI.GetInsertConfig(local_time, parseISO, sending, _req.body.data_source, _req.body.campaign_name, data_leads, is_scheduled, site_id, created_by)
+
+    let category_id = await _ControllerAPI.GetCampaignCategory(_req.body.category);
+    const newId = await _ControllerAPI.GetInsertCampaignCategory(_req.body.category, created_by);
+    category_id = category_id.rows[0] ? category_id.rows[0].id : newId;
+    await _ControllerAPI.GetInsertConfig(local_time, parseISO, sending, _req.body.data_source, _req.body.campaign_name, data_leads, is_scheduled, site_id, created_by, category_id)
         .then(async function (response) {
             console_log(JSON.stringify({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] }));
             _res.status(200).json({ 'statusCode': 200, 'status': true, message: 'Config Added', 'data': [] });

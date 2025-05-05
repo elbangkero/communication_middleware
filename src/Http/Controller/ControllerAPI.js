@@ -66,8 +66,8 @@ async function GetUpdateConfigError(config_id) {
 async function GetProviders(application_id) {
     return await _Providers.SetProviders(application_id);
 }
-async function GetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by) {
-    return await _Config.SetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by);
+async function GetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by, category_id) {
+    return await _Config.SetInsertConfig(local_time, parseISO, sending, data_source, campaign_name, data_leads, is_scheduled, site_id, created_by, category_id);
 }
 async function GetInsertProviders(provider_name, application_id, _platform, platform, endpoint, local_time) {
     return await _Providers.SetInsertProviders(provider_name, application_id, _platform, platform, endpoint, local_time);
@@ -84,11 +84,18 @@ async function GetStopTrigger(id) {
 async function GetUserInfoFromJoystick(player_token) {
     return await _Joystick.SetUserInfoFromJoystick(player_token);
 }
-async function GetZgamingUserInfo(player_tokens,config_id) {
-    return await _Zgaming.SetZgamingUserInfo(player_tokens,config_id);
+async function GetZgamingUserInfo(player_tokens, config_id) {
+    return await _Zgaming.SetZgamingUserInfo(player_tokens, config_id);
 }
 async function GetStopTriggerStatus(id) {
     return await _Config.SetStopTriggerStatus(id);
+}
+async function GetCampaignCategory(category_name) {
+    return await _Config.SetCampaignCategory(category_name);
+}
+
+async function GetInsertCampaignCategory(category_name, creatd_by) {
+    return await _Config.SetInsertCampaignCategory(category_name, creatd_by);
 }
 module.exports = function () {
     this.GetValidateSiteID = GetValidateSiteID;
@@ -107,4 +114,6 @@ module.exports = function () {
     this.GetStopTrigger = GetStopTrigger;
     this.GetStopTriggerStatus = GetStopTriggerStatus;
     this.GetZgamingUserInfo = GetZgamingUserInfo;
+    this.GetCampaignCategory = GetCampaignCategory;
+    this.GetInsertCampaignCategory = GetInsertCampaignCategory;
 }

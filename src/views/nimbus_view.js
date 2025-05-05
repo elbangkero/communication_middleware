@@ -315,5 +315,18 @@ exports.Sendouts_Status = async (_req, _res) => {
 };
 
 
+exports.campaign_category = async (_req, _res) => {
+    //console.log(_req.params);
+
+    local_connection.query(`select id,category_name from cmw_campaign_category group by id,category_name ;`, (err, res) => {
+        if (err) {
+            console.error('Error fetching data:', err);
+            _res.status(500).json({ error: 'Internal Server Error' });
+        } else {
+            _res.json({ data: res.rows });
+        }
+    });
+};
+
 
 
