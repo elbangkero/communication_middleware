@@ -132,10 +132,12 @@ async function GetSuccessFailedEmail(config_id) {
         });
     });
 }
-
-async function InsertSuccessFailedEmail(config_id, transaction_id, delivered, bounced) {
+async function InsertSuccessFailedEmail(config_id, transaction_id, recipientscount, failed, failedcount, sent, sentcount, delivered, deliveredcount, opened, openedcount, clicked, clickedcount) {
     return new Promise(async (resolve, reject) => {
-        local_connection.query(`INSERT INTO cmw_campaign_report_status (config_id,transaction_id,delivered,bounced) VALUES (${config_id},'${transaction_id}','${delivered}','${bounced}');`, (err, res) => {
+        local_connection.query(`
+            INSERT INTO cmw_campaign_report_status (config_id, transaction_id, recipientscount, failed, failedcount, sent, sentcount, delivered, deliveredcount, opened, openedcount, clicked, clickedcount)
+             VALUES 
+             (${config_id},'${transaction_id}',${recipientscount},'${failed}',${failedcount},'${sent}',${sentcount},'${delivered}',${deliveredcount},'${opened}',${openedcount},'${clicked}',${clickedcount});`, (err, res) => {
             err ? reject(`InsertCampaignTrigger[Error]: ${err.message}`) : resolve(res);
         });
     });
@@ -190,13 +192,31 @@ function GetReport() {
 
                                         axios.request(config)
                                             .then(async (response) => {
+
+                                                let recipientscount = response.data.data.recipientscount;
+
                                                 let failedParse = response.data.data.failed.map(entry => entry.address);
+                                                let failedcount = response.data.data.failedcount;
                                                 failedParse = JSON.stringify(failedParse);
 
-                                                let successParse = response.data.data.delivered;
-                                                successParse = JSON.stringify(successParse);
-                                                await InsertSuccessFailedEmail(item.config_id, transactionId, failedParse, successParse);
+                                                let deliveredParse = response.data.data.delivered;
+                                                let deliveredCount = response.data.data.deliveredcount;
+                                                deliveredParse = JSON.stringify(deliveredParse);
 
+                                                let sentParse = response.data.data.sent;
+                                                let sendCount = response.data.data.sentcount;
+                                                sentParse = JSON.stringify(sentParse);
+
+
+                                                let openedParse = response.data.data.opened;
+                                                let openedCount = response.data.data.openedcount;
+                                                openedParse = JSON.stringify(openedParse);
+
+                                                let clickedParse = response.data.data.clicked;
+                                                let clickedCount = response.data.data.clickedcount;
+                                                clickedParse = JSON.stringify(clickedParse);
+
+                                                await InsertSuccessFailedEmail(item.config_id, transactionId, recipientscount, failedParse, failedcount, sentParse, sendCount, deliveredParse, deliveredCount, openedParse, openedCount, clickedParse, clickedCount);
                                             })
                                             .catch((error) => {
                                                 console.log(error);
@@ -270,12 +290,30 @@ function NextRunReport() {
 
                                             axios.request(config)
                                                 .then(async (response) => {
+                                                    let recipientscount = response.data.data.recipientscount;
+
                                                     let failedParse = response.data.data.failed.map(entry => entry.address);
+                                                    let failedcount = response.data.data.failedcount;
                                                     failedParse = JSON.stringify(failedParse);
 
-                                                    let successParse = response.data.data.delivered;
-                                                    successParse = JSON.stringify(successParse);
-                                                    await InsertSuccessFailedEmail(item.config_id, transactionId, failedParse, successParse);
+                                                    let deliveredParse = response.data.data.delivered;
+                                                    let deliveredCount = response.data.data.deliveredcount;
+                                                    deliveredParse = JSON.stringify(deliveredParse);
+
+                                                    let sentParse = response.data.data.sent;
+                                                    let sendCount = response.data.data.sentcount;
+                                                    sentParse = JSON.stringify(sentParse);
+
+
+                                                    let openedParse = response.data.data.opened;
+                                                    let openedCount = response.data.data.openedcount;
+                                                    openedParse = JSON.stringify(openedParse);
+
+                                                    let clickedParse = response.data.data.clicked;
+                                                    let clickedCount = response.data.data.clickedcount;
+                                                    clickedParse = JSON.stringify(clickedParse);
+
+                                                    await InsertSuccessFailedEmail(item.config_id, transactionId, recipientscount, failedParse, failedcount, sentParse, sendCount, deliveredParse, deliveredCount, openedParse, openedCount, clickedParse, clickedCount);
 
                                                 })
                                                 .catch((error) => {
