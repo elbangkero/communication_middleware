@@ -186,7 +186,7 @@ function GetReport() {
                                         let config = {
                                             method: 'get',
                                             maxBodyLength: Infinity,
-                                            url: `https://api.elasticemail.com/v2/email/getstatus?apikey=${item2.apikey}&transactionID=${transactionId}&showFailed=true&showDelivered=true`,
+                                            url: `https://api.elasticemail.com/v2/email/getstatus?apikey=${item2.apikey}&transactionID=${transactionId}&showFailed=true&showSent=true&showDelivered=true&showOpened=true&showClicked=true`,
                                             headers: {}
                                         };
 
@@ -284,7 +284,7 @@ function NextRunReport() {
                                             let config = {
                                                 method: 'get',
                                                 maxBodyLength: Infinity,
-                                                url: `https://api.elasticemail.com/v2/email/getstatus?apikey=${item2.apikey}&transactionID=${transactionId}&showFailed=true&showDelivered=true`,
+                                                url: `https://api.elasticemail.com/v2/email/getstatus?apikey=${item2.apikey}&transactionID=${transactionId}&showFailed=true&showSent=true&showDelivered=true&showOpened=true&showClicked=true`,
                                                 headers: {}
                                             };
 
