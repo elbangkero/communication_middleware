@@ -16,6 +16,8 @@ function GetBulkCampaignList() {
             cmw_campaign_report_trigger cmrt 
             ON cmrt.config_id::int = ch.config_id::int
         WHERE 
+            ch.platform = 'email'
+            AND
             cmrt.config_id IS NULL 
             OR cmrt.status NOT IN ('success','failed')
         GROUP BY 
@@ -111,6 +113,43 @@ function PlusSevenDays(formattedDate) {
 
 }
 
+
+
+
+async function GetSuccessFailedEmail(config_id) {
+    return new Promise((resolve, reject) => {
+        local_connection.query(`
+                select ch.api_response,cap.apikey from cmw_history  ch
+                left join cmw_providers cp on ch.application_id = cp.application_id
+                left join cmw_acct_providers cap on cp.provider_code = cap.provider_code
+                where ch.config_id = '${config_id}' and ch.platform = 'email' and ch.status = 'success'
+                group by ch.api_response,cap.apikey;`, (err, res) => {
+            if (err) {
+                reject(`GetSuccessFailedEmail[Error]: ${err.message}`);
+            } else {
+                resolve(res.rows || res);
+            }
+        });
+    });
+}
+
+async function InsertSuccessFailedEmail(config_id, transaction_id, delivered, bounced) {
+    return new Promise(async (resolve, reject) => {
+        local_connection.query(`INSERT INTO cmw_campaign_report_status (config_id,transaction_id,delivered,bounced) VALUES (${config_id},'${transaction_id}','${delivered}','${bounced}');`, (err, res) => {
+            err ? reject(`InsertCampaignTrigger[Error]: ${err.message}`) : resolve(res);
+        });
+    });
+}
+
+async function DeleteSuccessFailedEmail(config_id) {
+    return new Promise(async (resolve, reject) => {
+        local_connection.query(`delete from cmw_campaign_report_status where config_id = '${config_id}';`, (err, res) => {
+            err ? reject(`DeleteSuccessFailedEmail[Error]: ${err.message}`) : resolve(res);
+        });
+    });
+}
+
+
 function GetReport() {
     GetBulkCampaignList()
         .then(result => {
@@ -135,12 +174,49 @@ function GetReport() {
                                 response.data.SmsTotal, response.data.Delivered, response.data.Bounced, response.data.InProgress,
                                 response.data.Opened, response.data.Clicked, response.data.Unsubscribed,
                                 response.data.Complaints, response.data.Inbound, response.data.ManualCancel, response.data.NotDelivered);
+                            await GetSuccessFailedEmail(item.config_id)
+                                .then(result => {
+                                    result.forEach(async item2 => {
+                                        const raw = item2.api_response;
+                                        const parsed = JSON.parse(raw);
+                                        const transactionId = parsed.data.transactionid;
+
+                                        let config = {
+                                            method: 'get',
+                                            maxBodyLength: Infinity,
+                                            url: `https://api.elasticemail.com/v2/email/getstatus?apikey=${item2.apikey}&transactionID=${transactionId}&showFailed=true&showDelivered=true`,
+                                            headers: {}
+                                        };
+
+                                        axios.request(config)
+                                            .then(async (response) => {
+                                                let failedParse = response.data.data.failed.map(entry => entry.address);
+                                                failedParse = JSON.stringify(failedParse);
+
+                                                let successParse = response.data.data.delivered;
+                                                successParse = JSON.stringify(successParse);
+                                                await InsertSuccessFailedEmail(item.config_id, transactionId, failedParse, successParse);
+
+                                            })
+                                            .catch((error) => {
+                                                console.log(error);
+                                            });
+
+                                    });
+                                })
+                                .catch(error => {
+                                    console.error(`Error in GetSuccessFailedEmail: ${error}`);
+                                });
+
                         }
                     })
                     .catch(async (error) => {
                         await InsertCampaignTrigger(item.config_id, formattedDate, 'failed', null, 0);
                     });
+
+
             });
+
         })
         .catch(error => {
             console.error(`Error in GetBulkCampaignList: ${error}`);
@@ -152,6 +228,9 @@ function NextRunReport() {
     GetBulkCampaignListNextRun()
         .then(result => {
             result.forEach(async item => {
+
+                await DeleteSuccessFailedEmail(item.config_id);
+
                 const formattedDate = item.created_at;
 
                 let config = {
@@ -173,6 +252,44 @@ function NextRunReport() {
                                 response.data.SmsTotal, response.data.Delivered, response.data.Bounced, response.data.InProgress,
                                 response.data.Opened, response.data.Clicked, response.data.Unsubscribed,
                                 response.data.Complaints, response.data.Inbound, response.data.ManualCancel, response.data.NotDelivered);
+
+                            setTimeout(async function () {
+                                await GetSuccessFailedEmail(item.config_id)
+                                    .then(result => {
+                                        result.forEach(async item2 => {
+                                            const raw = item2.api_response;
+                                            const parsed = JSON.parse(raw);
+                                            const transactionId = parsed.data.transactionid;
+
+                                            let config = {
+                                                method: 'get',
+                                                maxBodyLength: Infinity,
+                                                url: `https://api.elasticemail.com/v2/email/getstatus?apikey=${item2.apikey}&transactionID=${transactionId}&showFailed=true&showDelivered=true`,
+                                                headers: {}
+                                            };
+
+                                            axios.request(config)
+                                                .then(async (response) => {
+                                                    let failedParse = response.data.data.failed.map(entry => entry.address);
+                                                    failedParse = JSON.stringify(failedParse);
+
+                                                    let successParse = response.data.data.delivered;
+                                                    successParse = JSON.stringify(successParse);
+                                                    await InsertSuccessFailedEmail(item.config_id, transactionId, failedParse, successParse);
+
+                                                })
+                                                .catch((error) => {
+                                                    console.log(error);
+                                                });
+
+                                        });
+                                    })
+                                    .catch(error => {
+                                        console.error(`Error in GetSuccessFailedEmail: ${error}`);
+                                    });
+
+                            }, 10000);
+
                         }
                     })
                     .catch(async (error) => {
